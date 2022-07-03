@@ -155,16 +155,16 @@ window.addEventListener("load", ()=>{
     const e = document.getElementById("guide");
     switch ("ontouchstart"in window ? e.innerText = "Swipe left, right, up, or down to navigate" : e.innerText = "Use your arrow keys to navigate",
     window.location.hash) {
-    case "#top":
+    case "top":
         v(l.Up);
         break;
-    case "#contact":
+    case "contact":
         v(l.Down);
         break;
-    case "#gfx":
+    case "about":
         v(l.Left);
         break;
-    case "#dev":
+    case "dev":
         v(l.Right)
     }
     for (const a of document.querySelectorAll("[alt]")) {

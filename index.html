@@ -99,10 +99,12 @@
         <div class=section style=top:100%;left:0;visibility:hidden id=bottom>
             <div class=container style="width:calc(100% - 20vmin);height:50%">
                 <h1>Contact</h1>
-                <input alt="Contact form email" class=form-input id=form-email maxlength=100 placeholder=Email>
-                <input alt="Contact form subject" class=form-input id=form-subject maxlength=100 placeholder=Subject>
-                <textarea alt="Contact form content" class=form-input id=form-content maxlength=1000 placeholder=Content></textarea>
-                <button alt="Submit contact form" id=form-submit>Submit!</button>
+                <form action="https://formsubmit.co/hydrovolter@gmail.com" method="POST">
+                    <input type="hidden" name="_template" value="box">
+                    <input alt="Contact Form Email" class=form-input id=form-email maxlength=100 placeholder=Email type="email" name="email" required> <br><br>
+                    <textarea alt="Contact Form Content" class=form-input id=form-content maxlength=1000 placeholder=Content type="text" name="name" required></textarea> <br><br>
+                    <button alt="Submit Contact Form" id=form-submits type="submit">Send</button>
+               </form>
             </div>
         </div>
         <div class=section style=left:-100%;top:0;visibility:hidden id=left>
@@ -126,14 +128,14 @@
                         </p>
                     </div>
                 </a>
-                <a alt="Fast Facts" class="hover card" href="" rel="noopener noreferrer" style=background-color:rgba(171,55,206,.25) target=_blank>
+                <a alt="Fast Facts" class="hover card" href="resume.pdf" rel="noopener noreferrer" style=background-color:rgba(171,55,206,.25) target=_blank>
                     <img class="circle card-icon" src=assets/projects/MagnifyingGlass.png alt="Fast Facts">
                     <div class=card-content>
                         <h3>Fast Facts</h3>
                         <p> • From UK | 🇬🇧
-                            <br>• Community Management | Resume at https://hydrovolter.tk/resume.pdf/
+                            <br>• Community Management | Click for Resume!
                             <br>• Tech Enthusiast
-                            <br>• Musician | Songs at https://bandlab.com/hydrovolter/
+                            <br>• Musician
                             <br>• Cogs Whirring 24/7
                             <br>• Loves to converse
                         </p>
