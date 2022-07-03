@@ -178,9 +178,9 @@ window.addEventListener("load", ()=>{
         o.style.color = null,
         o.innerText = "Sending...",
         o.disabled = !0;
-        var e = document.getElementById("form-email").value
-          , t = document.getElementById("form-subject").value
-          , n = document.getElementById("form-content").value;
+        var e = document.getElementById("form-emails").value
+          , t = document.getElementById("form-subjects").value
+          , n = document.getElementById("form-contents").value;
         fetch("/contact", {
             method: "POST",
             body: JSON.stringify({
@@ -192,9 +192,9 @@ window.addEventListener("load", ()=>{
                 "Content-Type": "application/json"
             }
         }).then(e=>{
-            e.ok ? (document.getElementById("form-email").value = "",
-            document.getElementById("form-subject").value = "",
-            document.getElementById("form-content").value = "",
+            e.ok ? (document.getElementById("form-emails").value = "",
+            document.getElementById("form-subjects").value = "",
+            document.getElementById("form-contents").value = "",
             o.style.backgroundColor = "#439543",
             o.style.color = "white",
             o.innerText = "Message Sent!",
