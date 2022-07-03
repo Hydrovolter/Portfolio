@@ -1,0 +1,208 @@
+<!doctype html>
+<html lang=en-US>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <script src="script.js"></script>
+        <title>Hydrovolter</title>
+        <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+        <link href=/manifest.json rel=manifest>
+        <meta content=hydrovolter.cf name=og:site_name>
+        <meta content="Hydrovolter's personal website" name=title>
+        <meta content="Hey there, I'm Hydro (Hydrovolter) and this is my portfolio!" name=description>
+        <meta content=#00F6F4 name=theme-color>
+        <meta content=summary_large_image name=twitter:card>
+        <meta content=/assets/HydroSimple512.png name=og:image>
+    </head>
+    <body>
+        <div class=section style=left:0;top:0 id=center>
+            <div class=container>
+                <div id=profile>
+                    <div id=profile-avatar-container>
+                        <img src=assets/HydroSimple512.png alt="My avatar" height=128px id=profile-avatar width=128px>
+                        <div class=circle style=display:none id=profile-avatar-status-container>
+                            <img class=circle src=assets/offline.svg id=profile-avatar-status>
+                        </div>
+                    </div>
+                    <a rel="noopener noreferrer" style=display:none target=_blank id=profile-activity>
+                        <div id=profile-activity-assets>
+                            <img height=98px id=profile-activity-large-image width=98px style=display:none>
+                            <div class=circle style=display:none id=profile-activity-small-image-container>
+                                <img class=circle id=profile-activity-small-image>
+                            </div>
+                        </div>
+                        <div id=profile-activity-content>
+                            <h3 id=profile-activity-name></h3>
+                            <p id=profile-activity-details></p>
+                            <p id=profile-activity-state></p>
+                            <div id=profile-activity-bar-container style=display:none>
+                                <div id=profile-activity-bar></div>
+                            </div>
+                        </div>
+                    </a>
+                </div>
+                <h1>Hydrovolter</h1>
+                <p>
+                    <img class=emoji src=assets/wave.svg alt="Wave emoji">Hey there, I'm Hydro (Hydrovolter) and this is my portfolio! 
+                </p>
+                <div id=social-desktop>
+                    <a alt="Hydrovolter on GitHub" class="hover social-desktop-container" href=https://github.com/Hydrovolter rel="noopener noreferrer" style=background-color:#000 target=_blank>
+                        <img class=social-desktop-icon src=assets/socials/github.svg alt="GitHub Logo">
+                    </a>
+                    <a alt="Hydrovolter#0001 on Discord" class="hover social-desktop-container" href=https://discord.com/users/958298682044866631 rel="noopener noreferrer" style="background-color:rgb(72 80 171)" target=_blank>
+                        <img class=social-desktop-icon src=assets/socials/discord.svg alt="Discord Logo">
+                    </a>
+                    <a alt="Hydrovolter on YouTube" class="hover social-desktop-container" href=https://www.youtube.com/channel/UCOkFlZpxNsXxF0jiuhqZafg rel="noopener noreferrer" style="background-color:rgb(155 42 42)" target=_blank>
+                        <img class=social-desktop-icon src=assets/socials/youtube.svg alt="YouTube Logo">
+                    </a>
+                    <a alt="Hydrovolter on Twitch" class="hover social-desktop-container" href=https://twitch.tv/Hydrovolter rel="noopener noreferrer" style="background-color:rgb(112 60 191)" target=_blank>
+                        <img class=social-desktop-icon src=assets/socials/twitch.svg alt="Twitch Logo">
+                    </a>
+                    <a alt="u/Hydrovolter on Reddit" class="hover social-desktop-container" href=https://reddit.com/u/Hydrovolter rel="noopener noreferrer" style="background-color:rgb(217 87 40)" target=_blank>
+                        <img class=social-desktop-icon src=assets/socials/reddit.svg alt="Reddit Logo">
+                    </a>
+                    <a alt="Hydrovolter on Spotify" class="hover social-desktop-container" href=https://open.spotify.com/user/3kogdp4la37u7pd7rugded814 rel="noopener noreferrer" style="background-color:rgb(30 145 70)" target=_blank>
+                        <img class=social-desktop-icon src=assets/socials/spotify.svg alt="Spotify Logo">
+                    </a>
+                </div>
+                <p id=social-mobile>
+                    <a alt="Hydrovolter on GitHub" class=social-mobile-container href=https://github.com/Hydrovolter>
+                        <img class=emoji src=assets/socials/github.svg alt="GitHub Logo">
+                        <b>Hydrovolter</b>
+                    </a>
+                    <a alt="Hydrovolter#0001 on Discord" class=social-mobile-container href=https://discord.com/users/958298682044866631>
+                        <img class=emoji src=assets/socials/discord.svg alt="Discord Logo">
+                        <b>Hydrovolter#0001</b>
+                    </a>
+                    <a alt="Hydrovolter on Youtube" class=social-mobile-container href=https://www.youtube.com/channel/UCOkFlZpxNsXxF0jiuhqZafg>
+                        <img class=emoji src=assets/socials/youtube.svg alt="YouTube Logo">
+                        <b>Hydrovolter</b>
+                    </a>
+                    <a alt="Hydrovolter on Twitch" class=social-mobile-container href=https://twitch.tv/Hydrovolter>
+                        <img class=emoji src=assets/socials/twitch.svg alt="Twitch Logo">
+                        <b>Hydrovolter</b>
+                    </a>
+                    <a alt="u/Hydrovolter on Reddit" class=social-mobile-container href=https://reddit.com/u/Hydrovolter>
+                        <img class=emoji src=assets/socials/reddit.svg alt="Reddit Logo">
+                        <b>u/Hydrovolter</b>
+                    </a>
+                    <a alt="Hydrovolter on Spotify" class=social-mobile-container href=https://open.spotify.com/user/3kogdp4la37u7pd7rugded814>
+                        <img class=emoji src=assets/socials/spotify.svg alt="Spotify Logo">
+                        <b>Hydrovolter</b>
+                    </a>
+            </div>
+            <p id=guide></p>
+        </div>
+        <div class=section style=top:-100%;left:0;visibility:hidden id=top>
+            <div class=container>top? coming soon?</div>
+        </div>
+        <div class=section style=top:100%;left:0;visibility:hidden id=bottom>
+            <div class=container style="width:calc(100% - 20vmin);height:50%">
+                <h1>Contact</h1>
+                <input alt="Contact form email" class=form-input id=form-email maxlength=100 placeholder=Email>
+                <input alt="Contact form subject" class=form-input id=form-subject maxlength=100 placeholder=Subject>
+                <textarea alt="Contact form content" class=form-input id=form-content maxlength=1000 placeholder=Content></textarea>
+                <button alt="Submit contact form" id=form-submit>Submit!</button>
+            </div>
+        </div>
+        <div class=section style=left:-100%;top:0;visibility:hidden id=left>
+            <div class=container>
+                <h1>About Me</h1>
+                <a alt="Music" class="hover card" href="" rel="noopener noreferrer" style=background-color:rgba(29,91,138,.25) target=_blank> <!-- Href Edit -->
+                    <img class="circle card-icon" src=assets/projects/MusicIcon.png alt="Music Icon">
+                    <div class=card-content>
+                        <h3>Music</h3>
+                        <p>
+                            I play the Piano and Oboe. I am currently Grade 6 Piano (my better instrument) striving at Grade 7 by Dec 22, and Grade 6 Oboe, striving at Grade 7 by Sept 22. I have finished Grade 5 theory and have quite a musical taste. Later, I may link recording of my playing, but at this time it is private. 
+                        </p>
+                    </div>
+                </a>
+                <a alt="Coding" class="hover card" href=https://github.com/hydrovolter rel="noopener noreferrer" style=background-color:rgba(8,15,138,.25) target=_blank>
+                    <img class="circle card-icon" src=assets/projects/CodeIcon.svg alt="Coding Icon">
+                    <div class=card-content>
+                        <h3>Coding</h3>
+                        <p>
+                            In all honesty, I am not that great at coding; I just find in intuitiveness and challenge quite uplifting and fun to tackle (I always love a good challenge!) which is what makes me passionate about this. The feeling of success you experience when you finally get something to work always feels great, especially after long projects and sections. I am currently just starting off coding, with the languages of PYTHON , JAVASCRIPT , and HTML (I would try CSS but it is every coders nightmare to deal with). Click to view my Github Projects!
+                        </p>
+                    </div>
+                </a>
+                <a alt="Fast Facts" class="hover card" href="" rel="noopener noreferrer" style=background-color:rgba(171,55,206,.25) target=_blank>
+                    <img class="circle card-icon" src=assets/projects/MagnifyingGlass.png alt="Fast Facts">
+                    <div class=card-content>
+                        <h3>Fast Facts</h3>
+                        <p> • From UK | 🇬🇧
+                            <br>• Community Management | Resume at https://hydrovolter.tk/resume.pdf/
+                            <br>• Tech Enthusiast
+                            <br>• Musician | Songs at https://bandlab.com/hydrovolter/
+                            <br>• Cogs Whirring 24/7
+                            <br>• Loves to converse
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+        <div class=section style=left:100%;top:0;visibility:hidden id=right>
+            <div class=container>
+                <h1>Development</h1>
+                <a alt="Steroffee" class="hover card" href=https://steroffee.ml/ rel="noopener noreferrer" style=background-color:rgba(29,91,138,.25) target=_blank>
+                    <img class="circle card-icon" src=assets/projects/SteroffeeIcon.png alt="Steroffee Icon">
+                    <div class=card-content>
+                        <h3>
+                            Steroffee <img class=badge src=assets/badges/html.svg alt="Made with HTML">
+                            <img class=badge src=assets/badges/css.svg alt="Made with CSS">
+                            <img class=badge src=assets/badges/javascript.svg alt="Made with JavaScript">
+                        </h3>
+                        <p>The ultimate non-existent coffee drink!</p>
+                    </div>
+                </a>
+                <a alt="Elevated Everest" class="hover card" href=https://elevatedeverest.ml/ rel="noopener noreferrer" style=background-color:rgba(29,91,138,.25) target=_blank>
+                    <img class="circle card-icon" src=assets/projects/ElevatedEverestIcon.png alt="Elevated Everest Icon">
+                    <div class=card-content>
+                        <h3>
+                            Elevated Everest <img class=badge src=assets/badges/html.svg alt="Made with HTML">
+                            <img class=badge src=assets/badges/css.svg alt="Made with CSS">
+                            <img class=badge src="assets/badges/javascript.svg"alt="Made with Javascript">
+                        </h3>
+                        <p>Your chance to ride through and above the mountains, far and beyond...</p>
+                    </div>
+                </a>
+                <a alt="TA Dracula" class="hover card" href=https://tadracula.ml/ rel="noopener noreferrer" style=background-color:rgba(29,91,138,.25) target=_blank>
+                    <img class="circle card-icon" src=assets/projects/TADraculaIcon.png alt="TA Dracula Icon">
+                    <div class=card-content>
+                        <h3>
+                            TA Dracula <img class=badge src=assets/badges/html.svg alt="Made with HTML">
+                            <img class=badge src=assets/badges/css.svg alt="Made with CSS">
+                            <img class=badge src=assets/badges/javascript.svg alt="Made with JavaScript">
+                        </h3>
+                        <p>Come book your trip at the Travel Agency to visit Castle Dracula!</p>
+                    </div>
+                </a>
+                <a alt="Portfolio" class="hover card" href=https://hydrovolter.cf/ rel="noopener noreferrer" style=background-color:rgba(168,142,129,.25) target=_blank>
+                    <img class="circle card-icon" src=assets/HydroSimple512.png alt="Hydrovolter Icon">
+                    <div class=card-content>
+                        <h3>
+                            My Portfolio <img class=badge src=assets/badges/html.svg alt="Made with HTML">
+                            <img class=badge src=assets/badges/css.svg alt="Made with CSS">
+                            <img class=badge src=assets/badges/javascript.svg alt="Made with JavaScript">                            
+                        </h3>
+                        <p>
+                            Hey, that's this!
+                        </p>
+                    </div>
+                </a>
+                <a alt="Blog" class="hover card" href=https://hydrovolter.cf/ rel="noopener noreferrer" style=background-color:rgba(168,142,129,.25) target=_blank>
+                    <img class="circle card-icon" src=assets/projects/BlogIcon.png alt="Blog Icon">
+                    <div class=card-content>
+                        <h3>
+                            My Blog <img class=badge src=assets/badges/html.svg alt="Made with HTML">
+                            <img class=badge src=assets/badges/css.svg alt="Made with CSS">
+                            <img class=badge src=assets/badges/javascript.svg alt="Made with JavaScript">                            
+                        </h3>
+                        <p>
+                            A (work in progress) Blog for me to write random stuff about!
+                        </p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
