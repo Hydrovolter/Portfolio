@@ -59,7 +59,7 @@ async function v(e) {
             switch (n) {
             case t.Center:
                 n = t.Top,
-                a("top"),
+                a("about"),
                 await o([[t.Center, i.Bottom], [t.Top, i.Center]]);
                 break;
             case t.Bottom:
@@ -85,7 +85,7 @@ async function v(e) {
             switch (n) {
             case t.Center:
                 n = t.Left,
-                a("about"),
+                a("blog"),
                 await o([[t.Center, i.Right], [t.Left, i.Center]]);
                 break;
             case t.Right:
