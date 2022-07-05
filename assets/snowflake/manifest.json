@@ -5,7 +5,7 @@
     "theme_color": "#5865f2",
     "background_color": "#232323",
     "description": "A Discord snowflake deconstructer website",
-    "apple-touch-icon": "/snowflake/apple.png",
+    "apple-touch-icon": "/assets/snowflake/AppleSnowflake.png",
     "icons": [
       {
         "src": "https://util.bruhmomentlol.repl.co/twemoji/%E2%9D%84?size=48",
