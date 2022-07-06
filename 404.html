@@ -1,112 +1,117 @@
-<script>
-    const images = [
-      "ah.webp",
-      "carcrash.webp",
-      "confused.webp",
-      "dizzy.webp",
-      "fly.webp",
-      "hatch.webp",
-      "inspect.webp",
-      "plane.webp",
-      "portal.webp",
-      "real.webp",
-      "uturn.webp",
-      "xray.webp"
-    ];
-  
-    const colors = [
-      "FBF8CC",
-      "FDE4CF",
-      "FFCFD2",
-      "F1C0E8",
-      "CFBAF0",
-      "A3C4F3",
-      "90DBF4",
-      "8EECF5",
-      "98F5E1",
-      "B9FBC0"
-    ];
-  
-    const titles = [
-      "Where are you going?",
-      "Oh no, it's a 404.",
-      "The chicken crossed the wrong road: 404!",
-      "That page doesn't exist...",
-      "How'd you get here?",
-      "Could not find that page.",
-      "You look lost...",
-      "Nothing here! Make a UTurn."
-    ];
-  
-    window.onload = () => {
-      // image
-      const imageElement = document.getElementById("image");
-      imageElement.src = "/404Assets/outputs/" + images[Math.floor(Math.random() * images.length)];
-  
-      // title
-      const titleElement = document.getElementById("title");
-      titleElement.innerText = titles[Math.floor(Math.random() * titles.length)];
-  
-      // color
-      document.body.style.backgroundColor = "#" + colors[Math.floor(Math.random() * colors.length)];
-    };
-  </script>
-  
-  <style>
-    html,
-    body {
-      width: 100%;
-      height: 100%;
-  
-      margin: 0;
-      padding: 0;
-    }
-  
-    #container {
-      width: calc(100% - 25px - 25px);
-      height: calc(100% - 25px - 25px);
-      padding: 25px;
-  
-      display: flex;
-      align-items: center;
-      flex-direction: column;
-      justify-content: center;
-    }
-  
-    #image {
-      width: 100%;
-      height: 100%;
-  
-      max-width: 500px;
-      max-height: 500px;
-  
-      object-fit: contain;
-    }
-  
-    #title,
-    #description {
-      margin: 0;
-      color: black;
-      font-family: "Robot Mono", monospace;
-    }
-  
-    #title {
-      margin-top: 25px;
-  
-      font-size: 250%;
-      font-weight: bold;
-    }
-  
-    #description {
-      margin-top: 10px;
-      font-size: 100%;
-    }
-  </style>
-  
+<head>
+  <link rel="icon" type="image/x-icon" href="/assets/HydroSimple192.png">
+  <title>404</title>
+  <script>
+      const images = [
+        "ah.webp",
+        "carcrash.webp",
+        "confused.webp",
+        "dizzy.webp",
+        "fly.webp",
+        "hatch.webp",
+        "inspect.webp",
+        "plane.webp",
+        "portal.webp",
+        "real.webp",
+        "uturn.webp",
+        "xray.webp"
+      ];
+    
+      const colors = [
+        "FBF8CC",
+        "FDE4CF",
+        "FFCFD2",
+        "F1C0E8",
+        "CFBAF0",
+        "A3C4F3",
+        "90DBF4",
+        "8EECF5",
+        "98F5E1",
+        "B9FBC0"
+      ];
+    
+      const titles = [
+        "Where are you going?",
+        "Oh no, it's a 404.",
+        "The chicken crossed the wrong road: 404!",
+        "That page doesn't exist...",
+        "How'd you get here?",
+        "Could not find that page.",
+        "You look lost...",
+        "Nothing here! Make a UTurn."
+      ];
+    
+      window.onload = () => {
+        // image
+        const imageElement = document.getElementById("image");
+        imageElement.src = "/404Assets/outputs/" + images[Math.floor(Math.random() * images.length)];
+    
+        // title
+        const titleElement = document.getElementById("title");
+        titleElement.innerText = titles[Math.floor(Math.random() * titles.length)];
+    
+        // color
+        document.body.style.backgroundColor = "#" + colors[Math.floor(Math.random() * colors.length)];
+      };
+    </script>
+    
+    <style>
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+    
+        margin: 0;
+        padding: 0;
+      }
+    
+      #container {
+        width: calc(100% - 25px - 25px);
+        height: calc(100% - 25px - 25px);
+        padding: 25px;
+    
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        justify-content: center;
+      }
+    
+      #image {
+        width: 100%;
+        height: 100%;
+    
+        max-width: 500px;
+        max-height: 500px;
+    
+        object-fit: contain;
+      }
+    
+      #title,
+      #description {
+        margin: 0;
+        color: black;
+        font-family: "Robot Mono", monospace;
+      }
+    
+      #title {
+        margin-top: 25px;
+    
+        font-size: 250%;
+        font-weight: bold;
+      }
+    
+      #description {
+        margin-top: 10px;
+        font-size: 100%;
+      }
+    </style>
+</head>
   <body>
     <div id="container">
       <a href="/"><img id="image" /></a>
       <h1 id="title"></h1>
-      <h3 id="description">Error ID: 404. Click the chicken to return home</h3>
+      <h3 id="description">Click the chicken to return home</h3>
+      <br><br>
+      <a href="/blog/404/" id="description">What is a 404 Error?</a>
     </div>
   </body>
