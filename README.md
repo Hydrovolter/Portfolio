@@ -1,4 +1,4 @@
-# Dark-Portfolio
+# Portfolio
 Dang new Dark Portfolio looking kinda clean
 
 #  TODO:
