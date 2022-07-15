@@ -21,9 +21,10 @@
                     <div id=profile-avatar-container>
                         <img src=assets/HydroSimple512.png alt="My avatar" height=128px id=profile-avatar width=128px>
                         <div class=circle style=display:none id=profile-avatar-status-container>
-                            <img class=circle src=assets/offline.svg id=profile-avatar-status>
+                            <img class=circle src=/assets/status/offline.svg id=profile-avatar-status>
                         </div>
                     </div>
+
                     <a rel="noopener noreferrer" style=display:none target=_blank id=profile-activity>
                         <div id=profile-activity-assets>
                             <img height=98px id=profile-activity-large-image width=98px style=display:none>
@@ -135,16 +136,22 @@
 
 
         <div class=section style=top:100%;left:0;visibility:hidden id=bottom>
-            <div class=container style="width:calc(100% - 20vmin);height:40%">
+            <div class=container style="width:calc(100% - 20vmin);height:50%">
                 <h1>Contact</h1>
-                <form action="https://formsubmit.co/17ef027d5caa107dec18bcd11726b8df" method="POST">
-                    <input type="hidden" name="_template" value="box">
-                    <input alt="Contact Form Email" class=form-input id=form-email maxlength=100 placeholder=Email type="email" name="email" required> <br><br>
-                    <textarea alt="Contact Form Content" class=form-input id=form-content maxlength=1000 placeholder=Content type="text" name="name" required></textarea> <br><br>
-                    <button alt="Submit Contact Form" id=form-submits type="submit">Send</button>
-               </form>
+
+                <input alt="Contact form email" class=form-input id=form-email maxlength=100 placeholder=Email>
+                <input alt="Contact form subject" class=form-input id=form-subject maxlength=100 placeholder=Subject>
+                <textarea alt="Contact form content" class=form-input id=form-content maxlength=1000 placeholder=Content></textarea>
+                <button alt="Submit contact form" id=form-submit>Submit!</button>
+
             </div>
         </div>
+
+
+
+
+
+
         <div class=section style=left:-100%;top:0;visibility:hidden id=left>
             <div class="container">
                 <h1>Blog</h1>

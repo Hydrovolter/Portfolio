@@ -178,9 +178,9 @@ window.addEventListener("load", ()=>{
         o.style.color = null,
         o.innerText = "Sending...",
         o.disabled = !0;
-        var e = document.getElementById("form-emails").value
-          , t = document.getElementById("form-subjects").value
-          , n = document.getElementById("form-contents").value;
+        var e = document.getElementById("form-email").value
+          , t = document.getElementById("form-subject").value // added s at end of them so they dont trigger stuff
+          , n = document.getElementById("form-content").value;
         fetch("/contact", {
             method: "POST",
             body: JSON.stringify({
@@ -226,9 +226,10 @@ window.addEventListener("load", ()=>{
       , f = document.getElementById("profile-activity-state")
       , h = document.getElementById("profile-activity-bar-container")
       , g = document.getElementById("profile-activity-bar")
-      , s = new WebSocket("wss://" + window.location.host);
+    //  , s = new WebSocket("wss://" + window.location.host + "/");
     let w;
-    setInterval(()=>s.send(""), 5e3),
+    /*
+    setInterval(()=>s.send(""), 5e3), //5e3
     s.onmessage = i=>{
         const e = JSON.parse(i.data);
         if (e.activities.some(e=>e.type === k.Streaming))
@@ -291,9 +292,10 @@ window.addEventListener("load", ()=>{
             y(r)
         } else
             b(r)
-    }
+    } */
 }
 ),
+
 window.addEventListener("wheel", e=>{
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
         for (const t of e.path || e.composedPath()) {

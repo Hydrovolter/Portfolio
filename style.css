@@ -247,45 +247,47 @@ body {
 
 .form-input {
     border: none;
+  
     padding: 10px;
-    width: 775px; /* added */
     border-radius: 10px;
+  
     color: var(--primary-accent);
-    background-color: var(--secondary)
-}
-
-.form-input::placeholder {
-    color: var(--secondary-accent)
-}
-
-#form-content {
+    background-color: var(--secondary);
+  }
+  
+  .form-input::placeholder {
+    color: var(--secondary-accent);
+  }
+  
+  #form-content {
     resize: none;
     height: 100%;
-    width: 775px; /* added */
-}
-
-#form-error {
-    align-self: flex-end
-}
-
-#form-submits {
+  }
+  
+  #form-error {
+    align-self: flex-end;
+  }
+  
+  #form-submit {
     border: none;
     cursor: pointer;
     align-self: flex-end;
-    width: 796px; /* 300 */
+  
+    width: 300px;
     padding: 10px;
     border-radius: 10px;
+  
     color: var(--primary-accent);
-    background-color: var(--secondary)
-}
-
-#form-submits:disabled {
+    background-color: var(--secondary);
+  }
+  
+  #form-submit:disabled {
     cursor: not-allowed;
-    color: var(--secondary-accent)
-}
-
-@media screen and (max-width: 600px) {
-    #form-submits {
-        width:100%
+    color: var(--secondary-accent);
+  }
+  
+  @media screen and (max-width: 600px) {
+    #form-submit {
+      width: 100%;
     }
-}
+  }
