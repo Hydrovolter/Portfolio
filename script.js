@@ -150,7 +150,7 @@ function a(e) {
 function f(e) {
     return e === document.body || e === document.documentElement
 }
-console.log("hi kiddos that inspected this page lol. uh "),
+console.log("Source Code is over at my Github - @hydrovolter "),
 window.addEventListener("load", ()=>{
     const e = document.getElementById("guide");
     switch ("ontouchstart"in window ? e.innerText = "Swipe left, right, up, or down to navigate" : e.innerText = "Use your arrow keys to navigate",
