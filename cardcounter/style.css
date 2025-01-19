@@ -143,8 +143,26 @@ form.well {
     flex-direction: column;
     gap: 20px;
     width: 100%;
-}
-
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between; /* Distribute space evenly */
+    width: 100%;
+    align-items: center; /* Vertically align button and current-turn */
+  }
+  
+  #current-turn {
+    font-size: 20px;
+    color: var(--primary-accent);
+    font-weight: bold;
+    text-align: center;
+    margin-left: 10px; /* Add some spacing between button and current turn text */
+    flex-grow: 1; /* Make this element take remaining space */
+    display: flex;
+    justify-content: center; /* Center the text within the available space */
+  }
+  
 button.show-count-btn {
     margin-left: 10px;
 }

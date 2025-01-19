@@ -37,10 +37,16 @@ var getNextCard = function() {
   $('#curcard2').attr('src', "img/" + rand_suit2 + "-" + rand_card2 + "-150.png");
 };
 
+var updateTurnDisplay = function() {
+  $('#current-turn').html("Turn " + cur_turn + " / " + turns);
+};
+
 var cur_turn = 0;
 var start = function() {
   getNextCard();
   cur_turn += 1;
+  updateTurnDisplay();  // Update the display after each turn
+
   if (cur_turn == turns) {
     sessionActive = false; 
     if (!$('#displaycount').length) {

@@ -4,12 +4,11 @@
 	<script type="text/javascript" src="jquery.js"></script>
 	<script type="text/javascript" src="cardcounting.js"></script>
 	<link type="text/css" rel="stylesheet" href="style.css" />
-
+	<link href=/manifest.json rel=manifest>
 	<meta name="google-site-verification" content="buthsBZ2q6Ex7q3QolrK3ufyvA0nrdt7ntp6w1ZVJzM" />
 	<title>Card Counter</title>
 	<link rel="icon" type="image/x-icon" href="/assets/projects/CardCounterIcon.png">
 	<meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
-	<link href=/manifest.json rel=manifest>
 	<meta content=Hydrovolter name=og:site_name>
 	<meta content="Card Counter" name=title>
 	<meta content="An app to train card counting for blackjack" name=description>
@@ -20,21 +19,26 @@
   <body>
 	<div class="container">
 	  <h1>Blackjack Card Counter Trainer</h1>
+	  <h4>(The count resets every time you press start)</h4>
 	  <div class="row">
 		<div class="span6">		
 		  <img class="span2 offset1" id="curcard1" />
 		  <img class="span2" id="curcard2" />
 		</div>
 		<div id="info" class="span6">
-		  <form class="well" id="cardcountingform">
-			<label>Card Interval (seconds)</label>
-			<input id="interval" type="text" class="span3" value="2">
-
-			<label>Turns</label>
-			<input id="turns" type="text" class="span3" value="20">
-			<button type="submit" class="btn">Start</button>
-		  </form>
-		</div>
+			<form class="well" id="cardcountingform">
+			  <label>Card Interval (seconds)</label>
+			  <input id="interval" type="text" class="span3" value="2">
+		  
+			  <label>Turns</label>
+			  <input id="turns" type="text" class="span3" value="20">
+		  
+			  <div class="button-container">
+				<button type="submit" class="btn">Start</button>
+				<div id="current-turn"></div> <!-- New element to show the current turn -->
+			  </div>
+			</form>
+		  </div>
 		<div id="curcount"></div>
 	  </div>
 	<footer>
