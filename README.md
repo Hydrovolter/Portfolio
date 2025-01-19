@@ -15,3 +15,5 @@ Hey, this is my portfolio where I keep some of my projects, information about me
 - add chips/betting system + bet spread/sizing trainer with final blackjack app
 
 - update AGM Stereo Development page icon to fit nicely in circle container
+
+- add mongodb svg for dev page, add to AGM SYS + AGM Stereo
