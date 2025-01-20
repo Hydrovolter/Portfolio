@@ -1,0 +1,12 @@
+User-agent: *
+Allow: /
+Disallow: /404.html
+Disallow: /resume.pdf
+Disallow: /sitemap.xml 
+Sitemap: https://hydrovolter.pages.dev/sitemap.xml 
+
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
