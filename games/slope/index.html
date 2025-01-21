@@ -1,0 +1,58 @@
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+  <title>Slope</title>
+
+  <link rel="icon" type="image/x-icon" href="./slope_favicon.png">
+  <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+  <link href=/manifest.json rel=manifest>
+  <meta content=Hydrovolter name=og:site_name>
+  <meta content="Slope" name=title>
+  <meta content="Control a ball rolling down a steep slope, avoiding obstacles and drops." name=description>
+  <meta content=#00F6F4 name=theme-color>
+  <meta content=summary_large_image name=twitter:card>
+  <meta content=/games/covers/slope.png name=og:image>    
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-VKK1BVCT2G');
+</script>
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="TemplateData/unityloader41.js"></script>
+    <script>
+        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/slope.json", { onProgress: UnityProgress, Module: { onRuntimeInitialized: function() { UnityProgress(gameInstance, "complete") } } });
+    </script>
+    <style>
+        .alert {
+          padding: 20px;
+          background-color: #0096FF;
+          color: white;
+        }
+
+        .closebtn {
+          margin-left: 15px;
+          color: white;
+          p {text-align: center;}  
+          font-weight: bold;
+          float: right;
+          font-size: 22px;
+          line-height: 20px;
+          cursor: pointer;
+          transition: 0.3s;
+        }
+
+        .closebtn:hover {
+          color: black;
+        }
+    </style>
+</head>
+
+<body style="margin: 0; overflow: hidden;">
+    <div class="webgl-content">
+        <div id="gameContainer" style="width: 100%; height: 100%; margin: 0;"></div>
+    </div>
+
+</body>
