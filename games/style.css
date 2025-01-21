@@ -147,7 +147,9 @@ a {
     color: rgb(80, 184, 253);
 }
 
-
+.container {
+    line-height: 1.3;
+}
 
 @media screen and (max-width: 600px) {
     #games-title {
