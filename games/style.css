@@ -23,10 +23,33 @@ a {
     text-decoration: none;
     color: var(--primary-accent);
 }
-
+/*
 ::-webkit-scrollbar {
     display: none;
 }
+*/
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px; 
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(100, 100, 100, 0.5);
+    border-radius: 10px;
+    transition: background 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 150, 150, 0.8);
+}
+
+::-webkit-scrollbar-track {
+    background: rgba(35, 35, 35, 0.9); 
+    border-radius: 10px;
+}
+
+
 
 #games-title {
     text-align: center;
@@ -193,48 +216,44 @@ a {
     max-width: 450px; /* cap the rectangle's width */
 }
 
-/* Add this to the parent container to define a relative positioning context */
 .game-card {
-    position: relative; /* Makes the .overlay position relative to this container */
-    overflow: hidden; /* Ensures the overlay doesn't spill outside the card */
+    position: relative;
+    overflow: hidden;
 }
 
-/* Styling for the "NEW!" overlay */
 .game-card.new-game .overlay {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(144, 238, 144, 0.4); /* Light green tint */
-    border-radius: 15px; /* Matches the card's border radius */
+    background-color: rgba(144, 238, 144, 0.4); /* tint */
+    border-radius: 15px;
     display: flex;
     justify-content: center;
     align-items: center;
-    pointer-events: none; /* Prevents interaction */
+    pointer-events: none; /* disables interaction */
     z-index: 2;
     opacity: 1;
     transition: opacity 0.5s ease, background-color 0.5s ease;
 }
 
-/* Styling for the "NEW!" text */
 .game-card.new-game .overlay span {
     font-size: 2rem;
-    font-weight: 300; /* Adjust to a lighter weight */
+    font-weight: 300;
     font-family: "Impact", "Arial Black", sans-serif;
-    color: #32CD32; /* Vibrant green for the text */
+    color: #32CD32; /* text */
     animation: bounceZoom 1s infinite;
     transition: opacity 0.5s ease, transform 0.5s ease;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
     -webkit-text-stroke: 0.7px black;
-    background-color: rgba(0, 0, 0, 0.3); /* Black background with 50% opacity */
+    background-color: rgba(0, 0, 0, 0.3); /* box background */
     padding: 5px 10px;
-    border-radius: 8px; /* Rounded corners */
+    border-radius: 8px;
 
 }
 
 
-/* Bounce and zoom animation */
 @keyframes bounceZoom {
     0%, 100% {
         transform: scale(1);
@@ -244,7 +263,6 @@ a {
     }
 }
 
-/* On hover, fade out text and background */
 .game-card.new-game:hover .overlay {
     background-color: rgba(144, 238, 144, 0);
     opacity: 0;
@@ -252,10 +270,9 @@ a {
 
 .game-card.new-game:hover .overlay span {
     opacity: 0;
-    transform: scale(1); /* Reset to normal size */
+    transform: scale(1);
 }
 
-/* On hover-out, fade back in */
 .game-card.new-game:not(:hover) .overlay {
     background-color: rgba(144, 238, 144, 0.4);
     opacity: 1;
