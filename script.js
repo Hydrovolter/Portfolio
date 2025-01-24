@@ -85,6 +85,7 @@ const statusIconMap = {
   
       // update activity details
       const activityContainer = document.getElementById("profile-activity");
+      const activityContainerTotal = document.getElementById("profile-activity-container")
       const activityImage = document.getElementById("profile-activity-large-image");
       const activityName = document.getElementById("profile-activity-name");
       const activityDetails = document.getElementById("profile-activity-details");
@@ -101,6 +102,7 @@ const statusIconMap = {
       } else {
         // Hide activity container if no activity
         activityContainer.style.display = "none";
+        activityContainerTotal.style.display = "none";
       }
     } catch (error) {
       console.error("Error fetching or updating profile status:", error);
