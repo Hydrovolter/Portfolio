@@ -221,6 +221,31 @@ a {
     overflow: hidden;
 }
 
+.warning-message {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    background-color: rgba(211, 47, 47, 0.8);
+    color: white;
+    font-size: 1rem; 
+    font-weight: bold;
+    text-transform: uppercase;
+    padding: 12px 20px; 
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+    transform: translateY(-100%); 
+    opacity: 0; 
+    transition: transform 0.3s ease, opacity 0.3s ease; 
+    font-family: "Arial", sans-serif; 
+}
+
+.game-card:hover .warning-message {
+    transform: translateY(50px); 
+    opacity: 1; 
+}
+
 .game-card.new-game .overlay {
     position: absolute;
     top: 0;
