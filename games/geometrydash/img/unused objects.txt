@@ -1,0 +1,9 @@
+orb_black
+orb_blue
+orb_green
+orb_pink
+orb_red
+pad_blue
+pad_pink
+pad_red
+color triggers

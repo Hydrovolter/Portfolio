@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Geometry Dash</title>
+        <link rel="stylesheet" href="index.css">
+        <script defer src="js/drawmain.js"></script>
+        <script defer src="js/main.js"></script>
+        <script defer src="js/editorhtml.js"></script>
+        <script defer src="js/editor.js"></script>
+        <script defer src="js/libs.js"></script>
+        <script defer src="js/keyhandlers.js"></script>
+        <script defer src="js/drawmenu.js"></script>
+        <script defer src="js/drawgame.js"></script>
+        <script defer src="js/draweditor.js"></script>
+        <script defer src="js/collision.js"></script>
+        <script defer src="js/playerdeath.js"></script>
+        <script defer src="js/camera.js"></script>
+        <script defer src="js/rotation.js"></script>
+        <script defer src="js/objectlist.js"></script>
+        <script defer src="js/switchgamemode.js"></script>
+        <script defer src="js/startlevel.js"></script>
+        <script defer src="js/pause.js"></script>
+        <script defer src="js/practice.js"></script>
+        <script defer src="js/menu.js"></script>
+        
+        <meta name="viewport" content="width=device-width, initial-scale=1.0 user-scalable=0">
+        <link rel="icon" href="favicon/favicon-16x16.png">
+        <link rel="icon" href="favicon/favicon-32x32.png">
+        <link rel="icon" href="favicon/android-chrome-192x192.png">
+        <link rel="icon" href="favicon/android-chrome-512x512.png">
+        <link rel="icon" href="favicon/apple-touch-icon.png">
+
+        <link href=/manifest.json rel=manifest>
+        <meta content=Hydrovolter name=og:site_name>
+        <meta content="Geometry Dash" name=title>
+        <meta content="Guess the 5-letter hidden word in 6 tries - unlimited puzzles" name=description>
+        <meta content=#00F6F4 name=theme-color>
+        <meta content=summary_large_image name=twitter:card>
+        <meta content=favicon/favicon-32x32.svg name=og:image> 
+    </head>
+
+    <body>
+        <div class="flex-container">
+            <!-- Left side editor -->
+            <div class="card editor-div editor-side" id="editor-left">
+                <button id="editor-leave"></button>
+                <button id="delete-obj-btn"></button>
+                <button id="swipe-btn"></button>
+                <button id="deselect-btn"></button>
+                <button id="load-btn"></button>
+                <button id="level-settings-btn"></button>
+                <div id="trigger-col-edit">
+                    <p>
+                        Colour: <input type="color" id="col-colour"><br>
+                        Fade Time: <input type="number" id="fade-time" min="0">s
+                        Target: <select id="col-target" name="target">
+                            <option value="background">Background</option>
+                            <option value="floor">Floor</option>
+                        </select>
+                        <input type="checkbox" id="touch-trigger">
+                        <label for="touch-trigger">TouchActivated</label>
+                    </p>
+                </div>
+                <div id="startpos-edit">
+                    <p>
+                        Select Mode:<br>
+                        <input type="radio" id="cube-radio-startpos" name="mode-select-startpos" value="cube" checked="checked" class="mode-select-startpos">
+                        <label for="cube-radio-startpos">Cube</label><br>
+                        <input type="radio" id="ship-radio-startpos" name="mode-select-startpos" value="ship" class="mode-select-startpos">
+                        <label for="ship-radio-startpos">Ship</label><br>
+                        <input type="radio" id="ball-radio-startpos" name="mode-select-startpos" value="ball" class="mode-select-startpos">
+                        <label for="ball-radio">Ball</label><br>
+                        <input type="checkbox" id="startpos-flipgravity">
+                        <label for="startpos-flipgravity">Grav. Flip</label>
+                    </p>
+                </div>
+            </div>
+            
+            <div id="canvas-div-div">
+                <div id="pause-balance"></div>
+                <!-- Canvas -->
+                <div class="card" id="canvas-div">
+                    <canvas id="canvas"></canvas>
+                </div>
+                <!-- Pause Button -->
+                <div id="pause-box">
+                    <button id="pause-btn"></button>
+                </div>
+            </div>
+
+            <!-- Right side editor -->
+            <div class="card editor-div editor-side" id="editor-right">
+                <p>Level Name:<br>
+                    <input id="level-name">
+                </p>
+                <p>Difficulty:</p>
+                <div class="info-holder">
+                    <input type="number" min="1" max="10" id="difficulty">
+                    <div id="level-difficon"></div>
+                    <span id="level-diff"></span>
+                </div>
+                <p>
+                    camX: <input type="number" id="cam-x"><br>
+                    camY: <input type="number" id="cam-y">
+                </p>
+                <p>
+                    objX: <input type="number" id="obj-x"><br>
+                    objY: <input type="number" id="obj-y"><br>
+                    objAngle: <span id="obj-angle">0</span>
+                </p>
+                <button id="export-btn"></button>
+            </div>
+        </div>
+        <!-- Practice Buttons -->
+        <div class="card" id="practice-box">
+            <button id="checkpoint-add"></button>
+            <button id="checkpoint-remove"></button>
+        </div>
+        <!-- Level Settings -->
+        <div class="card" id="level-settings-box">
+            <p>
+                Select Color:<br>
+                BG: <input type="color" id="level-bg-col"><br>
+                Floor: <input type="color" id="level-floor-col"><br>
+            </p>
+            <p>
+                Select Mode:<br>
+                <input type="radio" id="cube-radio" name="mode-select" value="cube" checked="checked" class="mode-select">
+                <label for="cube-radio">Cube</label><br>
+                <input type="radio" id="ship-radio" name="mode-select" value="ship" class="mode-select">
+                <label for="ship-radio">Ship</label><br>
+                <input type="radio" id="ball-radio" name="mode-select" value="ball" class="mode-select">
+                <label for="ball-radio">Ball</label><br>
+            </p>
+            <p>
+                Select Song:<br>
+                <select id="select-song" name="select-song">
+                    <option value="StereoMadness.mp3">Stereo Madness</option>
+                    <option value="BackOnTrack.mp3">Back On Track</option>
+                    <option value="Polargeist.mp3">Polargeist</option>
+                    <option value="DryOut.mp3">Dry Out</option>
+                    <option value="BaseAfterBase.mp3">Base After Base</option>
+                    <option value="CantLetGo.mp3">Cant Let Go</option>
+                    <option value="Jumper.mp3">Jumper</option>
+                    <option value="TimeMachine.mp3">Time Machine</option>
+                    <option value="Cycles.mp3">Cycles</option>
+                    <option value="Aqua-Flame Base.mp3">Aqua-Flame Base</option>
+                    <option value="xStep.mp3">xStep</option>
+                    <option value="URL">URL</option>
+                </select><br>
+                <span id="url-info">Insert a direct link to an audio file.<br><input type="url" id="song-url"></span>
+            </p>
+        </div>
+        <!-- Bottom side editor -->
+        <div class="card editor-div" id="editor-main">
+            <div class="editor-cats">
+                <button class="editor-tab-btn" id="build-btn">Build</button>
+                <button class="editor-tab-btn" id="edit-btn">Edit</button>
+                <button class="editor-tab-btn" id="delete-btn">Delete</button>
+            </div>
+            <div class="editor-tab" id="build-box">
+                <button class="build-object" title="block_standard" id="block-btn"><img src="img/block_standard.png" id="block_standard"></button>
+                <button class="build-object" title="slab_standard"><img src="img/slab_standard.png" id="slab_standard"></button>
+                <button class="build-object" title="spike_standard"><img src="img/spike_standard.png" id="spike_standard"></button>
+                <button class="build-object" title="spike_small"><img src="img/spike_small.png" id="spike_small"></button>
+                <button class="build-object" title="spike_tiny"><img src="img/spike_tiny.png" id="spike_tiny"></button>
+                <button class="build-object" title="spike_slab"><img src="img/spike_slab.png" id="spike_slab"></button>
+                <button class="build-object" title="spike_ground"><img src="img/spike_ground.png" id="spike_ground"></button>
+                <button class="build-object" title="portal_ship"><img src="img/portal_ship_over.png" height="40px"></button>
+                <button class="build-object" title="portal_cube"><img src="img/portal_cube_over.png" height="40px"></button>
+                <button class="build-object" title="portal_ball"><img src="img/portal_ball_over.png" height="40px"></button>
+                <button class="build-object" title="portal_mirror"><img src="img/portal_mirror_over.png" height="40px"></button>
+                <button class="build-object" title="portal_unmirror"><img src="img/portal_unmirror_over.png" height="40px"></button>
+                <button class="build-object" title="portal_upsidedown"><img src="img/portal_upsidedown_over.png" height="40px"></button>
+                <button class="build-object" title="portal_rightsideup"><img src="img/portal_rightsideup_over.png" height="40px"></button>
+                <button class="build-object" title="block_default1"><img src="img/block_default1.png" id="block_default1"></button>
+                <button class="build-object" title="block_default2"><img src="img/block_default2.png" id="block_default2"></button>
+                <button class="build-object" title="block_default3"><img src="img/block_default3.png" id="block_default3"></button>
+                <button class="build-object" title="block_default4"><img src="img/block_default4.png" id="block_default4"></button>
+                <button class="build-object" title="block_default5"><img src="img/block_default5.png" id="block_default5"></button>
+                <button class="build-object" title="block_default6"><img src="img/block_default6.png" id="block_default6"></button>
+                <button class="build-object" title="block_default7"><img src="img/block_default7.png" id="block_default7"></button>
+                <button class="build-object" title="block_default8"><img src="img/block_default8.png" id="block_default8"></button>
+                <button class="build-object" title="block_outline_2dots"><img src="img/block_outline_2dots.png" id="block_outline_2dots"></button>
+                <button class="build-object" title="block_outline_cap"><img src="img/block_outline_cap.png" id="block_outline_cap"></button>
+                <button class="build-object" title="block_outline_corner"><img src="img/block_outline_corner.png" id="block_outline_corner"></button>
+                <button class="build-object" title="block_outline_dot"><img src="img/block_outline_dot.png" id="block_outline_dot"></button>
+                <button class="build-object" title="block_outline_full"><img src="img/block_outline_full.png" id="block_outline_full"></button>
+                <button class="build-object" title="block_outline_line"><img src="img/block_outline_line.png" id="block_outline_line"></button>
+                <button class="build-object" title="block_outline_pillar"><img src="img/block_outline_pillar.png" id="block_outline_pillar"></button>
+                <button class="build-object" title="pad_yellow"><img src="img/pad_yellow.png" id="pad_yellow"></button>
+                <button class="build-object" title="orb_yellow"><img src="img/orb_yellow.png" id="orb_yellow"></button>
+                <button class="build-object" title="trigger_col"><img src="img/trigger_col.png" id="trigger_col"></button>
+                <button class="build-object" title="coin"><img src="img/coin.png" id="coin"></button>
+                <button class="build-object" title="startpos"><img src="img/startpos.png" id="startpos"></button>
+            </div>
+            <div class="editor-tab" id="edit-box">
+                <p>
+                    WASD - 1 block<br>
+                    Arrow Keys - 1 unit<br>
+                    R - Rotate 90 deg
+                </p>
+            </div>
+            <div class="editor-tab" id="delete-box">
+                <p>Click an object to delete it.</p>
+            </div>
+        </div>
+        <div class="card info-holder" id="level-info">
+            <span id="level-info-name"></span>
+            <div id="level-info-difficon"></div>
+            <span id="level-info-diff"></span>
+        </div>
+        <div class="card last-card">
+            <p>Other Unblocked Games:</p>
+            <a href="/games/" target="_blank"><img src="img/HydroSimple512.png" width="50" height="50"></a>
+        </div>
+        <p style="font-size: 12px;">By Hydrovolter</p>
+        <!-- <script>
+            document.getElementById("imgs").innerHTML
+        </script> do later-->
+        <div id="imgs">
+            <img src="img/floor.png" id="floor">
+            <img src="img/gamebg.png" id="gamebg">
+            <img src="img/cube.png" id="player_cube">
+            <img src="img/portal_ship_under.png" id="portal_ship_under">
+            <img src="img/ship.png" id="player_ship">
+            <img src="img/levelcomplete.png" id="levelcomplete">
+            <img src="img/jsdash.png" id="logo">
+            <img src="img/playbtn.png" id="playbtn">
+            <img src="img/editorbtn.png" id="editorbtn">
+            <img src="img/arrowleft.png" id="arrowleft">
+            <img src="img/arrowright.png" id="arrowright">
+            <img src="img/greenarrow.png" id="greenarrow">
+            <img src="img/levelbox.png" id="levelbox">
+            <img src="img/importbtn.png" id="importbtn">
+            <img src="img/createbtn.png" id="createbtn">
+            <img src="img/portal_cube_under.png" id="portal_cube_under">
+            <img src="img/playlast.png" id="playlast">
+            <img src="img/pause-invisible.png" id="pause_invisible">
+            <img src="img/pause-menu.png" id="pause_menu">
+            <img src="img/pause-play.png" id="pause_play">
+            <img src="img/pause-practice.png" id="pause_practice">
+            <img src="img/pause-unpractice.png" id="pause_unpractice">
+            <img src="img/pause-restart.png" id="pause_restart">
+            <img src="img/pause-visible.png" id="pause_visible">
+            <img src="img/portal_ship_over.png" id="portal_ship_over">
+            <img src="img/portal_cube_over.png" id="portal_cube_over">
+            <img src="img/portal_upsidedown_under.png" id="portal_upsidedown_under">
+            <img src="img/portal_upsidedown_over.png" id="portal_upsidedown_over">
+            <img src="img/portal_rightsideup_under.png" id="portal_rightsideup_under">
+            <img src="img/portal_rightsideup_over.png" id="portal_rightsideup_over">
+            <img src="img/ship_upsidedown.png" id="player_ship_upsidedown">
+            <img src="img/portal_ball_under.png" id="portal_ball_under">
+            <img src="img/portal_ball_over.png" id="portal_ball_over">
+            <img src="img/player_ball.png" id="player_ball">
+            <img src="img/portal_mirror_under.png" id="portal_mirror_under">
+            <img src="img/portal_mirror_over.png" id="portal_mirror_over">
+            <img src="img/portal_unmirror_under.png" id="portal_unmirror_under">
+            <img src="img/portal_unmirror_over.png" id="portal_unmirror_over">
+            <img src="img/checkpoint.png" id="checkpoint">
+        </div>
+    </body>
+</html>

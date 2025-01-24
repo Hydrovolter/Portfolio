@@ -1,0 +1,391 @@
+@font-face {
+    font-family: Pusab;
+    src: url(pusab.otf);
+}
+
+html {
+    font-family: Pusab;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    color: white;
+    font-size: 30px;
+    user-select: none
+}
+
+p {
+    margin: 0;
+}
+
+body {
+    text-align: center;
+    background: #1F1F1F url("img/bg.png") fixed;
+    margin-top: 50px;
+}
+
+.card {
+    background: #25232A;
+    border-radius: 10px;
+    box-shadow: 0 2px 2px 2px rgba(0, 0, 0, 0.5);
+    padding: 10px;
+}
+
+canvas {
+    background: rgb(0, 0, 0);
+    border-radius: 5px;
+}
+
+#imgs, .editor-div {
+    display: none;
+}
+
+.flex-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+#editor-main, #level-settings-box {
+    width: 930px;
+    margin: auto;
+    display: none;
+    margin-bottom: 10px;
+}
+
+#practice-box {
+    width: 480px;
+    margin: auto;
+    display: none;
+    margin-bottom: 10px;
+    justify-content: center;
+}
+
+#level-settings-box {
+    justify-content: space-around;
+}
+
+#hi {
+    display: none;
+}
+
+#canvas-div {
+    width: 480px;
+    margin: 5px 5px;
+}
+
+.editor-side {
+    height: 330px;
+    flex-direction: column;
+    width: 200px;
+    font-size: 20px;
+    text-align: left;
+}
+
+.editor-side > * {
+    margin-bottom: 5px;
+}
+
+input {
+    height: 20px;
+}
+
+.last-card {
+    margin: 20px auto;
+    width: 480px;
+}
+
+.editor-tab-btn {
+    background-image: url("img/editorselectbtn.png");
+    padding: 0;
+    border-width: 0;
+    border-radius: 15px;
+    width: 183px;
+    height: 60px;
+    font-family: Pusab;
+    text-shadow: -2px -2px 0 #000, 2px -2px 0 #000, -2px 2px 0 #000, 2px 2px 0 #000;
+    color: white;
+    font-size: 42px;
+    margin-bottom: 4px;
+}
+
+#build-btn {
+    background-image: url("img/editorselectbtnon.png");
+}
+
+.editor-cats {
+    flex-direction: column;
+    width: 183px;
+}
+
+.editor-tab {
+    width: 747px;
+    display: flex;
+    padding-left: 10px;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.build-object {
+    width: 50px;
+    height: 50px;
+    padding: 0;
+    border-width: 0;
+    border-radius: 7px;
+    margin-right: 2px;
+    background-image: url("img/buttongray.png");
+    margin-bottom: 4px;
+}
+
+#edit-box, #delete-box {
+    display: none;
+}
+
+#editor-leave {
+    background-image: url("img/editor-leave.png");
+    background-color: transparent;
+    border-width: 0;
+    width: 60px;
+    height: 60px;
+    padding: 0;
+}
+
+#editor-leave:hover {
+    cursor: pointer;
+}
+
+#block-btn {
+    background-image: url("img/buttoncyan.png")
+}
+
+#delete-box {
+    justify-content: center;
+    align-items: center;
+}
+
+#editor-left {
+    flex-flow: row wrap;
+    justify-content: left;
+    align-items: flex-start;
+    align-content: flex-start;
+}
+
+#editor-left > * {
+    margin-right: 5px;
+}
+
+#delete-obj-btn {
+    background-image: url("img/deleteobjbtn.png");
+    background-color: transparent;
+    border-width: 0;
+    width: 60px;
+    height: 60px;
+}
+
+#swipe-btn {
+    background-image: url("img/swipe-btn.png");
+    background-color: transparent;
+    border-width: 0;
+    width: 60px;
+    height: 60px;  
+}
+
+#deselect-btn {
+    background-image: url("img/desel-btn.png");
+    background-color: transparent;
+    border-width: 0;
+    width: 60px;
+    height: 60px;
+}
+
+#load-btn {
+    background-image: url("img/loadfromjson-btn.png");
+    background-color: transparent;
+    border-width: 0;
+    width: 60px;
+    height: 60px;
+}
+
+#level-settings-btn {
+    background-image: url("img/editor-options-btn.png");
+    background-color: transparent;
+    border-width: 0;
+    width: 60px;
+    height: 60px;
+}
+
+#export-btn {
+    background-image: url("img/export-btn.png");
+    background-color: transparent;
+    border-width: 0;
+    width: 184px;
+    height: 33px;
+    margin: auto;
+}
+
+#pause-btn {
+    background-image: url("img/pause-btn.png");
+    background-color: transparent;
+    border-width: 0;
+    width: 30px;
+    height: 30px;
+    margin: auto;
+    margin-top: 10px;
+}
+
+#pause-box {
+    display: none;
+    align-self: flex-start
+}
+
+#pause-balance {
+    display: none;
+    width: 30px;
+}
+
+#difficulty {
+    width: 30px;
+}
+
+#cam-x {
+    width: 100px;
+}
+
+#cam-y {
+    width: 100px;
+}
+
+#obj-x {
+    width: 100px;
+}
+
+#obj-y {
+    width: 100px;
+}
+
+#obj-angle {
+    width: 50px;
+}
+
+#level-difficon {
+    background-size: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+#level-info-difficon {
+    background-size: 30px;
+    width: 30px;
+    height: 30px;
+}
+
+.info-holder {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.info-holder > * {
+    margin-right: 10px;
+}
+
+#level-info {
+    width: 480px;
+    margin: auto;
+    margin-top: 10px;
+    display: none;
+    justify-content: center;
+}
+
+#canvas-div-div {
+    display: flex;
+}
+
+#trigger-col-edit, #startpos-edit {
+    display: none;
+}
+
+#col-colour {
+    width: 100px;
+    padding: 0;
+}
+
+#fade-time {
+    width: 40px;
+}
+
+@media only screen and (max-width: 800px) {
+    body {
+        width: 100%;
+        margin: auto;
+        margin-top: 5px;
+    }
+    .flex-container {
+        flex-direction: column;
+        margin: auto;
+    }
+    #canvas-div {
+        margin: 0;
+        width: 100%;
+        padding: 0;
+    }
+    #canvas {
+        width: 100%;
+    }
+    .editor-side {
+        flex-direction: row;
+        flex-wrap: wrap;
+        height: auto;
+    }
+    #editor-left {
+        order: 1;
+    }
+    #editor-right {
+        order: 2;
+    }
+    .card {
+        width: 95%;
+    }
+    #canvas-div-div {
+        flex-direction: column;
+    }
+    #level-info {
+        width: 95%;
+    }
+    #pause-box {
+        width: 100%;
+    }
+    #level-settings-box, #editor-main, #practice-box {
+        width: 100%;
+        padding-right: 0;
+        padding-left: 0;
+        margin: 0
+    }
+}
+
+#checkpoint-add {
+    background-image: url("img/checkpoint-add.png");
+    background-color: transparent;
+    border-width: 0;
+    width: 146px;
+    height: 96px;
+    margin-right: 2px;
+}
+
+#checkpoint-remove {
+    background-image: url("img/checkpoint-remove.png");
+    background-color: transparent;
+    border-width: 0;
+    width: 93px;
+    height: 96px;
+    margin-left: 2px;
+}
+
+#url-info {
+    display: none;
+    font-family: 'Roboto';
+    text-shadow: none;
+    font-size: 10px;
+}

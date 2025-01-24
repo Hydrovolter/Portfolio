@@ -1,0 +1,304 @@
+[
+    {
+        "id": "fallback",
+        "h": 30,
+        "w": 30,
+        "hbx": 0,
+        "hby": 0,
+        "hbw": 30,
+        "hbh": 30,
+        "hbType": "blue",
+        "type": "",
+        "editorOffsetx": 0,
+        "editorOffsety": 0,
+        "hasHitbox": true,
+        "visualOffsetx": 0,
+        "visualOffsety": 0,
+        "portalType": "cube",
+        "padType": "yellow",
+        "orbType": "yellow"
+    },
+    {
+        "id": "block_standard"
+    },
+    {
+        "id": "spike_standard",
+        "hbx": 12,
+        "hby": 9,
+        "hbw": 6,
+        "hbh": 12,
+        "hbType": "red"
+    },
+    {
+        "id": "slab_standard",
+        "h": 15,
+        "hbh": 15,
+        "editorOffsety": 15
+    },
+    {
+        "id": "portal_ship",
+        "h": 90,
+        "hbx": -2,
+        "hby": 2,
+        "hbw": 34,
+        "hbh": 86,
+        "hbType": "green",
+        "portalType": "ship",
+        "type": "portal",
+        "editorOffsety": -30,
+        "visualOffsetx": 10
+    },
+    {
+        "id": "portal_cube",
+        "h": 90,
+        "hbx": -2,
+        "hby": 2,
+        "hbw": 34,
+        "hbh": 86,
+        "hbType": "green",
+        "portalType": "cube",
+        "type": "portal",
+        "editorOffsety": -30,
+        "visualOffsetx": 10
+    },
+    {
+        "id": "block_outline_2dots"
+    },
+    {
+        "id": "block_outline_cap"
+    },
+    {
+        "id": "block_outline_corner"
+    },
+    {
+        "id": "block_outline_dot"
+    },
+    {
+        "id": "block_outline_full"
+    },
+    {
+        "id": "block_outline_line"
+    },
+    {
+        "id": "block_outline_pillar"
+    },
+    {
+        "id": "block_default1"
+    },
+    {
+        "id": "block_default2"
+    },
+    {
+        "id": "block_default3"
+    },
+    {
+        "id": "block_default4"
+    },
+    {
+        "id": "block_default5",
+        "hasHitbox": false
+    },
+    {
+        "id": "block_default6"
+    },
+    {
+        "id": "block_default7"
+    },
+    {
+        "id": "block_default8"
+    },
+    {
+        "id": "spike_small",
+        "h": 18,
+        "w": 20,
+        "hbx": 7,
+        "hby": 5,
+        "hbw": 4,
+        "hbh": 8,
+        "hbType": "red",
+        "editorOffsetx": 5
+    },
+    {
+        "id": "spike_tiny",
+        "h": 12,
+        "w": 12,
+        "hbx": 4,
+        "hby": 3,
+        "hbw": 3,
+        "hbh": 4,
+        "hbType": "red",
+        "editorOffsetx": 4
+    },
+    {
+        "id": "spike_slab",
+        "h": 15,
+        "hbx": 12,
+        "hby": 3,
+        "hbw": 6,
+        "hbh": 6,
+        "hbType": "red"
+    },
+    {
+        "id": "spike_ground",
+        "h": 15,
+        "hbx": 10,
+        "hby": -3,
+        "hbw": 9,
+        "hbh": 11,
+        "hbType": "red"
+    },
+    {
+        "id": "pad_yellow",
+        "h": 4,
+        "w": 30,
+        "hbx": 1,
+        "hby": 1,
+        "hbw": 28,
+        "hbh": 4,
+        "hbType": "green",
+        "type": "pad",
+        "padType": "yellow",
+        "visualOffsetx": -1
+    },
+    {
+        "id": "orb_yellow",
+        "h": 30,
+        "w": 30,
+        "hbx": -3,
+        "hby": -3,
+        "hbw": 36,
+        "hbh": 36,
+        "hbType": "green",
+        "isPortal": false,
+        "isPad": false,
+        "isOrb": true,
+        "type": "orb",
+        "orbType": "yellow",
+        "editorOffsetx": 0,
+        "editorOffsety": 0,
+        "hasHitbox": true,
+        "visualOffsetx": 0,
+        "visualOffsety": 0
+    },
+    {
+        "id": "portal_upsidedown",
+        "h": 90,
+        "w": 30,
+        "hbx": 2,
+        "hby": 7,
+        "hbw": 26,
+        "hbh": 76,
+        "hbType": "green",
+        "portalType": "upsidedown",
+        "type": "portal",
+        "editorOffsetx": 0,
+        "editorOffsety": -30,
+        "hasHitbox": true,
+        "visualOffsetx": 10,
+        "visualOffsety": 0
+    },
+    {
+        "id": "portal_rightsideup",
+        "h": 90,
+        "w": 30,
+        "hbx": 2,
+        "hby": 7,
+        "hbw": 26,
+        "hbh": 76,
+        "hbType": "green",
+        "portalType": "rightsideup",
+        "type": "portal",
+        "editorOffsetx": 0,
+        "editorOffsety": -30,
+        "hasHitbox": true,
+        "visualOffsetx": 10,
+        "visualOffsety": 0
+    },
+    {
+        "id": "trigger_col",
+        "h": 30,
+        "w": 30,
+        "hbx": 0,
+        "hby": 0,
+        "hbh": 30,
+        "hbw": 30,
+        "hbType": "green",
+        "type": "trigger",
+        "editorOffsetx": 0,
+        "editorOffsety": 0,
+        "hasHitbox": true,
+        "visualOffsetx": 0,
+        "visualOffsety": 0
+    },
+    {
+        "id": "portal_ball",
+        "h": 90,
+        "w": 30,
+        "hbx": -2,
+        "hby": 2,
+        "hbw": 34,
+        "hbh": 86,
+        "hbType": "green",
+        "portalType": "ball",
+        "type": "portal",
+        "editorOffsetx": 0,
+        "editorOffsety": -30,
+        "hasHitbox": true,
+        "visualOffsetx": 10,
+        "visualOffsety": 0
+    },
+    {
+        "id": "coin",
+        "h": 30,
+        "w": 30,
+        "hbx": -5,
+        "hby": -5,
+        "hbw": 40,
+        "hbh": 40,
+        "hbType": "green",
+        "editorOffsetx": 0,
+        "editorOffsety": 0,
+        "hasHitbox": true,
+        "visualOffsetx": 5,
+        "visualOffsety": 5
+    },
+    {
+        "id": "portal_mirror",
+        "h": 90,
+        "w": 30,
+        "hbx": -7,
+        "hby": 0,
+        "hbw": 44,
+        "hbh": 90,
+        "hbType": "green",
+        "portalType": "mirror",
+        "type": "portal",
+        "editorOffsetx": 0,
+        "editorOffsety": -30,
+        "hasHitbox": true,
+        "visualOffsetx": 15,
+        "visualOffsety": 0
+    },
+    {
+        "id": "portal_unmirror",
+        "h": 90,
+        "w": 30,
+        "hbx": -7,
+        "hby": 0,
+        "hbw": 44,
+        "hbh": 90,
+        "hbType": "green",
+        "portalType": "unmirror",
+        "type": "portal",
+        "editorOffsetx": 0,
+        "editorOffsety": -30,
+        "hasHitbox": true,
+        "visualOffsetx": 15,
+        "visualOffsety": 0
+    },
+    {
+        "id": "startpos",
+        "hbType": "green",
+        "hasHitbox": false
+    }
+]
