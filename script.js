@@ -248,7 +248,6 @@ submitButton.onclick = () => {
   const subject = document.getElementById("form-subject").value;
   const content = document.getElementById("form-content").value;
 
-  // Validate fields
   if (!email || !subject || !content) {
     alert('All fields are required!');
     return;
