@@ -62,28 +62,28 @@ const statusIconMap = {
     offline: "/assets/status/offline.svg",
   };
   
-  // Fetch user presence and update the profile
+  // fetch user presence and update profile
   async function updateProfileStatus() {
     try {
       const response = await fetch(apiEndpoint);
       const data = await response.json();
   
-      // Update profile avatar status
+      // update profile avatar status
       const statusContainer = document.getElementById(
         "profile-avatar-status-container"
       );
       const statusIcon = document.getElementById("profile-avatar-status");
   
       if (data.status) {
-        // Show status icon
+        // show status icon
         statusContainer.style.display = "block";
         statusIcon.src = statusIconMap[data.status] || statusIconMap["offline"];
       } else {
-        // Hide status if no status is available
+        // hide status if no status available
         statusContainer.style.display = "none";
       }
   
-      // Update activity details
+      // update activity details
       const activityContainer = document.getElementById("profile-activity");
       const activityImage = document.getElementById("profile-activity-large-image");
       const activityName = document.getElementById("profile-activity-name");
@@ -96,8 +96,8 @@ const statusIconMap = {
         activityImage.src = data.activityImage || "";
   
         activityName.textContent = data.activityType;
-        activityDetails.textContent = data.activityDetails || "No details";
-        activityState.textContent = data.activityText || "No description";
+        activityDetails.textContent = data.activityDetails || "";
+        activityState.textContent = data.activityText || "";
       } else {
         // Hide activity container if no activity
         activityContainer.style.display = "none";
@@ -107,10 +107,9 @@ const statusIconMap = {
     }
   }
   
-  // Call the function to update the profile
   updateProfileStatus();
   
-  // Refresh the status periodically (every 60 seconds)
+  // status refresh period
   setInterval(updateProfileStatus, 60000);
 async function v(e) {
     if (!r) {

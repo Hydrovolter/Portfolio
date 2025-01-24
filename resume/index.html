@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Redirecting...</title>
+
+    <style>
+     :root {
+    --primary: rgb(35, 35, 35);
+    --secondary: rgb(25, 25, 25);
+    --primary-accent: rgb(250, 250, 250);
+    --secondary-accent: rgb(150, 150, 150)
+    }
+
+    * {
+        margin-top: 0;
+        margin-bottom: 0;
+        font-style: normal;
+        font-family: "Robot Mono",monospace
+    }
+
+    ::-webkit-scrollbar {
+        display: none
+    }
+
+    a {
+        text-decoration: none;
+        color: var(--primary-accent)
+    }
+
+    body,html {
+        width: 100%;
+        height: 100%
+    }
+
+    body {
+        margin: 0;
+        overflow: hidden;
+        position: relative;
+        color: var(--primary-accent);
+        background-color: var(--primary)
+    }
+    
+    .section {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    transition: top .5s ease-in-out,left .5s ease-in-out
+    }
+
+    .container {
+        display: flex;
+        overflow-y: auto;
+        flex-direction: column;
+        gap: 25px;
+        max-width: 800px;
+        max-height: 80vh;
+        margin: 5vmin;
+        padding: 5vmin;
+        box-shadow: 5px 5px 15px 5px rgba(0,0,0,.25);
+        border-radius: 25px
+    }
+    </style>
+    <meta http-equiv="Refresh" content="0; url='./resume.pdf'" />
+</head>
+<body>
+    <div class=section style=left:0;top:0 id=center>
+        <div class=container>
+
+            <h1>Redirecting...</h1>
+            <p1>Redirecting you to my resume...</p1>
+
+        </div>
+        <p id=guide></p>
+        <div class="container">
+            <a href="./resume.pdf">If this doesn't work, click here.</a>
+        </div>
+    </div>
+</body>
+</html>
