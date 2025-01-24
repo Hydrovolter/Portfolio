@@ -106,6 +106,29 @@ body {
     border-radius: 15px
 }
 
+/* Aligns the status icon at the bottom-right corner of the profile avatar */
+#profile-avatar-status-container {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    height: 32px;
+    width: 32px;
+}
+
+#profile-avatar-status {
+    height: 100%;
+    width: 100%;
+}
+
+/* Style for the status info container */
+#profile-status-info {
+    font-size: 14px;
+    font-weight: bold;
+    color: #333;
+}
+
+
+/*
 #profile-avatar-status-container {
     position: absolute;
     width: 35px;
@@ -172,6 +195,8 @@ body {
     border-radius: 3px;
     background-color: var(--primary-accent)
 }
+*/
+
 
 @media screen and (max-width: 600px) {
     #profile-activity {

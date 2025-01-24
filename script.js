@@ -421,5 +421,57 @@ window.addEventListener("touchend", e=>{
         }
         s = null
     }
-}
+},
+
+/* here */
+document.addEventListener("DOMContentLoaded", () => {
+    const apiURL = "https://status-boh2.onrender.com/api/presence";
+
+    // DOM elements
+    const statusContainer = document.getElementById("profile-avatar-status-container");
+    const statusIcon = document.getElementById("profile-avatar-status");
+    const statusInfo = document.getElementById("profile-status-info");
+    const statusText = document.getElementById("profile-status-text");
+
+    // Mapping Discord status to icons
+    const statusIcons = {
+        online: "assets/status/online.svg",
+        dnd: "assets/status/dnd.svg",
+        idle: "assets/status/idle.svg",
+        offline: "assets/status/offline.svg",
+        invisible: "assets/status/offline.svg",
+    };
+
+    // Fetch and update Discord presence
+    async function updateDiscordPresence() {
+        try {
+            const response = await fetch(apiURL);
+            const data = await response.json();
+
+            // Update status icon
+            const status = data.status || "offline";
+            const iconURL = statusIcons[status] || statusIcons.offline;
+            statusIcon.src = iconURL;
+
+            // Display the status container and status text
+            if (status && status !== "offline") {
+                statusContainer.style.display = "block";
+                statusInfo.style.display = "block";
+                statusText.textContent = `Status: ${status}`;
+            } else {
+                statusContainer.style.display = "none";
+                statusInfo.style.display = "none";
+            }
+        } catch (error) {
+            console.error("Failed to fetch Discord presence:", error);
+        }
+    }
+
+    // Initial fetch and periodic updates every 60 seconds
+    updateDiscordPresence();
+    setInterval(updateDiscordPresence, 60000);
+})
+
+
+
 )

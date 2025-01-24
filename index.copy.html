@@ -17,63 +17,29 @@
         <meta content=/assets/HydroSimple512.png name=og:image>  
     </head>
     <body>
-        <div class="section" style="left:0;top:0" id="center">
-            <div class="container">
-                <div id="profile">
-                    <div id="profile-avatar-container">
-                        <img
-                            src="assets/HydroSimple512.png"
-                            alt="My avatar"
-                            height="128px"
-                            id="profile-avatar"
-                            width="128px"
-                        />
-                        <div class="circle" id="profile-avatar-status-container">
-                            <img
-                                class="circle"
-                                src="/assets/status/offline.svg"
-                                id="profile-avatar-status"
-                            />
+        <div class=section style=left:0;top:0 id=center>
+            <div class=container>
+                <div id=profile>
+                    <div id=profile-avatar-container>
+                        <img src=assets/HydroSimple512.png alt="My avatar" height=128px id=profile-avatar width=128px>
+                        <div class=circle style=display:none id=profile-avatar-status-container>
+                            <img class=circle src=/assets/status/offline.svg id=profile-avatar-status>
                         </div>
                     </div>
-        
-                    <div
-                        id="profile-status-info"
-                        style="display: none; margin-top: 10px; text-align: center"
-                    >
-                        <span id="profile-status-text"></span>
-                    </div>
-        
-                    <a
-                        rel="noopener noreferrer"
-                        style="display: none"
-                        target="_blank"
-                        id="profile-activity"
-                    >
-                        <div id="profile-activity-assets">
-                            <img
-                                height="98px"
-                                id="profile-activity-large-image"
-                                width="98px"
-                                style="display: none"
-                            />
-                            <div
-                                class="circle"
-                                style="display: none"
-                                id="profile-activity-small-image-container"
-                            >
-                                <img class="circle" id="profile-activity-small-image" />
+
+                    <a rel="noopener noreferrer" style=display:none target=_blank id=profile-activity>
+                        <div id=profile-activity-assets>
+                            <img height=98px id=profile-activity-large-image width=98px style=display:none>
+                            <div class=circle style=display:none id=profile-activity-small-image-container>
+                                <img class=circle id=profile-activity-small-image>
                             </div>
                         </div>
-                        <div id="profile-activity-content">
-                            <h3 id="profile-activity-name"></h3>
-                            <p id="profile-activity-details"></p>
-                            <p id="profile-activity-state"></p>
-                            <div
-                                id="profile-activity-bar-container"
-                                style="display: none"
-                            >
-                                <div id="profile-activity-bar"></div>
+                        <div id=profile-activity-content>
+                            <h3 id=profile-activity-name></h3>
+                            <p id=profile-activity-details></p>
+                            <p id=profile-activity-state></p>
+                            <div id=profile-activity-bar-container style=display:none>
+                                <div id=profile-activity-bar></div>
                             </div>
                         </div>
                     </a>
