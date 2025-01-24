@@ -34,6 +34,13 @@ body {
     background-color: var(--primary)
 }
 
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr; /* Two equal columns */
+    grid-gap: 20px; /* Add 20px gap between columns */
+}
+
 .emoji {
     width: 25px;
     height: 25px;
@@ -126,9 +133,10 @@ body {
 }
 #profile-activity-container {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     gap: 15px;
-    max-width: 400px;
+    max-width: 300px;
+    max-height: 150px;
     width: 100%;
     background-color: var(--secondary);
     padding: 15px;
@@ -143,8 +151,8 @@ body {
 }
 
 #profile-activity-image-container {
-    width: 60px;
-    height: 60px;
+    width: 100px;
+    height: 100px;
     border-radius: 10px;
     overflow: hidden;
 }
