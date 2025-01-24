@@ -210,6 +210,11 @@ function a(e) {
 function f(e) {
     return e === document.body || e === document.documentElement
 }
+function validateEmail(email) {
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return emailRegex.test(email);
+  }
+
 console.log("Source Code is over at my Github - @hydrovolter "),
 
 window.addEventListener("load", ()=>{
@@ -235,50 +240,69 @@ window.addEventListener("load", ()=>{
     }
     const submitButton = document.getElementById("form-submit");
 
-    submitButton.onclick = () => {
-      submitButton.style.backgroundColor = null;
-      submitButton.style.color = null;
-      submitButton.innerText = "Sending...";
-      submitButton.disabled = true;
-    
-      const email = document.getElementById("form-email").value;
-      const subject = document.getElementById("form-subject").value;
-      const content = document.getElementById("form-content").value;
-    
-      fetch('https://api.hydrovolter.workers.dev/', { // Replace with your Cloudflare Worker endpoint URL
-        method: 'POST',
-        body: JSON.stringify({
-          email: email,
-          subject: subject,
-          content: content
-        }),
-        headers: {
-          "Content-Type": "application/json"
-        }
-      }).then(response => {
-        if (response.ok) {
-          document.getElementById("form-email").value = "";
-          document.getElementById("form-subject").value = "";
-          document.getElementById("form-content").value = "";
-          submitButton.style.backgroundColor = "#439543";
-          submitButton.style.color = "white";
-          submitButton.innerText = "Message Sent!";
-          submitButton.disabled = false;
-        } else {
-          response.text().then(errorMessage => {
-            submitButton.style.backgroundColor = "#ed4444";
-            submitButton.style.color = "white";
-            submitButton.innerText = errorMessage;
-            submitButton.disabled = false;
-          });
-        }
-      }).catch(() => {
+submitButton.onclick = () => {
+  submitButton.style.backgroundColor = null;
+  submitButton.style.color = null;
+
+  const email = document.getElementById("form-email").value;
+  const subject = document.getElementById("form-subject").value;
+  const content = document.getElementById("form-content").value;
+
+  // Validate fields
+  if (!email || !subject || !content) {
+    alert('All fields are required!');
+    return;
+  }
+
+  if (!validateEmail(email)) {
+    alert('Please enter a valid email address!');
+    return;
+  }
+
+  submitButton.innerText = "Sending...";
+  submitButton.disabled = true;
+
+  fetch('https://api.hydrovolter.workers.dev/', {
+    method: 'POST',
+    body: JSON.stringify({
+      email: email,
+      subject: subject,
+      content: content
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }).then(response => {
+    if (response.ok) {
+      document.getElementById("form-email").value = "";
+      document.getElementById("form-subject").value = "";
+      document.getElementById("form-content").value = "";
+
+      submitButton.style.backgroundColor = "#439543";
+      submitButton.style.color = "white";
+      submitButton.innerText = "Message Sent!";
+      submitButton.disabled = false;
+
+      setTimeout(() => {
+        submitButton.style.backgroundColor = null;
+        submitButton.style.color = null;
+        submitButton.innerText = "Submit!";
+      }, 2000);
+    } else {
+      response.text().then(errorMessage => {
         submitButton.style.backgroundColor = "#ed4444";
         submitButton.style.color = "white";
-        submitButton.innerText = "Unknown Error";
+        submitButton.innerText = errorMessage;
         submitButton.disabled = false;
       });
-    };
+    }
+  }).catch(() => {
+    submitButton.style.backgroundColor = "#ed4444";
+    submitButton.style.color = "white";
+    submitButton.innerText = "Unknown Error";
+    submitButton.disabled = false;
+  });
+};
     
 
 }
