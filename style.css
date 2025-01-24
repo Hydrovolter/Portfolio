@@ -124,8 +124,18 @@ body {
     width: 100%;
     border-radius: 50%;
 }
+#profile-activity-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 400px;
+    width: 100%;
+    background-color: var(--secondary);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
 
-/* Activity Section */
 #profile-activity {
     display: flex;
     gap: 15px;
@@ -135,13 +145,15 @@ body {
 #profile-activity-image-container {
     width: 60px;
     height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
 }
 
 #profile-activity-large-image {
     width: 100%;
     height: 100%;
-    border-radius: 10px;
     object-fit: cover;
+    border-radius: 10px;
 }
 
 #profile-activity-details-container {
@@ -161,6 +173,7 @@ body {
     font-size: 14px;
     color: var(--secondary-accent);
 }
+
 
 
 
