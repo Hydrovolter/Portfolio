@@ -211,6 +211,7 @@ function f(e) {
     return e === document.body || e === document.documentElement
 }
 console.log("Source Code is over at my Github - @hydrovolter "),
+
 window.addEventListener("load", ()=>{
     const e = document.getElementById("guide");
     switch ("ontouchstart"in window ? e.innerText = "Swipe left, right, up, or down to navigate" : e.innerText = "Use your arrow keys to navigate",
@@ -232,127 +233,54 @@ window.addEventListener("load", ()=>{
         a.title = i,
         a.ariaLabel = i
     }
-    const o = document.getElementById("form-submit")
-      , t = (o.onclick = ()=>{
-        o.style.backgroundColor = null,
-        o.style.color = null,
-        o.innerText = "Sending...",
-        o.disabled = !0;
-        var e = document.getElementById("form-email").value
-          , t = document.getElementById("form-subject").value // added s at end of them so they dont trigger stuff
-          , n = document.getElementById("form-content").value;
-        fetch("/contact", {
-            method: "POST",
-            body: JSON.stringify({
-                email: e,
-                subject: t,
-                content: n
-            }),
-            headers: {
-                "Content-Type": "application/json"
-            }
-        }).then(e=>{
-            e.ok ? (document.getElementById("form-emails").value = "",
-            document.getElementById("form-subjects").value = "",
-            document.getElementById("form-contents").value = "",
-            o.style.backgroundColor = "#439543",
-            o.style.color = "white",
-            o.innerText = "Message Sent!",
-            o.disabled = !1) : e.text().then(e=>{
-                o.style.backgroundColor = "#ed4444",
-                o.style.color = "white",
-                o.innerText = e,
-                o.disabled = !1
-            }
-            )
+    const submitButton = document.getElementById("form-submit");
+
+    submitButton.onclick = () => {
+      submitButton.style.backgroundColor = null;
+      submitButton.style.color = null;
+      submitButton.innerText = "Sending...";
+      submitButton.disabled = true;
+    
+      const email = document.getElementById("form-email").value;
+      const subject = document.getElementById("form-subject").value;
+      const content = document.getElementById("form-content").value;
+    
+      fetch('https://api.hydrovolter.workers.dev/', { // Replace with your Cloudflare Worker endpoint URL
+        method: 'POST',
+        body: JSON.stringify({
+          email: email,
+          subject: subject,
+          content: content
+        }),
+        headers: {
+          "Content-Type": "application/json"
         }
-        ).catch(()=>{
-            o.style.backgroundColor = "#ed4444",
-            o.style.color = "white",
-            o.innerText = "Unknown Error",
-            o.disabled = !1
+      }).then(response => {
+        if (response.ok) {
+          document.getElementById("form-email").value = "";
+          document.getElementById("form-subject").value = "";
+          document.getElementById("form-content").value = "";
+          submitButton.style.backgroundColor = "#439543";
+          submitButton.style.color = "white";
+          submitButton.innerText = "Message Sent!";
+          submitButton.disabled = false;
+        } else {
+          response.text().then(errorMessage => {
+            submitButton.style.backgroundColor = "#ed4444";
+            submitButton.style.color = "white";
+            submitButton.innerText = errorMessage;
+            submitButton.disabled = false;
+          });
         }
-        )
-    }
-    ,
-    document.getElementById("profile-avatar-status-container"))
-      , n = document.getElementById("profile-avatar-status")
-      , r = document.getElementById("profile-activity")
-      , c = document.getElementById("profile-activity-large-image")
-      , u = document.getElementById("profile-activity-small-image-container")
-      , p = document.getElementById("profile-activity-small-image")
-      , d = document.getElementById("profile-activity-name")
-      , m = document.getElementById("profile-activity-details")
-      , f = document.getElementById("profile-activity-state")
-      , h = document.getElementById("profile-activity-bar-container")
-      , g = document.getElementById("profile-activity-bar")
-    //  , s = new WebSocket("wss://" + window.location.host + "/");
-    let w;
-    /*
-    setInterval(()=>s.send(""), 5e3), //5e3
-    s.onmessage = i=>{
-        const e = JSON.parse(i.data);
-        if (e.activities.some(e=>e.type === k.Streaming))
-            n.src = "assets/status/streaming.svg",
-            C(t, "Streaming"),
-            y(t);
-        else
-            switch (e.status) {
-            case "online":
-                n.src = "assets/status/online.svg",
-                C(n, "Online"),
-                y(t);
-                break;
-            case "dnd":
-                n.src = "assets/status/dnd.svg",
-                C(n, "Do Not Disturb"),
-                y(t);
-                break;
-            case "idle":
-                n.src = "assets/status/idle.svg",
-                C(n, "Idle"),
-                y(t);
-                break;
-            case "offline":
-                n.src = "assets/status/offline.svg",
-                C(n, "Offline"),
-                y(t)
-            }
-        var s, l, i = e.activities.find(e=>e.type !== k.Custom);
-        if (i) {
-            let {name: e, details: t, state: n} = i, o, a;
-            "spotify:1" === i.id ? (r.setAttribute("href", "https://open.spotify.com/track/" + i.sync_id),
-            i.details && (e = i.details),
-            i.state && (t = "by " + i.state),
-            i.assets.large_text && (n = "on " + i.assets.large_text),
-            i.timestamps && (o = Date.now() - i.timestamps.start,
-            a = i.timestamps.end - i.timestamps.start,
-            clearInterval(w),
-            w = setInterval(()=>{
-                o += 1e3,
-                g.style.width = o / a * 100 + "%"
-            }
-            , 1e3))) : r.removeAttribute("href"),
-            i.party?.size && ([s,l] = i.party.size,
-            n ? n += " (" + s + " of " + l + ")" : n = "(" + s + " of " + l + ")"),
-            e ? (d.innerText = e,
-            y(d)) : b(d),
-            t ? (m.innerText = t,
-            y(m)) : b(m),
-            n ? (f.innerText = n,
-            y(f)) : b(f),
-            o && a ? (g.style.width = o / a * 100 + "%",
-            y(h)) : b(h),
-            i.assets.large_image ? (c.src = L(i.application_id, i.assets.large_image),
-            i.assets.large_text && C(c, i.assets.large_text),
-            y(c)) : b(c),
-            i.assets.large_image && i.assets.small_image ? (p.src = L(i.application_id, i.assets.small_image),
-            i.assets.small_text && C(p, i.assets.small_text),
-            y(u)) : b(u),
-            y(r)
-        } else
-            b(r)
-    } */
+      }).catch(() => {
+        submitButton.style.backgroundColor = "#ed4444";
+        submitButton.style.color = "white";
+        submitButton.innerText = "Unknown Error";
+        submitButton.disabled = false;
+      });
+    };
+    
+
 }
 ),
 
