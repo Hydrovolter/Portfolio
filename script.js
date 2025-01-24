@@ -51,6 +51,67 @@ function o(e) {
     }
     ))
 }
+
+const apiEndpoint = 'https://status-boh2.onrender.com/api/presence';
+
+const statusIconMap = {
+    online: "/assets/status/online.svg",
+    dnd: "/assets/status/dnd.svg",
+    idle: "/assets/status/idle.svg",
+    invisible: "/assets/status/offline.svg",
+    offline: "/assets/status/offline.svg",
+  };
+  
+  // Fetch user presence and update the profile
+  async function updateProfileStatus() {
+    try {
+      const response = await fetch(apiEndpoint);
+      const data = await response.json();
+  
+      // Update profile avatar status
+      const statusContainer = document.getElementById(
+        "profile-avatar-status-container"
+      );
+      const statusIcon = document.getElementById("profile-avatar-status");
+  
+      if (data.status) {
+        // Show status icon
+        statusContainer.style.display = "block";
+        statusIcon.src = statusIconMap[data.status] || statusIconMap["offline"];
+      } else {
+        // Hide status if no status is available
+        statusContainer.style.display = "none";
+      }
+  
+      // Update activity details
+      const activityContainer = document.getElementById("profile-activity");
+      const activityImage = document.getElementById("profile-activity-large-image");
+      const activityName = document.getElementById("profile-activity-name");
+      const activityDetails = document.getElementById("profile-activity-details");
+      const activityState = document.getElementById("profile-activity-state");
+  
+      if (data.activityType && data.activityText) {
+        activityContainer.style.display = "block";
+        activityImage.style.display = data.activityImage ? "block" : "none";
+        activityImage.src = data.activityImage || "";
+  
+        activityName.textContent = data.activityType;
+        activityDetails.textContent = data.activityDetails || "No details";
+        activityState.textContent = data.activityText || "No description";
+      } else {
+        // Hide activity container if no activity
+        activityContainer.style.display = "none";
+      }
+    } catch (error) {
+      console.error("Error fetching or updating profile status:", error);
+    }
+  }
+  
+  // Call the function to update the profile
+  updateProfileStatus();
+  
+  // Refresh the status periodically (every 60 seconds)
+  setInterval(updateProfileStatus, 60000);
 async function v(e) {
     if (!r) {
         switch (r = !0,
@@ -424,53 +485,7 @@ window.addEventListener("touchend", e=>{
 },
 
 /* here */
-document.addEventListener("DOMContentLoaded", () => {
-    const apiURL = "https://status-boh2.onrender.com/api/presence";
 
-    // DOM elements
-    const statusContainer = document.getElementById("profile-avatar-status-container");
-    const statusIcon = document.getElementById("profile-avatar-status");
-    const statusInfo = document.getElementById("profile-status-info");
-    const statusText = document.getElementById("profile-status-text");
-
-    // Mapping Discord status to icons
-    const statusIcons = {
-        online: "assets/status/online.svg",
-        dnd: "assets/status/dnd.svg",
-        idle: "assets/status/idle.svg",
-        offline: "assets/status/offline.svg",
-        invisible: "assets/status/offline.svg",
-    };
-
-    // Fetch and update Discord presence
-    async function updateDiscordPresence() {
-        try {
-            const response = await fetch(apiURL);
-            const data = await response.json();
-
-            // Update status icon
-            const status = data.status || "offline";
-            const iconURL = statusIcons[status] || statusIcons.offline;
-            statusIcon.src = iconURL;
-
-            // Display the status container and status text
-            if (status && status !== "offline") {
-                statusContainer.style.display = "block";
-                statusInfo.style.display = "block";
-                statusText.textContent = `Status: ${status}`;
-            } else {
-                statusContainer.style.display = "none";
-                statusInfo.style.display = "none";
-            }
-        } catch (error) {
-            console.error("Failed to fetch Discord presence:", error);
-        }
-    }
-
-    // Initial fetch and periodic updates every 60 seconds
-    updateDiscordPresence();
-    setInterval(updateDiscordPresence, 60000);
-})
 
 
 

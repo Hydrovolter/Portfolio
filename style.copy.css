@@ -127,15 +127,182 @@ body {
 }
 
 /* Activity Section */
+#profile-activity {
+    display: flex;
+    align-items: center; /* Vertically align the image and text */
+    gap: 15px; /* Add space between the image and the text */
+    padding: 15px;
+    background-color: var(--secondary);
+    border-radius: 15px;
+    overflow: hidden; /* Prevent content from overflowing */
+}
+
+#profile-activity-assets {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    flex-shrink: 0; /* Prevent the image from shrinking */
+}
+
+#profile-activity-large-image {
+    border-radius: 15px;
+    max-width: 98px; /* Ensure the image fits inside its container */
+    max-height: 98px;
+}
+
+#profile-activity-small-image-container {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: -10px;
+    bottom: -10px;
+    padding: 5px;
+    background-color: var(--secondary);
+    border-radius: 50%;
+    border: 2px solid var(--primary);
+}
+
+#profile-activity-small-image {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%; /* Makes small image round */
+}
+
+#profile-activity-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    text-align: left;
+    padding: 15px;
+    flex-grow: 1; /* Allow the content section to take up remaining space */
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent overflow */
+}
+
+#profile-activity-name {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: var(--primary-accent);
+    margin-bottom: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+#profile-activity-details {
+    font-size: 1rem;
+    color: var(--primary-accent);
+    margin-bottom: 15px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#profile-activity-state {
+    font-size: 0.9rem;
+    color: var(--primary-accent);
+    margin-bottom: 10px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#profile-activity-bar-container {
+    height: 6px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: var(--secondary-accent);
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+#profile-activity-bar {
+    height: 6px;
+    width: 50%; /* Adjust width dynamically based on progress */
+    border-radius: 3px;
+    background-color: var(--primary-accent);
+}
 
 
 
 
+
+
+/*
+#profile-avatar-status-container {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: -15px;
+    bottom: -15px;
+    padding: 10px;
+    background-color: var(--primary)
+}
+
+#profile-avatar-status {
+    height: 100%
+}
+
+#profile-activity {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    min-width: 50%;
+    border-radius: 15px;
+    background-color: var(--secondary)
+}
+
+#profile-activity-assets {
+    position: relative
+}
+
+#profile-activity-large-image {
+    border-radius: 15px
+}
+
+#profile-activity-small-image-container {
+    position: absolute;
+    width: 35px;
+    height: 35px;
+    right: -10px;
+    bottom: -10px;
+    padding: 5px;
+    background-color: var(--secondary)
+}
+
+#profile-activity-small-image {
+    height: 100%
+}
+
+#profile-activity-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center
+}
+
+#profile-activity-bar-container {
+    height: 6px;
+    margin-top: 10px;
+    border-radius: 3px;
+    background-color: var(--secondary-accent)
+}
+
+#profile-activity-bar {
+    height: 6px;
+    min-width: 6px;
+    max-width: 100%;
+    border-radius: 3px;
+    background-color: var(--primary-accent)
+}
+*/
 
 
 @media screen and (max-width: 600px) {
     #profile-activity {
-        display: flex;
+        display:none
     }
 }
 
