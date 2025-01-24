@@ -168,10 +168,13 @@ body {
     color: var(--primary-accent);
 }
 
-#profile-activity-details,
-#profile-activity-state {
+#profile-activity-details {
     font-size: 14px;
     color: var(--secondary-accent);
+}
+#profile-activity-state {
+    font-size: 14px;
+    color: var(--primary-accent);
 }
 
 
