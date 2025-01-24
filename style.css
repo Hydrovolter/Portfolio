@@ -93,21 +93,20 @@ body {
 }
 
 #profile {
+    display: flex;
+    align-items: center;
     gap: 25px;
     height: 128px;
-    display: flex
 }
 
 #profile-avatar-container {
-    position: relative
+    position: relative;
 }
 
 #profile-avatar {
-    border-radius: 15px
+    border-radius: 15px;
 }
 
-/* AACTIVITY HERE ONWARDS */
-/* Profile Section */
 #profile-avatar-status-container {
     position: absolute;
     width: 35px;
@@ -116,19 +115,52 @@ body {
     bottom: -5px;
     padding: 5px;
     background-color: var(--primary);
-    border-radius: 50%; /* Round border for the status container */
-    border: 2px solid var(--secondary); /* Border color */
+    border-radius: 50%;
+    border: 2px solid var(--secondary);
 }
 
 #profile-avatar-status {
     height: 100%;
     width: 100%;
-    border-radius: 50%; /* Makes status icon round */
+    border-radius: 50%;
 }
 
 /* Activity Section */
+#profile-activity {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
 
+#profile-activity-image-container {
+    width: 60px;
+    height: 60px;
+}
 
+#profile-activity-large-image {
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+#profile-activity-details-container {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#profile-activity-name {
+    font-size: 16px;
+    font-weight: bold;
+    color: var(--primary-accent);
+}
+
+#profile-activity-details,
+#profile-activity-state {
+    font-size: 14px;
+    color: var(--secondary-accent);
+}
 
 
 
