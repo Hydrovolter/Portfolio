@@ -104,8 +104,9 @@ body {
 #profile {
     display: flex;
     align-items: center;
-    gap: 25px;
+    gap: 85px;
     height: 128px;
+    
 }
 
 #profile-avatar-container {
