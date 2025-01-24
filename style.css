@@ -173,6 +173,7 @@ body {
     gap: 5px;
     max-width: 300px;
     max-height: 140px;
+    overflow: auto;
 
 }
 
