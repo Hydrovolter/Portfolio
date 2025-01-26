@@ -18,6 +18,8 @@ Hey, this is my portfolio where I keep some of my projects, information about me
 
 - code a proxy (unblocked)
 
+- adjust presence depending on activity type (remove grid for custom, non-images etc.)
+- add interactable presence (e.g. click on spotify songs, hyperlinks in status)
 - add a progress bar to songs / music in presence ?? (maybe)
 
 - add a speedtest website
