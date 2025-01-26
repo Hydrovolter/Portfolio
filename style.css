@@ -127,6 +127,7 @@ body {
     background-color: var(--primary);
     border-radius: 50%;
     border: 2px solid var(--secondary);
+    display: none;
 }
 
 #profile-avatar-status {
@@ -145,12 +146,14 @@ body {
     padding: 15px;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: none;
 }
 
 #profile-activity {
     display: flex;
     gap: 15px;
     align-items: center;
+    display: none;
 }
 
 #profile-activity-image-container {

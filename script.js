@@ -67,17 +67,19 @@ const statusIconMap = {
     try {
       const response = await fetch(apiEndpoint);
       const data = await response.json();
-  
+      
       // update profile avatar status
       const statusContainer = document.getElementById(
         "profile-avatar-status-container"
       );
+      
       const statusIcon = document.getElementById("profile-avatar-status");
   
       if (data.status) {
         // show status icon
         statusContainer.style.display = "block";
         statusIcon.src = statusIconMap[data.status] || statusIconMap["offline"];
+        
       } else {
         // hide status if no status available
         statusContainer.style.display = "none";
@@ -90,8 +92,9 @@ const statusIconMap = {
       const activityName = document.getElementById("profile-activity-name");
       const activityDetails = document.getElementById("profile-activity-details");
       const activityState = document.getElementById("profile-activity-state");
-  
+      
       if (data.activityType && data.activityText) {
+        activityContainerTotal.style.display = "flex";
         activityContainer.style.display = "block";
         activityImage.style.display = data.activityImage ? "block" : "none";
         activityImage.src = data.activityImage || "";
