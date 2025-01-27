@@ -1,12 +1,3 @@
-/**
- * ===================================
- * Copyright KevinWang
- * Trainer for ZType v1.24
- * ===================================
- *
- * https://github.com/KevinWang15/ztype-trainer
- */
-
 (function () {
 
     function loadScript(url, callback) {
@@ -42,7 +33,7 @@
 
         var $ = jQuery;
 
-        $("body").prepend("<div id='trailer-info' style='text-align:center;padding:10px'>Trainer Activated. made by KevinWang, <a href='https://github.com/KevinWang15/ztype-trainer'>visit GitHub Page</a></div>")
+        $("body").prepend("<div id='trailer-info' style='text-align:center;padding:10px'>Trainer Activated. Made by <a href='/'>Hydrovolter</a></div>")
 
 
         var intervals = {};
