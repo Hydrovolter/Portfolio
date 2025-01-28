@@ -1,0 +1,164 @@
+{
+    "features": {
+        "highscores": 1,
+        "rewarded": 1
+    },
+    "game_i18n": {
+        "default": {
+            "filename.png": "fg_i18n/en/images/filename.png"
+        }
+    },
+    "game_analytics": {
+        "build": "bubble_tower_3d_v1",
+        "resource_currencies": ["fireball"],
+        "resource_item_types": ["powerup"],
+        "game_key": "2eb94856dcf7c7d2df47f8aa57342cc8",
+        "secret_key": "e1bd3936a3c657f23fec7049514f765e7a8c3c8c"
+    },
+    "game_info": {
+        "client_version": "2.24.0",
+        "api_version": "2.3",
+        "power_ups": [
+            "fireball"
+        ],
+        "forced_mode": {
+            "state": {
+                "powerup_fireball": {
+                    "description": "Is fireball powerup available to player?",
+                    "type": "boolean"
+                }
+            },
+            "override": {
+                "hide_ui": {
+                    "description": "What UI elements should be hidden?",
+                    "type": "array",
+                    "values": [
+                        "score_counter",
+                        "floating_score_points",
+                        "powerup",
+                        "combo"
+                    ]
+                },
+                "tower_height": {
+                    "description": "Number of lines (rows) that tower consists of. Default value for live game is 10",
+                    "type": "number",
+                    "min": 1,
+                    "max": 15
+                },
+                "tower_width": {
+                    "description": "Number of balls that each line/row consists of. Default value for live game is 20",
+                    "type": "number",
+                    "min": 5,
+                    "max": 50
+                },
+                "num_colors": {
+                    "description": "How many ball colors are available for that level. Generally, the more colors are present on the level - the longer gameplay session is (it is harded to destroy balls if there are more colors). Default value for live version is 6",
+                    "type": "number",
+                    "min": 2,
+                    "max": 6
+                },
+                "prioritized_color": {
+                    "description": "A color that should be always present on the level.",
+                    "type": "string",
+                    "values": [
+                        "blue",
+                        "darkblue",
+                        "green",
+                        "pink",
+                        "red",
+                        "yellow"
+                    ]
+                },
+                "auto_scroll_enabled": {
+                    "description": "If set to true, the new bubbles will appear automatically every X seconds (see auto_scroll_interval override) regardless of shots/turns. If set to true, the game is basically endless",
+                    "type": "boolean"
+                },
+                "auto_scroll_interval": {
+                    "description": "Sets the interval (in seconds) on how often new bubbles apear automatically (works only with auto_scroll_enabled set to true)",
+                    "type": "number",
+                    "min": 1
+                },
+                "fireball_available_at_start": {
+                    "description": "Is fireball immediately available at the level start? If set to false, the fireball will be available after 30sec of gampelay",
+                    "type": "boolean"
+                },
+                "fireball_cooldown": {
+                    "description": "Cooldown of fireball powerup, in seconds",
+                    "type": "number",
+                    "min": 0,
+                    "max": 1000
+                }
+            }
+        },
+        "track_stats": {
+            "ball_shot": {
+                "description": "Player shot a ball of a certain color. Color is optional and is only sent when shot_type=ball",
+                "params": {
+                    "shot_type": {
+                        "type": "string",
+                        "values": [
+                            "ball",
+                            "fireball"
+                        ]
+                    },
+                    "color": {
+                        "type": "string",
+                        "values": [
+                            "blue",
+                            "darkblue",
+                            "green",
+                            "pink",
+                            "red",
+                            "yellow"
+                        ]
+                    }
+                }
+            },
+            "ball_destroyed": {
+                "description": "Player destroyed/detached/popped a ball of a certain color.",
+                "params": {
+                    "ball_color": {
+                        "type": "string",
+                        "values": [
+                            "Navy",
+                            "Blue",
+                            "Lime",
+                            "Purple",
+                            "Red",
+                            "Orange",
+                            "Green",
+                            "Yellow",
+                            "Marine"
+                        ]
+                    },
+                    "destruction_cause": {
+                        "type": "string",
+                        "values": [
+                            "popped",
+                            "detached",
+                            "fireball"
+                        ]
+                    }
+                }
+            },
+            "combo_achieved": {
+                "description": "Player achieved a combo",
+                "params": {
+                    "combo": {
+                        "type": "number",
+                        "min": 1,
+                        "max": 10
+                    }
+                }
+            },
+            "level_complete_time": {
+                "description": "level completion time in seconds",
+                "type": "number"
+            },
+            "level_lost_time": {
+                "description": "level playtime in case it is lost, in seconds",
+                "type": "number"
+            }
+        }
+    }
+}

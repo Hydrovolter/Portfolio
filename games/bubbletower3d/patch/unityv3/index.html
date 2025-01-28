@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>{title} Unblocked - CrazyGames</title>
+    <meta name="description" content="{description}">
+    <meta property="og:image" content="{thumbs}" />
+    <link rel="shortcut icon" href="patch/unityv3/favicon.ico">
+    <link rel="stylesheet" href="patch/unityv3/style.css">
+    <!-- <script src="patch/js/crazygames-sdk-v1.js"></script> -->
+    <!-- <script src="patch/js/crazygames-sdk-v2.js"></script> -->
+    <script src="patch/js/crazygames-sdk-x.js"></script>    
+    <!-- <script src="patch/unityv3/bundle.js"></script> -->
+    <script src="patch/unityv3/UnityProgress.js"></script>
+    <script src="patch/unityv3/UnityLoader-v3.js"></script>
+    <script>
+      UnityURLFix= function(url) {
+        let fix_url= url;
+        if (url.indexOf('.unity3d.com') > -1) {
+          fix_url= "patch/json/null.json?"+ url;
+        }
+        console.log("--UnityLoadFix--", url, fix_url);
+        return fix_url;
+      }
+
+      UnityMethodFix= function(method, url) {
+        if (url.indexOf('.unity3d.com') > -1) {
+          return "GET";
+        }
+        return method;
+      }
+      
+      var gameInstance = UnityLoader.instantiate(
+        "gameContainer",
+        "{json_url}",
+        {
+            onProgress: UnityProgress,Module:{
+                onRuntimeInitialized: function() {
+                    UnityProgress(gameInstance, "complete")
+                }
+            }
+        });
+
+      function fixGameView() {
+            const gameView= document.getElementById("gameView");
+            if (gameView.clientHeight> gameView.clientWidth) {
+                gameView.style.height= Math.floor(gameView.clientWidth)+ "px";
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            margin: 0px;
+            padding:0px;
+        }
+    </style>
+</head>
+<body style="overflow:hidden; margin:0; padding:0;" onload="fixGameView()">
+    <div id="gameView" class="webgl-content" style="position: absolute; width: 100%; height: 100%; margin: 0px; padding:0px;">
+        <div id="gameContainer" style="width: 100%; height: 100%; margin: 0px; padding:0px;"></div>
+        <!--<div class="footer">
+            <div class="webgl-logo"></div>
+            <div class="fullscreen" onclick="gameInstance.SetFullscreen(1)"></div>
+            <div class="title">Tunnel Rush</div>
+        </div>-->
+    </div>
+    <!-- <script src="js/analytics_ubg_v1_4.js"></script>
+    <script src="js/ubg235_client_v1_1.js"></script> -->
+</body>
+</html>
