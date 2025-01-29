@@ -1,0 +1,213 @@
+@font-face {
+    font-family: 'MyFont';
+    src: url('assets/Teko-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IBM';
+    src: url('assets/IBMPlexMono-Regular.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Karnak';
+    src: url('assets/NYTKarnakCondensed.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.game-wrapper
+{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+}
+
+.word-input
+{
+    width: clamp(100px, 95%, 600px);
+    height: clamp(30px, 50%, 80px);
+    font-size: 50px;
+    padding-left: 15px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    outline: none;
+    border: 1px solid #686D76;
+    color: black;
+    background-color: #d4d3d3;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    margin-top: 13px;
+    font-family:'IBM', sans-serif;
+    transition: border-color 0.3s;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 #09ff00;
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(0, 123, 255, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(0, 123, 255, 0);
+    }
+}
+
+.pulse {
+    animation: pulse .8s infinite;
+}
+
+@keyframes shake
+{
+    0% {transform:translateX(8px)}
+    50% {transform:translateX(-8px)}
+    100% {transform:translateX(8px)}
+}
+
+.shake {
+    animation: shake 0.15s;
+}
+
+.countdown-bar
+{
+    position: relative;
+    width: clamp(130px, 98%, 610px);
+    border-radius: 2px;
+    height: clamp(2px, 50%, 5px);
+    background-color: gray;
+}
+.countdown-bar::before
+{
+    content: '';
+    display: flex;
+    align-items: center;
+    position: absolute;
+    background-color: #ffffff;
+    height: 100%;
+    width: calc(var(--width, 100) * 1%);
+    border-radius: 2px;
+    max-width: 100%;
+}
+.letter-seq
+{
+    font-size: clamp(70px, 15vw, 80px);
+    text-align: center;
+    font-family:'Karnak', sans-serif;
+    color: white;
+    text-transform: none;
+    margin: 0;
+    padding: 0;
+    line-height: 1;
+}
+
+.play-but
+{
+    margin-top: 10px;
+    width: 200px;
+    height: 50px;
+    font-family: "IBM", sans-serif;
+    font-weight: bold;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
+    font-size: 20px;
+    border-radius: 15px;
+    cursor: pointer;
+    text-align: center;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    -webkit-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+    -webkit-transition-property: box-shadow, transform;
+    transition-property: box-shadow, transform;
+    border: 0px;
+    touch-action: none;
+}
+
+.play-but:hover, .play-but:focus, .play-but:active
+{
+    box-shadow: 0, 0, 20px, rgba(0, 0, 0, 0.5);
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+.play-but:disabled {
+    background-color: gray; 
+    cursor: not-allowed;
+    box-shadow: none; 
+    transform: none; 
+}
+
+.message
+{
+    margin-top: 10px;
+    
+    font-size: 20px;
+    text-align: center;
+    font-family:'IBM', sans-serif;
+    color: white;
+    text-transform: lowercase; 
+}
+
+.option-button {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    outline: none;
+}
+.option-button img
+{
+    opacity: 90%;
+    width: 30px;
+    height: 30px;
+    filter: invert(1);
+    transition: opacity 0.1s;
+    touch-action: none;
+}
+.option-button:focus img, .option-button:hover img
+{
+    opacity: 25%;
+}
+@media (max-width: 768px) {
+    .option-button:focus img,
+    .option-button:hover img {
+        opacity: 100%;
+    }
+}
+.option-button.clicked img {
+    opacity: 25%;
+}
+.options-wrapper 
+{
+    display: flex;
+}
+.option-button-wrapper
+{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+body
+{
+    background-color:#1d1d1d;
+}
+.word-count {
+    display: flex;
+    font-size: 50px;
+    text-align: center;
+    font-family: 'MyFont', sans-serif;
+    color: white;
+}
+.skip-count {
+    display: flex;
+    font-size: 25px;
+    text-align: center;
+    font-family: 'MyFont', sans-serif;
+    color: white;
+}
+
+
