@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+   "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Color Paths</title>
+
+    <meta http-equiv="X-UA-Compatible" content="IE=IE9" >
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <link rel="icon" type="image/x-icon" href="favicon.svg">
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="Color Paths" name=title>
+    <meta content="A knock-off of the game Flow Free - connect matching colored dots with paths without overlapping to fill the grid." name=description>
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=favicon.svg name=og:image> 
+
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css" media="screen">
+
+    <meta name="viewport"/>
+
+    <script type="text/javascript" src="js/libs/viewporter.js"></script>
+    <script type="text/javascript" src="js/libs/caat-min.js"></script>
+    <script type="text/javascript" src="js/libs/sylvester.js"></script>
+    <script type="text/javascript" src="js/libs/PxLoader.js"></script>
+    <script type="text/javascript" src="js/libs/PxLoaderImage.js"></script>
+    <script type="text/javascript" src="js/libs/tge-min.js"></script>
+    
+    <script type="text/javascript" src="js/scripts/MyGame.js"></script>
+    <script type="text/javascript" src="js/scripts/PauseScreen.js"></script>
+    <script type="text/javascript" src="js/scripts/GameOver.js"></script>
+    <script type="text/javascript" src="js/scripts/LoadingScreen.js"></script>
+    <script type="text/javascript" src="js/scripts/MainMenu.js"></script>
+    <script type="text/javascript" src="js/scripts/GameTimer.js"></script>
+    
+    <!-- TreSensa Game Engine -->
+    <script type="text/javascript">
+        var _myGame;
+        function initializeTGE() {
+             _myGame = new MyGame();
+            if(_myGame.IsPlatformAcceptable()) {
+                _myGame.Launch("game_canvas", "game_canvas_wrong");
+            }
+        }
+        window.addEventListener ? window.addEventListener("load",initializeTGE,false) : window.attachEvent && window.attachEvent("onload",initializeTGE);
+
+    </script>
+
+</head>
+
+
+<body>
+
+    <div id="viewporter" align="center" width="100%">
+        <div id="game_canvas" style="position:relative; width:320px; height:416px; top:0px; text-align: center; vertical-align: middle;">
+        </div>
+        <div id="game_canvas_wrong" style="display:none;position:relative; width:416px; height:320px; top:0px; text-align: center; vertical-align: middle;"> <h3>This game is not supported in landscape mode.</h3>
+        </div>
+    </div>
+
+</body>
+
+</html>
