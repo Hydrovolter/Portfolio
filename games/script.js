@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
             max-width: 400px;
         ">
         <p style="margin-bottom: 15px;">
-        <span style="font-size: 1.2em; font-weight: bold; text-decoration: underline;">Vote</span>:<br>Would you continue to use the site IF there were non-obstrusive ads displayed?
+        <span style="font-size: 1.2em; font-weight: bold; text-decoration: underline;">Vote</span>:<br>Would you continue to use the site IF there were non-obtrusive ads displayed?
         </p>
     
             <button id="voteYes" style="
