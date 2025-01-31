@@ -1,5 +1,5 @@
 # Portfolio
-Hey, this is my portfolio where I keep some of my projects, information about me and achievements.
+Hey, this is [my portfolio](https://hydrovolter.pages.dev/) where I keep some of my projects, information about me and achievements.
 
 # TODO
 - add animation/buffer between dealt cards in card counter (in case the exact same cards come up twice in a row)
@@ -17,3 +17,7 @@ Hey, this is my portfolio where I keep some of my projects, information about me
 - adjust presence depending on activity type (remove grid for custom, non-images etc.)
 - add interactable presence (e.g. click on spotify songs, hyperlinks in status)
 - add a progress bar to songs / music in presence ?? (maybe)
+
+# DISCLAIMER
+Almost none of the games in the [Games](/games/) section were coded by me - I simply found an online repository and copied/modified it slightly
+Please read [DISCLAIMER.md](/games/DISCLAIMER.md) in the [Games](/games/) folder for more information.
