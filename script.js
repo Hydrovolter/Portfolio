@@ -266,7 +266,7 @@ submitButton.onclick = () => {
   submitButton.innerText = "Sending...";
   submitButton.disabled = true;
 
-  fetch('https://api.hydrovolter.workers.dev/', {
+  fetch('https://api.hydrovolter.workers.dev/contact/', {
     method: 'POST',
     body: JSON.stringify({
       email: email,
