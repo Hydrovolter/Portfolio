@@ -1,0 +1,63 @@
+/*
+dark blue:  #191b25
+red:        #fe494e
+purple:     #9b57ff
+blue:       #36c1f6
+green:      #32cb8b
+yellow:     #ffd751
+orange:     #ff9552
+*/
+
+body {
+    background: #182670;
+  }
+  
+  #header {
+    color: #fafafa;
+  }
+  
+  #left-wing {
+    color: #ca8d67;
+  }
+  
+  #right-wing {
+    color: #ca8d67;
+  }
+  
+  #typing-area, #theme-area {
+    background: #909ddf;
+  }
+  
+  #text-display {
+    color: #fafafa;
+  }
+  
+  #input-field {
+    background: #a8aee4;
+    color: #fafafa;
+  }
+  
+  #input-field.wrong {
+    background: rgba(219, 65, 70, 0.3);
+  }
+  
+  #redo-button {
+    background: #32cb8b;
+    color: #fafafa;
+  }
+  
+  #footer {
+    color: #5fff3f;
+  }
+  
+  .highlight {
+    color: #87c5f7;
+  }
+  
+  .correct {
+    color: #32cb8b;
+  }
+  
+  .wrong {
+    color: #fe494e;
+  }

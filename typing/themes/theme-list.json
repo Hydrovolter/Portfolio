@@ -143,5 +143,9 @@
     "kobayashi":{
         "background":"#EBCD01",
         "color":"#F00D00"
+    },
+    "dreadnaught":{
+        "background":"#70B9E1",
+        "color":"#002b36"
     }
 }
