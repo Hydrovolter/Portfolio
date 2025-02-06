@@ -254,12 +254,33 @@ submitButton.onclick = () => {
   const content = document.getElementById("form-content").value;
 
   if (!email || !subject || !content) {
-    alert('All fields are required!');
+    //alert('All fields are required!');
+    submitButton.style.backgroundColor = "#ed4444";
+    submitButton.style.color = "white";
+    submitButton.innerText = "All fields are required";
+    submitButton.disabled = false;
+
+    setTimeout(() => {
+        submitButton.style.backgroundColor = null;
+        submitButton.style.color = null;
+        submitButton.innerText = "Submit!";
+      }, 2000);
     return;
   }
 
   if (!validateEmail(email)) {
-    alert('Please enter a valid email address!');
+    //alert('Please enter a valid email address!');
+    submitButton.style.backgroundColor = "#ed4444";
+    submitButton.style.color = "white";
+    submitButton.innerText = "Invalid email address";
+    submitButton.disabled = false;
+
+    setTimeout(() => {
+        submitButton.style.backgroundColor = null;
+        submitButton.style.color = null;
+        submitButton.innerText = "Submit!";
+      }, 2000);
+    return;
     return;
   }
 
