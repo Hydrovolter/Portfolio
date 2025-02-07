@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Snow Rider 3D</title>
+    <link rel="shortcut icon" href="TemplateData/favicon.ico">
+    <link rel="stylesheet" href="TemplateData/style.css">
+    <meta property="og:image" content="snow-rider-3d.png" />
+
+    <link rel="icon" type="image/x-icon" href="favicon.png">
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="Snow Rider 3D" name=title>
+    <meta content="Glide down snowy slopes, dodge obstacles, and perform jumps for high scores." name=description>
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=favicon.png name=og:image>  
+
+    <script src="TemplateData/UnityProgress.js"></script>
+    <script src="Build/UnityLoader.js"></script>
+    <script>
+        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/SnowRider3D-gd-1.json", { onProgress: UnityProgress, Module: { onRuntimeInitialized: function () { UnityProgress(gameInstance, "complete") } } });
+    </script>
+</head>
+
+<body style="overflow:hidden; margin:0; padding:0;">
+    <div class="webgl-content" style="position: absolute; width: 100%; height: 100%;">
+        <div id="gameContainer" style="width: 960px; height: 600px; margin: auto"></div>
+    </div>
+</body>
+
+</html>

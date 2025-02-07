@@ -18,6 +18,11 @@ Hey, this is [my portfolio](https://hydrovolter.pages.dev/) where I keep some of
 - add interactable presence (e.g. click on spotify songs, hyperlinks in status)
 - add a progress bar to songs / music in presence ?? (maybe)
 
+- add ADMIN PAGE
+- push news/announcements
+- toggle status/presence
+- display stats (cloudflare? polls? other data?)
+
 # DISCLAIMER
 Almost none of the games in the [Games](/games/) section were coded by me - I simply found an online repository and copied/modified it slightly
 Please read [DISCLAIMER.md](/games/DISCLAIMER.md) in the [Games](/games/) folder for more information.
