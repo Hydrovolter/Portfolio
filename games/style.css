@@ -3,7 +3,8 @@
     --secondary: rgb(25, 25, 25);
     --primary-accent: rgb(250, 250, 250);
     --secondary-accent: rgb(150, 150, 150);
-    --highlight: rgb(80, 184, 253);
+    --highlight: rgb(80, 184, 253, 0.75);
+    --secondary-highlight: rgba(80, 184, 253, 0.4);
 }
 
 * {
@@ -45,7 +46,14 @@ a {
     transition: all 0.3s ease;
 }
 
-.filter-btn:hover, .filter-btn.active {
+.filter-btn:hover {
+    background-color: var(--secondary-highlight);
+    color: white;
+    border-color: var(--highlight);
+    transform: scale(1.1);
+}
+
+.filter-btn.active {
     background-color: var(--highlight);
     color: white;
     border-color: var(--highlight);
