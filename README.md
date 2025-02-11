@@ -12,7 +12,6 @@ Hey, this is [my portfolio](https://hydrovolter.pages.dev/) where I keep some of
 - fix sitemap.xml lastmod dates
 
 - add more games, replace games which buffer / are blocked
-- add favicon to driftboss (new)
 - add local highscore tracker to wordbomb
 
 - adjust presence depending on activity type (remove grid for custom, non-images etc.)
