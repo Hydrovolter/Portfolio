@@ -27,30 +27,33 @@ a {
 }
 
 
-/* Filter Bar */
 #filter-bar {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     gap: 10px;
     margin: 20px auto;
+    max-width: 90%;
 }
 
 .filter-btn {
     background-color: var(--secondary);
     color: var(--primary-accent);
     border: 2px solid var(--primary-accent);
-    padding: 8px 15px;
+    padding: 8px 15px; 
     cursor: pointer;
-    border-radius: 10px;
-    font-size: 1rem;
+    border-radius: 10px; 
+    font-size: 1rem; 
     transition: all 0.3s ease;
+    min-width: 100px;
+    text-align: center;
+    white-space: nowrap; 
 }
 
 .filter-btn:hover {
     background-color: var(--secondary-highlight);
     color: white;
     border-color: var(--highlight);
-    transform: scale(1.1);
 }
 
 .filter-btn.active {
@@ -58,6 +61,14 @@ a {
     color: white;
     border-color: var(--highlight);
 }
+
+@media (max-width: 600px) {
+    #filter-bar {
+        justify-content: center;
+    }
+}
+
+
 
 /*
 ::-webkit-scrollbar {
