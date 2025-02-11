@@ -23,8 +23,18 @@
         Home
     </a>    
     <h1 id="games-title">Games</h1>
+
+    <div id="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+        <button class="filter-btn" data-filter="action">Action</button>
+        <button class="filter-btn" data-filter="skill">Skill</button>
+        <button class="filter-btn" data-filter="classic">Classic</button>
+        <button class="filter-btn" data-filter="other">Other</button>
+    </div>
+
     <div id="games-container">
-        <div class="game-card" onclick="location.href='/games/wordle/';">
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/wordle/';">
             <img src="/games/covers/wordle.png" alt="Wordle Image">
             <h3>Wordle</h3>
             <p>Guess the 5-letter hidden word in 6 tries - unlimited puzzles.</p>
@@ -43,14 +53,6 @@
             <h3>Connections</h3>
             <p>Group words into meaningful categories, testing logic and lateral thinking in a fun, engaging way.</p>
         </div>
-<!--
-        <div class="game-card" onclick="location.href='https://connections-hydro.pages.dev/';">
-            <img src="/games/covers/connections.png" alt="Connections Image">
-            <h3>Connections</h3>
-            <p>Group words into meaningful categories, testing logic and lateral thinking in a fun, engaging way.</p>
-        </div>
--->
-
         <div class="game-card new-game" onclick="location.href='/games/suika/';">
             <div class="overlay">
                 <span>NEW!</span>
@@ -95,18 +97,6 @@
             <p>Balance an egg on top of a car while navigating hilly roads without dropping it.</p>
             <div class="warning-message">Game may take long to / not load</div>
         </div>
-<!--
-
-        <div class="game-card under-development">
-            <div class="overlay">
-                <span>Under Development</span>
-            </div>
-            <img src="/games/covers/eggycar.png" alt="Eggy Car Image">
-            <h3>Eggy Car</h3>
-            <p>Balance an egg on top of a car while navigating hilly roads without dropping it.</p>
-        </div>
--->
-
         <div class="game-card" onclick="location.href='https://super-star-car-hydro.vercel.app/';">
             <img src="/games/covers/superstarcar.png" alt="Super Star Car Image">
             <h3>Super Star Car</h3>
@@ -264,16 +254,7 @@
             <h3>Boxel Rebound</h3>
             <p>Control a box and jump over obstacles to complete levels with precise timing.</p>
         </div>
-        <!-- 
-        <div class="game-card new-game" onclick="location.href='/games/infiltratingtheairship/';">
-            <div class="overlay">
-                <span>NEW!</span>
-            </div>
-            <img src="/games/covers/infiltratingtheairship.png" alt="Infiltrating the Airship Image">
-            <h3>Infiltrating the Airship</h3>
-            <p>Help Henry Stickmin navigate an airship through decisions.</p>
-        </div>
-        -->
+        
         <div class="game-card" onclick="location.href='/games/gunmayhem2/';">
             <img src="/games/covers/gunmayhem2.png" alt="Gun Mayhem 2 Image">
             <h3>Gun Mayhem 2</h3>
@@ -288,6 +269,22 @@
             <p>Strategically shoot enemies, bounce bullets, and solve levels with precision.</p>
         </div>
 
+
+        <!-- 
+        <div class="game-card new-game" onclick="location.href='/games/infiltratingtheairship/';">
+            <div class="overlay">
+                <span>NEW!</span>
+            </div>
+            <img src="/games/covers/infiltratingtheairship.png" alt="Infiltrating the Airship Image">
+            <h3>Infiltrating the Airship</h3>
+            <p>Help Henry Stickmin navigate an airship through decisions.</p>
+        </div>
+        -->
+
+
+<!--
+    data-category="puzzle" 
+-->
 
 <!--
 WARNING TAG 
