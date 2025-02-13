@@ -4,6 +4,7 @@
     --primary-accent: #e0e0e0;
     --secondary-accent: #999999;
     --accent-purple: #6200ea;
+    --accent-light-purple: #a569f8;
 }
 
 * {
@@ -181,11 +182,12 @@ footer {
 
 footer a {
     text-decoration: underline;
+    transition: color 0.25s ease;
     color: var(--primary-accent);
 }
 
 footer a:hover {
-    color: var(--accent-purple);
+    color: var(--accent-light-purple);
 }
 
 @media screen and (max-width: 600px) {
