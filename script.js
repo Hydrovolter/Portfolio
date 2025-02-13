@@ -224,25 +224,38 @@ console.log("Source Code is over at my Github - @hydrovolter "),
 
 window.addEventListener("load", ()=>{
     const e = document.getElementById("guide");
-    switch ("ontouchstart"in window ? e.innerText = "Swipe left, right, up, or down to navigate" : e.innerText = "Use your arrow keys to navigate",
-    window.location.hash) {
-    case "top":
-        v(l.Up);
-        break;
-    case "contact":
-        v(l.Down);
-        break;
-    case "about":
-        v(l.Left);
-        break;
-    case "dev":
-        v(l.Right)
+
+    if ("ontouchstart" in window) {
+        e.innerText = "Swipe left, right, up, or down to navigate";
+    } else {
+        e.innerText = "Use your arrow keys to navigate";
     }
+
+    switch (window.location.hash) {
+        case "#about":
+            v(l.Up);
+            break;
+        case "#contact":
+            v(l.Down);
+            break;
+        case "#blog":
+            v(l.Left);
+            break;
+        case "#dev":
+            v(l.Right);
+            break;
+        default:
+            break;
+    }
+
+    // Set alt, title, and aria-label for images
     for (const a of document.querySelectorAll("[alt]")) {
-        var i = a.getAttribute("alt");
-        a.title = i,
-        a.ariaLabel = i
+        const altText = a.getAttribute("alt");
+        a.title = altText;
+        a.ariaLabel = altText;
     }
+
+    // forms, api etc.
     const submitButton = document.getElementById("form-submit");
 
 submitButton.onclick = () => {
