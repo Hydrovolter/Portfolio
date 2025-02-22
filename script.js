@@ -341,13 +341,8 @@ submitButton.onclick = () => {
     submitButton.disabled = false;
   });
 };
-    
 
-}
-),
-
-window.addEventListener("DOMContentLoaded", ()=>{
-    console.log("dom content loaded debug")
+console.log("dom content loaded debug")
     const banner = document.getElementById('migration-banner');
     const closeButton = document.getElementById('close-banner');
 
@@ -363,7 +358,10 @@ window.addEventListener("DOMContentLoaded", ()=>{
     closeButton.addEventListener('click', function() {
         banner.style.display = 'none'; // Hide the banner completely
     });
-});
+    
+
+}
+),
 
 
 window.addEventListener("wheel", e=>{
