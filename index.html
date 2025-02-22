@@ -16,23 +16,7 @@
         <meta content=#00F6F4 name=theme-color>
         <meta content=summary_large_image name=twitter:card>
         <meta content=/assets/HydroSimple512.png name=og:image>
-        <script>
-            const banner = document.getElementById('migration-banner');
-            const closeButton = document.getElementById('close-banner');
-
-            if (window.location.hostname !== 'hydrovolter.com') {
-                console.log("location debug")
-                setTimeout(() => {
-                    banner.classList.add('show'); 
-                }, 500); // 0.5s delay
-            } else {
-                console.log("debug")
-            }
-            console.log("got past elif debug")
-            closeButton.addEventListener('click', function() {
-                banner.style.display = 'none'; // Hide the banner completely
-            });
-        </script>  
+          
     </head>
     <body>
         <div id="migration-banner">
@@ -352,3 +336,17 @@
 
             </div>
         </div>
+        <script>
+            const banner = document.getElementById('migration-banner');
+            const closeButton = document.getElementById('close-banner');
+
+            if (window.location.hostname !== 'hydrovolter.com') {
+                setTimeout(() => {
+                    banner.classList.add('show'); 
+                }, 500); // 0.5s delay
+            }
+            closeButton.addEventListener('click', function() {
+                banner.style.display = 'none'; // Hide the banner completely
+            });
+        </script>
+    </body>
