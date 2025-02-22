@@ -346,6 +346,19 @@ submitButton.onclick = () => {
 }
 ),
 
+document.addEventListener('DOMContentLoaded', function() {
+    const banner = document.getElementById('migration-banner');
+    const closeButton = document.getElementById('close-banner');
+
+    if (window.location.hostname !== 'hydrovolter.com') {
+        banner.classList.add('show'); // Slide down animation
+    }
+
+    closeButton.addEventListener('click', function() {
+        banner.classList.remove('show'); // Slide up animation
+    });
+});
+
 window.addEventListener("wheel", e=>{
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
         for (const t of e.path || e.composedPath()) {
