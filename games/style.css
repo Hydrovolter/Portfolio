@@ -434,11 +434,6 @@ a {
     animation: bounceZoom 1s infinite;
 }
 
-
-
-
-
-
 @media screen and (max-width: 600px) {
     #games-title {
         font-size: 2rem;
