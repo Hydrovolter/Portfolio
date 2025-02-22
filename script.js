@@ -347,17 +347,19 @@ submitButton.onclick = () => {
 ),
 
 document.addEventListener('DOMContentLoaded', function() {
+    console.log("dom content loaded debug")
     const banner = document.getElementById('migration-banner');
     const closeButton = document.getElementById('close-banner');
 
     if (window.location.hostname !== 'hydrovolter.com') {
+        console.log("location debug")
         setTimeout(() => {
             banner.classList.add('show'); 
         }, 500); // 0.5s delay
     } else {
         console.log("debug")
     }
-
+    console.log("got past elif debug")
     closeButton.addEventListener('click', function() {
         banner.style.display = 'none'; // Hide the banner completely
     });
