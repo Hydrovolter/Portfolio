@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+    /* AD VOTE SCRIPT
+
     if (localStorage.getItem("ads_vote_completed")) return;
 
     const popup = document.createElement("div");
@@ -117,6 +119,7 @@ document.addEventListener("DOMContentLoaded", function () {
         localStorage.setItem("ads_vote_completed", "true");
         sendVote("no");
     });
+    */
 });
 
 document.addEventListener("DOMContentLoaded", function () {
