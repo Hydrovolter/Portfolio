@@ -357,9 +357,10 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     closeButton.addEventListener('click', function() {
-        banner.classList.remove('show');
+        banner.style.display = 'none'; // Hide the banner completely
     });
 });
+
 
 window.addEventListener("wheel", e=>{
     if (Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
