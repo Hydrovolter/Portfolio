@@ -1,5 +1,5 @@
 # Portfolio
-Hey, this is [my portfolio](https://hydrovolter.pages.dev/) where I keep some of my projects, information about me and achievements.
+Hey, this is [my portfolio](https://hydrovolter.com/) where I keep some of my projects, information about me and achievements.
 
 # TODO
 - add animation/buffer between dealt cards in card counter (in case the exact same cards come up twice in a row)

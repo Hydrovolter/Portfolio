@@ -1,55 +1,55 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://hydrovolter.pages.dev/</loc>
+    <loc>https://hydrovolter.com/</loc>
     <lastmod>2025-01-20</lastmod> 
     <changefreq>daily</changefreq> 
     <priority>1.0</priority> 
   </url>
   <url>
-    <loc>https://hydrovolter.pages.dev/typing/</loc>
+    <loc>https://hydrovolter.com/typing/</loc>
     <lastmod>2023-05-09</lastmod> 
     <changefreq>never</changefreq> 
     <priority>0.8</priority> 
   </url>
   <url>
-    <loc>https://hydrovolter.pages.dev/games/</loc>
+    <loc>https://hydrovolter.com/games/</loc>
     <lastmod>2025-01-20</lastmod> 
     <changefreq>always</changefreq> 
     <priority>0.8</priority> 
   </url>
   <url>
-    <loc>https://hydrovolter.pages.dev/blog/404/</loc>
+    <loc>https://hydrovolter.com/blog/404/</loc>
     <lastmod>2024-12-31</lastmod> 
     <changefreq>never</changefreq> 
     <priority>0.6</priority> 
   </url>
   <url>
-    <loc>https://hydrovolter.pages.dev/blog/typing/</loc> 
+    <loc>https://hydrovolter.com/blog/typing/</loc> 
     <lastmod>2023-05-09</lastmod> 
     <changefreq>never</changefreq> 
     <priority>0.6</priority> 
   </url>
   <url>
-    <loc>https://hydrovolter.pages.dev/blog/snowflakeguide/</loc> 
+    <loc>https://hydrovolter.com/blog/snowflakeguide/</loc> 
     <lastmod>2024-12-31</lastmod> 
     <changefreq>never</changefreq> 
     <priority>0.6</priority> 
   </url>
   <url>
-    <loc>https://hydrovolter.pages.dev/cardcounter/</loc> 
+    <loc>https://hydrovolter.com/cardcounter/</loc> 
     <lastmod>2025-01-19</lastmod> 
     <changefreq>weekly</changefreq> 
     <priority>0.8</priority> 
   </url>
   <url>
-    <loc>https://hydrovolter.pages.dev/snowflake/</loc>
+    <loc>https://hydrovolter.com/snowflake/</loc>
     <lastmod>2024-12-31</lastmod> 
     <changefreq>never</changefreq> 
     <priority>0.7</priority> 
   </url>
   <url>
-    <loc>https://hydrovolter.pages.dev/games/wordle/</loc>
+    <loc>https://hydrovolter.com/games/wordle/</loc>
     <lastmod>2025-01-20</lastmod> 
     <changefreq>never</changefreq> 
     <priority>0.5</priority> 
