@@ -351,11 +351,13 @@ document.addEventListener('DOMContentLoaded', function() {
     const closeButton = document.getElementById('close-banner');
 
     if (window.location.hostname !== 'hydrovolter.com') {
-        banner.classList.add('show'); // Slide down animation
+        setTimeout(() => {
+            banner.classList.add('show'); 
+        }, 500); // 0.5s delay
     }
 
     closeButton.addEventListener('click', function() {
-        banner.classList.remove('show'); // Slide up animation
+        banner.classList.remove('show');
     });
 });
 
