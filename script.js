@@ -354,6 +354,8 @@ document.addEventListener('DOMContentLoaded', function() {
         setTimeout(() => {
             banner.classList.add('show'); 
         }, 500); // 0.5s delay
+    } else {
+        console.log("debug")
     }
 
     closeButton.addEventListener('click', function() {
