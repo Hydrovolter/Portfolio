@@ -1,117 +1,28 @@
-<head>
-  <link rel="icon" type="image/x-icon" href="/assets/HydroSimple192.png">
-  <title>404</title>
-  <script>
-      const images = [
-        "ah.webp",
-        "carcrash.webp",
-        "confused.webp",
-        "dizzy.webp",
-        "fly.webp",
-        "hatch.webp",
-        "inspect.webp",
-        "plane.webp",
-        "portal.webp",
-        "real.webp",
-        "uturn.webp",
-        "xray.webp"
-      ];
-    
-      const colors = [
-        "FBF8CC",
-        "FDE4CF",
-        "FFCFD2",
-        "F1C0E8",
-        "CFBAF0",
-        "A3C4F3",
-        "90DBF4",
-        "8EECF5",
-        "98F5E1",
-        "B9FBC0"
-      ];
-    
-      const titles = [
-        "Where are you going?",
-        "Oh no, it's a 404.",
-        "The chicken crossed the wrong road: 404!",
-        "That page doesn't exist...",
-        "How'd you get here?",
-        "Could not find that page.",
-        "You look lost...",
-        "Nothing here! Make a UTurn."
-      ];
-    
-      window.onload = () => {
-        // image
-        const imageElement = document.getElementById("image");
-        imageElement.src = "/assets/404Assets/outputs/" + images[Math.floor(Math.random() * images.length)];
-    
-        // title
-        const titleElement = document.getElementById("title");
-        titleElement.innerText = titles[Math.floor(Math.random() * titles.length)];
-    
-        // color
-        document.body.style.backgroundColor = "#" + colors[Math.floor(Math.random() * colors.length)];
-      };
-    </script>
-    
-    <style>
-      html,
-      body {
-        width: 100%;
-        height: 100%;
-    
-        margin: 0;
-        padding: 0;
-      }
-    
-      #container {
-        width: calc(100% - 25px - 25px);
-        height: calc(100% - 25px - 25px);
-        padding: 25px;
-    
-        display: flex;
-        align-items: center;
-        flex-direction: column;
-        justify-content: center;
-      }
-    
-      #image {
-        width: 100%;
-        height: 100%;
-    
-        max-width: 500px;
-        max-height: 500px;
-    
-        object-fit: contain;
-      }
-    
-      #title,
-      #description {
-        margin: 0;
-        color: black;
-        font-family: "Robot Mono", monospace;
-      }
-    
-      #title {
-        margin-top: 25px;
-    
-        font-size: 250%;
-        font-weight: bold;
-      }
-    
-      #description {
-        margin-top: 10px;
-        font-size: 100%;
-      }
-    </style>
-</head>
-  <body>
-    <div id="container">
-      <a href="/"><img id="image" /></a>
-      <h1 id="title"></h1>
-      <h3 id="description">Click the chicken to return home</h3>
-      <br><br>
-      <a href="/blog/404/" id="description">What is a 404 Error?</a>
-    </div>
-  </body>
+<!DOCTYPE html><!--[if lt IE 7 ]><html class="ie ie6" lang="en"> <![endif]--><!--[if IE 7 ]><html class="ie ie7" lang="en"> <![endif]--><!--[if IE 8 ]><html class="ie ie8" lang="en"> <![endif]--><!--[if (gte IE 9)|!(IE)]><!--> 
+    <html lang=en>
+         <!--<![endif]--> 
+         <head> <meta charset="utf-8"> 
+            <title>404</title> <meta name=author content="pkfrom">
+                <meta name=keywords content="404 page, css3, template, html5 template">
+                <meta name=description content="404 - Page Template">
+                <meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+                <!-- Libs CSS --> 
+                <link type=text/css media=all href=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css rel="stylesheet"> 
+                <link type=text/css media=all href=assets/404Assets/css/404.min.css rel="stylesheet"> <!-- Favicons --> 
+                <link rel=apple-touch-icon sizes=144x144 href="assets/404Assets/img/favicons/favicon144x144.png"> 
+                <link rel=apple-touch-icon sizes=114x114 href="assets/404Assets/img/favicons/favicon114x114.png"> 
+                <link rel=apple-touch-icon sizes=72x72 href="assets/404Assets/img/favicons/favicon72x72.png"> 
+                <link rel=apple-touch-icon href="assets/404Assets/img/favicons/favicon57x57.png"> 
+                <link rel="shortcut icon" href="assets/404Assets/img/favicons/favicon.png"> <!-- Google Fonts -->
+                <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900" rel=stylesheet type=text/css> 
+                 <body> <!-- Load page -->
+                     <div class=animationload>
+                         <div class=loader>
+                         </div> 
+                    </div> <!-- End load page --> <!-- Content Wrapper -->
+                     <div id=wrapper> <div class=container> <!-- Switcher --> 
+                        <div class=switcher> <input id=sw type=checkbox class=switcher-value> 
+                            <label for=sw class=sw_btn></label> <div class=bg></div> <div class=text>Turn <span class=text-l>off</span><span class=text-d>on</span><br>the light</div> </div> <!-- End Switcher --> <!-- Dark version --> <div id=dark class="row text-center"> <div class=info> <img src=./assets/404Assets/img/404-dark.png alt="404 error"> </div> </div> <!-- End Dark version --> <!-- Light version --> <div id=light class="row text-center"> <!-- Info --> <div class=info> <img src=./assets/404Assets/img/404-light.gif alt="404 error"> <!-- end Rabbit --> <!--<p>The page you are looking for was moved, removed,<br> renamed or might never existed.</p>--><br> <a href="/" class=btn>Go Home</a> <!--<a href="#" class="btn btn-brown">Contact Us</a>--> </div> <!-- end Info --> </div> <!-- End Light version --> </div> <!-- end container --> </div> <!-- end Content Wrapper --> <!-- Scripts --> <script src=https://code.jquery.com/jquery-2.2.0.min.js type=text/javascript></script> <script src=https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js type=text/javascript></script> <script src=assets/404Assets/js/modernizr.custom.js type=text/javascript></script> <script src=https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.6.0/jquery.nicescroll.min.js type=text/javascript></script> <script src=assets/404Assets/js/404.min.js type=text/javascript></script> <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries --> <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->  
