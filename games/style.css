@@ -78,6 +78,7 @@ a {
 }
 
 #migration-banner {
+    display: none;
     position: fixed;
     top: -80px; /* Start off-screen */
     left: 50%;
@@ -124,6 +125,7 @@ a {
 }
 
 #migration-banner.show {
+    display: flex;
     top: 20px; /* Slide down */
 }
 

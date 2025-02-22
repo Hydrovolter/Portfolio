@@ -123,18 +123,6 @@ document.addEventListener("DOMContentLoaded", function () {
 });
 
 document.addEventListener("DOMContentLoaded", function () {
-    const banner = document.getElementById('migration-banner');
-    const closeButton = document.getElementById('close-banner');
-
-    if (window.location.hostname !== 'hydrovolter.com') {
-        setTimeout(() => {
-            banner.classList.add('show'); 
-        }, 500); // 0.5s delay
-    }
-
-    closeButton.addEventListener('click', function() {
-        banner.classList.remove('show');
-    });
     const filterButtons = document.querySelectorAll(".filter-btn");
     const gameCards = document.querySelectorAll(".game-card");
 

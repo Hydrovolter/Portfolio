@@ -364,5 +364,21 @@ UNDER DEVELOPMENT TAG
             <p>If you have any suggestions for games, feel free to let me know!</p>
         </div>
     </div>
+    
+    <script>
+        const banner = document.getElementById('migration-banner');
+        const closeButton = document.getElementById('close-banner');
+    
+        if (window.location.hostname !== 'hydrovolter.com') {
+            setTimeout(() => {
+                banner.style.display = 'flex'; 
+                banner.classList.add('show'); 
+            }, 500); // 0.5s delay
+        }
+        
+        closeButton.addEventListener('click', function() {
+            banner.style.display = 'none';
+        });
+    </script>
 </body>
 </html>
