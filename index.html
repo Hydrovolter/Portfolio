@@ -337,19 +337,22 @@
             </div>
         </div>
         <script>
-            console.log("does this even run??")
+            console.log("does this even run??");
             const banner = document.getElementById('migration-banner');
             const closeButton = document.getElementById('close-banner');
-
+        
             if (window.location.hostname !== 'hydrovolter.com') {
-                console.log("banner?")
+                console.log("banner?");
                 setTimeout(() => {
+                    banner.style.display = 'flex'; // Make the banner visible
                     banner.classList.add('show'); 
                 }, 500); // 0.5s delay
             }
-            console.log("past?")
+            
+            console.log("past?");
             closeButton.addEventListener('click', function() {
                 banner.style.display = 'none'; // Hide the banner completely
             });
         </script>
+        
     </body>
