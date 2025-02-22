@@ -346,7 +346,7 @@ submitButton.onclick = () => {
 }
 ),
 
-document.addEventListener('DOMContentLoaded', function() {
+window.addEventListener("DOMContentLoaded", ()=>{
     console.log("dom content loaded debug")
     const banner = document.getElementById('migration-banner');
     const closeButton = document.getElementById('close-banner');
