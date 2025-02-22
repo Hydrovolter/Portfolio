@@ -89,7 +89,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const popupDiv = document.getElementById("adsPopup");
         popupDiv.innerHTML = `<p style='color: var(--primary-accent); text-align: center;'>Processing...</p>`;
 
-        fetch("https://api.hydrovolter.workers.dev/ads/", {
+        fetch("https://api.hydrovolter.com/ads/", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify({ vote })
