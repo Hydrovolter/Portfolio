@@ -125,9 +125,53 @@ const statusIconMap = {
             activityState.style.display = "none";
         }
     } else {
+        fetch('https://lichess.org/api/user/NaturalQuilt/current-game', { headers: { 'Accept': 'application/json' } })
+    .then(response => response.json())
+    .then(gameData => {
+        if (gameData && gameData.id && gameData.status === 'started') {
+            console.log(gameData)
+            activityContainerTotal.style.display = "flex";
+            activityContainer.style.display = "block";
+            activityImageContainer.style.display = "block";
+            activityImage.style.display = "block";
+            
+            activityImage.src = "/assets/status/lichess.png";
+
+
+            activityName.textContent = `Playing on Lichess (${gameData.clock.initial / 60}+${gameData.clock.increment})`;
+
+            const isWhite = gameData.players.white.user?.name === 'NaturalQuilt';
+            const opponentColor = isWhite ? 'black' : 'white';
+            const myColor = isWhite ? 'white' : 'black';
+
+            activityDetails.style.display = "block";
+            activityDetails.textContent = `${opponentColor.charAt(0).toUpperCase()}${opponentColor.slice(1)}: ${gameData.players[opponentColor].user?.name ?? 'AI'} (${gameData.players[opponentColor].rating ?? 'N/A'})`;
+
+            activityState.style.display = "block";
+            activityState.textContent = `${myColor.charAt(0).toUpperCase()}${myColor.slice(1)} [me]: ${gameData.players[myColor].user.name} (${gameData.players[myColor].rating})`;
+        } else {
+            activityContainer.style.display = "none";
+            activityContainerTotal.style.display = "none";
+        }
+    })
+    .catch(() => {
         activityContainer.style.display = "none";
         activityContainerTotal.style.display = "none";
+    });
+
+
+
+
+    
+
     }
+    
+    
+
+   // else {
+  //      activityContainer.style.display = "none";
+ //       activityContainerTotal.style.display = "none";
+//    }
     
     } catch (error) {
       console.error("Error fetching or updating profile status: ", error);
