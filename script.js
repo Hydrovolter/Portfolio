@@ -96,19 +96,28 @@ const statusIconMap = {
       if (data.activityType && (data.activityText || data.activityDetails)) {
         activityContainerTotal.style.display = "flex";
         activityContainer.style.display = "block";
-        activityImage.style.display = data.activityImage ? "block" : "none";
-        activityImage.src = data.activityImage || "";
-  
+        
+        const hasImage = !!data.activityImage;
+        activityImage.style.display = hasImage ? "block" : "none";
+        activityImage.src = hasImage ? data.activityImage : "";
+        
+        const gridContainer = document.querySelector('.grid-container');
+        if (hasImage) {
+            gridContainer.classList.remove('single-column');
+        } else {
+            gridContainer.classList.add('single-column');
+        }
+    
         activityName.textContent = data.activityType;
         activityDetails.textContent = data.activityDetails || "";
         activityState.textContent = data.activityText || "";
-      } else {
-        // Hide activity container if no activity
+    } else {
         activityContainer.style.display = "none";
         activityContainerTotal.style.display = "none";
-      }
+    }
+    
     } catch (error) {
-      console.error("Error fetching or updating profile status:", error);
+      console.error("Error fetching or updating profile status: ", error);
     }
   }
   
