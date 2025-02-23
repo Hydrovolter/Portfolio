@@ -52,7 +52,7 @@ function o(e) {
     ))
 }
 
-const apiEndpoint = 'https://status-boh2.onrender.com/api/presence';
+const apiStatusEndpoint = 'https://status-boh2.onrender.com';
 
 const statusIconMap = {
     online: "/assets/status/online.svg",
@@ -65,7 +65,7 @@ const statusIconMap = {
   // fetch user presence and update profile
   async function updateProfileStatus() {
     try {
-      const response = await fetch(apiEndpoint);
+      const response = await fetch(`${apiStatusEndpoint}/api/presence`);
       const data = await response.json();
       
       // update profile avatar status
@@ -322,7 +322,9 @@ submitButton.onclick = () => {
   submitButton.innerText = "Sending...";
   submitButton.disabled = true;
 
-  fetch('https://api.hydrovolter.com/contact/', {
+  const apiEndpoint = 'https://api.hydrovolter.com';
+
+  fetch(`${apiEndpoint}/contact/`, {
     method: 'POST',
     body: JSON.stringify({
       email: email,
