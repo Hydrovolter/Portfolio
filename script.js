@@ -89,6 +89,7 @@ const statusIconMap = {
       const activityContainer = document.getElementById("profile-activity");
       const activityContainerTotal = document.getElementById("profile-activity-container")
       const activityImage = document.getElementById("profile-activity-large-image");
+      const activityImageContainer = document.getElementById("profile-activity-image-container")
       const activityName = document.getElementById("profile-activity-name");
       const activityDetails = document.getElementById("profile-activity-details");
       const activityState = document.getElementById("profile-activity-state");
@@ -99,6 +100,7 @@ const statusIconMap = {
         
         const hasImage = !!data.activityImage;
         activityImage.style.display = hasImage ? "block" : "none";
+        activityImageContainer.style.display = hasImage ? "block" : "none";
         activityImage.src = hasImage ? data.activityImage : "";
         
         const gridContainer = document.querySelector('.grid-container');
@@ -109,8 +111,19 @@ const statusIconMap = {
         }
     
         activityName.textContent = data.activityType;
-        activityDetails.textContent = data.activityDetails || "";
-        activityState.textContent = data.activityText || "";
+        if (data.activityDetails) {
+            activityDetails.style.display = "block";
+            activityDetails.textContent = data.activityDetails;
+        } else {
+            activityDetails.style.display = "none";
+        }
+        
+        if (data.activityText) {
+            activityState.style.display = "block";
+            activityState.textContent = data.activityText;
+        } else {
+            activityState.style.display = "none";
+        }
     } else {
         activityContainer.style.display = "none";
         activityContainerTotal.style.display = "none";
