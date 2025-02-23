@@ -52,7 +52,7 @@ function o(e) {
     ))
 }
 
-const apiStatusEndpoint = 'https://status-boh2.onrender.com';
+const apiStatusEndpoint = 'https://status.hydrovolter.com';
 
 const statusIconMap = {
     online: "/assets/status/online.svg",
