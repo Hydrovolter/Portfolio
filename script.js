@@ -125,7 +125,8 @@ const statusIconMap = {
             activityState.style.display = "none";
         }
     } else {
-        fetch('https://lichess.org/api/user/NaturalQuilt/current-game', { headers: { 'Accept': 'application/json' } })
+        const lichessUsername = "NaturalQuilt"
+        fetch(`https://lichess.org/api/user/${lichessUsername}/current-game`, { headers: { 'Accept': 'application/json' } })
     .then(response => response.json())
     .then(gameData => {
         if (gameData && gameData.id && gameData.status === 'started') {
@@ -140,7 +141,7 @@ const statusIconMap = {
 
             activityName.textContent = `Playing on Lichess (${gameData.clock.initial / 60}+${gameData.clock.increment})`;
 
-            const isWhite = gameData.players.white.user?.name === 'NaturalQuilt';
+            const isWhite = gameData.players.white.user?.name === lichessUsername;
             const opponentColor = isWhite ? 'black' : 'white';
             const myColor = isWhite ? 'white' : 'black';
 
