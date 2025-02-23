@@ -93,7 +93,7 @@ const statusIconMap = {
       const activityDetails = document.getElementById("profile-activity-details");
       const activityState = document.getElementById("profile-activity-state");
       
-      if (data.activityType && data.activityText) {
+      if (data.activityType && (data.activityText || data.activityDetails)) {
         activityContainerTotal.style.display = "flex";
         activityContainer.style.display = "block";
         activityImage.style.display = data.activityImage ? "block" : "none";
