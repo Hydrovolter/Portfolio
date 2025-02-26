@@ -1,0 +1,377 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<stringresources>
+<languages>
+<language>en</language>
+<language>sk</language>
+<language>es</language>
+<language>cz</language>
+<language>de</language>
+<language>it</language>
+<language>fr</language>
+<language>ru</language>
+<language>pt</language>
+<language>tr</language>
+</languages>
+<strings>
+<string id="1" index="0">
+<en>en</en>
+<sk>sk</sk>
+<es>es</es>
+<cz>cz</cz>
+<de>de</de>
+<it>it</it>
+<fr>fr</fr>
+<ru>ru</ru>
+<pt>pt</pt>
+<tr>tr</tr>
+</string>
+<string id="2" index="1">
+<en>ENABLE MUSIC?</en>
+<sk/>
+<es>¿PONER MÚSICA?</es>
+<cz/>
+<de>MUSIK EINSCHALTEN?</de>
+<it/>
+<fr>ACTIVER LES SONS?</fr>
+<ru/>
+<pt>LIGAR A MÚSICA?</pt>
+<tr/>
+</string>
+<string id="3" index="2">
+<en>YES</en>
+<sk/>
+<es>SÍ</es>
+<cz/>
+<de>JA</de>
+<it/>
+<fr>OUI</fr>
+<ru/>
+<pt>SIM</pt>
+<tr/>
+</string>
+<string id="4" index="3">
+<en>NO</en>
+<sk/>
+<es>NO</es>
+<cz/>
+<de>NEIN</de>
+<it/>
+<fr>NON</fr>
+<ru/>
+<pt>NÃO</pt>
+<tr/>
+</string>
+<string id="5" index="4">
+<en>MENU</en>
+<sk>bb label</sk>
+<es>MENÚ</es>
+<cz/>
+<de>MENÜ</de>
+<it/>
+<fr>MENU</fr>
+<ru/>
+<pt>MENU</pt>
+<tr/>
+</string>
+<string id="6" index="5">
+<en>BACK</en>
+<sk>bb label</sk>
+<es>VOLVER</es>
+<cz/>
+<de>ZURÜCK</de>
+<it/>
+<fr>RETOUR</fr>
+<ru/>
+<pt>VOLTAR</pt>
+<tr/>
+</string>
+<string id="7" index="6">
+<en>PLAY</en>
+<sk/>
+<es>JUGAR</es>
+<cz/>
+<de>SPIELEN</de>
+<it>Gioca</it>
+<fr>JOUER</fr>
+<ru/>
+<pt>JOGAR</pt>
+<tr/>
+</string>
+<string id="8" index="7">
+<en>INSTRUCTIONS</en>
+<sk/>
+<es>INSTRUCCIONES</es>
+<cz/>
+<de>ANLEITUNG</de>
+<it>ISTRUZIONI</it>
+<fr>INSTRUCTIONS</fr>
+<ru/>
+<pt>INSTRUÇÕES</pt>
+<tr/>
+</string>
+<string id="9" index="8">
+<en>SOUND</en>
+<sk/>
+<es>SONIDO</es>
+<cz/>
+<de>TON</de>
+<it>suono</it>
+<fr>SON</fr>
+<ru/>
+<pt>SOM</pt>
+<tr/>
+</string>
+<string id="10" index="9">
+<en>ABOUT</en>
+<sk/>
+<es>SOBRE EL JUEGO</es>
+<cz/>
+<de>ÜBER SPIEL</de>
+<it>informazioni su</it>
+<fr>A PROPOS</fr>
+<ru/>
+<pt>SOBRE O JOGO</pt>
+<tr/>
+</string>
+<string id="11" index="10">
+<en>MORE GAMES</en>
+<sk/>
+<es>MÁS JUEGOS</es>
+<cz/>
+<de>MEHR SPIELE</de>
+<it/>
+<fr>PLUS DE JEUX</fr>
+<ru/>
+<pt>MAIS JOGOS</pt>
+<tr/>
+</string>
+<string id="12" index="11">
+<en>EXIT?</en>
+<sk/>
+<es>¿FINAL?</es>
+<cz/>
+<de>ENDE?</de>
+<it/>
+<fr>QUITTER?</fr>
+<ru/>
+<pt>ACABAR?</pt>
+<tr/>
+</string>
+<string id="13" index="12">
+<en>QUIT TO MENU</en>
+<sk/>
+<es>SALIR AL MENÚ</es>
+<cz/>
+<de>ZUM MENÜ</de>
+<it>TORNA AL MENU</it>
+<fr>RETOUR AU MENU</fr>
+<ru/>
+<pt>SAIR PARA O MENU</pt>
+<tr/>
+</string>
+<string id="14" index="13">
+<en>QUIT TO MENU? YOUR CURRENT GAME PROGRESS WILL BE LOST.</en>
+<sk/>
+<es>¿SALIR AL MENÚ? LA PARTIDA ACTUAL SE CANCELARÁ.</es>
+<cz/>
+<de>ZUM MENÜ? DEIN AKTUELLER SPIELFORTSCHRITT WIRD GELÖSCHT.</de>
+<it/>
+<fr>RETOUR AU MENU? VOTRE PROGRESSION ACTUELLE SERA PERDUE.</fr>
+<ru/>
+<pt>SAIR PARA O MENU? O JOGO ATUAL SERÁ CANCELADO.</pt>
+<tr/>
+</string>
+<string id="15" index="14">
+<en>ON</en>
+<sk/>
+<es>ON</es>
+<cz/>
+<de>AN</de>
+<it>Acc.</it>
+<fr>OUI</fr>
+<ru/>
+<pt>LIG.</pt>
+<tr/>
+</string>
+<string id="16" index="15">
+<en>OFF</en>
+<sk/>
+<es>OFF</es>
+<cz/>
+<de>AUS</de>
+<it>Chiud.</it>
+<fr>NON</fr>
+<ru/>
+<pt>DESLIG.</pt>
+<tr/>
+</string>
+<string id="17" index="16">
+<en>VERSION</en>
+<sk/>
+<es>VERSIÓN</es>
+<cz/>
+<de>VERSION</de>
+<it/>
+<fr>VERSION</fr>
+<ru/>
+<pt>VERSÃO</pt>
+<tr/>
+</string>
+<string id="18" index="17">
+<en>ARE YOU SURE? THIS WILL EXIT THE APPLICATION.</en>
+<sk/>
+<es>¿ESTÁS SEGURO? ESO TERMINARÁ LA PARTIDA.</es>
+<cz/>
+<de>BIST DU SICHER? DAS WIRD DIE ANWENDUNG BEENDEN.</de>
+<it/>
+<fr>L'APPLICATION SERA FERMÉE. CONFIRMER?</fr>
+<ru/>
+<pt>VOCÊ TEM CERTEZA? O JOGO VAI TERMINAR.</pt>
+<tr/>
+</string>
+<string id="19" index="18">
+<en>CONTINUE?</en>
+<sk/>
+<es>¿CONTINUAR?</es>
+<cz/>
+<de>WEITER?</de>
+<it/>
+<fr>CONTINUER?</fr>
+<ru/>
+<pt>CONTINUAR?</pt>
+<tr/>
+</string>
+<string id="20" index="19">
+<en>PAUSE</en>
+<sk/>
+<es>PAUSA</es>
+<cz/>
+<de>PAUSE</de>
+<it/>
+<fr>PAUSE</fr>
+<ru/>
+<pt>PAUSE</pt>
+<tr/>
+</string>
+<string id="21" index="20">
+<en>GAME OVER</en>
+<sk/>
+<es>FINAL DE LA PARTIDA</es>
+<cz/>
+<de>SPIELENDE</de>
+<it>Fine del gioco</it>
+<fr>FIN DU JEU</fr>
+<ru/>
+<pt>FIM DO JOGO</pt>
+<tr/>
+</string>
+<string id="22" index="21">
+<en>MEDAL</en>
+<sk/>
+<es>MEDALLA</es>
+<cz/>
+<de>MEDAILLE</de>
+<it>MEDAGLIA</it>
+<fr>MÉDAILLE</fr>
+<ru/>
+<pt>MEDALHA</pt>
+<tr/>
+</string>
+<string id="23" index="22">
+<en>SCORE</en>
+<sk/>
+<es>ACTUAL</es>
+<cz/>
+<de>PUNKTE</de>
+<it>PUNTEGGIO</it>
+<fr>SCORE</fr>
+<ru/>
+<pt>PONTUAÇÃO</pt>
+<tr/>
+</string>
+<string id="24" index="23">
+<en>BEST</en>
+<sk/>
+<es>RECORD</es>
+<cz/>
+<de>REKORD</de>
+<it>MIGLIOR</it>
+<fr>RECORD</fr>
+<ru/>
+<pt>MELHOR</pt>
+<tr/>
+</string>
+<string id="26" index="24">
+<en>CONTROLS:\n\nKEEP TAPPING THE LEFT OR RIGHT PART OF THE SCREEN TO CHOP ON THAT SIDE. TAP OTHER ONSCREEN ICONS FOR CORRESPONDING ACTION (PLAY, PAUSE...).</en>
+<sk>controls touch</sk>
+<es>CONTROL:\n\nPARA REALIZAR EL CORTE DERECHO O IZQUIERDO TOCA LA PANTALLA EN EL LADO CORRESPONDIENTE.TOCA OTROS ICONOS EN LA PANTALLA PARA EL EFECTO CORRESPONDIENTE (JUGAR, PAUSA...). </es>
+<cz/>
+<de>STEUERUNG:\n\nBERÜHRE DEN BILDSCHIRM LINKS ODER RECHTS VOM BAUM, UM AN DER GEWÜNSCHTEN SEITE ZU HACKEN. TIPPE AUF DIE SYMBOLE AUF DEM BILDSCHIRM FÜR DIE JEWEILIGE AKTION (SPIELEN, PAUSE …).</de>
+<it>Comando:\n\nTocca lo schermo a sinistra o a destra per poter fare il taglio da quella parte. Tocca altre icone sullo schermo per un effetto corrispondente (giocare, pausa...).</it>
+<fr>CONTRÔLES:\n\nTOUCHEZ L’ÉCRAN DU CÔTÉ GAUCHE OU DROIT EN CONTINU POUR COUPER LE CÔTÉ SOUHAITÉ. TOUCHEZ LES AUTRES ICÔNES À L'ÉCRAN POUR RÉALISER LES ACTIONS CORRESPONDANTES (JOUER, PAUSE…).</fr>
+<ru/>
+<pt>CONTROLE:\n\nTOQUE A TELA PARA A ESQUERDA OU PARA A DIREITA PARA UM CORTE NO LADO DESEJADO. TOQUE EM OUTROS ÍCONES NA TELA PARA O EFEITO CORRESPONDENTE (JOGAR, PAUSAR...).</pt>
+<tr/>
+</string>
+<string id="27" index="25">
+<en>CONTROLS:\n\n2 OR NAVIGATION KEY UP -  UP IN MENU\n8 OR NAVIGATION KEY DOWN - DOWN IN MENU\n4 OR NAVIGATION KEY LEFT - CHOP LEFT / LEFT IN MENU\n6 OR NAVIGATION KEY RIGHT - CHOP RIGHT/RIGHT IN MENU\n5 OR CENTRAL NAVIGATION KEY - SELECT  IN MENU\nLEFT SOFT KEY - SELECT\nRIGHT SOFT KEY - BACK IN MENU, PAUSE</en>
+<sk>controls keyboard</sk>
+<es>CONTROL:\n\n2 O LA TECLA DE NAVEGACIÓN ARRIBA - ARRIBA EN EL MENÚ\n8 O LA TECLA DE NAVEGACIÓN ABAJO – ABAJO EN EL MENÚ\n4 O LA TECLA DE NAVEGACIÓN IZQUIERDA  – CORTE A LA IZQUIERDA / A LA IZQUIERDA EN EL MENÚ\n6 O LA TECLA DE NAVEGACIÓN DERECHA  – CORTE A LA DERECHA / A LA DERECHA EN EL MENÚ\n5 O LA TECLA CENTRAL DE NAVEGACIÓN – CONFIRMACIÓN\nTECLA FUNCIONAL IZQUIERDA  – SELECCIÓN, AYUDA (EN EL JUEGO)\nTECLA FUNCIONAL DERECHA  – VOLVER, PAUSA DEL JUEGO</es>
+<cz/>
+<de>STEUERUNG:\n\n2 ODER OBERE NAVIGATIONSTASTE – HOCH IM MENÜ\n8 ODER UNTERE NAVIGATIONSTASTE – RUNTER IM MENÜ\n4 ODER LINKE NAVIGATIONSTASTE – LINKS HACKEN / LINKS IM MENÜ\n6 ODER RECHTE NAVIGATIONSTASTE – RECHTS HACKEN / RECHTS IM MENÜ\n5 ODER ZENTRALE NAVIGATIONSTASTE – AUSWAHL IM MENÜ\nLINKE FUNKTIONSTASTE – AUSWAHL\nRECHTE FUNKTIONSTASTE – ZURÜCK IM MENÜ, PAUSE</de>
+<it/>
+<fr>CONTRÔLES:\n\n2 OU TOUCHE DE NAVIGATION HAUTE –  HAUT DANS LE MENU\n8 OU TOUCHE DE NAVIGATION BASSE – BAS DANS LE MENU\n4 OU TOUCHE DE NAVIGATION GAUCHE – COUPER À GAUCHE / GAUCHE DANS LE MENU\n6 OU TOUCHE DE NAVIGATION DROITE – COUPER À DROITE DANS LE MENU\n5 OU TOUCHE DE NAVIGATION CENTRALE – SÉLECTIONNER DANS LE MENU\nTOUCHE PROGRAMMABLE GAUCHE – SÉLECTIONNER\nTOUCHE PROGRAMMABLE DROITE – RETOUR DANS LE MENU, PAUSE</fr>
+<ru/>
+<pt>CONTROLE:\n\n2 OU TECLA DE NAVEGAÇÃO PARA CIMA - PARA CIMA NO MENU\n8 OU TECLA DE NAVEGAÇÃO PARA BAIXO -  PARA BAIXO NO MENU\n4 OU TECLA DE NAVEGAÇÃO ESQUERDA - CORTE À ESQUERDA / À ESQUERDA NO MENU\n6 OU TECLA DE NAVEGAÇÃO DIREITA - CORTE À DIREITA / À DIREITA NO MENU\n5 OU TECLA DE NAVEGAÇÃO CENTRAL - CONFIRMA\nTECLA DE FUNÇÃO ESQUERDA - SELEÇÃO\nTECLA DE FUNÇÃO DIREITA - VOLTAR, PAUSAR O JOGO</pt>
+<tr/>
+</string>
+<string id="28" index="26">
+<en>AIM:\n\nCHOP OFF AS MANY LOGS FROM THE TREE AS YOU CAN. YOU HAVE TO BE QUICK, BUT WATCH OUT FOR APPROACHING BRANCHES! SWITCH YOUR POSITION TO AVOID DANGER AND CONTINUE CUTTING.</en>
+<sk/>
+<es>OBJETIVO:\n\nCorta tantos troncos de árbol como puedas. ¡TIENES QUE CORTAR RÁPIDAMENTE, PERO TEN CUIDADO CON LAS RAMAS QUE SE ACERCAN! CAMBIA TU UBICACIÓN PARA EVITAR EL PELIGRO Y CONTINÚA CORTANDO.</es>
+<cz/>
+<de>ZIEL:\n\nHACKE SO VIELE HOLZBLÖCKE WIE MÖGLICH VOM BAUM AB. DU MUSST SCHNELL HACKEN, ABER ACHTE AUF DIE KOMMENDEN ÄSTE! ÄNDERE DEINE POSITION, UM DER GEFAHR AUSZUWEICHEN, UND HACKE WEITER. </de>
+<it>Obiettivo:\nTaglia il massimo di ceppi dall'albero, di quanto puoi fare. Devi essere veloce, ma stai attento ai rami che si avvicinano! Cambia la posizione per evitare il pericolo e continua a tagliare.</it>
+<fr>BUT:\n\nCOUPEZ AUTANT DE BÛCHES QUE POSSIBLE DE L’ARBRE. VOUS DEVEZ ÊTRE RAPIDE, MAIS FAITES ATTENTION AUX BRANCHES QUI APPROCHENT ! CHANGEZ DE POSITION POUR ÉVITER LE DANGER ET CONTINUER DE COUPER.</fr>
+<ru/>
+<pt>OBJETIVO:\n\nCORTE TANTOS CEPOS QUANTOS VOCÊ CONSEGUE. VOCÊ TEM QUE CORTAR RAPIDAMENTE, MAS CUIDADO COM OS RAMOS QUE SE APROXIMAM! MUDE A SUA POSIÇÃO PARA EVITAR O PERIGO E CONTINUE A CORTAR.</pt>
+<tr/>
+</string>
+<string id="29" index="27">
+<en>TAP</en>
+<sk/>
+<es>TOCA</es>
+<cz/>
+<de>DRÜCKE</de>
+<it>TOCCA</it>
+<fr>APPUYEZ</fr>
+<ru/>
+<pt>TOQUE</pt>
+<tr/>
+</string>
+<string id="30" index="28">
+<en>Languages</en>
+<sk/>
+<es>Idiomas</es>
+<cz/>
+<de>Sprachen</de>
+<it>LINGUE</it>
+<fr>Langues</fr>
+<ru/>
+<pt>Línguas</pt>
+<tr/>
+</string>
+<string id="31" index="29">
+<en>Rotate your device please</en>
+<sk/>
+<es>Por favor, gira tu móvil</es>
+<cz/>
+<de>Drehe dein Gerät um</de>
+<it>Ruota il dispositivo</it>
+<fr>Tournez votre appareil s'il vous plaît</fr>
+<ru/>
+<pt>Rodar o seu aparelho, por favor</pt>
+<tr/>
+</string>
+</strings>
+</stringresources>
