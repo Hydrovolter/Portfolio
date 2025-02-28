@@ -42,6 +42,11 @@
         <button class="filter-btn" data-filter="other">Other</button>
     </div>
 
+    <div id="search-bar-container">
+        <input type="text" id="search-bar" placeholder="Search for games...">
+    </div>
+    
+
     <div id="games-container">
         
         <div class="game-card" data-category="puzzle" onclick="location.href='/games/wordle/';">
@@ -425,6 +430,20 @@ UNDER DEVELOPMENT TAG
         closeButton.addEventListener('click', function() {
             banner.style.display = 'none';
         });
+        
+        document.getElementById('search-bar').addEventListener('input', function() {
+        const searchQuery = this.value.toLowerCase();
+        const gameCards = document.querySelectorAll('.game-card');
+        
+        gameCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            if (title.includes(searchQuery)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
     </script>
 </body>
 </html>

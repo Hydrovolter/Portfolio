@@ -441,3 +441,31 @@ a {
     transform: scale(1.1);
     opacity: 0.8;
 }
+
+#search-bar-container {
+    display: flex;
+    justify-content: center;
+    margin: 10px auto 20px;
+    max-width: 90%;
+}
+
+#search-bar {
+    width: 100%;
+    max-width: 500px;
+    padding: 10px 15px;
+    border: 2px solid var(--primary-accent);
+    border-radius: 10px;
+    background-color: var(--secondary);
+    color: var(--primary-accent);
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#search-bar::placeholder {
+    color: var(--secondary-accent);
+}
+
+#search-bar:focus {
+    border-color: var(--highlight);
+}
