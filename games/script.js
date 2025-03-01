@@ -127,17 +127,17 @@ document.addEventListener("DOMContentLoaded", function () {
     const gameCards = document.querySelectorAll(".game-card");
 
     filterButtons.forEach(button => {
-        button.addEventListener("click", () => {
-            filterButtons.forEach(btn => btn.classList.remove("active"));
-            button.classList.add("active");
+        button.addEventListener("click", function () {
+            const filter = this.getAttribute("data-filter");
 
-            const filter = button.getAttribute("data-filter");
+            filterButtons.forEach(btn => btn.classList.remove("active"));
+            this.classList.add("active");
 
             gameCards.forEach(card => {
-                const category = card.getAttribute("data-category");
-
-                if (filter === "all" || category === filter) {
-                    card.style.display = "flex";
+                const categories = card.getAttribute("data-categories").split(" ");
+                
+                if (filter === "all" || categories.includes(filter)) {
+                    card.style.display = "block";
                 } else {
                     card.style.display = "none";
                 }
