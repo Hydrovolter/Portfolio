@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Games</title>
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="icon" type="image/x-icon" href="/assets/projects/GamesIcon.png">
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="Hydro's Unblocked Games" name=title>
+    <meta content="Unblocked/modified games" name=description>
+    <meta name="keywords" content="hydrovolter,hydro,hydrovolt,hydrovoltexer,hydrocodez,hydroz,hydros,games,pages,dev,workers,unblocked,unblockedgames,ubg" />
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=/assets/projects/GamesIcon.png name=og:image> 
+    <script src="script.js"></script>
+</head>
+<body>
+    <div id="migration-banner">
+        <span class="icon">📢</span>
+        <span class="banner-text">
+            We are moving to <a href="https://hydrovolter.com">hydrovolter.com</a> ! Please update your bookmarks.
+        </span>
+        <button class="close-button" id="close-banner">&times;</button>
+    </div>
+    <a id="home-button" href="/">
+        <img id="home-button-icon" src="/assets/home.png" alt="Home Icon">
+        Home
+    </a>    
+    <h1 id="games-title">Games</h1>
+
+    <div id="filter-bar">
+        <button class="filter-btn active" data-filter="all">All</button>
+        <button class="filter-btn" data-filter="puzzle">Puzzle</button>
+        <button class="filter-btn" data-filter="action">Action</button>
+        <button class="filter-btn" data-filter="skill">Skill</button>
+        <button class="filter-btn" data-filter="classic">Classic</button>
+        <button class="filter-btn" data-filter="idle">Idle</button>
+        <button class="filter-btn" data-filter="other">Other</button>
+    </div>
+
+    <div id="search-bar-container">
+        <input type="text" id="search-bar" placeholder="Search for games...">
+    </div>
+    
+
+    <div id="games-container">
+        
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/wordle/';">
+            <img src="/games/covers/wordle.png" alt="Wordle Image">
+            <h3>Wordle</h3>
+            <p>Guess the 5-letter hidden word in 6 tries - unlimited puzzles.</p>
+        </div>
+        <div class="game-card" data-category="idle" onclick="location.href='https://finalearth.hydrovolter.com/';">
+            <img src="/games/covers/the-final-earth-2.png" alt="The Final Earth 2 Image">
+            <h3>The Final Earth 2</h3>
+            <p>Build and manage your own civilization in space! Transform a barren asteroid into a thriving metropolis, balancing resources, exploration, and creativity.</p>
+        </div>
+        <div class="game-card under-development" data-category="puzzle">
+            <div class="overlay">
+                <span>Under Development</span>
+            </div>
+            <img src="/games/covers/connections.png" alt="Connections Image">
+            <h3>Connections</h3>
+            <p>Group words into meaningful categories, testing logic and lateral thinking in a fun, engaging way.</p>
+        </div>
+        <div class="game-card new-game" data-category="puzzle" onclick="location.href='/games/suika/';">
+            <div class="overlay">
+                <span>NEW!</span>
+            </div>
+            <img src="/games/covers/suika.png" alt="Suika Image">
+            <h3>Suika</h3>
+            <p>Merge fruits to create bigger ones, combining strategy and charm for endlessly addictive fun.</p>
+        </div>
+        <div class="game-card" data-category="other" onclick="location.href='/games/suika-clone/';">
+            <img src="/games/covers/suikaclone.png" alt="Suika Clone Image">
+            <h3>Suika Clone</h3>
+            <p>A <span style="color: rgb(50, 186, 245);">clone</span> of the original Suika game (use if the original Suika is blocked)</p>
+            <div class="warning-message" style="background-color: rgba(50, 186, 245, 0.8);">CLONE</div>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/blockblast/';">
+            <img src="/games/covers/blockblast.png" alt="Block Blast Image">
+            <h3>Block Blast</h3>
+            <p>Fit blocks into a grid to clear lines and score points.</p>
+        </div>
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
+        crossorigin="anonymous"></script>
+    <!-- Horizontal Games In between -->
+    <ins class="adsbygoogle"
+        style="display:block"
+        data-ad-client="ca-pub-4732321347294671"
+        data-ad-slot="5830761810"
+        data-ad-format="auto"
+        data-full-width-responsive="true"></ins>
+    <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+    </script>
+        <div class="game-card" data-category="classic" onclick="location.href='https://crossyroad.hydrovolter.com/';">
+            <img src="/games/covers/crossyroad.png" alt="Crossy Road Image">
+            <h3>Crossy Road</h3>
+            <p>Guide your character across a chaotic landscape filled with hazards.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/slope/';">
+            <img src="/games/covers/slope.png" alt="Slope Image">
+            <h3>Slope</h3>
+            <p>Control a ball rolling down a steep slope, avoiding obstacles and drops.</p>
+        </div>
+        <div class="game-card" data-category="classic" onclick="location.href='/games/tetris/';">
+            <img src="/games/covers/tetris.png" alt="Tetris Image">
+            <h3>Tetris</h3>
+            <p>Rotate and stack falling blocks to complete lines and clear the board.</p>
+        </div>
+        <div class="game-card" data-category="action" onclick="location.href='/games/getawayshootout/';">
+            <img src="/games/covers/getawayshootout.png" alt="Getaway Shootout Image">
+            <h3>Getaway Shootout</h3>
+            <p>Race to the getaway point while battling opponents with quirky weapons and power-ups.</p>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/2048/';">
+            <img src="/games/covers/2048.png" alt="2048 Image">
+            <h3>2048</h3>
+            <p>Combine matching numbers on a grid to reach the 2048 tile.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/eggycar/';">
+            <img src="/games/covers/eggycar.png" alt="Eggy Car Image">
+            <h3>Eggy Car</h3>
+            <p>Balance an egg on top of a car while navigating hilly roads without dropping it.</p>
+            <div class="warning-message">Game may take long to / not load</div>
+        </div>
+        <div class="game-card" data-category="racing" onclick="location.href='https://superstarcar.hydrovolter.com/';">
+            <img src="/games/covers/superstarcar.png" alt="Super Star Car Image">
+            <h3>Super Star Car</h3>
+            <p>Race on dynamic tracks, and aim to overtake rivals and win the championship.</p>
+        </div>
+        <div class="game-card" data-category="action" onclick="location.href='/games/geometrydash/';">
+            <img src="/games/covers/geometrydash.png" alt="Geometry Dash Image">
+            <h3>Geometry Dash</h3>
+            <p>Jump and fly through challenging levels full of obstacles on the beat.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/driftboss/';">
+            <img src="/games/covers/driftboss.png" alt="Drift Boss Image">
+            <h3>Drift Boss</h3>
+            <p>Steer your car around sharp turns and avoid falling off the track.</p>
+            <div class="warning-message">Game may take long to load</div>
+        </div>
+        <div class="game-card" data-category="sports" onclick="location.href='/games/basketballlegends/';">
+            <img src="/games/covers/basketballlegends.png" alt="Basketball Legends Image">
+            <h3>Basketball Legends</h3>
+            <p>Compete as famous basketball stars, performing epic dunks and special moves to win matches.</p>
+            <div class="warning-message">Game may take long to / not load</div>
+        </div>
+        <div class="game-card" data-category="classic" onclick="location.href='/games/mario/';">
+            <img src="/games/covers/mario.png" alt="Super Mario Bros Image">
+            <h3>Super Mario Bros</h3>
+            <p>A remake of Nintendo's original Super Mario Bros. Includes original 32 levels, random map generator, and mods.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/ztype/';">
+            <img src="/games/covers/ztype.png" alt="ZType Image">
+            <h3>ZType</h3>
+            <p>Practice your typing through destroying enemy ships by typing words quickly and accurately.</p>
+            <div class="warning-message">Game may take long to / not load</div>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/worldshardestgame/';">
+            <img src="/games/covers/worldshardestgame.png" alt="World's Hardest Game Image">
+            <h3>World's Hardest Game</h3>
+            <p>You can't beat it.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/drivemad/';">
+            <img src="/games/covers/drivemad.png" alt="Drive Mad Image">
+            <h3>Drive Mad</h3>
+            <p>Navigate tricky tracks, overcoming obstacles and challenges to reach the finish line.</p>
+        </div>
+        <div class="game-card" data-category="action" onclick="location.href='/games/rooftopsnipers/';">
+            <img src="/games/covers/rooftopsnipers.png" alt="Rooftop Snipers Image">
+            <h3>Rooftop Snipers</h3>
+            <p>Battle on rooftops, using precise shots to knock your opponent off the edge.</p>
+        </div>
+        <div class="game-card" data-category="idle" onclick="location.href='/games/idlerestaurants/';">
+            <img src="/games/covers/idlerestaurants.png" alt="Idle Restaurants Image">
+            <h3>Idle Restaurants</h3>
+            <p>Build and upgrade restaurants, serve customers, and grow your food empire.</p>
+            <div class="warning-message">Game may take long to / not load</div>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/bubbletower3d/';">
+            <img src="/games/covers/bubbletower3d.png" alt="Bubble Tower 3D Image">
+            <h3>Bubble Tower 3D</h3>
+            <p>Pop colorful bubbles on a rotating tower to clear levels and earn points.</p>
+            <div class="warning-message">Game may take long to / not load</div>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/fruitninja/';">
+            <img src="/games/covers/fruitninja.png" alt="Fruit Ninja Image">
+            <h3>Fruit Ninja</h3>
+            <p>Slice flying fruit while avoiding bombs to rack up high scores.</p>
+            <div class="warning-message">Game may take long to / not load</div>
+        </div>
+        <div class="game-card" data-category="classic" onclick="location.href='/games/subwaysurfers/';">
+            <img src="/games/covers/subwaysurfers.png" alt="Subway Surfers Image">
+            <h3>Subway Surfers</h3>
+            <p>Dash through subway tracks, dodging trains and obstacles while collecting coins and power-ups.</p>
+            <div class="warning-message" style="background-color: rgba(240, 155, 27, 0.8);">Game may occasionally crash: just refresh</div>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/littlealchemy2/';">
+            <img src="/games/covers/littlealchemy2.png" alt="Little Alchemy 2 Image">
+            <h3>Little Alchemy 2</h3>
+            <p>Combine elements to discover new items and build an entire world from scratch.</p>
+            <div class="warning-message" style="background-color: rgba(240, 155, 27, 0.8);">Game may be buggy (images may not always load)</div>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/ballistic/';">
+            <img src="/games/covers/ballistic.png" alt="Ballistic Image">
+            <h3>Ballistic</h3>
+            <p>Bounce balls to break squares and clear levels while aiming for high scores.</p>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/theimpossiblequiz/';">
+            <img src="/games/covers/theimpossiblequiz.png" alt="The Impossible Quiz Image">
+            <h3>The Impossible Quiz</h3>
+            <p>Bizarre questions and tricky puzzles that test your logic and patience.</p>
+        </div>
+        <div class="game-card" data-category="idle" onclick="location.href='/games/cookieclicker2/';">
+            <img src="/games/covers/cookieclicker2.png" alt="Cookie Clicker 2 Image">
+            <h3>Cookie Clicker 2</h3>
+            <p>Bake cookies, upgrade your production, build a cookie empire and click!</p>
+        </div>
+        <div class="game-card" data-category="classic" onclick="location.href='/games/retrobowl/';">
+            <img src="/games/covers/retrobowl.png" alt="Retro Bowl Image">
+            <h3>Retro Bowl</h3>
+            <p>Manage a football team, make strategic plays, and lead your squad to victory.</p>
+            <div class="warning-message">Game may take long to / not load</div>
+        </div>
+        <div class="game-card" data-category="classic" onclick="location.href='/games/doodlejump/';">
+            <img src="/games/covers/doodlejump.png" alt="Doodle Jump Image">
+            <h3>Doodle Jump</h3>
+            <p>Guide a jumping character upward by bouncing on platforms and avoiding obstacles.</p>
+            <div class="warning-message">Game may take long to / not load</div>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/wordbomb1/';">
+            <img src="/games/covers/wordbomb1.png" alt="Word Bomb 1 Image">
+            <h3>Word Bomb (Single Player)</h3>
+            <p>Quickly type words containing given letter combinations before time runs out. [SINGLE PLAYER]</p>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/pvz/';">
+            <img src="/games/covers/pvz.png" alt="PvZ Image">
+            <h3>Plants vs. Zombies</h3>
+            <p>Defend your home by planting unique plants to stop waves of invading zombies. [MODDED]</p>
+        </div>
+        <div class="game-card" data-category="other" onclick="location.href='/games/bitlife/';">
+            <img src="/games/covers/bitlife.png" alt="Bitlife Image">
+            <h3>Bitlife</h3>
+            <p>A life simulation game where you make choices to shape your journey from birth to death.</p>
+        </div>
+        <div class="game-card" data-category="classic" onclick="location.href='/games/flappybird/';">
+            <img src="/games/covers/flappybird.png" alt="Flappy Bird Image">
+            <h3>Flappy Bird</h3>
+            <p>A remake of the original Flappy Bird. Navigate a bird through gaps between pipes without crashing.</p>
+        </div>
+        <div class="game-card" data-category="classic" onclick="location.href='/games/chromedino/';">
+            <img src="/games/covers/chromedino.png" alt="Chrome Dino Image">
+            <h3>Chrome Dino</h3>
+            <p>Replica of Chrome's famous offline endless runner game - jump over and dodge obstacles for as long as possible!</p>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/colorpaths/';">
+            <img src="/games/covers/flowfree.png" alt="Flow Free Image">
+            <h3>Color Paths</h3>
+            <p>A knock-off of the game Flow Free - connect matching colored dots with paths without overlapping to fill the grid.</p>
+            <div class="warning-message" style="background-color: rgba(50, 186, 245, 0.8);">Game does not save progress on tab close</div>
+        </div>
+        <div class="game-card" data-category="action" onclick="location.href='/games/holeio/';">
+            <img src="/games/covers/holeio.png" alt="Hole.io Image">
+            <h3>Hole.io</h3>
+            <p>A remake of the original hole.io - control a black hole, consuming objects to grow bigger and dominate the city.</p>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/badicecream/';">
+            <img src="/games/covers/badicecream.png" alt="Bad Ice Cream Image">
+            <h3>Bad Ice Cream</h3>
+            <p>Collect fruit, break ice blocks, and avoid enemies in a series of maze-like levels.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/snowrider3d/';">
+            <img src="/games/covers/snowrider3d.png" alt="Snow Rider 3D Image">
+            <h3>Snow Rider 3D</h3>
+            <p>Glide down snowy slopes, dodge obstacles, and perform jumps for high scores.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/boxelrebound/';">
+            <img src="/games/covers/boxelrebound.png" alt="Boxel Rebound Image">
+            <h3>Boxel Rebound</h3>
+            <p>Control a box and jump over obstacles to complete levels with precise timing.</p>
+            <div class="warning-message">Game may take long to / not load</div>
+        </div>
+        <div class="game-card" data-category="action" onclick="location.href='/games/gunmayhem2/';">
+            <img src="/games/covers/gunmayhem2.png" alt="Gun Mayhem 2 Image">
+            <h3>Gun Mayhem 2</h3>
+            <p>Battle opponents on dynamic platforms using a variety of weapons and power-ups.</p>
+        </div>
+        <div class="game-card" data-category="puzzle" onclick="location.href='/games/mrbullet/';">
+            <img src="/games/covers/mrbullet.png" alt="Mr Bullet Image">
+            <h3>Mr Bullet</h3>
+            <p>Strategically shoot enemies, bounce bullets, and solve levels with precision.</p>
+        </div>
+        <div class="game-card" data-category="other" onclick="location.href='/cardcounter/';">
+            <img src="/games/covers/cardcounter.png" alt="Card Counter Image">
+            <h3>Card Counter</h3>
+            <p>An app to train card counting for blackjack. Coded by <span style="color: rgb(204, 136, 250);">Hydrovolter</span>.</p>
+            <div class="warning-message" style="background-color: rgba(174, 79, 237, 0.8);">Coded by Hydrovolter</div>
+        </div>
+        <div class="game-card" data-category="other" onclick="location.href='/typing/';">
+            <img src="/games/covers/typingtest.png" alt="Typing Test Image">
+            <h3>Typing Test</h3>
+            <p>A sleek, simple, modern typing website with customizable themes. Coded by <span style="color: rgb(204, 136, 250);">Hydrovolter</span>.</p>
+            <div class="warning-message" style="background-color: rgba(174, 79, 237, 0.8);">Coded by Hydrovolter</div>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/tunnelrush2/';">
+            <img src="/games/covers/tunnelrush2.png" alt="Tunnel Rush 2 Image">
+            <h3>Tunnel Rush 2</h3>
+            <p>Navigate through a colorful, twisting tunnel while dodging obstacles at high speed.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/osu/';">
+            <img src="/games/covers/osu.png" alt="Osu Image">
+            <h3>Osu</h3>
+            <p>The best rhythm game, ported to the web, with millions of mirrored beatmaps.</p>
+            <div class="warning-message" style="background-color: rgba(240, 98, 161, 0.8);">Use Headphones!</div>
+        </div>
+        <div class="game-card" data-category="idle" onclick="location.href='/games/particleclicker/';">
+            <img src="/games/covers/particleclicker.png" alt="Particle Clicker Image">
+            <h3>Particle Clicker</h3>
+            <p>An addictive incremental idle clicker game, taking you through the historic journey of modern particle physics.</p>
+        </div>
+        <div class="game-card" data-category="action" onclick="location.href='/games/gladihoppers/';">
+            <img src="/games/covers/gladihoppers.png" alt="Gladihoppers Image">
+            <h3>Gladihoppers</h3>
+            <p>Control a gladiator and use unpredictable physics and various weapons to defeat opponents.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/gunspin/';">
+            <img src="/games/covers/gunspin.png" alt="Gun Spin Image">
+            <h3>Gun Spin</h3>
+            <p>Shoot to propel a spinning gun as far as possible, collecting coins and aiming for high scores.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='https://glitchdash.hydrovolter.com/';">
+            <img src="/games/covers/glitchdash.png" alt="Glitch Dash Image">
+            <h3>Glitch Dash</h3>
+            <p>Navigate through a neon, obstacle-filled world with quick reflexes and precise movements.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='https://slingdrift.hydrovolter.com/';">
+            <img src="/games/covers/slingdrift.png" alt="Sling Drift Image">
+            <h3>Sling Drift</h3>
+            <p>Use slingshot mechanics to drift around sharp corners and stay on the track.</p>
+        </div>
+        <div class="game-card" data-category="classic" onclick="location.href='/games/timberguy/';">
+            <img src="/games/covers/timberguy.png" alt="Timber Guy Image">
+            <h3>Timber Guy</h3>
+            <p>Chop down trees fast while avoiding branches.</p>
+        </div>
+        <div class="game-card" data-category="classic" onclick="location.href='https://stack.hydrovolter.com/';"> <!-- /games/stack/ -->
+            <img src="/games/covers/stack.png" alt="Stack Image">
+            <h3>Stack</h3>
+            <p>Build the tallest tower possible by stacking moving blocks with precise timing.</p>
+        </div>
+        <div class="game-card" data-category="skill" onclick="location.href='/games/stickmanhook';">
+            <img src="/games/covers/stickmanhook.png" alt="Stickman Hook Image">
+            <h3>Stickman Hook</h3>
+            <p>Swing through levels as a stickman, using ropes and momentum to reach the finish line.</p>
+        </div>
+        
+
+
+        <!-- 
+        <div class="game-card new-game" onclick="location.href='/games/infiltratingtheairship/';">
+            <div class="overlay">
+                <span>NEW!</span>
+            </div>
+            <img src="/games/covers/infiltratingtheairship.png" alt="Infiltrating the Airship Image">
+            <h3>Infiltrating the Airship</h3>
+            <p>Help Henry Stickmin navigate an airship through decisions.</p>
+        </div>
+        -->
+
+
+<!--
+    data-category="puzzle" 
+-->
+
+<!--
+WARNING TAG 
+
+<div class="warning-message">WARNING: Game may take long to load</div>
+
+EDIT COLOUR OF WARNING TAG (inline)
+
+style="background-color: rgba(161, 70, 218, 0.8);"
+-->
+
+<!--
+NEW GAME TAG
+
+        <div class="game-card new-game" onclick="location.href='/';">
+            <div class="overlay">
+                <span>NEW!</span>
+            </div>
+
+
+
+            <img src="/games/covers/game.png" alt="New Game Image">
+            <h3>New Game</h3>
+            <p>New Game Description.</p>
+        </div>
+--> 
+<!--
+UNDER DEVELOPMENT TAG
+
+        <div class="game-card under-development">
+            <div class="overlay">
+                <span>Under Development</span>
+            </div>
+
+
+
+
+            <img src="/games/covers/game.png" alt="Game Image">
+            <h3>Game Name</h3>
+            <p>Game Description.</p>
+        </div>
+-->       
+        
+    </div>
+    <div id="games-footer-container">
+        <div class="container">
+            <p>If any of the links become blocked, <a id="contact-link" href="/#contact">contact me</a> and I will update it. </p>
+            <p>If you have any suggestions for games, feel free to let me know!</p>
+        </div>
+    </div>
+
+    <script>
+        const banner = document.getElementById('migration-banner');
+        const closeButton = document.getElementById('close-banner');
+    
+        if (window.location.hostname !== 'hydrovolter.com') {
+            setTimeout(() => {
+                banner.style.display = 'flex'; 
+                banner.classList.add('show'); 
+            }, 500); // 0.5s delay
+        }
+        
+        closeButton.addEventListener('click', function() {
+            banner.style.display = 'none';
+        });
+        
+        document.getElementById('search-bar').addEventListener('input', function() {
+        const searchQuery = this.value.toLowerCase();
+        const gameCards = document.querySelectorAll('.game-card');
+        
+        gameCards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            if (title.includes(searchQuery)) {
+                card.style.display = 'flex';
+            } else {
+                card.style.display = 'none';
+            }
+        });
+    });
+    </script>
+</body>
+</html>
