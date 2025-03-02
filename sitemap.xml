@@ -48,10 +48,4 @@
     <changefreq>never</changefreq> 
     <priority>0.7</priority> 
   </url>
-  <url>
-    <loc>https://hydrovolter.com/games/wordle/</loc>
-    <lastmod>2025-01-20</lastmod> 
-    <changefreq>never</changefreq> 
-    <priority>0.5</priority> 
-  </url>
 </urlset>
