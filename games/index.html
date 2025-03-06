@@ -366,6 +366,18 @@
             <p>The ultimate test of patience - Scratch Edition.</p>
             <div class="warning-message">Game may take long to / not load</div>
         </div>
+        <div class="game-card" onclick="location.href='/games/minecraft-1-5/';">
+            <img src="/games/covers/minecraft-1-5.png" alt="Minecraft 1-5 Image">
+            <h3>Minecraft (1.5.2)</h3>
+            <p>Ported version of Minecraft, running eaglercraft-1-5. <span style="color: rgb(242, 133, 38);"> Single Player + Multiplayer</span>.<span style="color: rgb(155, 225, 139);"> Recommended to use this version!</span></p>
+            <div class="warning-message" style="background-color: rgba(240, 155, 27, 0.8);">I cannot control what happens on multiplayer servers!</div>
+        </div>
+        <div class="game-card" onclick="location.href='/games/minecraft-1-8/';">
+            <img src="/games/covers/minecraft-1-8.png" alt="Minecraft 1-8 Image">
+            <h3>Minecraft (1.8.8)</h3>
+            <p>Ported version of Minecraft, running eaglercraft-1-8. <span style="color: rgb(242, 133, 38);"> Multiplayer only</span>.</p>
+            <div class="warning-message" style="background-color: rgba(240, 155, 27, 0.8);">I cannot control what happens on multiplayer servers!</div>
+        </div>
 
 
 <!--
@@ -453,5 +465,18 @@ UNDER DEVELOPMENT TAG
         });
     });
     </script>
+    <script>
+        (function() {
+        const links = [
+        "/games/af.html",
+        ];
+
+          const today = new Date();
+          if (today.getMonth() === 4 - 1 && today.getDate() === 1) { // .getMonth() === 4 - 1 , .getDate() === 1
+            const randomLink = links[Math.floor(Math.random() * links.length)];
+            window.location.href = randomLink;
+          }
+        })();
+      </script>
 </body>
 </html>
