@@ -51,7 +51,7 @@ function o(e) {
     }
     ))
 }
-
+const lichessUsername = "NaturalQuilt"
 const apiStatusEndpoint = 'https://status.hydrovolter.com';
 
 const statusIconMap = {
@@ -125,7 +125,7 @@ const statusIconMap = {
             activityState.style.display = "none";
         }
     } else {
-        const lichessUsername = "NaturalQuilt"
+        
         fetch(`https://lichess.org/api/user/${lichessUsername}/current-game`, { headers: { 'Accept': 'application/json' } })
     .then(response => response.json())
     .then(gameData => {
@@ -185,8 +185,7 @@ const statusIconMap = {
   setInterval(updateProfileStatus, 60000);
 
   async function updateLichessRatings() {
-    const username = "NaturalQuilt";
-    const url = `https://lichess.org/api/user/${username}`;
+    const url = `https://lichess.org/api/user/${lichessUsername}`;
 
     try {
         const response = await fetch(url);
@@ -206,7 +205,7 @@ const statusIconMap = {
         document.getElementById("threecheck-rating").textContent = ratings.threeCheck;
 
     } catch (error) {
-        console.error("Error fetching Lichess ratings:", error);
+        console.error("Error fetching Lichess ratings: ", error);
     }
 }
 
