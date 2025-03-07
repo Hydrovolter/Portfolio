@@ -2,6 +2,8 @@
 Hey, this is [my portfolio](https://hydrovolter.com/) where I keep some of my projects, information about me and achievements.
 
 # TODO
+- [ ] make emoji class (main page) rounded
+
 - [ ] add animation/buffer between dealt cards in card counter (in case the exact same cards come up twice in a row)
 - [ ] add blog post: how to card count
 - [ ] add blog post: perfect basic strategy charts
