@@ -183,6 +183,35 @@ const statusIconMap = {
   
   // status refresh period
   setInterval(updateProfileStatus, 60000);
+
+  async function updateLichessRatings() {
+    const username = "NaturalQuilt";
+    const url = `https://lichess.org/api/user/${username}`;
+
+    try {
+        const response = await fetch(url);
+        if (!response.ok) throw new Error("Failed to fetch Lichess data");
+        const data = await response.json();
+
+        const ratings = {
+            ultra: data.perfs.ultraBullet?.rating || 1800,
+            bullet: data.perfs.bullet?.rating || 2200,
+            blitz: data.perfs.blitz?.rating || 1900,
+            threeCheck: data.perfs.threeCheck?.rating || 1800
+        };
+
+        document.getElementById("ultra-rating").textContent = ratings.ultra;
+        document.getElementById("bullet-rating").textContent = ratings.bullet;
+        document.getElementById("blitz-rating").textContent = ratings.blitz;
+        document.getElementById("threecheck-rating").textContent = ratings.threeCheck;
+
+    } catch (error) {
+        console.error("Error fetching Lichess ratings:", error);
+    }
+}
+
+updateLichessRatings();
+
 async function v(e) {
     if (!r) {
         switch (r = !0,
