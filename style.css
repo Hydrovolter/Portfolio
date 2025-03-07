@@ -37,6 +37,7 @@ body {
 .emoji {
     width: 25px;
     height: 25px;
+    border-radius: 5px;
     object-fit: contain;
     vertical-align: middle
 }
