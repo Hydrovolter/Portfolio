@@ -122,6 +122,85 @@ document.addEventListener("DOMContentLoaded", function () {
     */
 });
 
+const carouselGames = [
+    {
+        title: "Gladihoppers",
+        description: "Control a gladiator and use unpredictable physics and various weapons to defeat opponents.",
+        image: "/games/covers/gladihoppers.png",
+        link: "/games/gladihoppers/"
+    },
+    {
+        title: "Gunspin",
+        description: "Shoot to propel a spinning gun as far as possible, collecting coins and hitting high scores.",
+        image: "/games/covers/gunspin.png",
+        link: "/games/gunspin/"
+    },
+    {
+        title: "Slope",
+        description: "Control a ball rolling down a steep slope, avoiding obstacles and drops.",
+        image: "/games/covers/slope.png",
+        link: "/games/slope/"
+    },
+    {
+        title: "Suika",
+        description: "Merge fruits to create bigger ones, combining strategy and charm.",
+        image: "/games/covers/suika.png",
+        link: "/games/suika/"
+    },
+    {
+        title: "Drive Mad",
+        description: "Navigate tricky tracks, overcoming obstacles and challenges to reach the finish line.",
+        image: "/games/covers/drivemad.png",
+        link: "/games/drivemad/"
+    },
+    {
+        title: "Wordle",
+        description: "Guess the 5-letter hidden word in 6 tries - unlimited puzzles.",
+        image: "/games/covers/wordle.png",
+        link: "/games/wordle/"
+    }
+];
+
+let currentGameIndex = 0;
+let carouselInterval;
+const transitionTime = 5000;
+
+function updateCarousel() {
+    const game = carouselGames[currentGameIndex];
+
+    document.getElementById("carousel-title").textContent = game.title;
+    document.getElementById("carousel-description").textContent = game.description;
+    document.getElementById("carousel-bg").style.backgroundImage = `url(${game.image})`;
+
+    let progressBar = document.getElementById("carousel-progress-bar");
+    progressBar.style.transition = "none";
+    progressBar.style.width = "0%";
+    setTimeout(() => {
+        progressBar.style.transition = `width ${transitionTime}ms linear`;
+        progressBar.style.width = "100%";
+    }, 50);
+
+    const dotsContainer = document.getElementById("carousel-dots");
+    dotsContainer.innerHTML = ""; 
+    carouselGames.forEach((_, index) => {
+        const dot = document.createElement("div");
+        dot.classList.add("carousel-dot");
+        if (index === currentGameIndex) {
+            dot.classList.add("active");
+            dot.style.animation = "fadeIn 0.5s ease-in-out";
+        } else {
+            dot.style.animation = "fadeOut 0.5s ease-in-out";
+        }
+        dotsContainer.appendChild(dot);
+    });
+
+    currentGameIndex = (currentGameIndex + 1) % carouselGames.length;
+}
+
+function goToGame() {
+    window.location.href = carouselGames[(currentGameIndex - 1 + carouselGames.length) % carouselGames.length].link;
+}
+
 document.addEventListener("DOMContentLoaded", function () {
     const filterButtons = document.querySelectorAll(".filter-btn");
     const gameCards = document.querySelectorAll(".game-card");
@@ -144,6 +223,9 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+    document.getElementById("carousel-progress").innerHTML = '<div id="carousel-progress-bar"></div>';
+    updateCarousel();
+    carouselInterval = setInterval(updateCarousel, transitionTime);
 });
 
 

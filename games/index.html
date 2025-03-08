@@ -45,8 +45,20 @@
     <div id="search-bar-container">
         <input type="text" id="search-bar" placeholder="Search for games...">
     </div>
-    
 
+    <div id="carousel" onclick="goToGame()">
+        <div class="carousel-slide">
+            <div class="carousel-content">
+                <span id="carousel-popular">Most Popular</span>
+                <h2 id="carousel-title"></h2>
+                <p id="carousel-description"></p>
+            </div>
+            <div id="carousel-bg"></div>
+        </div>
+        <div id="carousel-progress"></div>
+        <div id="carousel-dots"></div>
+    </div>
+    
     <div id="games-container">
         
         <div class="game-card" data-categories="puzzle" onclick="location.href='/games/wordle/';">
@@ -354,6 +366,7 @@
             <img src="/games/covers/monkeymart.png" alt="Monkey Mart Image">
             <h3>Monkey Mart</h3>
             <p>Control a monkey running a supermarket, stocking shelves and serving customers.</p>
+            <div class="warning-message" style="background-color: rgba(50, 186, 245, 0.8);">Game does not save progress on tab close</div>
         </div>
         <div class="game-card" data-categories="action other" onclick="location.href='https://infiltratingtheairship.hydrovolter.com/';">
             <img src="/games/covers/infiltratingtheairship.png" alt="Infiltrating the Airship Image">
