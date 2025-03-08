@@ -127,37 +127,57 @@ const carouselGames = [
         title: "Gladihoppers",
         description: "Control a gladiator and use unpredictable physics and various weapons to defeat opponents.",
         image: "/games/covers/gladihoppers.png",
-        link: "/games/gladihoppers/"
+        link: "/games/gladihoppers/",
+        popularText: "Most Popular",
+        popularColor: "#FF5733"     
     },
     {
         title: "Gunspin",
         description: "Shoot to propel a spinning gun as far as possible, collecting coins and hitting high scores.",
         image: "/games/covers/gunspin.png",
-        link: "/games/gunspin/"
+        link: "/games/gunspin/",
+        popularText: "Trending Now",
+        popularColor: "#7D33FF"
     },
     {
         title: "Slope",
         description: "Control a ball rolling down a steep slope, avoiding obstacles and drops.",
         image: "/games/covers/slope.png",
-        link: "/games/slope/"
+        link: "/games/slope/",
+        popularText: "Fan Favourite",
+        popularColor: "#33FF57" 
     },
     {
         title: "Suika",
         description: "Merge fruits to create bigger ones, combining strategy and charm.",
         image: "/games/covers/suika.png",
-        link: "/games/suika/"
+        link: "/games/suika/",
+        popularText: "Updated Version",
+        popularColor: "#FF33A6"
     },
     {
         title: "Drive Mad",
         description: "Navigate tricky tracks, overcoming obstacles and challenges to reach the finish line.",
         image: "/games/covers/drivemad.png",
-        link: "/games/drivemad/"
+        link: "/games/drivemad/",
+        popularText: "Addictive",
+        popularColor: "#FFD733"
     },
     {
         title: "Wordle",
         description: "Guess the 5-letter hidden word in 6 tries - unlimited puzzles.",
         image: "/games/covers/wordle.png",
-        link: "/games/wordle/"
+        link: "/games/wordle/",
+        popularText: "Classic",
+        popularColor: "#3357FF" 
+    },
+    {
+        title: "Monkey Mart",
+        description: "Control a monkey running a supermarket, stocking shelves and serving customers.",
+        image: "/games/covers/monkeymart.png",
+        link: "/games/monkeymart/",
+        popularText: "Up and Coming",
+        popularColor: "#00FFFF" 
     }
 ];
 
@@ -171,6 +191,10 @@ function updateCarousel() {
     document.getElementById("carousel-title").textContent = game.title;
     document.getElementById("carousel-description").textContent = game.description;
     document.getElementById("carousel-bg").style.backgroundImage = `url(${game.image})`;
+
+    const popularTextElement = document.getElementById("carousel-popular");
+    popularTextElement.textContent = game.popularText;
+    popularTextElement.style.color = game.popularColor;
 
     let progressBar = document.getElementById("carousel-progress-bar");
     progressBar.style.transition = "none";
