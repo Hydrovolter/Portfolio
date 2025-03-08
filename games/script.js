@@ -247,9 +247,59 @@ document.addEventListener("DOMContentLoaded", function () {
             });
         });
     });
+
+
     document.getElementById("carousel-progress").innerHTML = '<div id="carousel-progress-bar"></div>';
     updateCarousel();
     carouselInterval = setInterval(updateCarousel, transitionTime);
+
+    
+
+    const randomGameButton = document.getElementById('random-game-button');
+    let countdownInterval;
+    let isCountingDown = false;
+    let originalButtonText = "Random Game";
+    let targetGameLink = "";
+
+    randomGameButton.addEventListener('click', function() {
+        if (isCountingDown) {
+            // Cancel the countdown
+            clearInterval(countdownInterval);
+            isCountingDown = false;
+            randomGameButton.textContent = originalButtonText;
+            return;
+        }
+
+        const validGames = [];
+        gameCards.forEach(card => {
+            const link = card.getAttribute('onclick');
+            const title = card.querySelector('h3').textContent;
+            if (link && title) {
+                validGames.push({ title: title, link: link.match(/location\.href='(.*?)'/)[1] });
+            }
+        });
+
+        if (validGames.length > 0) {
+            const randomGame = validGames[Math.floor(Math.random() * validGames.length)];
+            let countdown = 3;
+            randomGameButton.innerHTML = `Playing <span style="color: lightblue;">${randomGame.title}</span> in <span style="color: rgb(247, 96, 96);">${countdown}</span>s...`;
+            targetGameLink = randomGame.link;
+            isCountingDown = true;
+
+            countdownInterval = setInterval(() => {
+                countdown--;
+                if (countdown > 0) {
+                    randomGameButton.innerHTML = `Playing <span style="color: rgb(96, 174, 247);">${randomGame.title}</span> in <span style="color: red;">${countdown}</span>s...`;
+                } else {
+                    clearInterval(countdownInterval);
+                    isCountingDown = false;
+                    window.location.href = targetGameLink;
+                }
+            }, 1000);
+        } else {
+            randomGameButton.textContent = 'No games found.';
+        }
+    });
 });
 
 
