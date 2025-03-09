@@ -504,12 +504,16 @@ a {
     }
 }
 
+#carousel-container {
+    padding: 20px;
+}
+
 #carousel {
     position: relative;
-    width: 60%;
+    max-width: 1159px;
     height: 300px;
     overflow: hidden;
-    margin: 20px auto;
+    margin: auto;
     border-radius: 15px;
     display: flex;
     align-items: center;

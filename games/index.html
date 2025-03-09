@@ -46,19 +46,21 @@
         <input type="text" id="search-bar" placeholder="Search for games...">
         <button id="random-game-button">Random Game</button>
     </div>
-
-    <div id="carousel" onclick="goToGame()">
-        <div class="carousel-slide">
-            <div class="carousel-content">
-                <span id="carousel-popular">Most Popular</span>
-                <h2 id="carousel-title"></h2>
-                <p id="carousel-description"></p>
+    <div id="carousel-container">
+        <div id="carousel" onclick="goToGame()">
+            <div class="carousel-slide">
+                <div class="carousel-content">
+                    <span id="carousel-popular">Most Popular</span>
+                    <h2 id="carousel-title"></h2>
+                    <p id="carousel-description"></p>
+                </div>
+                <div id="carousel-bg"></div>
             </div>
-            <div id="carousel-bg"></div>
+            <div id="carousel-progress"></div>
+            <div id="carousel-dots"></div>
         </div>
-        <div id="carousel-progress"></div>
-        <div id="carousel-dots"></div>
     </div>
+
     
     <div id="games-container">
         
