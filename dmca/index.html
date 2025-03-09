@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="icon" type="image/x-icon" href="/assets/HydroSimple192.png">
+        <link rel="shortcut icon" type="image/x-icon" href="/assets/HydroSimple192.png">
+        <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+        <meta name="keywords" content="hydrovolter,hydro,hydrovolt,hydrovoltexer,hydrocodez,hydroz,hydros,games,pages,dev,workers,unblocked,unblockedgames,ubg" />
+        <link href=/manifest.json rel=manifest>
+        <meta content=Hydrovolter name=og:site_name>
+        <meta content="Hydrovolter's Website" name=title>
+        <meta content="Hydrovolter DMCA Page." name=description>
+        <meta content=#00F6F4 name=theme-color>
+        <meta content=summary_large_image name=twitter:card>
+        <meta content=/assets/HydroSimple512.png name=og:image>
+    <title>DMCA - Hydrovolter</title>
+    <style>
+        body {
+            background-color: #0d1b2a;
+            color: #ffffff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            max-width: 600px;
+            padding: 20px;
+            position: relative;
+            z-index: 2;
+        }
+        h1 {
+            font-size: 3rem;
+        }
+        p {
+            font-size: 1.2rem;
+            color: #b0b0b0;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #4a90e2;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            margin: 10px;
+            text-decoration: none;
+            display: inline-block;
+        }
+        .btn:hover {
+            background-color: #2c5ea5;
+        }
+        .email {
+            color: #ffffff;
+            font-weight: bold;
+        }
+        canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="constellation"></canvas>
+    <div class="container">
+        <h1>DMCA :(</h1>
+        <p>If you believe your copyrighted work has been used improperly on my site, please send a detailed DMCA notice to: <span class="email">dmca@hydrovolter.com</span>. Include a description of the copyrighted material, your contact details, and a statement of good faith belief.</p>
+        <div class="buttons">
+            <a href="mailto:dmca@hydrovolter.com" class="btn">Email DMCA</a>
+            <a href="/" class="btn">Home</a>
+        </div>
+    </div>
+    <script>
+        const canvas = document.getElementById('constellation');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const particleCount = 100;
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        });
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.vx = (Math.random() - 0.5) * 0.5;
+                this.vy = (Math.random() - 0.5) * 0.5;
+                this.size = 2;
+            }
+
+            draw() {
+                ctx.fillStyle = 'white';
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            update() {
+                this.x += this.vx;
+                this.y += this.vy;
+                if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
+                if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+            }
+        }
+
+        function connectParticles() {
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a + 1; b < particles.length; b++) {
+                    let dist = Math.hypot(
+                        particles[a].x - particles[b].x,
+                        particles[a].y - particles[b].y
+                    );
+                    if (dist < 100) {
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${1 - dist / 100})`;
+                        ctx.lineWidth = 0.5;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(p => {
+                p.update();
+                p.draw();
+            });
+            connectParticles();
+            requestAnimationFrame(animate);
+        }
+
+        function init() {
+            particles = [];
+            for (let i = 0; i < particleCount; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        init();
+        animate();
+    </script>
+</body>
+</html>

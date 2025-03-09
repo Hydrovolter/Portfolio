@@ -2,7 +2,8 @@ User-agent: *
 Allow: /
 Disallow: /404.html
 Disallow: /resume.pdf
-Disallow: /sitemap.xml 
+Disallow: /sitemap.xml
+Disallow: /dmca
 Sitemap: https://hydrovolter.com/sitemap.xml 
 
 User-agent: Googlebot
