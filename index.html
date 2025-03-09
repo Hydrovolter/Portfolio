@@ -129,7 +129,7 @@
                         <h3>Music</h3>
                         <p>
                             Plays Piano (1st, Diploma), Oboe (2nd, Diploma) and Saxophone (3rd, Grade 4).
-                            <br>Composed (as of 17/01/25) 3 songs - will be released in 2026! 
+                            <br>Listen to my composed songs at the bottom right of the site!
                         </p>
                     </div>
                 </a>
@@ -418,13 +418,20 @@
 
             </div>
         </div>
+        <div id="music-box">
+            <img id="music-cover" src="/assets/music/img/visionary.png" alt="Cover Art" />
+            <p id="music-info"></p>
+            <button id="music" class="music" type="audio/mpeg" aria-label="Play/Pause Music"></button>
+            <button id="music-skip" class="music" aria-label="Skip current song"></button>
+            <audio id="music-src" src="/assets/music/audio/visionary.mp3" hidden=""></audio>
+        </div>
         <script>
             const banner = document.getElementById('migration-banner');
             const closeButton = document.getElementById('close-banner');
 
             banner.style.display = 'none';
         
-            if (window.location.hostname !== 'hydrovolter.com') {
+            if (window.location.hostname !== 'hydrovolter.com' && window.location.hostname !== 'localhost') {
                 banner.style.display = 'flex';
                 setTimeout(() => { 
                     banner.classList.add('show'); 

@@ -461,7 +461,7 @@ UNDER DEVELOPMENT TAG
 
         banner.style.display = 'none';
     
-        if (window.location.hostname !== 'hydrovolter.com') {
+        if (window.location.hostname !== 'hydrovolter.com' && window.location.hostname !== 'localhost') {
             banner.style.display = 'flex';
             setTimeout(() => {
                 banner.classList.add('show'); 

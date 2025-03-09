@@ -51,6 +51,74 @@ function o(e) {
     }
     ))
 }
+
+function initMusic() {
+    const audio = document.getElementById("music-src");
+    const play = document.getElementById("music");
+    const skip = document.getElementById("music-skip");
+    const info = document.getElementById("music-info");
+    const art = document.getElementById("music-cover");
+  
+    currentSong = Math.floor(Math.random() * songs.length);
+  
+    function updateart() {
+      art.src = `/assets/music/img/${songs[currentSong].src.replace('.mp3', '.png')}`;
+      art.style.display = 'block';
+    }
+  
+    function music() {
+      if (audio.paused) {
+        audio.play();
+        play.classList.add("paused");
+        skip.style.display = "block";
+        info.textContent = songs[currentSong].title;
+        updateart();
+      } else {
+        audio.pause();
+        play.classList.remove("paused");
+        skip.style.display = "none";
+        info.textContent = "";
+        art.style.display = 'none';
+      }
+    }
+  
+    function musicSkip() {
+      currentSong = (currentSong + 1) % songs.length;
+      audio.src = `/assets/music/audio/${songs[currentSong].src}`;
+      audio.play();
+      play.classList.add("paused");
+      skip.style.display = "block";
+      info.textContent = songs[currentSong].title;
+      updateart();
+    }
+  
+    function musicEnd() {
+      musicSkip();
+    }
+  
+    // init first source
+    audio.src = `/assets/music/audio/${songs[currentSong].src}`;
+    art.style.display = 'none';
+  
+    play.addEventListener("click", music);
+    skip.addEventListener("click", musicSkip);
+    audio.volume = 0.1;
+    audio.addEventListener("ended", musicEnd);
+  }
+
+const songs = [
+    { title: "Visionary - Hydrovolter", src: "visionary.mp3" },
+    { title: "Cascade - Hydrovolter", src: "cascade.mp3" },
+    { title: "Evanescent - Hydrovolter", src: "evanescent.mp3" }
+
+  ];
+  
+let currentSong = 0;
+  
+document.addEventListener("DOMContentLoaded", initMusic);
+  
+  
+
 const lichessUsername = "NaturalQuilt"
 const apiStatusEndpoint = 'https://status.hydrovolter.com';
 
