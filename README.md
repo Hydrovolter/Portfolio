@@ -10,6 +10,7 @@ Hey, this is [my portfolio](https://hydrovolter.com/) where I keep some of my pr
 - [ ] add home footer href on typing page
 - [ ] add animations to games carousel dots
 - [ ] make games carousel dots clickable (forwards + backwards)?
+- [ ] make arrows start disappear animation on click
 
 - [ ] add animation/buffer between dealt cards in card counter (in case the exact same cards come up twice in a row)
 - [ ] add blog post: how to card count

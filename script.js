@@ -335,6 +335,7 @@ async function v(e) {
                 await o([[t.Center, i.Center], [t.Left, i.Left]])
             }
         }
+        updateArrows();
         r = !1
     }
 }
@@ -383,16 +384,51 @@ function validateEmail(email) {
     return emailRegex.test(email);
   }
 
+  function updateArrows() {
+    const arrowLeft = document.getElementById("arrow-left");
+    const arrowRight = document.getElementById("arrow-right");
+    const arrowUp = document.getElementById("arrow-up");
+    const arrowDown = document.getElementById("arrow-down");
+
+    function toggleArrow(arrow, shouldShow) {
+        if (shouldShow) {
+            arrow.classList.remove("hidden");
+        } else {
+            arrow.classList.add("hidden");
+        }
+    }
+
+    toggleArrow(arrowLeft, n === t.Right || n === t.Center);
+    toggleArrow(arrowRight, n === t.Left || n === t.Center);
+    toggleArrow(arrowUp, n === t.Bottom || n === t.Center);
+    toggleArrow(arrowDown, n === t.Top || n === t.Center);
+}
+
+
+
+
+
 console.log("Source Code is over at my Github - @hydrovolter "),
+
 
 window.addEventListener("load", ()=>{
     const e = document.getElementById("guide");
+    
+    
 
     if ("ontouchstart" in window) {
         e.innerText = "Swipe left, right, up, or down to navigate";
     } else {
         e.innerText = "Use your arrow keys to navigate";
     }
+
+    
+    document.getElementById("arrow-left").onclick = () => v(l.Left);
+    document.getElementById("arrow-right").onclick = () => v(l.Right);
+    document.getElementById("arrow-up").onclick = () => v(l.Up);
+    document.getElementById("arrow-down").onclick = () => v(l.Down);
+
+    updateArrows();
 
     switch (window.location.hash) {
         case "#about":
@@ -411,7 +447,7 @@ window.addEventListener("load", ()=>{
             break;
     }
 
-    // Set alt, title, and aria-label for images
+    // set alt, title, and aria-label for images
     for (const a of document.querySelectorAll("[alt]")) {
         const altText = a.getAttribute("alt");
         a.title = altText;
