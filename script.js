@@ -116,6 +116,8 @@ const songs = [
 let currentSong = 0;
   
 document.addEventListener("DOMContentLoaded", initMusic);
+document.addEventListener("DOMContentLoaded", updateGitHubStats);
+document.addEventListener("DOMContentLoaded", addSwipeToDismiss);
   
   
 
@@ -278,6 +280,81 @@ const statusIconMap = {
 }
 
 updateLichessRatings();
+
+async function updateGitHubStats() {
+    const repoName = 'Hydrovolter/Portfolio';
+    const repoLinkElement = document.querySelector('.repo-name');
+    const commitMessageElement = document.querySelector('.commit-message');
+  
+    fetch(`https://api.github.com/repos/${repoName}/commits?per_page=1`)
+      .then(response => response.json())
+      .then(data => {
+        if (data && data.length > 0) {
+          const latestCommit = data[0];
+          let commitMessage = latestCommit.commit.message;
+          const commitUrl = latestCommit.html_url;
+
+          const maxLength = 50;
+          if (commitMessage.length > maxLength) {
+            commitMessage = commitMessage.substring(0, maxLength) + "...";
+          }
+
+          repoLinkElement.textContent = repoName;
+          repoLinkElement.href = `https://github.com/${repoName}`;
+          repoLinkElement.target = '_blank';
+
+          commitMessageElement.textContent = commitMessage;
+          commitMessageElement.href = commitUrl;
+          commitMessageElement.target = '_blank';
+        } else {
+          //repoLinkElement.textContent = 'Repo not found';
+          commitMessageElement.textContent = 'No commits found';
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching GitHub data: ', error);
+        //repoLinkElement.textContent = 'Error fetching repo data';
+        commitMessageElement.textContent = '';
+      });
+}
+
+async function addSwipeToDismiss() {
+    const repoBox = document.getElementById('github-repo-info');
+    let startY = 0;
+    let currentY = 0;
+    let isDragging = false;
+
+    repoBox.addEventListener('touchstart', (event) => {
+        startY = event.touches[0].clientY;
+        isDragging = true;
+    });
+
+    repoBox.addEventListener('touchmove', (event) => {
+        if (!isDragging) return;
+        currentY = event.touches[0].clientY;
+        const deltaY = currentY - startY;
+
+        if (deltaY < 0) {
+            repoBox.style.transform = `translateY(${deltaY}px)`;
+            repoBox.style.opacity = `${1 + deltaY / 150}`;
+        }
+    });
+
+    repoBox.addEventListener('touchend', () => {
+        if (currentY - startY < -100) { 
+            repoBox.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+            repoBox.style.transform = 'translateY(-200%)';
+            repoBox.style.opacity = '0';
+            setTimeout(() => repoBox.style.display = 'none', 300);
+        } else {
+            repoBox.style.transition = 'transform 0.3s ease-out, opacity 0.3s ease-out';
+            repoBox.style.transform = 'translateY(0)';
+            repoBox.style.opacity = '0.97';
+        }
+        isDragging = false;
+    });
+}
+
 
 async function v(e) {
     if (!r) {

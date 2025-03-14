@@ -334,6 +334,16 @@ body {
     }
 }
 
+#contact-link {
+    text-decoration: underline;
+    color: white;
+    transition: color 0.3s ease;
+}
+
+#contact-link:hover {
+    color: rgb(80, 184, 253);
+}
+
 #migration-banner {
     display: none;
     position: fixed;
@@ -519,7 +529,57 @@ body {
     transform: scale(1.2);
 }
 
-.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
+#github-repo-info {
+    z-index: 9999;;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #1c1e1f; /* #24292e */
+    color: #fff;
+    padding: 10px 15px;
+    margin-left: 5vmin;
+    border-radius: 8px;
+    font-family: sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.97;
+  }
+  
+  #github-repo-info:hover {
+    transform: translateY(-5px);
+  }
+  
+  .repo-link {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+  }
+  
+  .fork-icon {
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+  }
+  
+  .repo-name {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s ease;
+  }
+  
+  .repo-name:hover {
+    color: #58a6ff;
+  }
+  
+  .commit-message {
+    font-size: 0.9em;
+    color: #bbb;
+    transition: color 0.3s ease;
+  }
+  
+  .commit-message:hover {
+    color: #58a6ff;
+  }
