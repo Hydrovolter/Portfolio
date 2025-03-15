@@ -529,6 +529,14 @@ body {
     transform: scale(1.2);
 }
 
+.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
+
+
 #github-repo-info {
     z-index: 9999;;
     position: absolute;
