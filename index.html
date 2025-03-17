@@ -46,8 +46,13 @@
         
         <div id="migration-banner">
             <span class="icon">📢</span>
+                <!--
             <span class="banner-text">
                 We are moving to <a href="https://hydrovolter.com">hydrovolter.com</a> ! Please update your bookmarks.
+            </span>
+            -->
+            <span class="banner-text">
+                Due to the recent network blocking of <a href="https://hydrovolter.com">hydrovolter.com</a> some features may not work. Please <a href="/#contact">report any bugs to me</a>.
             </span>
             <button class="close-button" id="close-banner">&times;</button>
         </div>
@@ -478,7 +483,7 @@
 
             banner.style.display = 'none';
         
-            if (window.location.hostname !== 'hydrovolter.com' && window.location.hostname !== 'localhost') {
+            if (window.location.hostname == 'hydrovolter.pages.dev') {
                 banner.style.display = 'flex';
                 setTimeout(() => { 
                     banner.classList.add('show'); 

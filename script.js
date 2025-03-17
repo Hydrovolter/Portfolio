@@ -1,3 +1,28 @@
+var lichessUsername = "NaturalQuilt"
+var apiStatusEndpoint = 'https://status.hydrovolter.com';
+var apiEndpoint = 'https://api.hydrovolter.com';
+var repoName = 'Hydrovolter/Portfolio';
+
+if (window.location.hostname === 'hydrovolter.pages.dev' || window.location.hostname === 'localhost') {
+    apiStatusEndpoint = 'https://status-boh2.onrender.com'; 
+    apiEndpoint = 'https://api.hydrovolter.workers.dev';
+  }
+
+const linkReplacements = {
+    "movies.hydrovolter.com": "movies-hydro.pages.dev",
+    "proxy.hydrovolter.com": "proxy-hydro.vercel.app",
+    "tools.hydrovolter.com": "tools-hydro.pages.dev",
+    "ddpe.hydrovolter.com": "ddpe.vercel.app"
+};
+
+const statusIconMap = {
+    online: "/assets/status/online.svg",
+    dnd: "/assets/status/dnd.svg",
+    idle: "/assets/status/idle.svg",
+    invisible: "/assets/status/offline.svg",
+    offline: "/assets/status/offline.svg",
+  };
+
 const k = {
     Game: 0,
     Streaming: 1,
@@ -106,6 +131,29 @@ function initMusic() {
     audio.addEventListener("ended", musicEnd);
   }
 
+function linkReplacement() {
+    if (window.location.hostname === "hydrovolter.pages.dev" || window.location.hostname === "localhost") {
+
+        document.querySelectorAll("a").forEach(anchor => {
+            let href = anchor.getAttribute("href");
+            
+            if (href && !href.startsWith("/") && !href.startsWith("#")) {
+                try {
+                    let url = new URL(href, window.location.origin);
+                    let hostname = url.hostname.replace(/^www\./, "");
+
+                    if (linkReplacements.hasOwnProperty(hostname)) {
+                        let newUrl = url.href.replace(hostname, linkReplacements[hostname]);
+                        anchor.setAttribute("href", newUrl);
+                    }
+                } catch (e) {
+                    console.error("Invalid URL: ", href);
+                }
+            }
+        });
+    }
+}
+
 const songs = [
     { title: "Visionary - Hydrovolter", src: "visionary.mp3" },
     { title: "Cascade - Hydrovolter", src: "cascade.mp3" },
@@ -114,23 +162,17 @@ const songs = [
   ];
   
 let currentSong = 0;
-  
+
+document.addEventListener("DOMContentLoaded", linkReplacement);
 document.addEventListener("DOMContentLoaded", initMusic);
 document.addEventListener("DOMContentLoaded", updateGitHubStats);
 document.addEventListener("DOMContentLoaded", addSwipeToDismiss);
   
   
 
-const lichessUsername = "NaturalQuilt"
-const apiStatusEndpoint = 'https://status.hydrovolter.com';
 
-const statusIconMap = {
-    online: "/assets/status/online.svg",
-    dnd: "/assets/status/dnd.svg",
-    idle: "/assets/status/idle.svg",
-    invisible: "/assets/status/offline.svg",
-    offline: "/assets/status/offline.svg",
-  };
+
+
   
   // fetch user presence and update profile
   async function updateProfileStatus() {
@@ -282,7 +324,7 @@ const statusIconMap = {
 updateLichessRatings();
 
 async function updateGitHubStats() {
-    const repoName = 'Hydrovolter/Portfolio';
+    
     const repoLinkElement = document.querySelector('.repo-name');
     const commitMessageElement = document.querySelector('.commit-message');
   
@@ -576,7 +618,7 @@ submitButton.onclick = () => {
   submitButton.innerText = "Sending...";
   submitButton.disabled = true;
 
-  const apiEndpoint = 'https://api.hydrovolter.com';
+  
 
   fetch(`${apiEndpoint}/contact/`, {
     method: 'POST',
