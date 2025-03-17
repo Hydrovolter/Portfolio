@@ -377,7 +377,7 @@ a {
 #migration-banner {
     display: none;
     position: fixed;
-    top: -80px; /* Start off-screen */
+    top: -120px; /* Start off-screen */
     left: 50%;
     transform: translateX(-50%);
     width: calc(100% - 40px);

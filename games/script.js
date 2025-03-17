@@ -1,4 +1,43 @@
-document.addEventListener("DOMContentLoaded", function () {
+function linkReplacement() {
+    const linkReplacements = {
+        "10minutestilldawn.hydrovolter.com": "10minutestilldawn-hydro.vercel.app",
+        "finalearth.hydrovolter.com": "finalearth.pages.dev",
+        "connections.hydrovolter.com": "connections-hydro.vercel.app",
+        "crossyroad.hydrovolter.com": "crossyroad-hydro.pages.dev",
+        "glitchdash.hydrovolter.com": "glitch-dash.vercel.app",
+        "infiltratingtheairship.hydrovolter.com": "infiltratingtheairship-hydro.vercel.app",
+        "slingdrift.hydrovolter.com": "slingdrift-hydro.vercel.app",
+        "stack.hydrovolter.com": "tower-stack.pages.dev",
+        "superstarcar.hydrovolter.com": "superstarcar-hydro.vercel.app",
+
+    };
+
+    if (window.location.hostname === "hydrovolter.pages.dev" || window.location.hostname === "localhost") {
+        document.querySelectorAll(".game-card").forEach(card => {
+            let currentLink = card.getAttribute("onclick");
+            if (currentLink) {
+                let urlMatch = currentLink.match(/'([^']+)'/);
+                if (urlMatch) {
+                    let urlString = urlMatch[1];
+                    
+                    try {
+                        let url = new URL(urlString, window.location.origin); // Handle relative URLs
+                        let hostname = url.hostname;
+                        
+                        if (linkReplacements.hasOwnProperty(hostname)) {
+                            let newUrl = url.href.replace(hostname, linkReplacements[hostname]);
+                            card.setAttribute("onclick", `location.href='${newUrl}';`);
+                        }
+                    } catch (error) {
+                        console.error("Invalid URL:", urlString);
+                    }
+                }
+            }
+        });
+    }
+}
+
+//document.addEventListener("DOMContentLoaded", function () {
     /* AD VOTE SCRIPT
 
     if (localStorage.getItem("ads_vote_completed")) return;
@@ -120,7 +159,7 @@ document.addEventListener("DOMContentLoaded", function () {
         sendVote("no");
     });
     */
-});
+//});
 
 async function updateGitHubStats() {
     const repoName = 'Hydrovolter/Portfolio';
@@ -300,6 +339,9 @@ function goToGame() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
+    linkReplacement();
+
+
     const filterButtons = document.querySelectorAll(".filter-btn");
     const gameCards = document.querySelectorAll(".game-card");
 
