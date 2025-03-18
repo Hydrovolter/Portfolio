@@ -621,7 +621,7 @@ a {
 }
 
 #github-repo-info {
-    z-index: 9999;;
+    z-index: 800;;
     position: absolute;
     top: 20px;
     right: 20px;
