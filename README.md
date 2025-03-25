@@ -12,15 +12,20 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [hydrovolter.github.io/Portfolio/](https://hydrovolter.github.io/Portfolio) (this link does receive live/recent commits, however due to the image paths of the main repo, images may not load as intended) 
 
 # TODO
+- add more games, replace games which buffer / are blocked
+
 - [ ] add blog post: trading strategy breakdown + background
 - [ ] star/favourite games feature
 - [x] random game button (for the indecisive)
-- [ ] light/dark mode toggle?
+~~- [ ] light/dark mode toggle?~~ I don't like dark mode + uniformity of the site and assets
 - [ ] recently played games
 - [ ] add home footer href on typing page
+- [ ] archive old blog + replace blog links with new ones
+- [ ] fix blog pages
+- [ ] fix movies docs
 - [ ] add animations to games carousel dots
 - [ ] make games carousel dots clickable (forwards + backwards)?
-- [ ] make arrows start disappear animation on click
+- [x] make arrows start disappear animation on click
 
 - [ ] add animation/buffer between dealt cards in card counter (in case the exact same cards come up twice in a row)
 - [ ] add blog post: how to card count
@@ -31,15 +36,14 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 
 - [ ] fix sitemap.xml lastmod dates
 
-- [ ] add more games, replace games which buffer / are blocked
 - [ ] add local highscore tracker to wordbomb
 
 - [x] adjust presence depending on activity type (remove grid for custom, non-images etc.)
 - [ ] add interactable presence (e.g. click on spotify songs, hyperlinks in status, click on currently playing lichess game)
-- [ ] add iframe/live feed for currently playing lichess games
-- [ ] add a progress bar to songs / music in presence ?? (maybe)
+~~- [ ] add iframe/live feed for currently playing lichess games~~ Lichess API won't let me (x-frame-denied)
+- [ ] add a progress bar to songs / music in presence ??
 
-- [ ] add ADMIN PAGE
+- [x] add ADMIN PAGE
 - [ ] push news/announcements
 - [ ] toggle status/presence
 - [ ] display stats (cloudflare? polls? other data?)
