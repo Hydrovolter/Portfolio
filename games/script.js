@@ -9,6 +9,7 @@ function linkReplacement() {
         "slingdrift.hydrovolter.com": "slingdrift-hydro.vercel.app",
         "stack.hydrovolter.com": "tower-stack.pages.dev",
         "superstarcar.hydrovolter.com": "superstarcar-hydro.vercel.app",
+        "backrooms2d.hydrovolter.com": "backrooms2d-hydro.vercel.app",
 
     };
 
