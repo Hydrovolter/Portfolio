@@ -1,11 +1,15 @@
 var lichessUsername = "NaturalQuilt"
-var apiStatusEndpoint = 'https://status.hydrovolter.com';
-var apiEndpoint = 'https://api.hydrovolter.com';
 var repoName = 'Hydrovolter/Portfolio';
 
+var apiDiscordStatusEndpoint = 'https://status.hydrovolter.com';
+var apiCloudflareEndpoint = 'https://api.hydrovolter.com';
+var apiJsonSpotifyEndpoint = 'https://json.spotify.hydrovolter.com';
+
+
 if (window.location.hostname === 'hydrovolter.pages.dev' || window.location.hostname === 'localhost') {
-    apiStatusEndpoint = 'https://status-boh2.onrender.com'; 
-    apiEndpoint = 'https://api.hydrovolter.workers.dev';
+    apiDiscordStatusEndpoint = 'https://status-boh2.onrender.com'; 
+    apiCloudflareEndpoint = 'https://api.hydrovolter.workers.dev';
+    apiJsonSpotifyEndpoint = 'https://json-spotify-hydro.vercel.app';
   }
 
 const linkReplacements = {
@@ -177,7 +181,7 @@ document.addEventListener("DOMContentLoaded", addSwipeToDismiss);
   // fetch user presence and update profile
   async function updateProfileStatus() {
     try {
-      const response = await fetch(`${apiStatusEndpoint}/api/presence`);
+      const response = await fetch(`${apiDiscordStatusEndpoint}/api/presence`);
       const data = await response.json();
       
       // update profile avatar status
@@ -237,40 +241,73 @@ document.addEventListener("DOMContentLoaded", addSwipeToDismiss);
             activityState.style.display = "none";
         }
     } else {
-        
-        fetch(`https://lichess.org/api/user/${lichessUsername}/current-game`, { headers: { 'Accept': 'application/json' } })
-    .then(response => response.json())
-    .then(gameData => {
-        if (gameData && gameData.id && gameData.status === 'started') {
-            console.log(gameData)
+        const response2 = await fetch(`${apiJsonSpotifyEndpoint}/api/spotify`);
+        const data2 = await response2.json();
+        if(data2.song) {
             activityContainerTotal.style.display = "flex";
             activityContainer.style.display = "block";
-            activityImageContainer.style.display = "block";
-            activityImage.style.display = "block";
             
-            activityImage.src = "/assets/status/lichess.png";
-
-
-            activityName.textContent = `Playing on Lichess (${gameData.clock.initial / 60}+${gameData.clock.increment})`;
-
-            const isWhite = gameData.players.white.user?.name === lichessUsername;
-            const opponentColor = isWhite ? 'black' : 'white';
-            const myColor = isWhite ? 'white' : 'black';
-
-            activityDetails.style.display = "block";
-            activityDetails.textContent = `${opponentColor.charAt(0).toUpperCase()}${opponentColor.slice(1)}: ${gameData.players[opponentColor].user?.name ?? 'AI'} (${gameData.players[opponentColor].rating ?? 'N/A'})`;
-
-            activityState.style.display = "block";
-            activityState.textContent = `${myColor.charAt(0).toUpperCase()}${myColor.slice(1)} [me]: ${gameData.players[myColor].user.name} (${gameData.players[myColor].rating})`;
+            const hasImage = !!data2.album_art;
+            activityImage.style.display = hasImage ? "block" : "none";
+            activityImageContainer.style.display = hasImage ? "block" : "none";
+            activityImage.src = hasImage ? data2.album_art : "";
+            
+            const gridContainer = document.querySelector('.grid-container');
+            if (hasImage) {
+                gridContainer.classList.remove('single-column');
+            } else {
+                gridContainer.classList.add('single-column');
+            }
+        
+            activityName.textContent = "Listening to";
+            if (data2.song) {
+                activityDetails.style.display = "block";
+                activityDetails.textContent = data2.song;
+            } else {
+                activityDetails.style.display = "none";
+            }
+            
+            if (data2.artist) {
+                activityState.style.display = "block";
+                activityState.textContent = data2.artist;
+            } else {
+                activityState.style.display = "none";
+            }
         } else {
+            fetch(`https://lichess.org/api/user/${lichessUsername}/current-game`, { headers: { 'Accept': 'application/json' } })
+        .then(response => response.json())
+        .then(gameData => {
+            if (gameData && gameData.id && gameData.status === 'started') {
+                console.log(gameData)
+                activityContainerTotal.style.display = "flex";
+                activityContainer.style.display = "block";
+                activityImageContainer.style.display = "block";
+                activityImage.style.display = "block";
+                
+                activityImage.src = "/assets/status/lichess.png";
+
+
+                activityName.textContent = `Playing on Lichess (${gameData.clock.initial / 60}+${gameData.clock.increment})`;
+
+                const isWhite = gameData.players.white.user?.name === lichessUsername;
+                const opponentColor = isWhite ? 'black' : 'white';
+                const myColor = isWhite ? 'white' : 'black';
+
+                activityDetails.style.display = "block";
+                activityDetails.textContent = `${opponentColor.charAt(0).toUpperCase()}${opponentColor.slice(1)}: ${gameData.players[opponentColor].user?.name ?? 'AI'} (${gameData.players[opponentColor].rating ?? 'N/A'})`;
+
+                activityState.style.display = "block";
+                activityState.textContent = `${myColor.charAt(0).toUpperCase()}${myColor.slice(1)} [me]: ${gameData.players[myColor].user.name} (${gameData.players[myColor].rating})`;
+            } else {
+                activityContainer.style.display = "none";
+                activityContainerTotal.style.display = "none";
+            }
+        })
+        .catch(() => {
             activityContainer.style.display = "none";
             activityContainerTotal.style.display = "none";
-        }
-    })
-    .catch(() => {
-        activityContainer.style.display = "none";
-        activityContainerTotal.style.display = "none";
-    });
+        });
+    }
 
 
 
@@ -620,7 +657,7 @@ submitButton.onclick = () => {
 
   
 
-  fetch(`${apiEndpoint}/contact/`, {
+  fetch(`${apiCloudflareEndpoint}/contact/`, {
     method: 'POST',
     body: JSON.stringify({
       email: email,
