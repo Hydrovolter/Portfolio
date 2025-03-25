@@ -4,38 +4,52 @@ var repoName = 'Hydrovolter/Portfolio';
 var apiDiscordStatusEndpoint = 'https://status.hydrovolter.com';
 var apiCloudflareEndpoint = 'https://api.hydrovolter.com';
 var apiJsonSpotifyEndpoint = 'https://json.spotify.hydrovolter.com';
+var blogRSSFeedEndpoint = 'https://blog.hydrovolter.com/rss.xml';
+
+let currentSong = 0;
 
 
 if (window.location.hostname === 'hydrovolter.pages.dev' || window.location.hostname === 'localhost') {
     apiDiscordStatusEndpoint = 'https://status-boh2.onrender.com'; 
     apiCloudflareEndpoint = 'https://api.hydrovolter.workers.dev';
     apiJsonSpotifyEndpoint = 'https://json-spotify-hydro.vercel.app';
+    blogRSSFeedEndpoint = 'https://blog-hydro.pages.dev/rss.xml';
   }
 
 const linkReplacements = {
     "movies.hydrovolter.com": "movies-hydro.pages.dev",
     "proxy.hydrovolter.com": "proxy-hydro.vercel.app",
     "tools.hydrovolter.com": "tools-hydro.pages.dev",
-    "ddpe.hydrovolter.com": "ddpe.vercel.app"
+    "ddpe.hydrovolter.com": "ddpe.vercel.app",
+    "blog.hydrovolter.com": "blog-hydro.pages.dev",
 };
-
 const statusIconMap = {
     online: "/assets/status/online.svg",
     dnd: "/assets/status/dnd.svg",
     idle: "/assets/status/idle.svg",
     invisible: "/assets/status/offline.svg",
     offline: "/assets/status/offline.svg",
-  };
+};
+const blogRGBAs = [
+    "rgba(255, 0, 0, 0.25)",    // Red
+    "rgba(0, 255, 0, 0.25)",    // Green
+    "rgba(0, 0, 255, 0.25)",    // Blue
+    "rgba(255, 255, 0, 0.25)",  // Yellow
+    "rgba(255, 0, 255, 0.25)",  // Magenta
+    "rgba(0, 255, 255, 0.25)",  // Cyan
+    "rgba(128, 128, 128, 0.25)", // Gray
+    "rgba(255, 165, 0, 0.25)",  // Orange
+    "rgba(128, 0, 128, 0.25)",  // Purple
+    "rgba(255, 192, 203, 0.25)" // Pink
+];
+const songs = [
+    { title: "Visionary - Hydrovolter", src: "visionary.mp3" },
+    { title: "Cascade - Hydrovolter", src: "cascade.mp3" },
+    { title: "Evanescent - Hydrovolter", src: "evanescent.mp3" }
 
-const k = {
-    Game: 0,
-    Streaming: 1,
-    Listening: 2,
-    Watching: 3,
-    Custom: 4,
-    Competing: 5
-}
-  , l = {
+];
+
+const l = {
     Up: "up",
     Down: "down",
     Left: "left",
@@ -80,7 +94,16 @@ function o(e) {
     }
     ))
 }
-
+function getRandomRGBAWithOpacity(opacity) {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
+}
+function getRandomRGBAFromList(rgbaList) {
+    const randomIndex = Math.floor(Math.random() * rgbaList.length);
+    return rgbaList[randomIndex];
+}
 function initMusic() {
     const audio = document.getElementById("music-src");
     const play = document.getElementById("music");
@@ -133,8 +156,7 @@ function initMusic() {
     skip.addEventListener("click", musicSkip);
     audio.volume = 0.1;
     audio.addEventListener("ended", musicEnd);
-  }
-
+}
 function linkReplacement() {
     if (window.location.hostname === "hydrovolter.pages.dev" || window.location.hostname === "localhost") {
 
@@ -158,182 +180,170 @@ function linkReplacement() {
     }
 }
 
-const songs = [
-    { title: "Visionary - Hydrovolter", src: "visionary.mp3" },
-    { title: "Cascade - Hydrovolter", src: "cascade.mp3" },
-    { title: "Evanescent - Hydrovolter", src: "evanescent.mp3" }
+document.addEventListener("DOMContentLoaded", async () => {
+    initMusic();
+    updateGitHubStats();
+    addSwipeToDismiss();
+    linkReplacement();
+    updateLichessRatings();
 
-  ];
+    updateProfileStatus();
+    setInterval(updateProfileStatus, 60000);
+
+    await fetchRSSFeed(blogRSSFeedEndpoint);
+    linkReplacement();
+});
   
-let currentSong = 0;
 
-document.addEventListener("DOMContentLoaded", linkReplacement);
-document.addEventListener("DOMContentLoaded", initMusic);
-document.addEventListener("DOMContentLoaded", updateGitHubStats);
-document.addEventListener("DOMContentLoaded", addSwipeToDismiss);
-  
-  
-
-
-
-
-  
   // fetch user presence and update profile
-  async function updateProfileStatus() {
-    try {
-      const response = await fetch(`${apiDiscordStatusEndpoint}/api/presence`);
-      const data = await response.json();
-      
-      // update profile avatar status
-      const statusContainer = document.getElementById(
-        "profile-avatar-status-container"
-      );
-      
-      const statusIcon = document.getElementById("profile-avatar-status");
-  
-      if (data.status) {
-        // show status icon
-        statusContainer.style.display = "block";
-        statusIcon.src = statusIconMap[data.status] || statusIconMap["offline"];
-        
-      } else {
-        // hide status if no status available
-        statusContainer.style.display = "none";
-      }
-  
-      // update activity details
-      const activityContainer = document.getElementById("profile-activity");
-      const activityContainerTotal = document.getElementById("profile-activity-container")
-      const activityImage = document.getElementById("profile-activity-large-image");
-      const activityImageContainer = document.getElementById("profile-activity-image-container")
-      const activityName = document.getElementById("profile-activity-name");
-      const activityDetails = document.getElementById("profile-activity-details");
-      const activityState = document.getElementById("profile-activity-state");
-      
-      if (data.activityType && (data.activityText || data.activityDetails)) {
-        activityContainerTotal.style.display = "flex";
-        activityContainer.style.display = "block";
-        
-        const hasImage = !!data.activityImage;
-        activityImage.style.display = hasImage ? "block" : "none";
-        activityImageContainer.style.display = hasImage ? "block" : "none";
-        activityImage.src = hasImage ? data.activityImage : "";
-        
-        const gridContainer = document.querySelector('.grid-container');
-        if (hasImage) {
-            gridContainer.classList.remove('single-column');
-        } else {
-            gridContainer.classList.add('single-column');
-        }
-    
-        activityName.textContent = data.activityType;
-        if (data.activityDetails) {
-            activityDetails.style.display = "block";
-            activityDetails.textContent = data.activityDetails;
-        } else {
-            activityDetails.style.display = "none";
-        }
-        
-        if (data.activityText) {
-            activityState.style.display = "block";
-            activityState.textContent = data.activityText;
-        } else {
-            activityState.style.display = "none";
-        }
-    } else {
-        const response2 = await fetch(`${apiJsonSpotifyEndpoint}/api/spotify`);
-        const data2 = await response2.json();
-        if(data2.song) {
-            activityContainerTotal.style.display = "flex";
-            activityContainer.style.display = "block";
-            
-            const hasImage = !!data2.album_art;
-            activityImage.style.display = hasImage ? "block" : "none";
-            activityImageContainer.style.display = hasImage ? "block" : "none";
-            activityImage.src = hasImage ? data2.album_art : "";
-            
-            const gridContainer = document.querySelector('.grid-container');
-            if (hasImage) {
-                gridContainer.classList.remove('single-column');
-            } else {
-                gridContainer.classList.add('single-column');
-            }
-        
-            activityName.textContent = "Listening to";
-            if (data2.song) {
-                activityDetails.style.display = "block";
-                activityDetails.textContent = data2.song;
-            } else {
-                activityDetails.style.display = "none";
-            }
-            
-            if (data2.artist) {
-                activityState.style.display = "block";
-                activityState.textContent = data2.artist;
-            } else {
-                activityState.style.display = "none";
-            }
-        } else {
-            fetch(`https://lichess.org/api/user/${lichessUsername}/current-game`, { headers: { 'Accept': 'application/json' } })
-        .then(response => response.json())
-        .then(gameData => {
-            if (gameData && gameData.id && gameData.status === 'started') {
-                console.log(gameData)
-                activityContainerTotal.style.display = "flex";
-                activityContainer.style.display = "block";
-                activityImageContainer.style.display = "block";
-                activityImage.style.display = "block";
-                
-                activityImage.src = "/assets/status/lichess.png";
+async function updateProfileStatus() {
+    // Get elements
+    const statusContainer = document.getElementById("profile-avatar-status-container");
+    const statusIcon = document.getElementById("profile-avatar-status");
+    const activityContainer = document.getElementById("profile-activity");
+    const activityContainerTotal = document.getElementById("profile-activity-container");
+    const activityImage = document.getElementById("profile-activity-large-image");
+    const activityImageContainer = document.getElementById("profile-activity-image-container");
+    const activityName = document.getElementById("profile-activity-name");
+    const activityDetails = document.getElementById("profile-activity-details");
+    const activityState = document.getElementById("profile-activity-state");
+    const gridContainer = document.querySelector('.grid-container');
 
-
-                activityName.textContent = `Playing on Lichess (${gameData.clock.initial / 60}+${gameData.clock.increment})`;
-
-                const isWhite = gameData.players.white.user?.name === lichessUsername;
-                const opponentColor = isWhite ? 'black' : 'white';
-                const myColor = isWhite ? 'white' : 'black';
-
-                activityDetails.style.display = "block";
-                activityDetails.textContent = `${opponentColor.charAt(0).toUpperCase()}${opponentColor.slice(1)}: ${gameData.players[opponentColor].user?.name ?? 'AI'} (${gameData.players[opponentColor].rating ?? 'N/A'})`;
-
-                activityState.style.display = "block";
-                activityState.textContent = `${myColor.charAt(0).toUpperCase()}${myColor.slice(1)} [me]: ${gameData.players[myColor].user.name} (${gameData.players[myColor].rating})`;
-            } else {
-                activityContainer.style.display = "none";
-                activityContainerTotal.style.display = "none";
-            }
-        })
-        .catch(() => {
+    function hideActivity() {
+        if (activityContainer && activityContainerTotal) {
             activityContainer.style.display = "none";
             activityContainerTotal.style.display = "none";
-        });
+        }
     }
 
+    try {
+        const response = await fetch(`${apiDiscordStatusEndpoint}/api/presence`);
+        if (!response.ok) throw new Error("Discord API fetch failed");
+        const data = await response.json();
 
+        if (data.status && statusContainer && statusIcon) {
+            statusContainer.style.display = "block";
+            statusIcon.src = statusIconMap[data.status] || statusIconMap["offline"];
+        } else if (statusContainer) {
+            statusContainer.style.display = "none";
+        }
 
+        if (data.activityType && (data.activityText || data.activityDetails)) {
+            if (activityContainerTotal && activityContainer) {
+                activityContainerTotal.style.display = "flex";
+                activityContainer.style.display = "block";
+            }
 
-    
+            const hasImage = !!data.activityImage;
+            if (activityImage && activityImageContainer) {
+                activityImage.style.display = hasImage ? "block" : "none";
+                activityImageContainer.style.display = hasImage ? "block" : "none";
+                activityImage.src = hasImage ? data.activityImage : "";
+            }
 
-    }
-    
-    
+            if (gridContainer) {
+                hasImage ? gridContainer.classList.remove('single-column') : gridContainer.classList.add('single-column');
+            }
 
-   // else {
-  //      activityContainer.style.display = "none";
- //       activityContainerTotal.style.display = "none";
-//    }
-    
+            if (activityName) activityName.textContent = data.activityType;
+            if (activityDetails) {
+                activityDetails.style.display = data.activityDetails ? "block" : "none";
+                activityDetails.textContent = data.activityDetails || "";
+            }
+            if (activityState) {
+                activityState.style.display = data.activityText ? "block" : "none";
+                activityState.textContent = data.activityText || "";
+            }
+
+            return; // Stop execution if Discord API succeeds
+        }
     } catch (error) {
-      console.error("Error fetching or updating profile status: ", error);
+        console.warn("Discord API error:", error);
     }
-  }
-  
-  updateProfileStatus();
-  
-  // status refresh period
-  setInterval(updateProfileStatus, 60000);
 
-  async function updateLichessRatings() {
+    try {
+        const response2 = await fetch(`${apiJsonSpotifyEndpoint}/api/spotify`);
+        if (!response2.ok) throw new Error("Spotify API fetch failed");
+        const data2 = await response2.json();
+        
+
+        if (data2.song) {
+            if (activityContainerTotal && activityContainer) {
+                activityContainerTotal.style.display = "flex";
+                activityContainer.style.display = "block";
+            }
+
+            const hasImage = !!data2.album_art;
+            if (activityImage && activityImageContainer) {
+                activityImage.style.display = hasImage ? "block" : "none";
+                activityImageContainer.style.display = hasImage ? "block" : "none";
+                activityImage.src = hasImage ? data2.album_art : "";
+            }
+
+            if (gridContainer) {
+                hasImage ? gridContainer.classList.remove('single-column') : gridContainer.classList.add('single-column');
+            }
+
+            if (activityName) activityName.textContent = "Listening to";
+            if (activityDetails) {
+                activityDetails.style.display = "block";
+                activityDetails.textContent = data2.song;
+            }
+            if (activityState) {
+                activityState.style.display = data2.artist ? "block" : "none";
+                activityState.textContent = data2.artist || "";
+            }
+
+            return; // Stop execution if Spotify API succeeds
+        }
+    } catch (error) {
+        console.warn("Spotify API error:", error);
+    }
+
+    try {
+        const response3 = await fetch(`https://lichess.org/api/user/${lichessUsername}/current-game`, { headers: { 'Accept': 'application/json' } });
+        if (!response3.ok) throw new Error("Lichess API fetch failed");
+        const gameData = await response3.json();
+
+        if (gameData && gameData.id && gameData.status === 'started') {
+            if (activityContainerTotal && activityContainer) {
+                activityContainerTotal.style.display = "flex";
+                activityContainer.style.display = "block";
+            }
+
+            if (activityImage && activityImageContainer) {
+                activityImageContainer.style.display = "block";
+                activityImage.style.display = "block";
+                activityImage.src = "/assets/status/lichess.png";
+            }
+
+            if (activityName) activityName.textContent = `Playing on Lichess (${gameData.clock.initial / 60}+${gameData.clock.increment})`;
+
+            const isWhite = gameData.players.white.user?.name === lichessUsername;
+            const opponentColor = isWhite ? 'black' : 'white';
+            const myColor = isWhite ? 'white' : 'black';
+
+            if (activityDetails) {
+                activityDetails.style.display = "block";
+                activityDetails.textContent = `${opponentColor.charAt(0).toUpperCase()}${opponentColor.slice(1)}: ${gameData.players[opponentColor].user?.name ?? 'AI'} (${gameData.players[opponentColor].rating ?? 'N/A'})`;
+            }
+
+            if (activityState) {
+                activityState.style.display = "block";
+                activityState.textContent = `${myColor.charAt(0).toUpperCase()}${myColor.slice(1)} [me]: ${gameData.players[myColor].user.name} (${gameData.players[myColor].rating})`;
+            }
+
+            return; // Stop execution if Lichess API succeeds
+        }
+    } catch (error) {
+        console.warn("Lichess API error:", error);
+    }
+
+    // If all APIs fail, hide activity
+    hideActivity();
+}
+
+async function updateLichessRatings() {
     const url = `https://lichess.org/api/user/${lichessUsername}`;
 
     try {
@@ -357,8 +367,6 @@ document.addEventListener("DOMContentLoaded", addSwipeToDismiss);
         console.error("Error fetching Lichess ratings: ", error);
     }
 }
-
-updateLichessRatings();
 
 async function updateGitHubStats() {
     
@@ -434,6 +442,30 @@ async function addSwipeToDismiss() {
     });
 }
 
+async function fetchRSSFeed(url) {
+    try {
+        const response = await fetch(url);
+        const text = await response.text();
+        const parser = new DOMParser();
+        const xml = parser.parseFromString(text, "application/xml");
+
+        const items = xml.querySelectorAll("item");
+        const posts = [];
+
+        items.forEach(item => {
+            const title = item.querySelector("title").textContent;
+            const pubDate = item.querySelector("pubDate").textContent;
+            const description = item.querySelector("description").textContent;
+            const link = item.querySelector("link").textContent;
+            
+            posts.push({ title, pubDate, description, link });
+        });
+
+        renderBlogPosts(posts);
+    } catch (error) {
+        console.error("Error fetching RSS feed: ", error);
+    }
+}
 
 async function v(e) {
     if (!r) {
@@ -495,6 +527,41 @@ async function v(e) {
         r = !1
     }
 }
+
+function renderBlogPosts(posts) {
+    const leftSection = document.querySelector("#left .container");
+    if (!leftSection) return;
+    
+    posts.forEach(post => {
+        const blogLink = document.createElement("a");
+        blogLink.className = "hover card";
+        blogLink.href = post.link;
+        blogLink.target = "_blank";
+        blogLink.rel = "noopener noreferrer";
+        blogLink.style.backgroundColor = getRandomRGBAFromList(blogRGBAs)
+        blogLink.alt = `${post.title} Blog`;
+
+        const img = document.createElement("img");
+        img.className = "circle card-icon";
+        img.src = "/assets/projects/BlogIcon.png"; // Default image, replace if needed
+        img.alt = `${post.title} Icon`;
+
+        const contentDiv = document.createElement("div");
+        contentDiv.className = "card-content";
+        
+        const titleElem = document.createElement("h3");
+        titleElem.textContent = post.title;
+
+        const descElem = document.createElement("p");
+        descElem.textContent = post.description;
+
+        contentDiv.appendChild(titleElem);
+        contentDiv.appendChild(descElem);
+        blogLink.appendChild(img);
+        blogLink.appendChild(contentDiv);
+        leftSection.appendChild(blogLink);
+    });
+}
 function C(e, t) {
     e.alt = t,
     e.title = t,
@@ -538,9 +605,8 @@ function f(e) {
 function validateEmail(email) {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
-  }
-
-  function updateArrows() {
+}
+function updateArrows() {
     const arrowLeft = document.getElementById("arrow-left");
     const arrowRight = document.getElementById("arrow-right");
     const arrowUp = document.getElementById("arrow-up");
@@ -560,11 +626,16 @@ function validateEmail(email) {
     toggleArrow(arrowDown, n === t.Top || n === t.Center);
 }
 
-
-
-
-
-console.log("Source Code is over at my Github - @hydrovolter "),
+console.log(
+    "%cSource Code is over at my Github - @hydrovolter",
+    "background: #222; color: #bada55; padding: 5px; border-radius: 3px;",
+    "https://github.com/hydrovolter/portfolio"
+);
+console.log(
+    "%c------------------------------------------",
+    "color: #888;"
+);
+  
 
 
 window.addEventListener("load", ()=>{

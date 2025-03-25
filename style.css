@@ -591,3 +591,15 @@ body {
   .commit-message:hover {
     color: #58a6ff;
   }
+
+  #blog-hover {
+    text-decoration: underline dashed;
+    text-decoration-thickness: 2px;
+    text-underline-offset: 12px;
+    color: inherit;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  #blog-hover:hover {
+    color: rgb(115, 186, 210);
+  }
