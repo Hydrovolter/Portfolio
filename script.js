@@ -31,16 +31,58 @@ const statusIconMap = {
     offline: "/assets/status/offline.svg",
 };
 const blogRGBAs = [
-    "rgba(255, 0, 0, 0.25)",    // Red
-    "rgba(0, 255, 0, 0.25)",    // Green
-    "rgba(0, 0, 255, 0.25)",    // Blue
-    "rgba(255, 255, 0, 0.25)",  // Yellow
-    "rgba(255, 0, 255, 0.25)",  // Magenta
-    "rgba(0, 255, 255, 0.25)",  // Cyan
-    "rgba(128, 128, 128, 0.25)", // Gray
-    "rgba(255, 165, 0, 0.25)",  // Orange
-    "rgba(128, 0, 128, 0.25)",  // Purple
-    "rgba(255, 192, 203, 0.25)" // Pink
+    "rgba(230, 110, 120, 0.25)", // Soft Red-Pink
+    "rgba(100, 160, 220, 0.25)", // Soft Sky Blue
+    "rgba(150, 120, 190, 0.25)", // Soft Violet
+    "rgba(240, 150, 170, 0.25)", // Soft Coral Pink
+    "rgba(110, 180, 190, 0.25)", // Soft Teal
+    "rgba(140, 140, 160, 0.25)", // Soft Slate Blue
+    "rgba(220, 140, 130, 0.25)", // Soft Terracotta
+    "rgba(130, 130, 180, 0.25)", // Soft Periwinkle
+    "rgba(170, 160, 160, 0.25)", // Soft Rose-Grey
+    "rgba(120, 170, 150, 0.25)", // Soft Sage Green
+    "rgba(200, 130, 160, 0.25)", // Dusty Rose
+    "rgba(110, 150, 180, 0.25)", // Soft Powder Blue
+    "rgba(190, 120, 140, 0.25)", // Muted Raspberry
+    "rgba(120, 170, 200, 0.25)", // Light Denim Blue
+    "rgba(160, 130, 180, 0.25)", // Lavender Haze
+    "rgba(230, 160, 180, 0.25)", // Peach Bloom
+    "rgba(130, 190, 180, 0.25)", // Seafoam Green
+    "rgba(150, 150, 170, 0.25)", // Stone Blue
+    "rgba(210, 150, 140, 0.25)", // Burnt Sienna
+    "rgba(140, 140, 190, 0.25)", // Wisteria
+    "rgba(180, 170, 170, 0.25)", // Mauve Grey
+    "rgba(130, 180, 160, 0.25)", // Olive Drab
+    "rgba(210, 140, 170, 0.25)", // Antique Rose
+    "rgba(120, 160, 190, 0.25)", // Cornflower Blue
+    "rgba(180, 130, 150, 0.25)", // Soft Plum
+    "rgba(150, 180, 210, 0.25)", // Pale Cerulean
+    "rgba(170, 140, 180, 0.25)", // Lilac Mist
+    "rgba(220, 170, 190, 0.25)", // Blush Pink
+    "rgba(140, 190, 180, 0.25)", // Mint Green
+    "rgba(160, 160, 180, 0.25)", // Shadow Blue
+    "rgba(200, 150, 140, 0.25)", // Russet Brown
+    "rgba(150, 150, 200, 0.25)", // Soft Indigo
+    "rgba(235, 120, 130, 0.25)", // Salmon Tint
+    "rgba(110, 170, 230, 0.25)", // Light Azure
+    "rgba(160, 130, 200, 0.25)", // Thistle Shade
+    "rgba(245, 160, 180, 0.25)", // Apricot Blush
+    "rgba(120, 195, 195, 0.25)", // Light Aquamarine
+    "rgba(145, 145, 165, 0.25)", // Fog Blue
+    "rgba(225, 150, 140, 0.25)", // Sienna Dust
+    "rgba(135, 135, 195, 0.25)", // Pale Lavender
+    "rgba(185, 175, 175, 0.25)", // Dove Grey
+    "rgba(125, 185, 165, 0.25)", // Moss Green
+    "rgba(205, 140, 170, 0.25)", // Rosewood
+    "rgba(125, 165, 195, 0.25)", // Delft Blue
+    "rgba(185, 140, 155, 0.25)", // Soft Mauve
+    "rgba(155, 185, 215, 0.25)", // Light Sky
+    "rgba(175, 150, 185, 0.25)", // Soft Amethyst
+    "rgba(225, 180, 195, 0.25)", // Shell Pink
+    "rgba(145, 195, 185, 0.25)", // Opal Green
+    "rgba(165, 165, 185, 0.25)", // Steel Blue
+    "rgba(205, 160, 150, 0.25)", // Tawny Brown
+    "rgba(155, 155, 205, 0.25)" // Soft Cobalt
 ];
 const songs = [
     { title: "Visionary - Hydrovolter", src: "visionary.mp3" },
@@ -93,16 +135,6 @@ function o(e) {
         , 500))
     }
     ))
-}
-function getRandomRGBAWithOpacity(opacity) {
-    const r = Math.floor(Math.random() * 256);
-    const g = Math.floor(Math.random() * 256);
-    const b = Math.floor(Math.random() * 256);
-    return `rgba(${r}, ${g}, ${b}, ${opacity})`;
-}
-function getRandomRGBAFromList(rgbaList) {
-    const randomIndex = Math.floor(Math.random() * rgbaList.length);
-    return rgbaList[randomIndex];
 }
 function initMusic() {
     const audio = document.getElementById("music-src");
@@ -554,24 +586,33 @@ async function v(e) {
 function renderBlogPosts(posts) {
     const leftSection = document.querySelector("#left .container");
     if (!leftSection) return;
-    
+
+    let availableColors = [...blogRGBAs];
+
     posts.forEach(post => {
+        if (availableColors.length === 0) {
+            availableColors = [...blogRGBAs]; 
+        }
+
+        const randomIndex = Math.floor(Math.random() * availableColors.length);
+        const selectedColor = availableColors.splice(randomIndex, 1)[0];
+
         const blogLink = document.createElement("a");
         blogLink.className = "hover card";
         blogLink.href = post.link;
         blogLink.target = "_blank";
         blogLink.rel = "noopener noreferrer";
-        blogLink.style.backgroundColor = getRandomRGBAFromList(blogRGBAs)
+        blogLink.style.backgroundColor = selectedColor;
         blogLink.alt = `${post.title} Blog`;
 
         const img = document.createElement("img");
         img.className = "circle card-icon";
-        img.src = "/assets/projects/BlogIcon.png"; // Default image, replace if needed
+        img.src = "/assets/projects/BlogIcon.png";
         img.alt = `${post.title} Icon`;
 
         const contentDiv = document.createElement("div");
         contentDiv.className = "card-content";
-        
+
         const titleElem = document.createElement("h3");
         titleElem.textContent = post.title;
 
@@ -585,6 +626,7 @@ function renderBlogPosts(posts) {
         leftSection.appendChild(blogLink);
     });
 }
+
 function C(e, t) {
     e.alt = t,
     e.title = t,
