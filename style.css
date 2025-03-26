@@ -592,6 +592,18 @@ body {
     color: #58a6ff;
   }
 
+  .commit-time {
+    font-size: 0.85em;
+    color: #888;
+    margin-top: 3px;
+    transition: color 0.3s ease;
+}
+
+    .commit-time:hover {
+        color: #58a6ff;
+    }
+
+
   #blog-hover {
     text-decoration: underline dashed;
     text-decoration-thickness: 2px;

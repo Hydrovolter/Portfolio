@@ -173,7 +173,7 @@ function linkReplacement() {
                         anchor.setAttribute("href", newUrl);
                     }
                 } catch (e) {
-                    console.error("Invalid URL: ", href);
+                    console.error("Invalid URL:", href);
                 }
             }
         });
@@ -364,46 +364,69 @@ async function updateLichessRatings() {
         document.getElementById("threecheck-rating").textContent = ratings.threeCheck;
 
     } catch (error) {
-        console.error("Error fetching Lichess ratings: ", error);
+        console.error("Error fetching Lichess ratings:", error);
     }
 }
 
 async function updateGitHubStats() {
-    
     const repoLinkElement = document.querySelector('.repo-name');
     const commitMessageElement = document.querySelector('.commit-message');
-  
+    const commitTimeElement = document.querySelector('.commit-time');
+
     fetch(`https://api.github.com/repos/${repoName}/commits?per_page=1`)
-      .then(response => response.json())
-      .then(data => {
-        if (data && data.length > 0) {
-          const latestCommit = data[0];
-          let commitMessage = latestCommit.commit.message;
-          const commitUrl = latestCommit.html_url;
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.length > 0) {
+                const latestCommit = data[0];
+                let commitMessage = latestCommit.commit.message;
+                const commitUrl = latestCommit.html_url;
+                const commitTime = new Date(latestCommit.commit.committer.date);
 
-          const maxLength = 50;
-          if (commitMessage.length > maxLength) {
-            commitMessage = commitMessage.substring(0, maxLength) + "...";
-          }
+                const maxLength = 50;
+                if (commitMessage.length > maxLength) {
+                    commitMessage = commitMessage.substring(0, maxLength) + "...";
+                }
 
-          repoLinkElement.textContent = repoName;
-          repoLinkElement.href = `https://github.com/${repoName}`;
-          repoLinkElement.target = '_blank';
+                repoLinkElement.textContent = repoName;
+                repoLinkElement.href = `https://github.com/${repoName}`;
+                repoLinkElement.target = '_blank';
 
-          commitMessageElement.textContent = commitMessage;
-          commitMessageElement.href = commitUrl;
-          commitMessageElement.target = '_blank';
-        } else {
-          //repoLinkElement.textContent = 'Repo not found';
-          commitMessageElement.textContent = 'No commits found';
-        }
-      })
-      .catch(error => {
-        console.error('Error fetching GitHub data: ', error);
-        //repoLinkElement.textContent = 'Error fetching repo data';
-        commitMessageElement.textContent = '';
-      });
+                commitMessageElement.textContent = commitMessage;
+                commitMessageElement.href = commitUrl;
+                commitMessageElement.target = '_blank';
+
+                function updateTime() {
+                    const now = new Date();
+                    let diff = Math.floor((now - commitTime) / 1000); // difference in seconds
+                    let displayTime;
+                    
+                    if (diff < 60) {
+                        displayTime = `${diff}s ago`;
+                    } else if (diff < 3600) {
+                        displayTime = `${Math.floor(diff / 60)}m ago`;
+                    } else if (diff < 86400) {
+                        displayTime = `${Math.floor(diff / 3600)}h ago`;
+                    } else {
+                        displayTime = `${Math.floor(diff / 86400)}d ago`;
+                    }
+
+                    commitTimeElement.textContent = displayTime;
+                }
+
+                updateTime();
+                setInterval(updateTime, 1000); // update every second
+            } else {
+                commitMessageElement.textContent = 'No commits found';
+                commitTimeElement.textContent = '';
+            }
+        })
+        .catch(error => {
+            console.error('Error fetching GitHub data:', error);
+            commitMessageElement.textContent = '';
+            commitTimeElement.textContent = '';
+        });
 }
+
 
 async function addSwipeToDismiss() {
     const repoBox = document.getElementById('github-repo-info');
@@ -463,7 +486,7 @@ async function fetchRSSFeed(url) {
 
         renderBlogPosts(posts);
     } catch (error) {
-        console.error("Error fetching RSS feed: ", error);
+        console.error("Error fetching RSS feed:", error);
     }
 }
 
