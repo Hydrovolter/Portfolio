@@ -263,7 +263,7 @@ const carouselGames = [
     {
         title: "Gladihoppers",
         description: "Control a gladiator and use unpredictable physics and various weapons to defeat opponents.",
-        image: "/games/covers/gladihoppers.png",
+        image: "/games/covers/gladihoppers.webp",
         link: "/games/gladihoppers/",
         popularText: "Most Popular",
         popularColor: "#FF5733"     
@@ -271,7 +271,7 @@ const carouselGames = [
     {
         title: "Gunspin",
         description: "Shoot to propel a spinning gun as far as possible, collecting coins and hitting high scores.",
-        image: "/games/covers/gunspin.png",
+        image: "/games/covers/gunspin.webp",
         link: "/games/gunspin/",
         popularText: "Trending Now",
         popularColor: "#7D33FF"
@@ -279,7 +279,7 @@ const carouselGames = [
     {
         title: "Slope",
         description: "Control a ball rolling down a steep slope, avoiding obstacles and drops.",
-        image: "/games/covers/slope.png",
+        image: "/games/covers/slope.webp",
         link: "/games/slope/",
         popularText: "Fan Favourite",
         popularColor: "#33FF57" 
@@ -287,7 +287,7 @@ const carouselGames = [
     {
         title: "Suika",
         description: "Merge fruits to create bigger ones, combining strategy and charm.",
-        image: "/games/covers/suika.png",
+        image: "/games/covers/suika.webp",
         link: "/games/suika/",
         popularText: "Updated Version",
         popularColor: "#FF33A6"
@@ -295,7 +295,7 @@ const carouselGames = [
     {
         title: "Drive Mad",
         description: "Navigate tricky tracks, overcoming obstacles and challenges to reach the finish line.",
-        image: "/games/covers/drivemad.png",
+        image: "/games/covers/drivemad.webp",
         link: "/games/drivemad/",
         popularText: "Addictive",
         popularColor: "#FFD733"
@@ -303,7 +303,7 @@ const carouselGames = [
     {
         title: "Wordle",
         description: "Guess the 5-letter hidden word in 6 tries - unlimited puzzles.",
-        image: "/games/covers/wordle.png",
+        image: "/games/covers/wordle.webp",
         link: "/games/wordle/",
         popularText: "Classic",
         popularColor: "#3357FF" 
@@ -311,7 +311,7 @@ const carouselGames = [
     {
         title: "Monkey Mart",
         description: "Control a monkey running a supermarket, stocking shelves and serving customers.",
-        image: "/games/covers/monkeymart.png",
+        image: "/games/covers/monkeymart.webp",
         link: "/games/monkeymart/",
         popularText: "Up and Coming",
         popularColor: "#00FFFF" 
