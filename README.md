@@ -26,6 +26,7 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [ ] add animations to games carousel dots
 - [ ] make games carousel dots clickable (forwards + backwards)?
 - [x] make arrows start disappear animation on click
+- [ ] fix asset path from absolute --> relative
 
 - [ ] add animation/buffer between dealt cards in card counter (in case the exact same cards come up twice in a row)
 - [ ] add blog post: how to card count
