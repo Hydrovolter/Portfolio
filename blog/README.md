@@ -1,3 +1,5 @@
+_Deprecated in favour of [the new blog site](https://blog.hydrovolter.com)
+
 # How to make a blog page
 
 Create a folder with the name of the blog title

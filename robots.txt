@@ -4,7 +4,7 @@ Disallow: /404.html
 Disallow: /resume.pdf
 Disallow: /sitemap.xml
 Disallow: /dmca
-Sitemap: https://hydrovolter.com/sitemap.xml 
+Sitemap: ./sitemap.xml
 
 User-agent: Googlebot
 Allow: /

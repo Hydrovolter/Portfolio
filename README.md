@@ -27,7 +27,7 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [ ] add animations to games carousel dots
 - [ ] make games carousel dots clickable (forwards + backwards)?
 - [x] make arrows start disappear animation on click
-- [ ] fix asset path from absolute --> relative
+- [ ] fix asset path from absolute --> relative: left - /manifest.json (especially of /games/)
 
 - [ ] add animation/buffer between dealt cards in card counter (in case the exact same cards come up twice in a row)
 - [ ] add blog post: how to card count
@@ -51,5 +51,5 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [ ] display stats (cloudflare? polls? other data?)
 
 # DISCLAIMER
-Almost none of the games in the [Games](/games/) section were coded by me - I simply found an online repository and copied/modified it slightly
-Please read [DISCLAIMER.md](/games/DISCLAIMER.md) in the [Games](/games/) folder for more information.
+Almost none of the games in the [Games](games/) section were coded by me - I simply found an online repository and copied/modified it slightly
+Please read [DISCLAIMER.md](games/DISCLAIMER.md) in the [Games](games/) folder for more information.

@@ -24,11 +24,11 @@ const linkReplacements = {
     "blog.hydrovolter.com": "blog-hydro.pages.dev",
 };
 const statusIconMap = {
-    online: "/assets/status/online.svg",
-    dnd: "/assets/status/dnd.svg",
-    idle: "/assets/status/idle.svg",
-    invisible: "/assets/status/offline.svg",
-    offline: "/assets/status/offline.svg",
+    online: "assets/status/online.svg",
+    dnd: "assets/status/dnd.svg",
+    idle: "assets/status/idle.svg",
+    invisible: "assets/status/offline.svg",
+    offline: "assets/status/offline.svg",
 };
 const blogRGBAs = [
     "rgba(230, 110, 120, 0.25)", // Soft Red-Pink
@@ -146,7 +146,7 @@ function initMusic() {
     currentSong = Math.floor(Math.random() * songs.length);
   
     function updateart() {
-      art.src = `/assets/music/img/${songs[currentSong].src.replace('.mp3', '.png')}`;
+      art.src = `assets/music/img/${songs[currentSong].src.replace('.mp3', '.png')}`;
       art.style.display = 'block';
     }
   
@@ -168,7 +168,7 @@ function initMusic() {
   
     function musicSkip() {
       currentSong = (currentSong + 1) % songs.length;
-      audio.src = `/assets/music/audio/${songs[currentSong].src}`;
+      audio.src = `assets/music/audio/${songs[currentSong].src}`;
       audio.play();
       play.classList.add("paused");
       skip.style.display = "block";
@@ -181,7 +181,7 @@ function initMusic() {
     }
   
     // init first source
-    audio.src = `/assets/music/audio/${songs[currentSong].src}`;
+    audio.src = `assets/music/audio/${songs[currentSong].src}`;
     art.style.display = 'none';
   
     play.addEventListener("click", music);
@@ -346,7 +346,7 @@ async function updateProfileStatus() {
             if (activityImage && activityImageContainer) {
                 activityImageContainer.style.display = "block";
                 activityImage.style.display = "block";
-                activityImage.src = "/assets/status/lichess.png";
+                activityImage.src = "assets/status/lichess.png";
             }
 
             if (activityName) activityName.textContent = `Playing on Lichess (${gameData.clock.initial / 60}+${gameData.clock.increment})`;
@@ -607,7 +607,7 @@ function renderBlogPosts(posts) {
 
         const img = document.createElement("img");
         img.className = "circle card-icon";
-        img.src = "/assets/projects/BlogIcon.png";
+        img.src = "assets/projects/BlogIcon.png";
         img.alt = `${post.title} Icon`;
 
         const contentDiv = document.createElement("div");

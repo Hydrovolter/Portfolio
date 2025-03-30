@@ -263,56 +263,56 @@ const carouselGames = [
     {
         title: "Gladihoppers",
         description: "Control a gladiator and use unpredictable physics and various weapons to defeat opponents.",
-        image: "/games/covers/gladihoppers.webp",
-        link: "/games/gladihoppers/",
+        image: "./covers/gladihoppers.webp",
+        link: "./gladihoppers/",
         popularText: "Most Popular",
         popularColor: "#FF5733"     
     },
     {
         title: "Gunspin",
         description: "Shoot to propel a spinning gun as far as possible, collecting coins and hitting high scores.",
-        image: "/games/covers/gunspin.webp",
-        link: "/games/gunspin/",
+        image: "./covers/gunspin.webp",
+        link: "./gunspin/",
         popularText: "Trending Now",
         popularColor: "#7D33FF"
     },
     {
         title: "Slope",
         description: "Control a ball rolling down a steep slope, avoiding obstacles and drops.",
-        image: "/games/covers/slope.webp",
-        link: "/games/slope/",
+        image: "./covers/slope.webp",
+        link: "./slope/",
         popularText: "Fan Favourite",
         popularColor: "#33FF57" 
     },
     {
         title: "Suika",
         description: "Merge fruits to create bigger ones, combining strategy and charm.",
-        image: "/games/covers/suika.webp",
-        link: "/games/suika/",
+        image: "./covers/suika.webp",
+        link: "./suika/",
         popularText: "Updated Version",
         popularColor: "#FF33A6"
     },
     {
         title: "Drive Mad",
         description: "Navigate tricky tracks, overcoming obstacles and challenges to reach the finish line.",
-        image: "/games/covers/drivemad.webp",
-        link: "/games/drivemad/",
+        image: "./covers/drivemad.webp",
+        link: "./drivemad/",
         popularText: "Addictive",
         popularColor: "#FFD733"
     },
     {
         title: "Wordle",
         description: "Guess the 5-letter hidden word in 6 tries - unlimited puzzles.",
-        image: "/games/covers/wordle.webp",
-        link: "/games/wordle/",
+        image: "./covers/wordle.webp",
+        link: "./wordle/",
         popularText: "Classic",
         popularColor: "#3357FF" 
     },
     {
         title: "Monkey Mart",
         description: "Control a monkey running a supermarket, stocking shelves and serving customers.",
-        image: "/games/covers/monkeymart.webp",
-        link: "/games/monkeymart/",
+        image: "./covers/monkeymart.webp",
+        link: "./monkeymart/",
         popularText: "Up and Coming",
         popularColor: "#00FFFF" 
     }

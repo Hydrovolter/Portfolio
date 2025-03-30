@@ -450,16 +450,16 @@ body {
   }
   
   #music {
-    background: url("/assets/music/svg/play.svg") no-repeat center center;
+    background: url("assets/music/svg/play.svg") no-repeat center center;
     margin-left: 0;
   }
   
   #music.paused {
-    background: url("/assets/music/svg/pause.svg") no-repeat center center;
+    background: url("assets/music/svg/pause.svg") no-repeat center center;
   }
   
   #music-skip {
-    background: url("/assets/music/svg/skip.svg") no-repeat center center;
+    background: url("assets/music/svg/skip.svg") no-repeat center center;
     display: none;
   }
 
