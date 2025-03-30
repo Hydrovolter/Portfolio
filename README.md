@@ -7,6 +7,7 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [hydrovolter.com](https://hydrovolter.com/)
 - [hydrovolter.pages.dev](https://hydrovolter.pages.dev/)
 - [hydrovolter.vercel.app](https://hydrovolter.vercel.app/)
+- [hydrovolter.netlify.app](https://hydrovolter.netlify.app/)
 - [hydrovolter.github.io](https://hydrovolter.github.io/) (this link does not receive live/recent commits)
 
 - [hydrovolter.github.io/Portfolio/](https://hydrovolter.github.io/Portfolio) (this link does receive live/recent commits, however due to the image paths of the main repo, images may not load as intended) 
