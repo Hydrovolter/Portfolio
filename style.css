@@ -184,7 +184,7 @@ body {
     max-width: 300px;
     max-height: 140px;
     overflow: auto;
-
+    word-break: break-word;
 }
 
 #profile-activity-name {
