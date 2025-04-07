@@ -1,7 +1,7 @@
 var lichessUsername = "NaturalQuilt"
 var repoName = 'Hydrovolter/Portfolio';
 
-var apiDiscordStatusEndpoint = 'https://status.hydrovolter.com';
+var apiStatusEndpoint = 'https://status.hydrovolter.com';
 var apiCloudflareEndpoint = 'https://api.hydrovolter.com';
 var apiJsonSpotifyEndpoint = 'https://json.spotify.hydrovolter.com';
 var blogRSSFeedEndpoint = 'https://blog.hydrovolter.com/rss.xml';
@@ -10,7 +10,7 @@ let currentSong = 0;
 
 
 if (window.location.hostname === 'hydrovolter.pages.dev' || window.location.hostname === 'localhost') {
-    apiDiscordStatusEndpoint = 'https://status-boh2.onrender.com'; 
+    apiStatusEndpoint = 'https://status-boh2.onrender.com'; 
     apiCloudflareEndpoint = 'https://api.hydrovolter.workers.dev';
     apiJsonSpotifyEndpoint = 'https://json-spotify-hydro.vercel.app';
     blogRSSFeedEndpoint = 'https://blog-hydro.pages.dev/rss.xml';
@@ -249,7 +249,7 @@ async function updateProfileStatus() {
     }
 
     try {
-        const response = await fetch(`${apiDiscordStatusEndpoint}/api/presence`);
+        const response = await fetch(`${apiStatusEndpoint}/api/discord`);
         if (!response.ok) throw new Error("Discord API fetch failed");
         const data = await response.json();
 
