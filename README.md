@@ -30,6 +30,7 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [ ] make games carousel dots clickable (forwards + backwards)?
 - [x] make arrows start disappear animation on click
 - [ ] fix asset path from absolute --> relative: left - /manifest.json (especially of /games/)
+- [ ] add (live) "playing time elapsed" for vscode presence
 
 - [ ] add animation/buffer between dealt cards in card counter (in case the exact same cards come up twice in a row)
 - [ ] add blog post: how to card count

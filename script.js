@@ -371,6 +371,59 @@ async function updateProfileStatus() {
         console.warn("Lichess API error:", error);
     }
 
+    try {
+        const response4 = await fetch(`${apiStatusEndpoint}/api/vscode`);
+        if (!response4.ok) throw new Error("VSCode API fetch failed");
+        const data4 = await response4.json();
+        
+
+        if (data4.workspace) {
+            if (activityContainerTotal && activityContainer) {
+                activityContainerTotal.style.display = "flex";
+                activityContainer.style.display = "block";
+            }
+
+            let hasImage4 = true;
+            if (data4.language) {
+                const language = data4.language.toLowerCase();
+                const imagePath = `/assets/badges/${language}.svg`;
+                const defaultImage = "/assets/badges/file.svg";
+
+                const img = new Image();
+                img.src = imagePath;
+                
+                img.onload = () => updateImage(true);
+                img.onerror = () => updateImage(false);
+
+                function updateImage(hasImage) {
+                    if (activityImage && activityImageContainer) {
+                        activityImage.style.display = "block";
+                        activityImageContainer.style.display = "block";
+                        activityImage.src = hasImage ? imagePath : defaultImage;
+                    }
+                }
+            }
+
+            if (gridContainer) {
+                hasImage4 ? gridContainer.classList.remove('single-column') : gridContainer.classList.add('single-column');
+            }
+
+            if (activityName) activityName.textContent = "Working on";
+            if (activityDetails) {
+                activityDetails.style.display = "block";
+                activityDetails.textContent = data4.workspace;
+            }
+            if (activityState) {
+                activityState.style.display = data4.fileName ? "block" : "none";
+                activityState.textContent = data4.fileName || "";
+            }
+
+            return; // Stop execution if VSCode API succeeds
+        }
+    } catch (error) {
+        console.warn("VSCode API error:", error);
+    }
+
     // If all APIs fail, hide activity
     hideActivity();
 }
