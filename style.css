@@ -201,6 +201,11 @@ body {
     font-size: 14px;
     color: var(--primary-accent);
 }
+#profile-activity-time {
+    font-size: 14px;
+    color: rgb(65, 166, 80);
+    display: none;
+}
 
 
 

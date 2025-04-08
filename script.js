@@ -7,6 +7,7 @@ var apiJsonSpotifyEndpoint = 'https://json.spotify.hydrovolter.com';
 var blogRSSFeedEndpoint = 'https://blog.hydrovolter.com/rss.xml';
 
 let currentSong = 0;
+let unixStartTime;
 
 
 if (window.location.hostname === 'hydrovolter.pages.dev' || window.location.hostname === 'localhost') {
@@ -211,16 +212,34 @@ function linkReplacement() {
         });
     }
 }
+function updateElapsedTime(unixStartTime, activityTime) {
+    if (!activityTime) return;
+    if (activityTime.style.display === "none") return;
+  
+    activityTime.style.display = "block";
+    const currentTime = Math.floor(Date.now() / 1000); // Current Unix timestamp in seconds
+    const elapsedSeconds = Math.floor(currentTime - unixStartTime); // Ensure elapsedSeconds is an integer
+  
+    const hours = Math.floor(elapsedSeconds / 3600);
+    const minutes = Math.floor((elapsedSeconds % 3600) / 60);
+    const seconds = elapsedSeconds % 60;
+  
+    const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+    activityTime.textContent = formattedTime;
+  }
 
 document.addEventListener("DOMContentLoaded", async () => {
+    const activityTime = document.getElementById("profile-activity-time");
     initMusic();
     updateGitHubStats();
     addSwipeToDismiss();
     linkReplacement();
     updateLichessRatings();
 
-    updateProfileStatus();
+    updateProfileStatus().then(() => {setInterval(() => updateElapsedTime(unixStartTime / 1000, activityTime), 1000);});
     setInterval(updateProfileStatus, 60000);
+
+    
 
     await fetchRSSFeed(blogRSSFeedEndpoint);
     linkReplacement();
@@ -239,6 +258,7 @@ async function updateProfileStatus() {
     const activityName = document.getElementById("profile-activity-name");
     const activityDetails = document.getElementById("profile-activity-details");
     const activityState = document.getElementById("profile-activity-state");
+    const activityTime = document.getElementById("profile-activity-time");
     const gridContainer = document.querySelector('.grid-container');
 
     function hideActivity() {
@@ -416,6 +436,14 @@ async function updateProfileStatus() {
             if (activityState) {
                 activityState.style.display = data4.fileName ? "block" : "none";
                 activityState.textContent = data4.fileName || "";
+            }
+            if(activityTime) {
+                unixStartTime = data4.startTime;
+                activityTime.style.display = unixStartTime ? "block" : "none";
+                //activityTime.textContent = unixStartTime || "";
+
+                  updateElapsedTime(unixStartTime / 1000, activityTime);
+                  //setInterval(updateElapsedTime(unixStartTime / 1000, activityTime), 1000);
             }
 
             return; // Stop execution if VSCode API succeeds
