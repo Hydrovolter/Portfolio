@@ -489,6 +489,7 @@ async function updateProfileStatus() {
         if (activityContainer && activityContainerTotal) {
             activityContainer.style.display = "none";
             activityContainerTotal.style.display = "none";
+            console.log(activityTime.style.display);
         }
     }
 
@@ -530,6 +531,9 @@ async function updateProfileStatus() {
                 activityState.style.display = data.activityText ? "block" : "none";
                 activityState.textContent = data.activityText || "";
             }
+            if(activityTime) {
+                activityTime.style.display = "none";
+            }
 
             return; // Stop execution if Discord API succeeds
         }
@@ -569,6 +573,12 @@ async function updateProfileStatus() {
                 activityState.style.display = data2.artist ? "block" : "none";
                 activityState.textContent = data2.artist || "";
             }
+            if(activityTime) {
+                activityTime.style.display = "none";
+            }
+            if(activityTime) {
+                activityTime.style.display = "none";
+            }
 
             return; // Stop execution if Spotify API succeeds
         }
@@ -607,6 +617,9 @@ async function updateProfileStatus() {
             if (activityState) {
                 activityState.style.display = "block";
                 activityState.textContent = `${myColor.charAt(0).toUpperCase()}${myColor.slice(1)} [me]: ${gameData.players[myColor].user.name} (${gameData.players[myColor].rating})`;
+            }
+            if(activityTime) {
+                activityTime.style.display = "none";
             }
 
             return; // Stop execution if Lichess API succeeds
