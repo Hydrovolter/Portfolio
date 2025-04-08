@@ -687,7 +687,7 @@ body {
     color: gray;
 }
 .clock-container:hover {
-    cursor: default; /* Keeps the normal arrow cursor on hover */
+    cursor: default;
 }
 .clock-icon {
     width: 18px;
@@ -695,5 +695,29 @@ body {
 }
 
 #local-time {
+    font-weight: bold;
+}
+
+.weather-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    color: gray;
+    margin-left: 10px;
+}
+.weather-container:hover {
+    cursor: default;
+}
+.weather-icon {
+    width: 18px; /* 18 for fullsize */
+    height: 18px; /* 18 for fullsize */
+    filter: invert(49%) sepia(0%) saturate(0%) hue-rotate(0deg) brightness(95%) contrast(89%);
+    transform: scale(1.3); /* scale by 25% */
+    transform-origin: center;
+}
+
+#local-weather {
     font-weight: bold;
 }

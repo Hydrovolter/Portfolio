@@ -296,6 +296,146 @@ function replaceTooltip() {
         }
     });
 }
+/* User-Based Weather
+function updateLocalWeather() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(position => {
+            const lat = position.coords.latitude;
+            const lon = position.coords.longitude;
+
+            const url = `https://api.open-meteo.com/v1/forecast?latitude=${lat}&longitude=${lon}&current_weather=true`;
+
+            fetch(url)
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data)
+                    const weather = data.current_weather;
+                    const temp = Math.round(weather.temperature);
+                    const conditionCode = weather.weathercode;
+
+                    const conditionText = getWeatherDescription(conditionCode);
+                    document.getElementById('local-weather').textContent = `${temp}°C, ${conditionText}`;
+                    document.querySelector('.weather-container').title = `Weather: ${temp}°C, ${conditionText}`;
+                    document.querySelector('.weather-container').tooltip = `Weather: ${temp}°C, ${conditionText}`;
+                })
+                .catch(error => {
+                    console.error('Weather fetch error:', error);
+                    document.getElementById('local-weather').textContent = 'Weather unavailable';
+                });
+        }, error => {
+            console.error('Geolocation error:', error);
+            document.getElementById('local-weather').textContent = 'Location denied';
+        });
+    } else {
+        document.getElementById('local-weather').textContent = 'Geolocation unsupported';
+    }
+}
+*/
+
+function updateLocalWeather() {
+    const londonLat = 51.5074;
+    const londonLon = -0.1278;
+
+    const url = `https://api.open-meteo.com/v1/forecast?latitude=${londonLat}&longitude=${londonLon}&current_weather=true`;
+
+    fetch(url)
+        .then(response => response.json())
+        .then(data => {
+            console.log(data);
+            const weather = data.current_weather;
+            const temp = Math.round(weather.temperature);
+            const conditionCode = weather.weathercode;
+
+            const conditionText = getWeatherDescription(conditionCode);
+            
+            const weatherIcon = document.querySelector('.weather-icon');
+            const iconPath = getWeatherIconPath(conditionCode);
+            weatherIcon.src = iconPath;
+            weatherIcon.alt = getWeatherDescription(conditionCode);
+
+
+
+            if(!conditionText) {
+                document.getElementById('local-weather').textContent = `${temp}°C`;
+            } else {
+                document.getElementById('local-weather').textContent = `${temp}°C, ${conditionText}`;
+            }
+            
+            //document.querySelector('.weather-container').title = `London Weather`;
+            //document.querySelector('.weather-container').tooltip = `London Weather`;
+        })
+        .catch(error => {
+            console.error('Weather Fetch Error:', error);
+            document.getElementById('local-weather').textContent = 'Weather unavailable';
+        });
+}
+
+function getWeatherDescription(code) {
+    const descriptions = {
+        0: 'Clear sky',
+        1: 'Mainly clear',
+        2: 'Partly cloudy',
+        3: 'Overcast',
+        45: 'Fog',
+        48: 'Depositing rime fog',
+        51: 'Light drizzle',
+        53: 'Moderate drizzle',
+        55: 'Dense drizzle',
+        56: 'Light freezing drizzle',
+        57: 'Dense freezing drizzle',
+        61: 'Slight rain',
+        63: 'Moderate rain',
+        65: 'Heavy rain',
+        66: 'Light freezing rain',
+        67: 'Heavy freezing rain',
+        71: 'Slight snow',
+        73: 'Moderate snow',
+        75: 'Heavy snow',
+        77: 'Snow grains',
+        80: 'Slight showers',
+        81: 'Moderate showers',
+        82: 'Violent showers',
+        85: 'Slight snow showers',
+        86: 'Heavy snow showers',
+        95: 'Thunderstorm',
+        96: 'Thunderstorm with slight hail',
+        99: 'Thunderstorm with heavy hail'
+    };
+    return descriptions[code] || null;
+}
+function getWeatherIconPath(code) {
+    const icons = {
+        0: 'assets/icons/weather/clear-sky.svg',
+        1: 'assets/icons/weather/mainly-clear.svg',
+        2: 'assets/icons/weather/partly-cloudy.svg',
+        3: 'assets/icons/weather/day-sunny-overcast.svg',
+        45: 'assets/icons/weather/fog.svg',
+        48: 'assets/icons/weather/fog.svg',
+        51: 'assets/icons/weather/rain.svg',
+        53: 'assets/icons/weather/rain.svg',
+        55: 'assets/icons/weather/rain-mix.svg',
+        56: 'assets/icons/weather/snowflake-cold.svg',
+        57: 'assets/icons/weather/snowflake-cold.svg',
+        61: 'assets/icons/weather/rain.svg',
+        63: 'assets/icons/weather/rain.svg',
+        65: 'assets/icons/weather/rain.svg',
+        66: 'assets/icons/weather/snowflake-cold.svg',
+        67: 'assets/icons/weather/snowflake-cold.svg',
+        71: 'assets/icons/weather/snow.svg',
+        73: 'assets/icons/weather/snow.svg',
+        75: 'assets/icons/weather/snow.svg',
+        77: 'assets/icons/weather/snow.svg',
+        80: 'assets/icons/weather/showers.svg',
+        81: 'assets/icons/weather/showers.svg',
+        82: 'assets/icons/weather/showers.svg',
+        85: 'assets/icons/weather/snow.svg',
+        86: 'assets/icons/weather/snow.svg',
+        95: 'assets/icons/weather/thunderstorm.svg',
+        96: 'assets/icons/weather/storm-showers.svg',
+        99: 'assets/icons/weather/storm-showers.svg'
+    };
+    return icons[code] || 'assets/icons/weather/thermometer.svg';
+}
 
 
 
@@ -303,7 +443,6 @@ function replaceTooltip() {
 
 
 document.addEventListener("DOMContentLoaded", async () => {
-    const activityTime = document.getElementById("profile-activity-time");
     initMusic();
     updateGitHubStats();
     addSwipeToDismiss();
@@ -314,6 +453,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     updateLocalTime();
     setInterval(updateLocalTime, 60000);
+
+    updateLocalWeather();
+    setInterval(updateLocalWeather, 1800000); // every 30m
+
     replaceTooltip();
 
     updateProfileStatus().then(() => {setInterval(() => updateElapsedTime(unixStartTime / 1000), 1000);});
