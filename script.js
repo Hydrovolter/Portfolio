@@ -308,7 +308,6 @@ function updateLocalWeather() {
             fetch(url)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
                     const weather = data.current_weather;
                     const temp = Math.round(weather.temperature);
                     const conditionCode = weather.weathercode;
@@ -341,7 +340,6 @@ function updateLocalWeather() {
     fetch(url)
         .then(response => response.json())
         .then(data => {
-            console.log(data);
             const weather = data.current_weather;
             const temp = Math.round(weather.temperature);
             const conditionCode = weather.weathercode;
