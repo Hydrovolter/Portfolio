@@ -620,3 +620,23 @@ body {
   #blog-hover:hover {
     color: rgb(115, 186, 210);
   }
+
+  .clock-container {
+    display: inline-flex;
+    align-items: center;
+    gap: 3px;
+    cursor: pointer;
+    font-size: 16px;
+    color: gray;
+}
+.clock-container:hover {
+    cursor: default; /* Keeps the normal arrow cursor on hover */
+}
+.clock-icon {
+    width: 18px;
+    height: 18px;
+}
+
+#local-time {
+    font-weight: bold;
+}

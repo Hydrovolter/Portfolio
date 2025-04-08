@@ -212,13 +212,14 @@ function linkReplacement() {
         });
     }
 }
-function updateElapsedTime(unixStartTime, activityTime) {
+function updateElapsedTime(unixStartTime) {
+    const activityTime = document.getElementById("profile-activity-time");
     if (!activityTime) return;
     if (activityTime.style.display === "none") return;
   
     activityTime.style.display = "block";
-    const currentTime = Math.floor(Date.now() / 1000); // Current Unix timestamp in seconds
-    const elapsedSeconds = Math.floor(currentTime - unixStartTime); // Ensure elapsedSeconds is an integer
+    const currentTime = Math.floor(Date.now() / 1000); // current Unix timestamp in seconds
+    const elapsedSeconds = Math.floor(currentTime - unixStartTime); // ensure elapsedSeconds is an integer
   
     const hours = Math.floor(elapsedSeconds / 3600);
     const minutes = Math.floor((elapsedSeconds % 3600) / 60);
@@ -226,7 +227,24 @@ function updateElapsedTime(unixStartTime, activityTime) {
   
     const formattedTime = `${String(hours).padStart(2, '0')}:${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
     activityTime.textContent = formattedTime;
-  }
+}
+function updateLocalTime() {
+    const ukTime = new Date().toLocaleString("en-GB", { timeZone: "Europe/London" });
+    const now = new Date(ukTime);
+
+    let hours = now.getHours();
+    let minutes = now.getMinutes();
+    const ampm = hours >= 12 ? 'pm' : 'am';
+
+    const formattedTime = `${(hours % 12 || 12)}:${minutes < 10 ? '0' + minutes : minutes}${ampm}`;
+    document.getElementById('local-time').textContent = formattedTime;
+
+    const isBST = now.getMonth() > 2 && now.getMonth() < 10; // BST from March to October
+    const timezone = isBST ? 'BST' : 'GMT';
+
+    document.querySelector('.clock-container').title = `My Local Time (${timezone})`;
+}
+
 
 document.addEventListener("DOMContentLoaded", async () => {
     const activityTime = document.getElementById("profile-activity-time");
@@ -236,8 +254,13 @@ document.addEventListener("DOMContentLoaded", async () => {
     linkReplacement();
     updateLichessRatings();
 
-    updateProfileStatus().then(() => {setInterval(() => updateElapsedTime(unixStartTime / 1000, activityTime), 1000);});
+    updateLocalTime();
+    setInterval(updateLocalTime, 60000);
+
+    updateProfileStatus().then(() => {setInterval(() => updateElapsedTime(unixStartTime / 1000), 1000);});
     setInterval(updateProfileStatus, 60000);
+
+ 
 
     
 
@@ -442,8 +465,8 @@ async function updateProfileStatus() {
                 activityTime.style.display = unixStartTime ? "block" : "none";
                 //activityTime.textContent = unixStartTime || "";
 
-                  updateElapsedTime(unixStartTime / 1000, activityTime);
-                  //setInterval(updateElapsedTime(unixStartTime / 1000, activityTime), 1000);
+                  updateElapsedTime(unixStartTime / 1000);
+                  //setInterval(updateElapsedTime(unixStartTime / 1000), 1000);
             }
 
             return; // Stop execution if VSCode API succeeds
