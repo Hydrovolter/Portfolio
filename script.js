@@ -243,22 +243,24 @@ function updateLocalTime() {
     const timezone = isBST ? 'BST' : 'GMT';
 
     document.querySelector('.clock-container').title = `My Local Time (${timezone})`;
+    document.querySelector('.clock-container').tooltip = `My Local Time (${timezone})`;
 }
 function replaceTooltip() {
-    const elementsWithTooltips = document.querySelectorAll('[title], [aria-label], [alt], [data-tooltip]');
+    //const elementsWithTooltips = document.querySelectorAll('[title], [aria-label], [alt], [tooltip]');
+    const elementsWithTooltips = document.querySelectorAll('[tooltip]');
 
     elementsWithTooltips.forEach(el => {
         let tooltipText;
 
-        // If the element has a 'data-tooltip' attribute, use that; otherwise, fall back to 'title', 'aria-label', or 'alt'
-        if (el.hasAttribute('data-tooltip')) {
-            tooltipText = el.getAttribute('data-tooltip');
+        /*
+        if (el.hasAttribute('tooltip')) {
+            tooltipText = el.getAttribute('tooltip');
         } else {
             tooltipText = el.getAttribute('title') || el.getAttribute('aria-label') || el.getAttribute('alt');
             
             if (tooltipText) {
-                // Store tooltip text in the custom attribute 'data-tooltip'
-                el.setAttribute('data-tooltip', tooltipText);
+                // Store tooltip text in the custom attribute 'tooltip'
+                el.setAttribute('tooltip', tooltipText);
 
                 // Remove default tooltips
                 el.removeAttribute('title');
@@ -266,6 +268,8 @@ function replaceTooltip() {
                 el.removeAttribute('alt');
             }
         }
+        */
+        tooltipText = el.getAttribute('tooltip');
 
         if (tooltipText) {
             let tooltipTimeout;
@@ -273,7 +277,7 @@ function replaceTooltip() {
             el.addEventListener('mouseenter', () => {
                 tooltipTimeout = setTimeout(() => {
                     el.classList.add('show-tooltip');
-                }, 1200); // 1.2s delay (compared to standard 1.5s)
+                }, 200); // 0.2s delay (compared to standard 1.5s)
             });
 
             el.addEventListener('mouseleave', () => {
@@ -281,7 +285,7 @@ function replaceTooltip() {
                 el.classList.remove('show-tooltip');
             });
 
-            // Observe and replace if browser auto-replaces tooltip attributes
+            // removes default tooltip
             const observer = new MutationObserver(() => {
                 el.removeAttribute('title');
                 el.removeAttribute('aria-label');

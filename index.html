@@ -58,7 +58,7 @@
         </div>
 
         <div id="github-repo-info">
-            <div class="repo-link">
+            <div class="repo-link" tooltip="Source Code">
               <img src="assets/badges/gitfork.svg" alt="Fork Icon" class="fork-icon">
               <span class="repo-name-container"><a class="repo-name" href="https://github.com/Hydrovolter/Portfolio">Hydrovolter/Portfolio</a></span>
             </div>
@@ -110,7 +110,7 @@
 
                      
                 <h1>Hydrovolter
-                    <span class="clock-container" title="My Local Time">
+                    <span class="clock-container" title="My Local Time" tooltip="My Local Time">
                         <img class="clock-icon" src="assets/icons/clock.svg">
                         <span id="local-time"></span>
                     </span>
@@ -119,22 +119,22 @@
                     <img class=emoji src=assets/icons/wave.svg alt="Wave emoji"> Hey there, I'm Hydro (Hydrovolter) and this is my portfolio! 
                 </p>
                 <div id=social-desktop>
-                    <a alt="Hydrovolter on GitHub" class="hover social-desktop-container" href=https://github.com/Hydrovolter rel="noopener noreferrer" style=background-color:#000 target=_blank>
+                    <a alt="Hydrovolter on GitHub" tooltip="Hydrovolter on GitHub" class="hover social-desktop-container" href=https://github.com/Hydrovolter rel="noopener noreferrer" style=background-color:#000 target=_blank>
                         <img class=social-desktop-icon src=assets/socials/github.svg alt="GitHub Logo">
                     </a>
-                    <a alt="@hydrovolter on Discord" class="hover social-desktop-container" href=https://discord.com/users/958298682044866631 rel="noopener noreferrer" style="background-color:rgb(72 80 171)" target=_blank>
+                    <a alt="@hydrovolter on Discord" tooltip="@hydrovolter on Discord" class="hover social-desktop-container" href=https://discord.com/users/958298682044866631 rel="noopener noreferrer" style="background-color:rgb(72 80 171)" target=_blank>
                         <img class=social-desktop-icon src=assets/socials/discord.svg alt="Discord Logo">
                     </a>
-                    <a alt="Hydrovolter on YouTube" class="hover social-desktop-container" href=https://www.youtube.com/@hydrovolter rel="noopener noreferrer" style="background-color:rgb(155 42 42)" target=_blank>
+                    <a alt="Hydrovolter on YouTube" tooltip="Hydrovolter on YouTube" class="hover social-desktop-container" href=https://www.youtube.com/@hydrovolter rel="noopener noreferrer" style="background-color:rgb(155 42 42)" target=_blank>
                         <img class=social-desktop-icon src=assets/socials/youtube.svg alt="YouTube Logo">
                     </a>
-                    <a alt="Hydrovolter on Twitch" class="hover social-desktop-container" href=https://twitch.tv/Hydrovolter rel="noopener noreferrer" style="background-color:rgb(112 60 191)" target=_blank>
+                    <a alt="Hydrovolter on Twitch" tooltip="Hydrovolter on Twitch" class="hover social-desktop-container" href=https://twitch.tv/Hydrovolter rel="noopener noreferrer" style="background-color:rgb(112 60 191)" target=_blank>
                         <img class=social-desktop-icon src=assets/socials/twitch.svg alt="Twitch Logo">
                     </a>
-                    <a alt="u/Hydrovolter on Reddit" class="hover social-desktop-container" href=https://reddit.com/u/Hydrovolter rel="noopener noreferrer" style="background-color:rgb(217 87 40)" target=_blank>
+                    <a alt="u/Hydrovolter on Reddit" tooltip="u/Hydrovolter on Reddit" class="hover social-desktop-container" href=https://reddit.com/u/Hydrovolter rel="noopener noreferrer" style="background-color:rgb(217 87 40)" target=_blank>
                         <img class=social-desktop-icon src=assets/socials/reddit.svg alt="Reddit Logo">
                     </a>
-                    <a alt="Hydrovolter on Spotify" class="hover social-desktop-container" href=https://open.spotify.com/user/3kogdp4la37u7pd7rugded814 rel="noopener noreferrer" style="background-color:rgb(30 145 70)" target=_blank>
+                    <a alt="Hydrovolter on Spotify" tooltip="Hydrovolter on Spotify" class="hover social-desktop-container" href=https://open.spotify.com/user/3kogdp4la37u7pd7rugded814 rel="noopener noreferrer" style="background-color:rgb(30 145 70)" target=_blank>
                         <img class=social-desktop-icon src=assets/socials/spotify.svg alt="Spotify Logo">
                     </a>
                 </div>
@@ -521,8 +521,8 @@
         <div id="music-box">
             <img id="music-cover" src="assets/music/img/visionary.png" alt="Cover Art" />
             <p id="music-info"></p>
-            <button id="music" class="music" type="audio/mpeg" aria-label="Play/Pause Music"></button>
-            <button id="music-skip" class="music" aria-label="Skip current song"></button>
+            <button id="music" class="music" type="audio/mpeg" aria-label="Play/Pause Music" tooltip="Play/Pause Music"></button>
+            <button id="music-skip" class="music" aria-label="Skip Song" tooltip="Skip Song"></button>
             <audio id="music-src" src="assets/music/audio/visionary.mp3" hidden=""></audio>
         </div>
         <script>

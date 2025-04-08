@@ -21,14 +21,14 @@ a {
     color: var(--primary-accent)
 }
 
-[data-tooltip] {
+[tooltip] {
     position: relative;
     cursor: pointer;
 }
 
 /* tooltip container */
-[data-tooltip]::after {
-    content: attr(data-tooltip);
+[tooltip]::after {
+    content: attr(tooltip);
     position: absolute;
     bottom: 100%;
     left: 50%;
@@ -50,19 +50,19 @@ a {
 }
 
 /* if element has show-tooltip class, show tooltip */
-[data-tooltip].show-tooltip::after {
+[tooltip].show-tooltip::after {
     opacity: 1;
     visibility: visible;
 }
 
 img[alt]:not([href]), 
-[data-tooltip]:not([href]),
-[data-tooltip]:not([role="button"]),
-[data-tooltip]:not([tabindex]) {
+[tooltip]:not([href]),
+[tooltip]:not([role="button"]),
+[tooltip]:not([tabindex]) {
     cursor: default;
 }
 
-a, button, [role="button"], [tabindex], [data-tooltip][href] {
+a, button, [role="button"], [tabindex], [tooltip][href] {
     cursor: pointer;
 }
 
@@ -70,7 +70,7 @@ a[href],
 button, 
 [role="button"], 
 [tabindex], 
-[data-tooltip][href] {
+[tooltip][href] {
     cursor: pointer;
 }
 a:not([href]) {
