@@ -244,6 +244,58 @@ function updateLocalTime() {
 
     document.querySelector('.clock-container').title = `My Local Time (${timezone})`;
 }
+function replaceTooltip() {
+    const elementsWithTooltips = document.querySelectorAll('[title], [aria-label], [alt], [data-tooltip]');
+
+    elementsWithTooltips.forEach(el => {
+        let tooltipText;
+
+        // If the element has a 'data-tooltip' attribute, use that; otherwise, fall back to 'title', 'aria-label', or 'alt'
+        if (el.hasAttribute('data-tooltip')) {
+            tooltipText = el.getAttribute('data-tooltip');
+        } else {
+            tooltipText = el.getAttribute('title') || el.getAttribute('aria-label') || el.getAttribute('alt');
+            
+            if (tooltipText) {
+                // Store tooltip text in the custom attribute 'data-tooltip'
+                el.setAttribute('data-tooltip', tooltipText);
+
+                // Remove default tooltips
+                el.removeAttribute('title');
+                el.removeAttribute('aria-label');
+                el.removeAttribute('alt');
+            }
+        }
+
+        if (tooltipText) {
+            let tooltipTimeout;
+
+            el.addEventListener('mouseenter', () => {
+                tooltipTimeout = setTimeout(() => {
+                    el.classList.add('show-tooltip');
+                }, 1200); // 1.2s delay (compared to standard 1.5s)
+            });
+
+            el.addEventListener('mouseleave', () => {
+                clearTimeout(tooltipTimeout); // If hover is interrupted
+                el.classList.remove('show-tooltip');
+            });
+
+            // Observe and replace if browser auto-replaces tooltip attributes
+            const observer = new MutationObserver(() => {
+                el.removeAttribute('title');
+                el.removeAttribute('aria-label');
+                el.removeAttribute('alt');
+            });
+
+            observer.observe(el, { attributes: true });
+        }
+    });
+}
+
+
+
+
 
 
 document.addEventListener("DOMContentLoaded", async () => {
@@ -254,8 +306,11 @@ document.addEventListener("DOMContentLoaded", async () => {
     linkReplacement();
     updateLichessRatings();
 
+    
+
     updateLocalTime();
     setInterval(updateLocalTime, 60000);
+    replaceTooltip();
 
     updateProfileStatus().then(() => {setInterval(() => updateElapsedTime(unixStartTime / 1000), 1000);});
     setInterval(updateProfileStatus, 60000);
@@ -265,6 +320,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     
 
     await fetchRSSFeed(blogRSSFeedEndpoint);
+    replaceTooltip();
     linkReplacement();
 });
   

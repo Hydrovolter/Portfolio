@@ -21,6 +21,63 @@ a {
     color: var(--primary-accent)
 }
 
+[data-tooltip] {
+    position: relative;
+    cursor: pointer;
+}
+
+/* tooltip container */
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--secondary);
+    color: var(--secondary-accent);
+    padding: 8px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+    max-width: 200px;
+    text-align: center;
+    z-index: 1000;
+}
+
+/* if element has show-tooltip class, show tooltip */
+[data-tooltip].show-tooltip::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+img[alt]:not([href]), 
+[data-tooltip]:not([href]),
+[data-tooltip]:not([role="button"]),
+[data-tooltip]:not([tabindex]) {
+    cursor: default;
+}
+
+a, button, [role="button"], [tabindex], [data-tooltip][href] {
+    cursor: pointer;
+}
+
+a[href], 
+button, 
+[role="button"], 
+[tabindex], 
+[data-tooltip][href] {
+    cursor: pointer;
+}
+a:not([href]) {
+    cursor: default;
+}
+
+
 body,html {
     width: 100%;
     height: 100%
