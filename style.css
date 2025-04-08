@@ -54,7 +54,7 @@ a {
     opacity: 1;
     visibility: visible;
 }
-
+/*
 img[alt]:not([href]), 
 [tooltip]:not([href]),
 [tooltip]:not([role="button"]),
@@ -76,6 +76,7 @@ button,
 a:not([href]) {
     cursor: default;
 }
+*/
 
 
 body,html {
