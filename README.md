@@ -10,9 +10,9 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [hydrovolter.netlify.app](https://hydrovolter.netlify.app/)
 - [hydrovolter.web.app](https://hydrovolter.web.app/)
 - [hydrovolter.firebaseapp.com](https://hydrovolter.firebaseapp.com/)
-- [hydrovolter.github.io](https://hydrovolter.github.io/) (this link does not receive live/recent commits)
+- [hydrovolter.github.io/Portfolio/](https://hydrovolter.github.io/Portfolio) (this link **DOES** receive live/recent commits)
 
-- [hydrovolter.github.io/Portfolio/](https://hydrovolter.github.io/Portfolio) (this link does receive live/recent commits, however due to the image paths of the main repo, images may not load as intended) 
+- [hydrovolter.github.io](https://hydrovolter.github.io/) (this link **DOES NOT** receive live/recent commits)
 
 # TODO
 - add more games, replace games which buffer / are blocked
@@ -20,18 +20,18 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [ ] add blog post: trading strategy breakdown + background
 - [ ] star/favourite games feature
 - [x] random game button (for the indecisive)
--[ ] ~~light/dark mode toggle?~~ I don't like light mode + uniformity of the site and assets
+- [ ] ~~light/dark mode toggle?~~ I don't like light mode + uniformity of the site and assets
 - [ ] recently played games
-- [ ] add home footer href on typing page
-- [ ] archive old blog + replace blog links with new ones
+- [x] add home footer href on typing page
+- [x] archive old blog + replace blog links with new ones
 - [ ] fix blog pages
 - [ ] fix movies docs
 - [ ] add animations to games carousel dots
 - [ ] make games carousel dots clickable (forwards + backwards)?
 - [x] make arrows start disappear animation on click
-- [ ] fix asset path from absolute --> relative: left - /manifest.json (especially of /games/)
+- [x] fix asset path from absolute --> relative: left - /manifest.json (especially of /games/)
 - [x] add (live) "playing time elapsed" for vscode presence
-- [ ] fix z-index (layering) of aria/alt attributes
+- [x] fix z-index (layering) of aria/alt attributes
 
 - [ ] add animation/buffer between dealt cards in card counter (in case the exact same cards come up twice in a row)
 - [ ] add blog post: how to card count
@@ -43,11 +43,11 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [ ] fix sitemap.xml lastmod dates
 - [ ] make site FULLY mobile response (activity presence, arrows, banners, padding etc.)
 
-- [ ] add local highscore tracker to wordbomb
+- [ ] add local highscore tracker to wordbomb game
 
 - [x] adjust presence depending on activity type (remove grid for custom, non-images etc.)
 - [ ] add interactable presence (e.g. click on spotify songs, hyperlinks in status, click on currently playing lichess game)
-~~- [ ] add iframe/live feed for currently playing lichess games~~ Lichess API won't let me (x-frame-denied)
+- [ ] ~~add iframe/live feed for currently playing lichess games~~ Lichess API won't let me (x-frame-denied)
 - [ ] add a progress bar to songs / music in presence ??
 
 - [x] add ADMIN PAGE
