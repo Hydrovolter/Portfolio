@@ -472,7 +472,6 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   // fetch user presence and update profile
 async function updateProfileStatus() {
-    // Get elements
     const statusContainer = document.getElementById("profile-avatar-status-container");
     const statusIcon = document.getElementById("profile-avatar-status");
     const activityContainer = document.getElementById("profile-activity");
@@ -489,7 +488,6 @@ async function updateProfileStatus() {
         if (activityContainer && activityContainerTotal) {
             activityContainer.style.display = "none";
             activityContainerTotal.style.display = "none";
-            console.log(activityTime.style.display);
         }
     }
 
@@ -498,6 +496,7 @@ async function updateProfileStatus() {
         if (!response.ok) throw new Error("Discord API fetch failed");
         const data = await response.json();
 
+        // Handle status
         if (data.status && statusContainer && statusIcon) {
             statusContainer.style.display = "block";
             statusIcon.src = statusIconMap[data.status] || statusIconMap["offline"];
@@ -505,43 +504,49 @@ async function updateProfileStatus() {
             statusContainer.style.display = "none";
         }
 
-        if (data.activityType && (data.activityText || data.activityDetails)) {
+        // Find first valid activity
+        const validActivity = data.activities?.find(activity => activity.activityType !== "Status:");
+
+        if (validActivity) {
             if (activityContainerTotal && activityContainer) {
                 activityContainerTotal.style.display = "flex";
                 activityContainer.style.display = "block";
             }
 
-            const hasImage = !!data.activityImage;
+            const hasImage = !!validActivity.activityImage;
             if (activityImage && activityImageContainer) {
                 activityImage.style.display = hasImage ? "block" : "none";
                 activityImageContainer.style.display = hasImage ? "block" : "none";
-                activityImage.src = hasImage ? data.activityImage : "";
+                activityImage.src = hasImage ? validActivity.activityImage : "";
             }
 
             if (gridContainer) {
                 hasImage ? gridContainer.classList.remove('single-column') : gridContainer.classList.add('single-column');
             }
 
-            if (activityName) activityName.textContent = data.activityType;
+            if (activityName) activityName.textContent = validActivity.activityType;
             if (activityDetails) {
-                activityDetails.style.display = data.activityDetails ? "block" : "none";
-                activityDetails.textContent = data.activityDetails || "";
+                activityDetails.style.display = validActivity.activityDetails ? "block" : "none";
+                activityDetails.textContent = validActivity.activityDetails || "";
             }
             if (activityState) {
-                activityState.style.display = data.activityText ? "block" : "none";
-                activityState.textContent = data.activityText || "";
+                activityState.style.display = validActivity.activityText ? "block" : "none";
+                activityState.textContent = validActivity.activityText || "";
             }
-            if(activityTime) {
+            if (activityTime) {
                 activityTime.style.display = "none";
             }
-
-            return; // Stop execution if Discord API succeeds
+            console.log(data.activities);
+            return; // Stop execution if valid activity is found
+        } else {
+            hideActivity();
         }
     } catch (error) {
         console.warn("Discord API error:", error);
     }
 
     try {
+        console.log("WARNING USING SPOTIFY INSTEAD")
         const response2 = await fetch(`${apiJsonSpotifyEndpoint}/api/spotify`);
         if (!response2.ok) throw new Error("Spotify API fetch failed");
         const data2 = await response2.json();
