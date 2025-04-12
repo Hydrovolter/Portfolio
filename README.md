@@ -20,7 +20,7 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [ ] add blog post: trading strategy breakdown + background
 - [ ] star/favourite games feature
 - [x] random game button (for the indecisive)
-~~- [ ] light/dark mode toggle?~~ I don't like dark mode + uniformity of the site and assets
+-[ ] ~~light/dark mode toggle?~~ I don't like light mode + uniformity of the site and assets
 - [ ] recently played games
 - [ ] add home footer href on typing page
 - [ ] archive old blog + replace blog links with new ones
@@ -41,6 +41,7 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [ ] add chips/betting system + bet spread/sizing trainer with final blackjack app
 
 - [ ] fix sitemap.xml lastmod dates
+- [ ] make site FULLY mobile response (activity presence, arrows, banners, padding etc.)
 
 - [ ] add local highscore tracker to wordbomb
 
