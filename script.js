@@ -474,6 +474,10 @@ document.addEventListener("DOMContentLoaded", async () => {
 async function updateProfileStatus() {
     const statusContainer = document.getElementById("profile-avatar-status-container");
     const statusIcon = document.getElementById("profile-avatar-status");
+    const statusSpeechBubbleContainer = document.getElementById("status-speech-bubble");
+    const statusSpeechBubbleText = document.getElementById("status-speech-bubble-text");
+    //const statusSpeechBubbleImage = document.getElementById("status-speech-bubble-image");
+
     const activityContainer = document.getElementById("profile-activity");
     const activityContainerTotal = document.getElementById("profile-activity-container");
     const activityImage = document.getElementById("profile-activity-large-image");
@@ -483,6 +487,7 @@ async function updateProfileStatus() {
     const activityState = document.getElementById("profile-activity-state");
     const activityTime = document.getElementById("profile-activity-time");
     const gridContainer = document.querySelector('.grid-container');
+
 
     function hideActivity() {
         if (activityContainer && activityContainerTotal) {
@@ -497,6 +502,8 @@ async function updateProfileStatus() {
         const data = await response.json();
 
         // Handle status
+        const statusActivity = data.activities?.find(activity => activity.activityType === "Status:");
+
         if (data.status && statusContainer && statusIcon) {
             statusContainer.style.display = "block";
             statusIcon.src = statusIconMap[data.status] || statusIconMap["offline"];
@@ -504,8 +511,19 @@ async function updateProfileStatus() {
             statusContainer.style.display = "none";
         }
 
-        // Find first valid activity
+        if (statusActivity) {
+            if (statusSpeechBubbleContainer && statusSpeechBubbleText && statusActivity.activityText) {
+                statusSpeechBubbleContainer.style.display = "flex";
+                statusSpeechBubbleText.textContent = statusActivity.activityText || "";
+            } else if(statusSpeechBubbleContainer) {
+                statusSpeechBubbleContainer.style.display = "none";
+            }
+        } else if(statusSpeechBubbleContainer) {
+            statusSpeechBubbleContainer.style.display = "none";
+        } 
+
         const validActivity = data.activities?.find(activity => activity.activityType !== "Status:");
+        
 
         if (validActivity) {
             if (activityContainerTotal && activityContainer) {
@@ -536,7 +554,6 @@ async function updateProfileStatus() {
             if (activityTime) {
                 activityTime.style.display = "none";
             }
-            console.log(data.activities);
             return; // Stop execution if valid activity is found
         } else {
             hideActivity();
@@ -546,7 +563,6 @@ async function updateProfileStatus() {
     }
 
     try {
-        console.log("WARNING USING SPOTIFY INSTEAD")
         const response2 = await fetch(`${apiJsonSpotifyEndpoint}/api/spotify`);
         if (!response2.ok) throw new Error("Spotify API fetch failed");
         const data2 = await response2.json();

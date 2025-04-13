@@ -265,6 +265,59 @@ body {
     display: none;
 }
 
+#status-speech-bubble {
+    position: absolute;
+    top: 40px;
+    left: 115px;
+    background: var(--secondary);
+    border: 2px solid var(--secondary-accent);
+    border-radius: 15px;
+    padding: 5px 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: default;
+    transition: max-width 0.3s ease;
+    width: auto;
+    max-width: 19px; /* Start small */
+    height: 28px;
+    overflow: hidden;
+    white-space: nowrap;
+    z-index: 10;
+    flex-direction: row;
+}
+
+#status-speech-bubble img {
+    width: 20px;
+    height: 20px;
+    transition: opacity 0.3s ease;
+    margin: 0;
+    flex-shrink: 0;
+}
+
+#status-speech-bubble .speech-text {
+    opacity: 0;
+    margin-left: 5px;
+    overflow: hidden;
+    transition: opacity 0.3s ease;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+#status-speech-bubble:hover {
+    max-width: 22vw;
+}
+
+#status-speech-bubble:hover .speech-text {
+    opacity: 1;
+}
+
+
+
+
+
+
 
 
 
