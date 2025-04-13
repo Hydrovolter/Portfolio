@@ -229,8 +229,31 @@ function updateElapsedTime(unixStartTime) {
     activityTime.textContent = formattedTime;
 }
 function updateLocalTime() {
-    const ukTime = new Date().toLocaleString("en-GB", { timeZone: "Europe/London" });
-    const now = new Date(ukTime);
+    const formatter = new Intl.DateTimeFormat('en-GB', {
+        timeZone: 'Europe/London',
+        hour: 'numeric',
+        minute: 'numeric',
+        second: 'numeric',
+        hour12: false,
+        day: 'numeric',
+        month: 'numeric',
+        year: 'numeric'
+    });
+
+    const parts = formatter.formatToParts(new Date());
+    const dateParts = {};
+    parts.forEach(({ type, value }) => {
+        dateParts[type] = value;
+    });
+
+    const now = new Date(
+        dateParts.year,
+        dateParts.month - 1,
+        dateParts.day,
+        dateParts.hour,
+        dateParts.minute,
+        dateParts.second
+    );
 
     let hours = now.getHours();
     let minutes = now.getMinutes();
@@ -245,6 +268,7 @@ function updateLocalTime() {
     document.querySelector('.clock-container').title = `My Local Time (${timezone})`;
     document.querySelector('.clock-container').tooltip = `My Local Time (${timezone})`;
 }
+
 function replaceTooltip() {
     //const elementsWithTooltips = document.querySelectorAll('[title], [aria-label], [alt], [tooltip]');
     const elementsWithTooltips = document.querySelectorAll('[tooltip]');
