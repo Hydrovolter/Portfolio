@@ -500,7 +500,7 @@ async function updateProfileStatus() {
     const statusIcon = document.getElementById("profile-avatar-status");
     const statusSpeechBubbleContainer = document.getElementById("status-speech-bubble");
     const statusSpeechBubbleText = document.getElementById("status-speech-bubble-text");
-    //const statusSpeechBubbleImage = document.getElementById("status-speech-bubble-image");
+    const statusSpeechBubbleImage = document.getElementById("status-speech-bubble-image");
 
     const activityContainer = document.getElementById("profile-activity");
     const activityContainerTotal = document.getElementById("profile-activity-container");
@@ -539,6 +539,7 @@ async function updateProfileStatus() {
             if (statusSpeechBubbleContainer && statusSpeechBubbleText && statusActivity.activityText) {
                 statusSpeechBubbleContainer.style.display = "flex";
                 statusSpeechBubbleText.textContent = statusActivity.activityText || "";
+                statusSpeechBubbleImage.src = statusActivity.activityEmoji || "assets/icons/chat.svg";
             } else if(statusSpeechBubbleContainer) {
                 statusSpeechBubbleContainer.style.display = "none";
             }
