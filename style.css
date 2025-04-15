@@ -273,7 +273,7 @@ body {
     border: 2px solid var(--secondary-accent);
     border-radius: 15px;
     padding: 5px 10px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: flex-start;
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
