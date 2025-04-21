@@ -38,6 +38,7 @@ function linkReplacement() {
     }
 }
 
+
 //document.addEventListener("DOMContentLoaded", function () {
     /* AD VOTE SCRIPT
 
@@ -377,8 +378,17 @@ document.addEventListener("DOMContentLoaded", function () {
             this.classList.add("active");
 
             gameCards.forEach(card => {
-                const categories = card.getAttribute("data-categories").split(" ");
-                
+                let categoriesAttribute = card.getAttribute("data-categories");
+            
+                if (categoriesAttribute === null) {
+                    //card.style.display = "none";
+                    //return;
+
+                    categoriesAttribute = "other"
+                }
+            
+                const categories = categoriesAttribute.split(" ");
+            
                 if (filter === "all" || categories.includes(filter)) {
                     card.style.display = "block";
                 } else {
