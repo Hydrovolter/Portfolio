@@ -112,6 +112,38 @@ a {
     max-width: 1200px;
 }
 
+.ad-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+    border-radius: 15px;
+    background-color: var(--secondary);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    text-align: center;
+}
+
+.ad-card:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.ad-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+}
+
+.ad-card p {
+    font-size: 1rem;
+    color: var(--secondary-accent);
+    margin: 0;
+}
+
 .game-card {
     display: flex;
     flex-direction: column;
