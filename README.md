@@ -1,6 +1,8 @@
 # Portfolio
 Hey, this is [my portfolio](https://hydrovolter.com/) where I keep some of my projects, information about me and achievements.
 
+It also contains a proxy, movies site and unblocked games.
+
 # Replica Links
 In case your school blocked the main site (hydrovolter.com), below is a list of domains of replicas of the site (that I manage). The subdomain links routed are also swapped with unblocked alternatives.
 
@@ -32,6 +34,7 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [x] fix asset path from absolute --> relative: left - /manifest.json (especially of /games/)
 - [x] add (live) "playing time elapsed" for vscode presence
 - [x] fix z-index (layering) of aria/alt attributes
+- [ ] add google gtag analytics for all game pages
 
 - [ ] add animation/buffer between dealt cards in card counter (in case the exact same cards come up twice in a row)
 - [ ] add blog post: how to card count

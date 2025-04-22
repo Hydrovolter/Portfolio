@@ -1,1 +1,2 @@
 ErrorDocument 404 /404.html
+Redirect 301 /ads.txt https://srv.adstxtmanager.com/19390/hydrovolter.com
