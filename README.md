@@ -1,9 +1,21 @@
 # Portfolio
 Hey, this is [my portfolio](https://hydrovolter.com/) where I keep some of my projects, information about me and achievements.
 
-It also contains a proxy, movies site and unblocked games.
+:rocket: **Need a way to unblock everything at school?**  
+:video_game: **Want free games, movies, and powerful tools — all in one place?**
 
-# Replica Links
+Check out **[hydrovolter.com](https://hydrovolter.com/#dev)**!  
+:white_check_mark: **Proxy** to unblock almost **ANY** site  
+:white_check_mark: Tons of **unblocked games**  
+:white_check_mark: **Watch movies for free** — no ads, no hassle  
+:white_check_mark: A huge collection of **tools** to make your life easier
+
+Just **swipe right** on the homepage to explore everything!
+
+:new: **Freshly created**, so it's **VERY LIKELY still unblocked** at your school!  
+:sparkles: **Looks and feels like the most professional unblocked games site out there!**  
+:link: **Worried about it getting blocked?** No problem — there are **10+ replica links** available on the **GitHub repo** (linked on the site) to keep you connected!
+#### :link:  Replica Links:
 In case your school blocked the main site (hydrovolter.com), below is a list of domains of replicas of the site (that I manage). The subdomain links routed are also swapped with unblocked alternatives.
 
 - [hydrovolter.com](https://hydrovolter.com/)
@@ -15,8 +27,8 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [hydrovolter.github.io/Portfolio/](https://hydrovolter.github.io/Portfolio) (this link **DOES** receive live/recent commits)
 
 - [hydrovolter.github.io](https://hydrovolter.github.io/) (this link **DOES NOT** receive live/recent commits)
-
-# TODO
+---
+## Roadmap
 - add more games, replace games which buffer / are blocked
 
 - [ ] add blog post: trading strategy breakdown + background
@@ -57,7 +69,6 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [ ] push news/announcements
 - [ ] toggle status/presence
 - [ ] display stats (cloudflare? polls? other data?)
-
-# DISCLAIMER
-Almost none of the games in the [Games](games/) section were coded by me - I simply found an online repository and copied/modified it slightly
-Please read [DISCLAIMER.md](games/DISCLAIMER.md) in the [Games](games/) folder for more information.
+---
+###### DISCLAIMER: Almost none of the games in the [Games](games/) section were coded by me - I simply found an online repository and copied/modified it slightly.
+###### Please read [DISCLAIMER.md](games/DISCLAIMER.md) in the [Games](games/) folder for more information (including DMCA contact information).
