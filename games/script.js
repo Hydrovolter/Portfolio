@@ -40,10 +40,10 @@ function linkReplacement() {
 }
 
 
-//document.addEventListener("DOMContentLoaded", function () {
-    /* AD VOTE SCRIPT
+document.addEventListener("DOMContentLoaded", function () {
+    // AD VOTE SCRIPT
 
-    if (localStorage.getItem("ads_vote_completed")) return;
+    if (localStorage.getItem("ads_vote_completed_2")) return;
 
     const popup = document.createElement("div");
     popup.innerHTML = `
@@ -69,7 +69,7 @@ function linkReplacement() {
             max-width: 400px;
         ">
         <p style="margin-bottom: 15px;">
-        <span style="font-size: 1.2em; font-weight: bold; text-decoration: underline;">Vote</span>:<br>Would you continue to use the site IF there were non-obtrusive ads displayed?
+        <span style="font-size: 1.2em; font-weight: bold; text-decoration: underline;">Vote</span>:<br>Are the ads on the site annoying you? I tried my best to make them as less intrusive as possible.
         </p>
     
             <button id="voteYes" style="
@@ -153,16 +153,16 @@ function linkReplacement() {
     }
 
     document.getElementById("voteYes").addEventListener("click", function () {
-        localStorage.setItem("ads_vote_completed", "true");
+        localStorage.setItem("ads_vote_completed_2", "true");
         sendVote("yes");
     });
 
     document.getElementById("voteNo").addEventListener("click", function () {
-        localStorage.setItem("ads_vote_completed", "true");
+        localStorage.setItem("ads_vote_completed_2", "true");
         sendVote("no");
     });
-    */
-//});
+    
+});
 
 async function updateGitHubStats() {
     const repoName = "Hydrovolter/Portfolio"
