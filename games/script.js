@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
             max-width: 400px;
         ">
         <p style="margin-bottom: 15px;">
-        <span style="font-size: 1.2em; font-weight: bold; text-decoration: underline;">Vote</span>:<br>Are the ads on the site annoying you? I tried my best to make them as less intrusive as possible.
+        <span style="font-size: 1.2em; font-weight: bold; text-decoration: underline;">Vote</span>:<br>Are the ads on the site annoying you?<br><br> I tried my best to make them as less intrusive as possible.
         </p>
     
             <button id="voteYes" style="
