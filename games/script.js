@@ -45,6 +45,12 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (localStorage.getItem("ads_vote_completed_2")) return;
 
+    let visitCount = parseInt(localStorage.getItem("site_visit_count_from_27_04_25") || "0", 10);
+    visitCount += 1;
+    localStorage.setItem("site_visit_count_from_27_04_25", visitCount);
+
+    if (visitCount < 5) return;
+
     const popup = document.createElement("div");
     popup.innerHTML = `
     <div id="adsPopup" style="
