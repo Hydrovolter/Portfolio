@@ -31,6 +31,8 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 ## Roadmap
 - add more games, replace games which buffer / are blocked
 
+- [ ] modularize adsGames.js depending on hostname (diff sources)
+
 - [ ] add blog post: trading strategy breakdown + background
 - [ ] star/favourite games feature
 - [x] random game button (for the indecisive)
