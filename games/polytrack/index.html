@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<link rel="manifest" href="manifest.json" />
+		<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
+
+		<link rel="icon" type="image/x-icon" href="favicon.svg">
+		<meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+		<link href=/manifest.json rel=manifest>
+		<meta content=Hydrovolter name=og:site_name>
+		<meta content="Polytrack" name=title>
+		<meta content="Speed through colourful, low-poly tracks, aiming for the fastest time while avoiding obstacles." name=description>
+		<meta content=#00F6F4 name=theme-color>
+		<meta content=summary_large_image name=twitter:card>
+		<meta content=favicon.svg name=og:image>
+		<!-- Google tag (gtag.js) -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			gtag('js', new Date());
+
+			gtag('config', 'G-PWJ73HJC1X');
+		</script>
+	</head>
+	<body>
+		<canvas id="screen"></canvas>
+		<div id="ui"></div>
+		<div id="transition-layer"></div>
+
+		<script type="module" src="main.bundle.js" defer></script>
+	</body>
+</html>
