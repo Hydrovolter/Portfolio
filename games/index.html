@@ -731,7 +731,7 @@ UNDER DEVELOPMENT TAG
         });
         */
 
-        
+        const adCards = document.querySelectorAll(".ad-card");
         
         document.getElementById('search-bar').addEventListener('input', function() {
         const searchQuery = this.value.toLowerCase();
@@ -744,6 +744,10 @@ UNDER DEVELOPMENT TAG
             } else {
                 card.style.display = 'none';
             }
+        });
+
+        adCards.forEach(ad => {
+            ad.style.display = searchQuery === '' ? 'block' : 'none';
         });
     });
     </script>

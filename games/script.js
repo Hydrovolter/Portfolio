@@ -376,6 +376,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const filterButtons = document.querySelectorAll(".filter-btn");
     const gameCards = document.querySelectorAll(".game-card");
+    const adCards = document.querySelectorAll(".ad-card");
 
     filterButtons.forEach(button => {
         button.addEventListener("click", function () {
@@ -401,6 +402,10 @@ document.addEventListener("DOMContentLoaded", function () {
                 } else {
                     card.style.display = "none";
                 }
+            });
+
+            adCards.forEach(ad => {
+                ad.style.display = (filter === "all") ? "block" : "none";
             });
         });
     });
