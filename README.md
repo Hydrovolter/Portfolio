@@ -1,6 +1,8 @@
 # Portfolio
-Hey, this is [my portfolio](https://hydrovolter.com/) where I keep some of my projects, information about me and achievements.
 
+Hey, this is [my portfolio](https://hydrovolter.com/) where I keep some of my projects, information about me and achievements. It also contains many *"useful"* things for school students.
+
+---
 :rocket: **Need a way to unblock everything at school?**  
 :video_game: **Want free games, movies, and powerful tools — all in one place?**
 
@@ -15,6 +17,9 @@ Just **swipe right** on the homepage to explore everything!
 :new: **Freshly created**, so it's **VERY LIKELY still unblocked** at your school!  
 :sparkles: **Looks and feels like the most professional unblocked games site out there!**  
 :link: **Worried about it getting blocked?** No problem — there are **10+ replica links** available on the **GitHub repo** (linked on the site) to keep you connected!
+
+---
+
 #### :link:  Replica Links:
 In case your school blocked the main site (hydrovolter.com), below is a list of domains of replicas of the site (that I manage). The subdomain links routed are also swapped with unblocked alternatives.
 
