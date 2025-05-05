@@ -417,7 +417,71 @@ document.addEventListener("DOMContentLoaded", function () {
     updateGitHubStats();
     addSwipeToDismiss();
 
-    
+// Scroll to Bottom
+/*
+document.getElementById("scroll-to-bottom").addEventListener("click", function () {
+    const start = window.scrollY;
+    const end = document.body.scrollHeight - window.innerHeight;
+    const distance = end - start;
+    const duration = 1000; // 1 second
+    const startTime = performance.now();
+  
+    function scrollStep(currentTime) {
+      const elapsed = currentTime - startTime;
+      const progress = Math.min(elapsed / duration, 1); // clamp to [0,1]
+  
+      window.scrollTo(0, start + distance * easeInOutQuad(progress));
+  
+      if (progress < 1) {
+        requestAnimationFrame(scrollStep);
+      }
+    }
+  
+    function easeInOutQuad(t) {
+      return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+    }
+  
+    requestAnimationFrame(scrollStep);
+  });
+*/
+
+const newButton = document.getElementById("scroll-to-bottom");
+
+// Smooth scroll on click
+newButton.addEventListener("click", function () {
+  const start = window.scrollY;
+  const end = document.body.scrollHeight - window.innerHeight;
+  const distance = end - start;
+  const duration = 1000; // 1 second
+  const startTime = performance.now();
+
+  function scrollStep(currentTime) {
+    const elapsed = currentTime - startTime;
+    const progress = Math.min(elapsed / duration, 1);
+    window.scrollTo(0, start + distance * easeInOutQuad(progress));
+    if (progress < 1) requestAnimationFrame(scrollStep);
+  }
+
+  function easeInOutQuad(t) {
+    return t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+  }
+
+  requestAnimationFrame(scrollStep);
+});
+
+// Hide button when user scrolls up from near the bottom
+window.addEventListener("scroll", function () {
+  const scrolledToBottom =
+    window.innerHeight + window.scrollY >= document.body.scrollHeight - 5;
+  const nearBottom = window.innerHeight + window.scrollY >= document.body.scrollHeight - 100;
+
+  if (!scrolledToBottom && nearBottom && window.scrollY < document.body.scrollHeight) {
+    newButton.classList.add("hidden");
+  } else {
+    newButton.classList.remove("hidden");
+  }
+});
+
 
     const randomGameButton = document.getElementById('random-game-button');
     let countdownInterval;
