@@ -21,7 +21,7 @@ Just **swipe right** on the homepage to explore everything!
 ---
 
 #### :link:  Replica Links:
-In case your school blocked the main site (hydrovolter.com), below is a list of domains of replicas of the site (that I manage). The subdomain links routed are also swapped with unblocked alternatives.
+In case your school blocked the main site (hydrovolter.com), below is a list of domains of replicas of the site (that I manage). The subdomain links routed are also swapped with unblocked alternatives. If you would like another subdomain, as all the below have been blocked, please contact me (or host your own version of the site!)
 
 - [hydrovolter.com](https://hydrovolter.com/)
 - [hydrovolter.pages.dev](https://hydrovolter.pages.dev/)
