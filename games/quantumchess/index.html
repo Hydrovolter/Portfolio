@@ -1,0 +1,647 @@
+<title>Quantum Chess</title>
+<style>
+	:root{
+		--col1: #afff4d;
+		--col2: #8ee622;
+	}
+	
+	*{
+		margin: 0;
+		padding: 0;
+		overflow: hidden;
+	}
+	#c{
+		width: 100vw;
+		height: 100vh;
+	}
+	#rules{
+		position: fixed;
+		top: 0;
+		left: 0;
+		color: #EEE;
+		font-family: Roboto;
+		width: calc(50vw - 50vmin);
+		height: 100vh;
+		border-right: 2px solid #EEE;
+		padding: 2vmin;
+		box-sizing: border-box;
+		overflow-y: scroll;
+		direction: rtl;
+	}
+	#scrollcontainer{
+		direction: ltr;
+	}
+	table{
+		border: none;
+	}
+	td{
+		width: 10vmin;
+		height: 10vmin;
+		background: red;
+		text-align: center;
+	}
+	
+	tr:nth-child(odd) > td:nth-child(odd){
+		background: var(--col1);
+	}
+	tr:nth-child(odd) > td:nth-child(even){
+		background: var(--col2);
+	}
+	tr:nth-child(even) > td:nth-child(odd){
+		background: var(--col2);
+	}
+	tr:nth-child(even) > td:nth-child(even){
+		background: var(--col1);
+	}
+	
+	.piece{
+		background: #EEE;
+		width: 90%;
+		height: 90%;
+		display: inline-block;
+		border-radius: 100%;
+		vertical-align: middle;
+		font-size: 5vmin;
+		line-height: 8.5vmin;
+	}
+	.star{
+		color: #4b6a88;
+	}
+	.king{
+		color: #ef4836;
+	}
+	.queen{
+		color: #b93cf6;
+	}
+	.rook{
+		color: #019875;
+	}
+	.bishop{
+		color: #3477db;
+	}
+	.knight{
+		color: #e65722;
+	}
+	.pawn{
+		color: #af851a;
+	}
+	::-webkit-scrollbar{
+		width: 16px;
+	}
+	::-webkit-scrollbar-thumb{
+		background: #EEE;
+		border-radius: 2px;
+	}
+	::-webkit-scrollbar-thumb:hover{
+		background: #fff;
+	}
+	::-webkit-scrollbar-track{
+		background: #222; 
+	}
+	
+	#turn{
+		position: fixed;
+		font: 5vmin Roboto;
+		color: #EEE;
+		bottom: 2vmin;
+		right: 2vmin;
+	}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/x-icon" href="favicon.jpg">
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="Quantum Chess" name=title>
+    <meta content="Pieces in superpositions. Every piece is a mystery." name=description>
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=favicon.jpg name=og:image>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWJ73HJC1X');
+    </script>
+
+<canvas id="c"></canvas>
+<div id="rules">
+	<div id="scrollcontainer">
+	<h2>Welcome to Quantum Chess!</h2>
+	<br/>
+	<h3>Some helpful instructions:</h3>
+	<br/>
+	<p>
+		Although it doesn't look like it, this board has the same set of
+		pieces used in a regular game of chess. However, these pieces are
+		arranged in an unknown order, unknown to both the players and to
+		the computer. The identity of these pieces will be defined by the
+		players, by playing the game.
+	</p>
+	<br/>
+	<p>
+		This game is titled "Quantum Chess" because each piece is in a sort
+		of superposition (a piece in a superposition will be called a
+		superpiece). What this means is that every superpiece could be one of
+		many options. And, when finishing the game, the moves that every
+		individual superpiece made must be possible for one of its' options.
+		In fact, every superpiece could have been represented by a single
+		regular piece the whole time, without violating any rules.
+	</p>
+	<br/>
+	<p>
+		The good news for you, the player, is that you don't need to keep
+		track of what every piece secretly is. The game does that for you, by
+		showing, for every piece, which ones it could be. At the start of the
+		game, every superpiece is shown as a wildcard (<span class="star">&#x2605;</span>).
+		If one of these superpieces were to move one step forward, it would be shown as
+		<span class="king">&#x265a;</span><span class="queen">&#x265b;</span><span class="rook">&#x265c;</span><span class="pawn">&#x265f;</span>
+		because King, Queen, Rook, and Pawn are the only pieces that could have made
+		that move. For the rest of the game, this superpiece is no longer able
+		to make moves that would only be possible for a Knight or a Bishop.
+	</p>
+	<br/>
+	<p>
+		This causes another mechanic that you need to pay attention to. If any
+		superpiece is shown to be the Queen <span class="queen">&#x265b;</span>
+		(as an example), and <em>only</em> the Queen, then none of your other
+		pieces can be Queens. You're only supposed to have one! This causes many
+		other interesting effects as well, where a single move can change many
+		different pieces at once. It's up to you to figure those out!
+	</p>
+	<br/>
+	<p>
+		If you've understood everything so far, you might be wondering how a check
+		works, when it's possible to have multiple pieces that could be the King.
+		The answer is fairly simple: every superpiece that could be a King must be
+		in check in order for the player to be in check, and similarily for checkmate.
+		It's important to consider that whenever a superpiece is captured, it
+		retroactively cannot be the King, which can give you additional power over
+		your opponent.
+	</p>
+	</div>
+</div>
+
+<div id="turn">
+	<span id="turnt">White</span>'s move.
+</div>
+
+<script>
+	var turn = 1;
+
+function gW(){
+	return window.innerWidth * window.devicePixelRatio;
+}
+function gH(){
+	return window.innerHeight * window.devicePixelRatio;
+}
+
+var width = gW();
+var height = gH();
+
+var c = document.getElementById("c");
+c.width = width;
+c.height = height;
+
+var ctx = c.getContext("2d");
+
+class piece{
+	constructor(team, options, x, y, promo){
+		this.team = team;
+		this.options = options;
+		this.x = x;
+		this.y = y;
+		this.promo = promo ?? false;
+		this.hasMoved = false;
+		this.score = 0;
+		this.dead = false;
+		this.check = false;
+		this.checkmate = false;
+	}
+}
+
+var boardSize = Math.floor(Math.min(width, height) * 0.9);
+
+var pieces = [];
+
+function clone(n){
+	return JSON.parse(JSON.stringify(n));
+}
+
+function isEmpty(pieces, x, y){
+	if(x < 0 || x > 7 || y < 0 || y > 7)
+		return false;
+	for(var i = 0; i < pieces.length; i++)
+		if(pieces[i].x == x && pieces[i].y == y)
+			return false;
+	return true;
+}
+
+function getPiece(pieces, x, y){
+	if(x < 0 || x > 7 || y < 0 || y > 7)
+		return -1;
+	for(var i = 0; i < pieces.length; i++)
+		if(pieces[i].x == x && pieces[i].y == y)
+			return i;
+	return -1;
+}
+
+function getPiecesOfTeam(pieces, team, promo){
+	var p = [];
+	for(var i = 0; i < pieces.length; i++)
+		if(pieces[i].team == team && (promo || !pieces[i].promo))
+			p.push(pieces[i]);
+	return p;
+}
+
+var piecesQuota = [1, 1, 2, 2, 2, 8];
+var piecesKey = [
+	["\u265a", "#ef4836", function(pieces, piece){ // King
+		var ret = [], e, x = piece.x, y = piece.y;
+		for(var cx = x - 1; cx <= x + 1; cx++)
+			for(var cy = y - 1; cy <= y + 1; cy++)
+				if(isEmpty(pieces, cx, cy))
+					ret.push([cx, cy]);
+				else if((e = getPiece(pieces, cx, cy)) != -1 && pieces[e].team != piece.team)
+					ret.push([cx, cy]);
+		return ret;
+	}],
+	["\u265b", "#b93cf6", function(pieces, piece){ // Queen
+		var ret = [], e, x = piece.x, y = piece.y;
+		var dirs = [[1, 0], [1, 1], [0, 1], [-1, 1], [-1, 0], [-1, -1], [0, -1], [1, -1]];
+		for(var i = 0; i < dirs.length; i++){
+			var n = 1;
+			while(isEmpty(pieces, x + dirs[i][0] * n, y + dirs[i][1] * n))
+				ret.push([x + dirs[i][0] * n, y + dirs[i][1] * n++]);
+			if((e = getPiece(pieces, x + dirs[i][0] * n, y + dirs[i][1] * n)) != -1 && pieces[e].team != piece.team)
+				ret.push([x + dirs[i][0] * n, y + dirs[i][1] * n]);
+		}
+		return ret;
+	}],
+	["\u265c", "#019875", function(pieces, piece){ // Rook
+		var ret = [], e, x = piece.x, y = piece.y;
+		var dirs = [[1, 0], [-1, 0], [0, 1], [0, -1]];
+		for(var i = 0; i < dirs.length; i++){
+			var n = 1;
+			while(isEmpty(pieces, x + dirs[i][0] * n, y + dirs[i][1] * n))
+				ret.push([x + dirs[i][0] * n, y + dirs[i][1] * n++]);
+			if((e = getPiece(pieces, x + dirs[i][0] * n, y + dirs[i][1] * n)) != -1 && pieces[e].team != piece.team)
+				ret.push([x + dirs[i][0] * n, y + dirs[i][1] * n]);
+		}
+		return ret;
+	}],
+	["\u265d", "#3477db", function(pieces, piece){ // Bishop
+		var ret = [], e, x = piece.x, y = piece.y;
+		var dirs = [[1, 1], [-1, 1], [-1, -1], [1, -1]];
+		for(var i = 0; i < dirs.length; i++){
+			var n = 1;
+			while(isEmpty(pieces, x + dirs[i][0] * n, y + dirs[i][1] * n))
+				ret.push([x + dirs[i][0] * n, y + dirs[i][1] * n++]);
+			if((e = getPiece(pieces, x + dirs[i][0] * n, y + dirs[i][1] * n)) != -1 && pieces[e].team != piece.team)
+				ret.push([x + dirs[i][0] * n, y + dirs[i][1] * n]);
+		}
+		return ret;
+	}],
+	["\u265e", "#e65722", function(pieces, piece){ // Knight
+		var ret = [], e, x = piece.x, y = piece.y;
+		var dirs = [[2, 1], [2, -1], [1, -2], [-1, -2], [-2, 1], [-2, -1], [1, 2], [-1, 2]];
+		for(var i = 0; i < dirs.length; i++){
+			if(isEmpty(pieces, x + dirs[i][0], y + dirs[i][1]))
+				ret.push([x + dirs[i][0], y + dirs[i][1]]);
+			else if((e = getPiece(pieces, x + dirs[i][0], y + dirs[i][1])) != -1 && pieces[e].team != piece.team)
+				ret.push([x + dirs[i][0], y + dirs[i][1]]);
+		}
+		return ret;
+	}],
+	["\u265f", "#af851a", function(pieces, piece){ // Pawn
+		var ret = [], e, x = piece.x, y = piece.y;
+		if(isEmpty(pieces, x, y + (piece.team ? -1 : 1))){
+			ret.push([x, y + (piece.team ? -1 : 1)]);
+			if(!piece.hasMoved && isEmpty(pieces, x, y + (piece.team ? -2 : 2)))
+				ret.push([x, y + (piece.team ? -2 : 2)]);
+		}
+		if((e = getPiece(pieces, x - 1, y + (piece.team ? -1 : 1))) != -1 && pieces[e].team != piece.team)
+			ret.push([x - 1, y + (piece.team ? -1 : 1)]);
+		if((e = getPiece(pieces, x + 1, y + (piece.team ? -1 : 1))) != -1 && pieces[e].team != piece.team)
+			ret.push([x + 1, y + (piece.team ? -1 : 1)]);
+		return ret;
+	}]
+];
+
+function r10(){
+	return Math.floor(Math.random() * 2);
+}
+
+// [team, possibilities, x, y, hasmoved]
+	
+for(var i = 0; i < 16; i++){
+	pieces.push(new piece(0, [1, 1, 1, 1, 1, 1], i % 8, Math.floor(i / 8)));
+}
+
+for(var i = 0; i < 16; i++)
+	pieces.push(new piece(1, [1, 1, 1, 1, 1, 1], i % 8, Math.floor(i / 8) + 6));
+
+var selected = -1;
+
+var mouse = {x: 0, y: 0, bx: -1, by: -1};
+var tempP;
+var selfCheck = false;
+
+function recalc(p){
+	for(var t = 0; t < 2; t++){
+		var pieces = getPiecesOfTeam(p, t);
+		for(var i = 0; i < pieces.length; i++)
+			nloop:
+			for(var n = 0; n < 6; n++){
+				if(pieces[i].options[n]){
+					pieces[i].options[n] = 0;
+					var pcl = clone(pieces);
+					for(var j = 0; j < 6; j++)
+						pcl[i].options[j] = n == j ? 1 : 0;
+					var countq = [0, 0, 0, 0, 0, 0];
+					for(var j = 0; j < pcl.length; j++)
+						for(var k = 0; k < 6; k++)
+							countq[k] += pcl[j].options[k];
+					
+					for(var j = 0; j < 6; j++)
+						if(countq[j] < piecesQuota[j])
+							continue nloop;
+					
+					for(var j = 0; j < pcl.length; j++){
+						pcl[j].score = 0;
+						for(var k = 0; k < 6; k++)
+							pcl[j].score += pcl[j].options[k] * piecesQuota[k] / countq[k];
+					}
+					
+					countq = [0, 0, 0, 0, 0, 0];
+					var cont = true;
+					while(cont){
+						cont = false;
+						var min = 1000;
+						var minj = -1;
+						for(var j = 0; j < pcl.length; j++){
+							if(pcl[j].score > 0 && pcl[j].score < min){
+								min = pcl[j].score;
+								minj = j;
+							}
+						}
+						if(minj >= 0){
+							cont = true;
+							pcl[minj].score = -1;
+							var matchFound = false;
+							for(var j = 0; j < 6; j++)
+								if(pcl[minj].options[j] && countq[j] < piecesQuota[j]){
+									countq[j]++;
+									matchFound = true;
+									break;
+								}
+							if(!matchFound)
+								continue nloop;
+						}
+					}
+					pieces[i].options[n] = 1;
+				}
+			}
+	}
+}
+
+function dispPieces(pieces){
+	var checks = [];
+	var anyCheck = false;
+	
+	for(var t = 0; t < 2; t++){
+		
+		var teama = getPiecesOfTeam(pieces, t, true);
+		var aMoves = [];
+		
+		var teamb = getPiecesOfTeam(pieces, (t + 1) % 2, true);
+		var pKings = [];
+		for(var i = 0; i < teamb.length; i++)
+			teamb[i].check = false;
+		for(var i = 0; i < teama.length; i++)
+			for(var n = 0; n < 6; n++)
+				if(teama[i].options[n] && !teama[i].dead){
+					var m = piecesKey[n][2](pieces, teama[i]);
+					for(var j = 0; j < m.length; j++)
+						aMoves.push([teama[i], m[j]]);
+				}
+		
+		var czech = true;
+		var lCheck = [];
+		for(var i = 0; i < teamb.length; i++)
+			if(teamb[i].options[0] && !teamb[i].dead){
+				pKings.push(teamb[i]);
+				
+				var inL = false;
+				for(var j = 0; j < aMoves.length; j++)
+					if(aMoves[j][1][0] == teamb[i].x && aMoves[j][1][1] == teamb[i].y){
+						inL = true;
+						lCheck.push(aMoves[j][0]);
+					}
+				
+				if(!inL)
+					czech = false;
+			}
+		
+		if(czech){
+			for(var i = 0; i < pKings.length; i++)
+				pKings[i].check = true;
+			for(var i = 0; i < lCheck.length; i++)
+				checks.push(lCheck[i]);
+		}
+		if(t != turn)
+			selfCheck = czech;
+		anyCheck = anyCheck || czech;
+	}
+	
+	ctx.textAlign = "center";
+	ctx.textBaseline = "middle";
+	var nDead = 0;
+	for(var i = 0; i < pieces.length; i++){
+		var px, py;
+		if(pieces[i].dead){
+			px = (9 + Math.floor(nDead / 6)) * boardSize / 8 + width / 2 - boardSize / 2;
+			py = (nDead++ % 6 + 0.5) * boardSize / 8 + height / 2 - boardSize / 2;
+		}else{
+			px = (pieces[i].x + 0.5) * boardSize / 8 + width / 2 - boardSize / 2;
+			py = (pieces[i].y + 0.5) * boardSize / 8 + height / 2 - boardSize / 2;
+		}
+		ctx.fillStyle = pieces[i].team ? "#EEE" : "#222";
+		ctx.beginPath();
+		ctx.arc(
+			px,
+			py,
+			boardSize / 16 * 0.9,
+			0,
+			Math.PI * 2
+		);
+		ctx.fill();
+		
+		var dispP = [];
+		for(var n = 0; n < 6; n++)
+			if(pieces[i].options[n])
+				dispP.push(piecesKey[n]);
+		
+		if(dispP.length == 6)
+			dispP = [["\u2605", "#4b6a88"]];
+		
+		var rad = dispP.length <= 1 ? 0 : boardSize / 32;
+		ctx.font = `${dispP.length <= 1 ? boardSize / 16 : boardSize / 26}px Arial`;
+		
+		//ctx.fillStyle = pieces[i][0] ? "#222" : "#EEE";
+		for(var n = 0; n < dispP.length; n++){
+			ctx.fillStyle = dispP[n][1];
+			ctx.fillText(dispP[n][0],
+					 px + Math.sin(2 * Math.PI * n / dispP.length) * rad,
+					 py + Math.cos(2 * Math.PI * n / dispP.length) * rad
+			);
+		}
+		
+		if(pieces[i].check){
+			ctx.beginPath();
+			ctx.lineWidth = boardSize / 128;
+			ctx.strokeStyle = "red";
+			ctx.rect(
+				pieces[i].x * boardSize / 8 + width / 2 - boardSize / 2 - 0.5 + boardSize / 128,
+				pieces[i].y * boardSize / 8 + height / 2 - boardSize / 2 - 0.5 + boardSize / 128,
+				boardSize / 8 + 1 - boardSize / 64,
+				boardSize / 8 + 1 - boardSize / 64
+			);
+			ctx.stroke();
+		}
+	}
+	if(anyCheck)
+		for(var i = 0; i < checks.length; i++){
+			ctx.beginPath();
+			ctx.lineWidth = boardSize / 128;
+			ctx.strokeStyle = "yellow";
+			ctx.rect(
+				checks[i].x * boardSize / 8 + width / 2 - boardSize / 2 - 0.5 + boardSize / 128,
+				checks[i].y * boardSize / 8 + height / 2 - boardSize / 2 - 0.5 + boardSize / 128,
+				boardSize / 8 + 1 - boardSize / 64,
+				boardSize / 8 + 1 - boardSize / 64
+			);
+			ctx.stroke();
+		}
+}
+
+function render(){
+	requestAnimationFrame(render);
+	if(c.width != gW() || c.height != gH()){
+		width = gW();
+		height = gH();
+		c.width = width;
+		c.height = height;
+		boardSize = Math.floor(Math.min(width, height) * 0.9);
+	}
+	ctx.fillStyle = "#111";
+	ctx.fillRect(0, 0, width, height);
+	
+	for(var x = 0; x < 8; x++)
+		for(var y = 0; y < 8; y++){
+			ctx.fillStyle = (y + x) % 2 == 0 ? "#afff4d" : "#8ee622";
+			ctx.fillRect(
+				x * boardSize / 8 + width / 2 - boardSize / 2 - 0.5,
+				y * boardSize / 8 + height / 2 - boardSize / 2 - 0.5,
+				boardSize / 8 + 1,
+				boardSize / 8 + 1
+			);
+		}
+	
+	var sm = [];
+	
+	ctx.globalAlpha = 0.5;
+	if(mouse.bx >= 0 && mouse.bx <= 7 && mouse.by >= 0 && mouse.by <= 7){
+		ctx.fillStyle = "black";
+		ctx.fillRect(
+			mouse.bx * boardSize / 8 + width / 2 - boardSize / 2,
+			mouse.by * boardSize / 8 + height / 2 - boardSize / 2,
+			boardSize / 8,
+			boardSize / 8
+		);
+	}
+	
+	if(selected != -1)
+		for(var i = 0; i < 6; i++)
+			if(pieces[selected].options[i]){
+				var poss = piecesKey[i][2](pieces, pieces[selected]);
+				ctx.fillStyle = piecesKey[i][1];
+				for(var n = 0; n < poss.length; n++){
+					if(mouse.bx == poss[n][0] && mouse.by == poss[n][1])
+						sm.push(i);
+					ctx.fillRect(
+						poss[n][0] * boardSize / 8 + width / 2 - boardSize / 2,
+						poss[n][1] * boardSize / 8 + height / 2 - boardSize / 2,
+						boardSize / 8,
+						boardSize / 8
+					);
+				}
+			}
+	if(sm.length == 0)
+		ctx.globalAlpha = 1;
+	
+	dispPieces(pieces);
+	
+	if(sm.length > 0){
+		ctx.globalAlpha = 1;
+		tempP = clone(pieces);
+		tempP[selected].x = mouse.bx;
+		tempP[selected].y = mouse.by;
+		
+		tempP[selected].options = [0, 0, 0, 0, 0, 0];
+		for(var i = 0; i < sm.length; i++)
+			tempP[selected].options[sm[i]] = 1;
+		
+		tempP[selected].hasMoved = true;
+		
+		if(!isEmpty(pieces, mouse.bx, mouse.by)){
+			var p = getPiece(pieces, mouse.bx, mouse.by);
+			var pe = tempP[p];
+			pe.dead = true;
+			pe.x = -1;
+			pe.y = -1;
+			pe.options[0] = 0;
+			tempP.splice(p, 1);
+			tempP.push(pe);
+		}
+		
+		recalc(tempP);
+		dispPieces(tempP);
+	}else
+		tempP = undefined;
+}
+render();
+
+window.onmousemove = function(e){
+	mouse.x = e.clientX / window.innerWidth * width;
+	mouse.y = e.clientY / window.innerHeight * height;
+	mouse.bx = Math.floor((mouse.x - width / 2 + boardSize / 2) / (boardSize / 8));
+	mouse.by = Math.floor((mouse.y - height / 2 + boardSize / 2) / (boardSize / 8));
+}
+
+window.onclick = function(e){
+	e.preventDefault();
+	if(!selfCheck && tempP){
+		pieces = tempP;
+		selected = -1;
+		turn = (turn + 1) % 2;
+		document.getElementById("turnt").innerHTML = turn ? "White" : "Black";
+		tempP = undefined;
+		return;
+	}
+	var p = getPiece(pieces, mouse.bx, mouse.by);
+	if(p != -1 && pieces[p].team == turn)
+		selected = p;
+}
+window.oncontextmenu = function(e){
+	e.preventDefault();
+	selected = -1;
+}
+</script>
