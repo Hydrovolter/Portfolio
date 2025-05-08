@@ -10,7 +10,7 @@ let currentSong = 0;
 let unixStartTime;
 
 
-if (window.location.hostname === 'hydrovolter.pages.dev' || window.location.hostname === 'localhost') {
+if (window.location.hostname !== 'hydrovolter.com') {
     apiStatusEndpoint = 'https://status-boh2.onrender.com'; 
     apiCloudflareEndpoint = 'https://api.hydrovolter.workers.dev';
     apiJsonSpotifyEndpoint = 'https://json-spotify-hydro.vercel.app';

@@ -15,7 +15,7 @@ function linkReplacement() {
 
     };
 
-    if (window.location.hostname === "hydrovolter.pages.dev" || window.location.hostname === "localhost") {
+    if (window.location.hostname !== 'hydrovolter.com') {
         document.querySelectorAll(".game-card").forEach(card => {
             let currentLink = card.getAttribute("onclick");
             if (currentLink) {
