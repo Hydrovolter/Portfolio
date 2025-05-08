@@ -11,6 +11,7 @@ function linkReplacement() {
         "superstarcar.hydrovolter.com": "superstarcar-hydro.vercel.app",
         "backrooms2d.hydrovolter.com": "backrooms2d-hydro.vercel.app",
         "crazycattle3d.hydrovolter.com": "crazycattle3d-hydro.vercel.app",
+        "tanukisunset.hydrovolter.com": "tanukisunset-hydro.vercel.app"
 
     };
 
