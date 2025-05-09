@@ -40,7 +40,7 @@ function linkReplacement() {
     }
 }
 
-
+/*
 document.addEventListener("DOMContentLoaded", function () {
     // AD VOTE SCRIPT
 
@@ -170,6 +170,8 @@ document.addEventListener("DOMContentLoaded", function () {
     });
     
 });
+*/
+
 
 async function updateGitHubStats() {
     const repoName = "Hydrovolter/Portfolio"
