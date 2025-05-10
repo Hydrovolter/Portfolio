@@ -546,7 +546,7 @@ function render(){
 	
 	for(var x = 0; x < 8; x++)
 		for(var y = 0; y < 8; y++){
-			ctx.fillStyle = (y + x) % 2 == 0 ? "#afff4d" : "#8ee622";
+			ctx.fillStyle = (y + x) % 2 == 0 ? "#F0D9B5" : "#B58863"; // white / dark square | ORIGINAL: ? "#afff4d" : "#8ee622";
 			ctx.fillRect(
 				x * boardSize / 8 + width / 2 - boardSize / 2 - 0.5,
 				y * boardSize / 8 + height / 2 - boardSize / 2 - 0.5,
