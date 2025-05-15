@@ -689,8 +689,8 @@ async function updateProfileStatus() {
             let hasImage4 = true;
             if (data4.language) {
                 const language = data4.language.toLowerCase();
-                const imagePath = `/assets/badges/${language}.svg`;
-                const defaultImage = "/assets/badges/file.svg";
+                const imagePath = `assets/badges/${language}.svg`;
+                const defaultImage = "assets/badges/file.svg";
 
                 const img = new Image();
                 img.src = imagePath;
