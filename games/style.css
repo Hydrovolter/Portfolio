@@ -754,4 +754,53 @@ a {
         transition: opacity 0.3s ease;
       }
       
+
+      #stats-section {
+        padding: 20px 20px; /* add 20px padding on left and right */
+        display: flex;
+        justify-content: center;
+        color: #e0e0e0;
+        box-sizing: border-box; /* ensure padding included in width */
+      }
+      
+      #stats-section .container {
+        background-color: var(--secondary);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.7);
+        padding: 20px 40px;
+        border-radius: 12px;
+        max-width: 600px;
+        width: 100%;
+        box-sizing: border-box; /* so padding is counted in width */
+      }
+      
+      
+      .stats-container {
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        flex-wrap: nowrap; /* Keep in one row */
+        max-width: 100%;
+        overflow-x: auto; /* Prevent overflow on small screens */
+      }
+      
+      .stat {
+        width: 180px;
+        text-align: center;
+      }
+      
+      .stat h3 {
+        font-size: 1.1rem;
+        margin-bottom: 6px;
+        font-weight: normal;
+        color: #b0b0b0;
+      }
+      
+      .stat .count {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #00ffcc;
+      }
+      
+    
+    
       

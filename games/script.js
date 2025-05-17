@@ -1,3 +1,10 @@
+var apiStatusEndpoint = 'https://status.hydrovolter.com';
+
+if (window.location.hostname !== 'hydrovolter.com') {
+    apiStatusEndpoint = 'https://status-boh2.onrender.com'; 
+
+  }
+
 function linkReplacement() {
     const linkReplacements = {
         "10minutestilldawn.hydrovolter.com": "10minutestilldawn-hydro.vercel.app",
@@ -233,6 +240,76 @@ async function updateGitHubStats() {
         });
 }
 
+async function updateAnalyticsStats() {
+
+    try {
+      const response = await fetch(`${apiStatusEndpoint}/api/analytics`);
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+  
+      const data = await response.json();
+  
+      const mapping = {
+        activeUsersLast30Min: 'Active Users',
+        totalUsers: 'Total Users',
+        totalPageViews: 'Total Views'
+      };
+  
+      const stats = document.querySelectorAll('#stats-section .stat');
+  
+      stats.forEach(stat => {
+        const title = stat.querySelector('h3').textContent.trim();
+        const key = Object.keys(mapping).find(k => mapping[k] === title);
+  
+        if (key && data[key] !== undefined) {
+          const countEl = stat.querySelector('.count');
+          countEl.setAttribute('data-target', data[key]);
+          countEl.textContent = data[key].toLocaleString();
+        }
+      });
+        window.addEventListener('scroll', handleScroll);
+        window.addEventListener('load', handleScroll);
+    } catch (error) {
+      console.error('Failed to fetch and update stats:', error);
+      window.addEventListener('scroll', handleScroll);
+      window.addEventListener('load', handleScroll);
+    }
+  }
+  function easeOutQuad(t) {
+    return t * (2 - t);
+}
+
+function animateCount(el) {
+    const target = +el.getAttribute('data-target');
+    const duration = 3000;
+    const startTime = performance.now();
+
+    function update(currentTime) {
+        const elapsed = currentTime - startTime;
+        const rawProgress = Math.min(elapsed / duration, 1);
+        const easedProgress = easeOutQuad(rawProgress);
+        const currentValue = Math.floor(easedProgress * target);
+        el.textContent = currentValue.toLocaleString(); // Show commas during animation
+        if (rawProgress < 1) {
+            requestAnimationFrame(update);
+        }
+    }
+
+    requestAnimationFrame(update);
+}
+
+function handleScroll() {
+    const stats = document.querySelectorAll('.count');
+    stats.forEach(stat => {
+        const rect = stat.getBoundingClientRect();
+        if (rect.top < window.innerHeight && !stat.dataset.animated) {
+            stat.dataset.animated = "true";
+            animateCount(stat);
+        }
+    });
+}
+
+
+
 async function addSwipeToDismiss() {
     const repoBox = document.getElementById('github-repo-info');
     let startY = 0;
@@ -418,6 +495,7 @@ document.addEventListener("DOMContentLoaded", function () {
     updateCarousel();
     carouselInterval = setInterval(updateCarousel, transitionTime);
     updateGitHubStats();
+    updateAnalyticsStats();
     addSwipeToDismiss();
 
 // Scroll to Bottom
