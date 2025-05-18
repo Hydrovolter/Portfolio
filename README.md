@@ -31,7 +31,7 @@ In case your school blocked the main site (hydrovolter.com), below is a list of 
 - [hydrovolter.firebaseapp.com](https://hydrovolter.firebaseapp.com/)
 - [hydrovolter.github.io/Portfolio/](https://hydrovolter.github.io/Portfolio) (this link **DOES** receive live/recent commits)
 
-- [hydrovolter.github.io](https://hydrovolter.github.io/) (this link **DOES NOT** receive live/recent commits)
+- [hydrovolters.pages.dev](https://hydrovolters.pages.dev/)
 ---
 ## Roadmap
 - add more games, replace games which buffer / are blocked
