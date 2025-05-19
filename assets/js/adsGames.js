@@ -129,3 +129,16 @@ function ad10() {
         l.parentNode.insertBefore(s, l);
         })({})
 }
+
+function ad11() {
+    (function(rgimbxc){
+    var d = document,
+        s = d.createElement('script'),
+        l = d.scripts[d.scripts.length - 1];
+    s.settings = rgimbxc || {};
+    s.src = "\/\/elementarysinger.com\/bnX\/V.skd\/G-lf0qYxWIcf\/oeWmi9wutZHUWlKkuPETtYgz_N\/jeQzz\/NvDkcRt\/NhjzMF2\/N\/DQMu0\/O\/AT";
+    s.async = true;
+    s.referrerPolicy = 'no-referrer-when-downgrade';
+    l.parentNode.insertBefore(s, l);
+    })({})
+}
