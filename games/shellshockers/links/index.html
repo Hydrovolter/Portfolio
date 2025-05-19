@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Shellshock Proxy Checker</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.webp">
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="Shellshockers Proxy Checker" name=title>
+    <meta content="Check all unblocked proxy links for Shellshockers" name=description>
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=favicon.webp name=og:image>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWJ73HJC1X');
+    </script>
+
+	<style>
+		:root {
+			--primary: rgb(35, 35, 35);
+			--secondary: rgb(25, 25, 25);
+			--primary-accent: rgb(250, 250, 250);
+			--secondary-accent: rgb(150, 150, 150);
+		}
+
+		body {
+			margin: 0;
+			font-family: "Roboto Mono", monospace;
+			background-color: var(--primary);
+			color: var(--primary-accent);
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			height: 100vh;
+			overflow: hidden;
+		}
+
+		h1 {
+			margin-bottom: 2rem;
+			font-size: 2rem;
+			text-align: center;
+			animation: fadeInDown 0.5s ease forwards;
+		}
+
+		ul#proxy-list {
+			list-style: none;
+			padding: 0;
+            padding-right: 0.5rem;
+			width: 100%;
+			max-width: 600px;
+			overflow-y: auto;
+			max-height: 70vh;
+			animation: fadeInUp 0.8s ease forwards;
+		}
+
+		ul#proxy-list li {
+			background: var(--secondary);
+			margin: 0.5rem 0;
+			padding: 1rem;
+			border-radius: 15px;
+			box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			transition: transform 0.3s ease, background 0.3s ease;
+			transform: scale(1);
+		}
+
+		ul#proxy-list li.ok {
+			border-left: 6px solid #28a745;
+			animation: popIn 0.5s ease forwards;
+		}
+
+		ul#proxy-list li.bad {
+			border-left: 6px solid #dc3545;
+			animation: popIn 0.5s ease forwards;
+		}
+
+		ul#proxy-list li span {
+			font-size: 1.5rem;
+			margin-right: 1rem;
+		}
+
+		ul#proxy-list li a {
+			color: var(--primary-accent);
+			font-weight: bold;
+			transition: color 0.3s ease;
+		}
+
+		ul#proxy-list li a:hover {
+			color: var(--secondary-accent);
+		}
+
+        ul#proxy-list li.ok:hover {
+            transform: translateX(-5px);
+        }
+        
+
+		.loader {
+			font-size: 0.85rem;
+			color: var(--secondary-accent);
+			font-style: italic;
+			animation: pulse 1s infinite;
+		}
+
+        ul#proxy-list::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ul#proxy-list::-webkit-scrollbar-track {
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+        
+        ul#proxy-list::-webkit-scrollbar-thumb {
+            background: var(--secondary-accent);
+            border-radius: 10px;
+        }
+        
+        ul#proxy-list::-webkit-scrollbar-thumb:hover {
+            background: rgb(180, 180, 180);
+        }
+        
+
+		@keyframes fadeInDown {
+			from { opacity: 0; transform: translateY(-20px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		@keyframes fadeInUp {
+			from { opacity: 0; transform: translateY(20px); }
+			to { opacity: 1; transform: translateY(0); }
+		}
+
+		@keyframes popIn {
+			0% { transform: scale(0.9); opacity: 0.7; }
+			100% { transform: scale(1); opacity: 1; }
+		}
+
+		@keyframes pulse {
+			0%, 100% { opacity: 0.6; }
+			50% { opacity: 1; }
+		}
+	</style>
+</head>
+<body>
+	<h1>Shellshock Proxy Checker</h1>
+	<ul id="proxy-list"></ul>
+
+    <div style="margin-top: 2rem; display: flex; gap: 1rem; flex-wrap: wrap;">
+        <a href="../../" style="
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary);
+            color: var(--primary-accent);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+            text-align: center;
+            font-weight: bold;
+            display: inline-block;
+        ">
+            ← Back to Games
+        </a>
+        <a href="../" style="
+            text-decoration: none;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--secondary);
+            color: var(--primary-accent);
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+            text-align: center;
+            font-weight: bold;
+            display: inline-block;
+        ">
+            🥚 Back to Shellshockers
+        </a>
+    </div>
+    
+    <style>
+        a[href="../../"]:hover,
+        a[href="./"]:hover {
+            background-color: var(--primary-accent);
+            color: var(--primary);
+            transform: scale(1.05);
+        }
+    </style>
+    
+
+	<script>
+		window.onload = () => {
+			const proxyList = document.getElementById("proxy-list");
+			const Proxies = [
+				"geometry.monster", "humanorganising.org", "algebra.vip", "mathdrills.info",
+				"geometry.report", "mathlete.fun", "mathlete.pro", "biologyclass.club",
+				"yolk.life", "yolk.rocks", "violentegg.club", "math.international",
+				"eggcombat.com", "eggsarecool.com", "violentegg.fun", "geometry.pw",
+				"mathactivity.club", "mathdrills.life", "mathactivity.xyz", "urbanegger.com",
+				"shellsocks.com", "eggboy.club", "yolk.quest", "egghead.institute",
+				"eggfacts.fun", "deadlyegg.com", "egg.dance", "eggisthenewblack.com",
+				"mathfun.rocks", "overeasy.club", "mathgames.world", "hardshell.life",
+				"softboiled.club", "algebra.best", "scrambled.us", "yolk.best",
+				"deathegg.world", "zygote.cafe", "scrambled.today", "eggboy.xyz",
+				"yolk.tech", "scrambled.world", "shellshockers.today", "algebra.monster",
+				"combateggs.com", "deathegg.life", "eggshock.me", "eggshock.net",
+				"eggshooter.best", "eggshooter.com", "eggwarfare.com", "eggwars.io",
+				"hardboiled.life", "historicreview.com", "shellgame.me", "shellplay.live",
+				"shellshock.guru", "shellshockers.best", "shellshockers.ca",
+				"shellshockers.club", "shellshockers.life", "shellshockers.site",
+				"shellshockers.us", "shellshockers.website", "shellshockers.wiki",
+				"shellshockers.world", "shellshockers.xyz", "shockers.one",
+				"yolk.monster", "yolk.today"
+			];
+
+			const setup = async () => {
+				for (const proxy of Proxies) {
+					const li = document.createElement("li"),
+						a = document.createElement("a"),
+						span = document.createElement("span"),
+						status = document.createElement("span"),
+						linkString = `https://${proxy}`;
+
+					a.target = "_blank";
+					a.href = linkString;
+					a.innerText = proxy;
+
+					status.className = "loader";
+					status.innerText = "Checking...";
+
+					li.appendChild(span);
+					li.appendChild(a);
+					li.appendChild(status);
+					proxyList.appendChild(li);
+                    li.scrollIntoView({ behavior: 'smooth', block: 'end' });
+
+					try {
+						const controller = new AbortController();
+						const timeoutId = setTimeout(() => controller.abort(), 5000);
+
+						const response = await fetch(`${linkString}/ping-test.php`, { signal: controller.signal });
+						clearTimeout(timeoutId);
+
+						const text = await response.text();
+
+						if (text === 'shell.ok') {
+							li.className = 'ok';
+							span.innerHTML = '✅';
+						} else {
+							li.className = 'bad';
+							span.innerHTML = '❌';
+						}
+					} catch (error) {
+						li.className = 'bad';
+						span.innerHTML = '❌';
+					}
+
+					status.remove();
+				}
+			};
+
+			setup();
+		};
+	</script>
+</body>
+</html>
