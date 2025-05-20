@@ -16,28 +16,19 @@
     <meta content=#232323 name=theme-color>
     <meta content=summary_large_image name=twitter:card>
     <meta content=../assets/projects/GamesIcon.png name=og:image>
+
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-PWJ73HJC1X');
-    </script>
+    <script src="js/analytics.js"></script>
+    
     <script src="script.js"></script>
     <script src="../assets/js/replaceLinks.js"></script>
-
-    <script id="mcjs">!function(c,h,i,m,p){m=c.createElement(h),p=c.getElementsByTagName(h)[0],m.async=1,m.src=i,p.parentNode.insertBefore(m,p)}(document,"script","https://chimpstatic.com/mcjs-connected/js/users/07398ee996379956a7ce191c9/42045617363df5e47f292635c.js");</script> <!-- Mailchimp hydrovolter.com -->
+    <script src="js/ads.js"></script> <!-- ADS: HilltopAds -->
+    <script src="js/mcjs.js" id="mcjs"></script> <!-- Mailchimp hydrovolter.com -->
 </head>
 <body>
     <div id="migration-banner">
         <span class="icon">📢</span>
-        <!--
-        <span class="banner-text">
-            We are moving to <a href="https://hydrovolter.com">hydrovolter.com</a> ! Please update your bookmarks.
-        </span>
-        -->
         <span class="banner-text">
             Due to the recent network blocking of <a href="https://hydrovolter.com">hydrovolter.com</a> some features may not work. Please <a href="../#contact">report any bugs to me</a>.
         </span>
@@ -81,23 +72,9 @@
           </li>
         </ul>
       </nav>
-      <script>
-        const navbar = document.querySelector('.navbar');
-        window.addEventListener('scroll', () => {
-          if (window.scrollY > 10) {
-            navbar.classList.add('scrolled');
-          } else {
-            navbar.classList.remove('scrolled');
-          }
-        });
-      </script>
+      <script src="js/navbar.js"></script>
       
-<!--
-    <a id="home-button" href="../">
-        <img id="home-button-icon" src="../assets/home.png" alt="Home Icon">
-        Home
-    </a>
--->
+
 
     <h1 id="games-title">Games</h1>
 
@@ -131,22 +108,18 @@
         </div>
     </div>
 
-    <script src="js/adsGames.js"></script> <!-- ADS: HilltopAds -->
+
 
     <div id="games-container">
-        
-
         <div class="game-card" data-categories="puzzle" onclick="location.href='./wordle/';">
             <img src="./covers/wordle.webp" alt="Wordle Image">
             <h3>Wordle</h3>
             <p>Guess the 5-letter hidden word in 6 tries - unlimited puzzles.</p>
         </div>
-
         <div class="ad-card">
             <script>ad1();</script>
             <p id="ad-footer">ADVERTISEMENT</p>
         </div>
-
         <div class="game-card" data-categories="idle" onclick="location.href='https://finalearth.hydrovolter.com/';">
             <img src="./covers/the-final-earth-2.webp" alt="The Final Earth 2 Image">
             <h3>The Final Earth 2</h3>
@@ -191,11 +164,6 @@
             <h3>Tetris</h3>
             <p>Rotate and stack falling blocks to complete lines and clear the board.</p>
         </div>
-
-<!--
-        <script async="async" data-cfasync="false" src="//pl26454557.profitableratecpm.com/0c191060067f675b35c5f24c4412085a/invoke.js"></script>
-        <div class="ad-card" id="container-0c191060067f675b35c5f24c4412085a"><p id="ad-footer">ADVERTISEMENT</p></div>
--->
         <div class="ad-card">
             <script>
             ad2();    
@@ -246,12 +214,6 @@
             <h3>Super Mario Bros</h3>
             <p>A remake of Nintendo's original Super Mario Bros. Includes original 32 levels, random map generator, and mods.</p>
         </div>
-
-<!--
-        <script async="async" data-cfasync="false" src="//pl26454557.profitableratecpm.com/0c191060067f675b35c5f24c4412085a/invoke.js"></script>
-        <div class="ad-card" id="container-0c191060067f675b35c5f24c4412085a"><p id="ad-footer">ADVERTISEMENT</p></div>
--->
-
         <div class="ad-card">
             <script>
                 ad3();
@@ -304,11 +266,6 @@
             <p>Dash through subway tracks, dodging trains and obstacles while collecting coins and power-ups.</p>
             <div class="warning-message" style="background-color: rgba(240, 155, 27, 0.8);">Game may occasionally crash: just refresh</div>
         </div>
-
-<!--
-        <script async="async" data-cfasync="false" src="//pl26454557.profitableratecpm.com/0c191060067f675b35c5f24c4412085a/invoke.js"></script>
-        <div class="ad-card" id="container-0c191060067f675b35c5f24c4412085a"><p id="ad-footer">ADVERTISEMENT</p></div>
--->
         <div class="ad-card">
             <script>
             ad4();    
@@ -359,12 +316,6 @@
             <h3>Plants vs. Zombies</h3>
             <p>Defend your home by planting unique plants to stop waves of invading zombies. <span style="color: rgb(138, 79, 221);">[MODDED]</span></p>
         </div>
-
-<!--
-        <script async="async" data-cfasync="false" src="//pl26454557.profitableratecpm.com/0c191060067f675b35c5f24c4412085a/invoke.js"></script>
-        <div class="ad-card" id="container-0c191060067f675b35c5f24c4412085a"><p id="ad-footer">ADVERTISEMENT</p></div>
--->
-
         <div class="ad-card">
             <script>
             ad5();    
@@ -414,12 +365,6 @@
             <p>Control a box and jump over obstacles to complete levels with precise timing.</p>
             <div class="warning-message">Game may take long to / not load</div>
         </div>
-
-<!--
-        <script async="async" data-cfasync="false" src="//pl26454557.profitableratecpm.com/0c191060067f675b35c5f24c4412085a/invoke.js"></script>
-        <div class="ad-card" id="container-0c191060067f675b35c5f24c4412085a"><p id="ad-footer">ADVERTISEMENT</p></div>
--->
-
         <div class="ad-card">
             <script>
             ad6();    
@@ -482,11 +427,6 @@
             <h3>Glitch Dash</h3>
             <p>Navigate through a neon, obstacle-filled world with quick reflexes and precise movements.</p>
         </div>
-
-<!--
-        <script async="async" data-cfasync="false" src="//pl26454557.profitableratecpm.com/0c191060067f675b35c5f24c4412085a/invoke.js"></script>
-        <div class="ad-card" id="container-0c191060067f675b35c5f24c4412085a"><p id="ad-footer">ADVERTISEMENT</p></div>
--->
         <div class="ad-card">
             <script>
             ad7();    
@@ -538,11 +478,6 @@
             <div class="warning-message" style="background-color: rgba(240, 155, 27, 0.8);">I cannot control what happens on multiplayer servers!</div>
         </div>
 
-<!--
-        <script async="async" data-cfasync="false" src="//pl26454557.profitableratecpm.com/0c191060067f675b35c5f24c4412085a/invoke.js"></script>
-        <div class="ad-card" id="container-0c191060067f675b35c5f24c4412085a"><p id="ad-footer">ADVERTISEMENT</p></div>
--->
-
         <div class="ad-card">
             <script>
             ad8();    
@@ -592,11 +527,6 @@
             <h3>Temple Run 2</h3>
             <p>Endlessly run from a cursed temple, dodging obstacles and collecting coins.</p>
         </div>
-
-<!--
-        <script async="async" data-cfasync="false" src="//pl26454557.profitableratecpm.com/0c191060067f675b35c5f24c4412085a/invoke.js"></script>
-        <div class="ad-card" id="container-0c191060067f675b35c5f24c4412085a"><p id="ad-footer">ADVERTISEMENT</p></div>
--->
 
         <div class="ad-card">
             <script>
@@ -648,10 +578,6 @@
             <h3>Crazy Cattle 3D</h3>
             <p>Control a wild cow, running through fields, causing chaos, and collecting coins.</p>
         </div>
-        <!--
-        <script async="async" data-cfasync="false" src="//pl26454557.profitableratecpm.com/0c191060067f675b35c5f24c4412085a/invoke.js"></script>
-        <div class="ad-card" id="container-0c191060067f675b35c5f24c4412085a"><p id="ad-footer">ADVERTISEMENT</p></div>
--->
 
         <div class="ad-card">
             <script>
@@ -715,76 +641,11 @@
             <p id="ad-footer">ADVERTISEMENT</p>
         </div>
 
-<!--
-META DATA
-
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
-    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
-    <link href=/manifest.json rel=manifest>
-    <meta content=Hydrovolter name=og:site_name>
-    <meta content="NAME" name=title>
-    <meta content="DESC" name=description>
-    <meta content=#232323 name=theme-color>
-    <meta content=summary_large_image name=twitter:card>
-    <meta content=favicon.ico name=og:image>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-PWJ73HJC1X');
-    </script>
-
--->
-        
-<!--
-    data-categories="puzzle" 
--->
-
-<!--
-WARNING TAG 
-
-<div class="warning-message">Game may take long to / not load</div>
-
-EDIT COLOUR OF WARNING TAG (inline)
-
-style="background-color: rgba(161, 70, 218, 0.8);"
--->
-
-<!--
-NEW GAME TAG
-
-        <div class="game-card new-game" onclick="location.href='/';">
-            <div class="overlay">
-                <span>NEW!</span>
-            </div>
-
-
-
-            <img src="./covers/game.webp" alt="New Game Image">
-            <h3>New Game</h3>
-            <p>New Game Description.</p>
-        </div>
---> 
-<!--
-UNDER DEVELOPMENT TAG
-
-        <div class="game-card under-development">
-            <div class="overlay">
-                <span>Under Development</span>
-            </div>
-
-
-
-
-            <img src="./covers/game.webp" alt="Game Image">
-            <h3>Game Name</h3>
-            <p>Game Description.</p>
-        </div>
--->       
+ 
         
     </div>
+
+
     <div id="scroll-to-bottom" class="new-badge">New!</div>
 
 
@@ -805,9 +666,9 @@ UNDER DEVELOPMENT TAG
             </div>
           </div>
         </div>
-      </div>
+    </div>
       
-      <div id="games-footer-container">
+    <div id="games-footer-container">
         <div class="container">
             <p>Game blocked or have a suggestion? <a id="contact-link" href="../#contact">Let me know</a>! </p>
             <p>📢 <a id="contact-link" href="../dmca/">DMCA</a></p>
@@ -818,96 +679,11 @@ UNDER DEVELOPMENT TAG
     
 
     <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
-    <script>
-    kofiWidgetOverlay.draw('hydrovolter', {
-        'type': 'floating-chat',
-        'floating-chat.donateButton.text': 'Support me',
-        'floating-chat.donateButton.background-color': '#323842',
-        'floating-chat.donateButton.text-color': '#fff'
-    });
-    </script>
+    <script src="js/kofi.js"></script>
 
-    
-
-    <script>
-        const banner = document.getElementById('migration-banner');
-        const closeButton = document.getElementById('close-banner');
-
-        banner.style.display = 'none';
-    
-        //if (window.location.hostname !== 'hydrovolter.com' && window.location.hostname !== 'localhost') {
-
-        /*
-        if (window.location.hostname == 'hydrovolter.pages.dev') {
-            banner.style.display = 'flex';
-            setTimeout(() => {
-                banner.classList.add('show'); 
-            }, 500); // 0.5s delay
-        }
-        //}
-        
-        closeButton.addEventListener('click', function() {
-            banner.style.display = 'none';
-        });
-        */
-
-        const adCards = document.querySelectorAll(".ad-card");
-        
-        document.getElementById('search-bar').addEventListener('input', function() {
-        const searchQuery = this.value.toLowerCase();
-        const gameCards = document.querySelectorAll('.game-card');
-        
-        gameCards.forEach(card => {
-            const title = card.querySelector('h3').textContent.toLowerCase();
-            if (title.includes(searchQuery)) {
-                card.style.display = 'flex';
-            } else {
-                card.style.display = 'none';
-            }
-        });
-
-        adCards.forEach(ad => {
-            ad.style.display = searchQuery === '' ? 'block' : 'none';
-        });
-    });
-    </script>
-    <script>
-        /*
-        (function() {
-        const links = [
-        "./af.html",
-        ];
-
-          const today = new Date();
-          if (today.getMonth() === 4 - 1 && today.getDate() === 1) { // .getMonth() === 4 - 1 , .getDate() === 1
-            const randomLink = links[Math.floor(Math.random() * links.length)];
-            window.location.href = randomLink;
-          }
-        })();
-        */
-      </script>
-      <script type="module">
-        // Import the functions you need from the SDKs you need
-        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
-        import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-analytics.js";
-        // TODO: Add SDKs for Firebase products that you want to use
-        // https://firebase.google.com/docs/web/setup#available-libraries
-      
-        // Your web app's Firebase configuration
-        // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-        const firebaseConfig = {
-          apiKey: "AIzaSyA5tRbrYBO7_h_I2hX1h80lFyhhUBGA8Yg",
-          authDomain: "hydrovoltexer.firebaseapp.com",
-          projectId: "hydrovoltexer",
-          storageBucket: "hydrovoltexer.firebasestorage.app",
-          messagingSenderId: "1045778941374",
-          appId: "1:1045778941374:web:52bc6870367c28ae09a5ef",
-          measurementId: "G-FSR7V1RE6S"
-        };
-      
-        // Initialize Firebase
-        const app = initializeApp(firebaseConfig);
-        const analytics = getAnalytics(app);
-      </script>
+    <script src="js/banner.js"></script>
+    <script src="js/disableAdCards.js"></script>
+    <!-- <script src="js/aprilfools.js"></script> -->
+    <script src="js/firebase.js" type="module"></script>
 </body>
 </html>
