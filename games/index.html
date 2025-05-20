@@ -52,11 +52,52 @@
         <div class="commit-time">Loading time...</div>
     </div>
 
-    
+    <nav class="navbar">
+        <ul class="nav-links">
+          <li class="nav-item">
+            <a href="../">
+              <img src="../assets/icons/home.svg" alt="Home" class="nav-icon">
+              <span>Home</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://admin.proxy.hydrovolter.com">
+              <img src="../assets/icons/proxy.png" alt="Proxy" class="nav-icon">
+               <span>Proxy</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://movies.hydrovolter.com">
+              <img src="../assets/icons/movies.png" alt="Movies" class="nav-icon">
+               <span>Movies</span>
+            </a>
+          </li>
+          <li class="nav-item">
+            <a href="https://tools.hydrovolter.com/bookmarklets">
+              <img src="../assets/icons/tools.png" alt="Bookmarklets" class="nav-icon">
+                <span>Bookmarklets</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <script>
+        const navbar = document.querySelector('.navbar');
+        window.addEventListener('scroll', () => {
+          if (window.scrollY > 10) {
+            navbar.classList.add('scrolled');
+          } else {
+            navbar.classList.remove('scrolled');
+          }
+        });
+      </script>
+      
+<!--
     <a id="home-button" href="../">
         <img id="home-button-icon" src="../assets/home.png" alt="Home Icon">
         Home
-    </a>    
+    </a>
+-->
+
     <h1 id="games-title">Games</h1>
 
     <div id="filter-bar">
