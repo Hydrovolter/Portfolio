@@ -6,35 +6,6 @@
     --highlight: rgb(80, 184, 253, 0.75);
     --secondary-highlight: rgba(80, 184, 253, 0.4);
     --filter-btn-border: white;
-    --scrollbar: rgba(100, 100, 100, 0.5);
-    --scrollbar-hover: rgba(150, 150, 150, 0.8);
-    --scrollbar-track: var(--primary);
-    --card-box-shadow: rgba(0, 0, 0, 0.3);
-    --card-box-shadow-hover: rgba(0, 0, 0, 0.5);
-    --card-box-shadow-hover-dev: rgba(0, 0, 0, 0.4);
-    --card-dev: #ff0000;
-    --card-dev-text: white;
-    --card-dev-outline: white;
-    --card-new: rgba(144, 238, 144, 0.4);
-    --card-new-text: #32CD32;
-    --card-new-text-shadow: rgba(0, 0, 0, 0.7);
-    --card-new-hover: rgba(144, 238, 144, 0);
-    --card-new-no-hover: rgba(144, 238, 144, 0.4);
-    --card-new-webkit-text-stroke: black;
-    --contact-link: white;
-    --contact-link-hover: rgb(80, 184, 253);
-    --warning-message: rgba(211, 47, 47, 0.8);
-    --warning-message-text: white;
-    --migration-banner: rgba(255, 99, 71, 0.8);
-    --migration-banner-a-hover: rgba(109, 212, 247, 0.8);
-    --random-game-text: white;
-    --carousel-slide: white;
-    --carousel-content: rgba(0, 0, 0, 0.6);
-    --carousel-popular: #ffcc00;
-    --carousel-dot: rgba(255, 255, 255, 0.5);
-    --carousel-dot-active: white;
-    --carousel-progress: rgba(255, 255, 255, 0.3);
-    --github-repo-info: #1c1e1f;
 }
 
 * {
@@ -110,17 +81,17 @@ a {
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--scrollbar);
+    background: rgba(100, 100, 100, 0.5);
     border-radius: 10px;
     transition: background 0.3s ease;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--scrollbar-hover);
+    background: rgba(150, 150, 150, 0.8);
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--scrollbar-track); 
+    background: rgba(35, 35, 35, 0.9); 
     border-radius: 10px;
 }
 
@@ -149,7 +120,7 @@ a {
     padding: 20px;
     border-radius: 15px;
     background-color: var(--secondary);
-    box-shadow: 2px 2px 8px var(--card-box-shadow);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     text-align: center;
@@ -160,7 +131,7 @@ a {
 
 .ad-card:hover {
     transform: scale(1.05);
-    box-shadow: 4px 4px 12px var(--card-box-shadow-hover);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .ad-card img {
@@ -191,7 +162,7 @@ a {
     padding: 20px;
     border-radius: 15px;
     background-color: var(--secondary);
-    box-shadow: 2px 2px 8px var(--card-box-shadow);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     cursor: pointer;
     text-align: center;
@@ -200,7 +171,7 @@ a {
 
 .game-card:hover {
     transform: scale(1.05);
-    box-shadow: 4px 4px 12px var(--card-box-shadow-hover);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 .game-card img {
@@ -233,7 +204,7 @@ a {
     padding: 10px 20px;
     border-radius: 15px;
     background-color: var(--secondary);
-    box-shadow: 2px 2px 8px var(--card-box-shadow);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     color: var(--primary-accent);
     font-size: 1.2rem;
     text-decoration: none;
@@ -243,7 +214,7 @@ a {
 
 #home-button:hover {
     transform: scale(1.05);
-    box-shadow: 4px 4px 12px var(--card-box-shadow-hover);
+    box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
 }
 
 #home-button-icon {
@@ -268,7 +239,7 @@ a {
 #games-footer-container .container {
     background-color: var(--secondary);
     color: var(--primary-accent);
-    box-shadow: 2px 2px 8px var(--card-box-shadow);
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
     padding: 20px;
     border-radius: 15px;
     text-align: center;
@@ -282,12 +253,12 @@ a {
 
 #contact-link {
     text-decoration: underline;
-    color: var(--contact-link);
+    color: white;
     transition: color 0.3s ease;
 }
 
 #contact-link:hover {
-    color: var(--contact-link-hover);
+    color: rgb(80, 184, 253);
 }
 
 .container {
@@ -301,7 +272,7 @@ a {
 
 .game-card.under-development:hover {
     transform: none; /* no hover effects */
-    box-shadow: 2px 2px 8px var(--card-box-shadow); /* shadow */
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3); /* shadow */
 }
 
 .game-card.under-development .overlay {
@@ -310,7 +281,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--card-box-shadow-hover-dev); /* dark semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.4); /* dark semi-transparent background */
     border-radius: 15px; /* matches the card's border radius */
     z-index: 2;
     pointer-events: none; /* disables interaction */
@@ -322,15 +293,15 @@ a {
 .game-card.under-development .overlay span {
     position: absolute;
     transform: rotate(-45deg); /* diagonal text */
-    background-color: var(--card-dev); /* rectangle colour */
-    color: var(--card-dev-text);
+    background-color: #ff0000; /* rectangle colour */
+    color: white;
     font-size: 1.4rem;
     font-weight: 300; /* text boldness */
     font-family: "Impact", "Arial Black", sans-serif; /* warning-style font */
     padding: 20px 40px;
-    border: 3px solid var(--card-dev-outline); /* rectangle outline */
+    border: 3px solid white; /* rectangle outline */
     text-transform: uppercase;
-    box-shadow: 4px 4px 10px var(--card-box-shadow-hover);
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.5);
     text-align: center;
     width: 80%; /* rectangle width */
     max-width: 450px; /* cap the rectangle's width */
@@ -346,15 +317,15 @@ a {
     top: -50px;
     left: 0;
     width: 100%;
-    background-color: var(--warning-message);
-    color: var(--warning-message-text);
+    background-color: rgba(211, 47, 47, 0.8);
+    color: white;
     font-size: 1rem; 
     font-weight: bold;
     text-transform: uppercase;
     padding: 12px 20px; 
     text-align: center;
     border-radius: 10px;
-    box-shadow: 0 2px 10px var(--card-box-shadow);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
     transform: translateY(-100%); 
     opacity: 0; 
     transition: transform 0.3s ease, opacity 0.3s ease; 
@@ -372,7 +343,7 @@ a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: var(--card-new); /* tint */
+    background-color: rgba(144, 238, 144, 0.4); /* tint */
     border-radius: 15px;
     display: flex;
     justify-content: center;
@@ -387,12 +358,12 @@ a {
     font-size: 2rem;
     font-weight: 300;
     font-family: "Impact", "Arial Black", sans-serif;
-    color: var(--card-new-text); /* text */
+    color: #32CD32; /* text */
     animation: bounceZoom 1s infinite;
     transition: opacity 0.5s ease, transform 0.5s ease;
-    text-shadow: 1px 1px 1px var(--card-new-text-shadow);
-    -webkit-text-stroke: 0.7px var(--card-new-webkit-text-stroke);
-    background-color: var(--card-box-shadow); /* box background */
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.7);
+    -webkit-text-stroke: 0.7px black;
+    background-color: rgba(0, 0, 0, 0.3); /* box background */
     padding: 5px 10px;
     border-radius: 8px;
 
@@ -409,7 +380,7 @@ a {
 }
 
 .game-card.new-game:hover .overlay {
-    background-color: var(--card-new-hover);
+    background-color: rgba(144, 238, 144, 0);
     opacity: 0;
 }
 
@@ -419,7 +390,7 @@ a {
 }
 
 .game-card.new-game:not(:hover) .overlay {
-    background-color: var(--card-new-no-hover);
+    background-color: rgba(144, 238, 144, 0.4);
     opacity: 1;
 }
 
@@ -457,7 +428,7 @@ a {
     max-width: 600px;
     z-index: 1000;
     transition: top 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-    background-color: var(--migration-banner);
+    background-color: rgba(255, 99, 71, 0.8);
     color: var(--primary-accent);
     padding: 15px 20px;
     box-sizing: border-box;
@@ -465,7 +436,7 @@ a {
     align-items: center;
     justify-content: space-between;
     border-radius: 16px;
-    box-shadow: 0 8px 20px var(--card-box-shadow);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
     line-height: 1.5;
     font-size: 16px;
     word-break: keep-all;
@@ -491,7 +462,7 @@ a {
 }
 
 #migration-banner a:hover {
-    color: var(--migration-banner-a-hover)
+    color: rgba(109, 212, 247, 0.8);
 }
 
 #migration-banner.show {
@@ -563,7 +534,7 @@ a {
 
 #random-game-button:hover {
     background-color: var(--secondary-highlight);
-    color: var(--random-game-text);
+    color: white;
     border-color: var(--highlight);
 }
 
@@ -606,14 +577,14 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--carousel-slide);
+    color: white;
     text-align: left;
 }
 
 .carousel-content {
     position: absolute;
     z-index: 2;
-    background: var(--carousel-content);
+    background: rgba(0, 0, 0, 0.6);
     padding: 20px;
     border-radius: 10px;
     width: 80%;
@@ -626,7 +597,7 @@ a {
     font-size: 1.2rem;
     font-weight: bold;
     text-transform: uppercase;
-    color: var(--carousel-popular);
+    color: #ffcc00;
 }
 
 #carousel-title {
@@ -663,7 +634,7 @@ a {
 .carousel-dot {
     width: 10px;
     height: 10px;
-    background-color: var(--carousel-dot);
+    background-color: rgba(255, 255, 255, 0.5);
     border-radius: 50%;
     transition: all 0.3s ease-in-out, opacity 0.5s ease-in-out;
     opacity: 0.5;
@@ -672,7 +643,7 @@ a {
 .carousel-dot.active {
     width: 14px;
     height: 14px;
-    background-color: var(--carousel-dot-active);
+    background-color: white;
     opacity: 1;
 }
 
@@ -682,14 +653,14 @@ a {
     left: 0;
     width: 100%;
     height: 5px;
-    background: var(--carousel-progress);
+    background: rgba(255, 255, 255, 0.3);
     overflow: hidden;
 }
 
 #carousel-progress-bar {
     width: 0%;
     height: 100%;
-    background: var(--carousel-slide);
+    background: white;
     transition: width linear;
 }
 
@@ -698,7 +669,7 @@ a {
     position: absolute;
     top: 20px;
     right: 20px;
-    background-color: var(--github-repo-info); /* #24292e */
+    background-color: #1c1e1f; /* #24292e */
     color: #fff;
     padding: 10px 15px;
     margin-left: 5vmin;
@@ -707,7 +678,7 @@ a {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    box-shadow: 0 2px 5px var(--card-box-shadow);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
     transition: transform 0.3s ease, opacity 0.3s ease;
     opacity: 0.97;
   }
@@ -970,7 +941,7 @@ a {
         position: absolute;
         inset: 0;
         backdrop-filter: blur(6px);
-        background: var(--card-box-shadow);
+        background: rgba(0, 0, 0, 0.3);
       }
       
       .modal-content {
@@ -1006,22 +977,5 @@ a {
       
       .modal-content button:hover {
         background-color: var(--secondary-highlight);
-      }
-      
-      .settings-select {
-        width: 100%;
-        padding: 10px;
-        border-radius: 10px;
-        border: 2px solid var(--highlight);
-        background-color: var(--secondary);
-        color: var(--primary-accent);
-        font-size: 1rem;
-        margin-bottom: 20px;
-        transition: border 0.3s ease;
-      }
-      
-      .settings-select:focus {
-        outline: none;
-        border-color: var(--secondary-highlight);
       }
       

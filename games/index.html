@@ -70,6 +70,12 @@
                 <span>Bookmarklets</span>
             </a>
           </li>
+          <li class="nav-item" id="settings-nav-item">
+            <a style="cursor: pointer;">
+              <img src="../assets/icons/settings.svg" alt="Settings" class="nav-icon">
+                <span>Settings</span>
+            </a>
+          </li>
         </ul>
       </nav>
       <script src="js/navbar.js"></script>
@@ -648,6 +654,20 @@
 
     <div id="scroll-to-bottom" class="new-badge">New!</div>
 
+    <div id="settings-modal" class="modal hidden">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+          <h2>Settings</h2>
+            <h3 style="margin-bottom: 10px;">Background</h3>
+            <select id="background-select" class="settings-select">
+                <option value="default">Default (Dark)</option>
+                <option value="kana">Katakana Matrix</option>
+            </select>
+
+          <button id="close-settings">Close</button>
+        </div>
+      </div>
+      
 
     <div id="stats-section">
         <div class="container">
@@ -681,6 +701,7 @@
     <script src='https://storage.ko-fi.com/cdn/scripts/overlay-widget.js'></script>
     <script src="js/kofi.js"></script>
 
+    <script src="js/settings.js" type="module"></script>
     <script src="js/banner.js"></script>
     <script src="js/disableAdCards.js"></script>
     <!-- <script src="js/aprilfools.js"></script> -->
