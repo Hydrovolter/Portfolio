@@ -53,6 +53,8 @@ function removeCanvas() {
 import { kanaTheme } from './themes/kana.js';
 import { binaryTheme } from './themes/binary.js';
 import { waveTheme } from './themes/wave.js';
+import { constellationTheme } from './themes/constellation.js';
+import { tritravellersTheme } from './themes/tritravellers.js';
 
 function applyTheme(themeName) {
   removeCanvas();
@@ -65,6 +67,12 @@ function applyTheme(themeName) {
         break;
     case 'wave':
         waveTheme();
+        break;
+    case 'constellation':
+        constellationTheme();
+        break;
+    case 'tritravellers':
+        tritravellersTheme();
         break;
     default:
         //removeCanvas();
