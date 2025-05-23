@@ -1,4 +1,4 @@
-export function mainKanaTheme() {
+export function kanaTheme() {
     const canvas = document.createElement("canvas");
     canvas.id = "canvas-bg";
     canvas.style.position = "fixed";

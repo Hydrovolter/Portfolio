@@ -50,14 +50,17 @@ function removeCanvas() {
 
 
 
-import { mainKanaTheme } from './themes/kana.js';
+import { kanaTheme } from './themes/kana.js';
+import { binaryTheme } from './themes/binary.js'; 
 
 function applyTheme(themeName) {
   removeCanvas();
   switch (themeName) {
-
     case 'kana':
-        mainKanaTheme();
+        kanaTheme();
+        break;
+    case 'binary':
+        binaryTheme();
         break;
     default:
         //removeCanvas();
