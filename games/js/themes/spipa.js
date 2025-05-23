@@ -1,3 +1,5 @@
+import { registerAnimationFrame, registerEventListener } from '../settings.js';
+
 export function spipaTheme() {
     const canvas = document.createElement("canvas");
     canvas.id = "canvas-bg";
@@ -254,17 +256,18 @@ export function spipaTheme() {
   
     // Initialize drawing
     initDraw();
-  
-    // Handle resize
-    window.addEventListener("resize", () => {
+    
+    function handleResize() {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
-    });
+    }
   
+    registerEventListener(window, "resize", handleResize);
     // Animation loop
     function frame() {
       evolve();
-      requestAnimationFrame(frame);
+      let animationFrame = requestAnimationFrame(frame);
+      registerAnimationFrame(animationFrame);
     }
     frame();
   }

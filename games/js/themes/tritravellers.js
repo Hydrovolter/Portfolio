@@ -1,3 +1,5 @@
+import { registerAnimationFrame, registerEventListener } from '../settings.js';
+
 export function tritravellersTheme() {
     const canvas = document.createElement("canvas");
     canvas.id = "canvas-bg";
@@ -91,12 +93,11 @@ export function tritravellersTheme() {
           t.draw();
         });
       }
-      requestAnimationFrame(animate);
+      let animationFrame = requestAnimationFrame(animate);
+      registerAnimationFrame(animationFrame);
     }
   
-    window.addEventListener("resize", () => {
-      resizeCanvas();
-    });
+    registerEventListener(window, "resize", resizeCanvas);
   
     resizeCanvas();
     init();

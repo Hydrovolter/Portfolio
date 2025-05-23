@@ -1,17 +1,20 @@
-export function kanaTheme() {
-    const canvas = document.createElement("canvas");
-    canvas.id = "canvas-bg";
-    canvas.style.position = "fixed";
-    canvas.style.inset = "0";
-    canvas.style.zIndex = "-1"; 
-    canvas.style.display = "block";
-    canvas.style.background = "#11111b";
-    document.body.appendChild(canvas);
+import { registerAnimationFrame, registerEventListener } from '../settings.js';
 
-const ctx = canvas.getContext("2d", { alpha: false });
+export function kanaTheme() {
+  const canvas = document.createElement("canvas");
+  canvas.id = "canvas-bg";
+  canvas.style.position = "fixed";
+  canvas.style.inset = "0";
+  canvas.style.zIndex = "-1";
+  canvas.style.display = "block";
+  canvas.style.background = "#11111b";
+  document.body.appendChild(canvas);
+
+  const ctx = canvas.getContext("2d", { alpha: false });
   let chars = [];
   let cursor = { x: 0, y: 0 };
   let animationFrame;
+  let resizeTimeout;
 
   class Char {
     constructor(x, y, char) {
@@ -88,6 +91,7 @@ const ctx = canvas.getContext("2d", { alpha: false });
     });
 
     animationFrame = requestAnimationFrame(animate);
+    registerAnimationFrame(animationFrame);
   }
 
   function handleMouseMove(e) {
@@ -103,13 +107,9 @@ const ctx = canvas.getContext("2d", { alpha: false });
     }, 250);
   }
 
+  registerEventListener(window, "mousemove", handleMouseMove);
+  registerEventListener(window, "resize", handleResize);
 
-    let resizeTimeout;
-    window.addEventListener("mousemove", handleMouseMove);
-    window.addEventListener("resize", handleResize);
-  
-  
-    
-    init();
-    animate();
-  }
+  init();
+  animate();
+}

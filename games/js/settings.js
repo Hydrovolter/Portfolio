@@ -47,6 +47,40 @@ function removeCanvas() {
 }
 
 
+export let animationFrameIds = [];
+export let intervalIds = [];
+export let eventListeners = [];
+function cleanUpCanvasEnvironment() {
+  // Cancel all animation frames
+  animationFrameIds.forEach(id => cancelAnimationFrame(id));
+  animationFrameIds = [];
+
+  // Clear all intervals
+  intervalIds.forEach(id => clearInterval(id));
+  intervalIds = [];
+
+  // Remove event listeners
+  eventListeners.forEach(({ element, type, handler }) => {
+    element.removeEventListener(type, handler);
+  });
+  eventListeners = [];
+
+  // Remove canvas
+  removeCanvas();
+}
+
+export function registerAnimationFrame(id) {
+  animationFrameIds.push(id);
+}
+
+export function registerInterval(id) {
+  intervalIds.push(id);
+}
+
+export function registerEventListener(element, type, handler) {
+  eventListeners.push({ element, type, handler });
+  element.addEventListener(type, handler);
+}
 
 
 
@@ -61,7 +95,8 @@ import { cometmouseTheme } from './themes/cometmouse.js';
 import { shootingstarTheme } from './themes/shootingstar.js';
 
 function applyTheme(themeName) {
-  removeCanvas();
+  //removeCanvas();
+  cleanUpCanvasEnvironment();
   switch (themeName) {
     case 'kana':
         kanaTheme();

@@ -1,3 +1,5 @@
+import { registerAnimationFrame, registerEventListener } from '../settings.js';
+
 export function waveTheme() {
   const canvas = document.createElement("canvas");
   canvas.id = "canvas-bg";
@@ -51,9 +53,10 @@ export function waveTheme() {
     time += speed;
     draw();
     raf = requestAnimationFrame(animate);
+    registerAnimationFrame(raf);
   }
 
-  window.addEventListener("resize", resizeCanvas);
+  registerEventListener(window, "resize", resizeCanvas);
   resizeCanvas();
   animate();
 }
