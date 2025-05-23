@@ -105,6 +105,7 @@ export function kanaTheme() {
       canvas.height = window.innerHeight;
       init();
     }, 250);
+    registerInterval(resizeTimeout);
   }
 
   registerEventListener(window, "mousemove", handleMouseMove);
