@@ -55,6 +55,7 @@ import { binaryTheme } from './themes/binary.js';
 import { waveTheme } from './themes/wave.js';
 import { constellationTheme } from './themes/constellation.js';
 import { tritravellersTheme } from './themes/tritravellers.js';
+import { spipaTheme } from './themes/spipa.js';
 
 function applyTheme(themeName) {
   removeCanvas();
@@ -73,6 +74,9 @@ function applyTheme(themeName) {
         break;
     case 'tritravellers':
         tritravellersTheme();
+        break;
+    case 'spipa':
+        spipaTheme();
         break;
     default:
         //removeCanvas();
