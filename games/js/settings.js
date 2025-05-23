@@ -58,6 +58,7 @@ import { tritravellersTheme } from './themes/tritravellers.js';
 import { spipaTheme } from './themes/spipa.js';
 import { colourdropsTheme } from './themes/colourdrops.js';
 import { cometmouseTheme } from './themes/cometmouse.js';
+import { shootingstarTheme } from './themes/shootingstar.js';
 
 function applyTheme(themeName) {
   removeCanvas();
@@ -85,6 +86,9 @@ function applyTheme(themeName) {
         break;
     case 'cometmouse':
         cometmouseTheme();
+        break;
+    case 'shootingstar':
+        shootingstarTheme();
         break;
     default:
         //removeCanvas();
