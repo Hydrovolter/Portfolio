@@ -51,7 +51,8 @@ function removeCanvas() {
 
 
 import { kanaTheme } from './themes/kana.js';
-import { binaryTheme } from './themes/binary.js'; 
+import { binaryTheme } from './themes/binary.js';
+import { waveTheme } from './themes/wave.js';
 
 function applyTheme(themeName) {
   removeCanvas();
@@ -61,6 +62,9 @@ function applyTheme(themeName) {
         break;
     case 'binary':
         binaryTheme();
+        break;
+    case 'wave':
+        waveTheme();
         break;
     default:
         //removeCanvas();
