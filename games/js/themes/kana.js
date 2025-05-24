@@ -1,4 +1,4 @@
-import { registerAnimationFrame, registerEventListener } from '../settings.js';
+import { registerAnimationFrame, registerEventListener, registerInterval } from '../settings.js';
 
 export function kanaTheme() {
   const canvas = document.createElement("canvas");
