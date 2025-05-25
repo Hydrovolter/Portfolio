@@ -17,6 +17,71 @@ function toggleSettings() {
     }
   });
 }
+
+// TOGGLE DESCRIPTIONS
+
+function toggleDescriptions() {
+  const toggle = document.getElementById('toggle-descriptions');
+  if (!toggle) return;
+
+  // Apply stored preference on load
+  const saved = localStorage.getItem('hideGameDescriptions');
+  if (saved !== null) {
+    applyDescriptionPreference(saved === 'true');
+  }
+
+  // Listen for toggle changes
+  toggle.addEventListener('change', function () {
+    const shouldHide = this.checked;
+    localStorage.setItem('hideGameDescriptions', shouldHide);
+    applyDescriptionPreference(shouldHide);
+  });
+}
+
+function applyDescriptionPreference(shouldHide) {
+  document.querySelectorAll('.game-card p').forEach(p => {
+    p.style.display = shouldHide ? 'none' : '';
+  });
+
+  const toggle = document.getElementById('toggle-descriptions');
+  if (toggle) {
+    toggle.checked = shouldHide;
+  }
+}
+
+
+function toggleTitles() {
+  const toggle = document.getElementById('toggle-titles');
+  if (!toggle) return;
+
+  // Apply stored preference on load
+  const saved = localStorage.getItem('hideGameTitles');
+  if (saved !== null) {
+    applyTitlePreference(saved === 'true');
+  }
+
+  // Listen for toggle changes
+  toggle.addEventListener('change', function () {
+    const shouldHide = this.checked;
+    localStorage.setItem('hideGameTitles', shouldHide);
+    applyTitlePreference(shouldHide);
+  });
+}
+
+function applyTitlePreference(shouldHide) {
+  document.querySelectorAll('.game-card h3').forEach(h3 => {
+    h3.style.display = shouldHide ? 'none' : '';
+  });
+  
+
+  const toggle = document.getElementById('toggle-titles');
+  if (toggle) {
+    toggle.checked = shouldHide;
+  }
+}
+
+// THEMES
+
 function setThemePreference(themeName) {
   localStorage.setItem('siteTheme', themeName);
   applyTheme(themeName);
@@ -132,5 +197,8 @@ function applyTheme(themeName) {
 }
 
 document.addEventListener('DOMContentLoaded', toggleSettings);
+
 document.addEventListener('DOMContentLoaded', selectThemeListener);
+document.addEventListener('DOMContentLoaded', toggleDescriptions);
+document.addEventListener('DOMContentLoaded', toggleTitles);
 
