@@ -5,7 +5,8 @@ const linkReplacements = {
     "ddpe.hydrovolter.com": "ddpe.vercel.app",
     "blog.hydrovolter.com": "blog-hydro.pages.dev",
 };
-  function linkReplacement() {
+
+function linkReplacement() {
     if (window.location.hostname !== 'hydrovolter.com') {
 
         document.querySelectorAll("a").forEach(anchor => {
