@@ -1,0 +1,36 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: Sandboxels
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - name: Hydrovolter
+    email: contact@hydrovolter.com
+    date-start: '2017-05-02'
+    website: 'https://hydrovolter.com/'
+identifiers:
+  - type: doi
+    value: 10.17605/OSF.IO/H7TDY
+  - type: swh
+    value: 'swh:1:rev:5a5813a8f4f418540f1bdb765d293735541bf7fd'
+  - type: url
+    value: 'https://hydrovolter.com/'
+  - type: doi
+    value: 10.5281/zenodo.10044909
+  - type: other
+    value: /g/11spmybz10
+    description: KGMID
+repository-code: 'https://github.com/Hydrovolter/Portfolio'
+url: 'https://hydrovolter.com/'
+abstract: >-
+  Sandboxels is a free falling-sand simulator that can be
+  played in your browser. It features heat simulation,
+  electricity, density, chemical reactions, cooking, and
+  fire spread.
+keywords:
+  - Hydrovolter
+  - Sandboxels
