@@ -10,14 +10,17 @@ const progressBar = document.getElementById("progress");
 const currentTimeSpan = document.getElementById("currentTime");
 const remainingTimeSpan = document.getElementById("remainingTime");
 const lyricsToggle = document.getElementById("lyricsToggle");
+const lyricsIcon = lyricsToggle.querySelector("i");
 const playerInfo = document.getElementById("playerInfo");
 const lyricsInfo = document.getElementById("lyricsInfo");
 const lyricsSongTitle = document.getElementById("lyricsSongTitle");
 const lyricsArtistName = document.getElementById("lyricsArtistName");
 const lyricsContent = document.getElementById("lyricsContent");
+const loopBtn = document.getElementById("loopBtn");
 
 let showingLyrics = false;
 let isMuted = false;
+let isLooping = false;
 
 let player;
 let isPlaying = false;
@@ -26,7 +29,7 @@ let searchTimeout;
 let currentTrack = {
   title: "Not Playing",
   artist: "Not Playing",
-  artwork: "/img/empty_art.png",
+  artwork: "img/empty_art.png",
 };
 
 const colorThief = new ColorThief();

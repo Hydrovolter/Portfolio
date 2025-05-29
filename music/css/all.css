@@ -170,20 +170,8 @@
     text-overflow: ellipsis;
     max-width: 300px;
   }
-  .controls {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    margin-bottom: 18px;
-  }
-  .controls i {
-    font-size: 32px;
-    cursor: pointer;
-    transition: 0.12s ease;
-  }
-  .controls i:active {
-    transform: scale(0.94);
-  }
+ 
+
   .seekbar {
     height: 6px;
     background: rgba(255, 255, 255, 0.25);
@@ -233,33 +221,7 @@
     border-radius: 3px;
   }
   
-  .lyrics-toggle {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    backdrop-filter: blur(5px);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.2s ease;
-    z-index: 100;
-  }
-  
-  .lyrics-toggle:hover {
-    background: rgba(255, 255, 255, 0.25);
-  }
-  
-  .lyrics-toggle i {
-    font-size: 18px;
-    color: white;
-  }
+
   
   /* Lyrics view */
   .lyrics-info {
@@ -321,8 +283,122 @@
     text-overflow: ellipsis;
     max-width: 300px;
   }
+
+
+  .controls {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 18px;
+  }
+  .controls i {
+    font-size: 32px;
+    cursor: pointer;
+    transition: 0.12s ease;
+  }
+  .controls i:active {
+    transform: scale(0.94);
+  }
+
+
   
   #volumeBtn {
     font-size: 20px;
   }
+
+  .lyrics-toggle {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    backdrop-filter: blur(5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: all 0.2s ease;
+    z-index: 100;
+  }
   
+  .lyrics-toggle:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+  
+  .lyrics-toggle i {
+    background-color: white;
+    width: 22px;
+    height: 22px;
+  }
+
+.icon {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  background-color: white;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: contain;
+  transition: transform 0.1s ease, background-color 0.1s ease;
+}
+
+.icon:active {
+  transform: scale(0.94);
+}
+
+.icon-play {
+  mask-image: url('../img/icons/play.svg');
+  -webkit-mask-image: url('../img/icons/play.svg');
+}
+
+
+.icon-pause {
+  mask-image: url('../img/icons/pause.svg');
+  -webkit-mask-image: url('../img/icons/pause.svg');
+}
+
+
+.icon-volume {
+  mask-image: url('../img/icons/volume-loud.svg');
+  -webkit-mask-image: url('../img/icons/volume-loud.svg');
+}
+
+
+.icon-muted {
+  mask-image: url('../img/icons/mute.svg');
+  -webkit-mask-image: url('../img/icons/mute.svg');
+}
+
+
+
+.icon-lyrics {
+  mask-image: url('img/icons/lyrics.svg');
+  -webkit-mask-image: url('../img/icons/lyrics.svg');
+}
+
+.icon-lyrics-on {
+  mask-image: url('../img/icons/music.svg');
+  -webkit-mask-image: url('../img/icons/music.svg');
+}
+
+
+.icon-loop {
+  mask-image: url('../img/icons/repeat.svg');
+  -webkit-mask-image: url('../img/icons/repeat.svg');
+}
+
+
+.icon-loop.loop-active {
+  mask-image: url('../img/icons/repeat-1.svg'); /* with the "1" on it */
+  -webkit-mask-image: url('../img/icons/repeat-1.svg');
+  background-color: #00ff88;
+  transform: scale(1.1);
+}
+
