@@ -20,7 +20,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/color-thief/2.4.0/color-thief.min.js"></script>
     <link rel="stylesheet" href="css/all.css" />
 
-    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="img/favicon.png" type="image/x-icon">
   </head>
   <body>
     <div class="app-container"> 
@@ -57,7 +57,9 @@
                             <i id="nextBtn" class="icon icon-next"></i>
                             <i id="volumeBtn" class="icon icon-volume"></i>
                             <i id="loopBtn" class="icon icon-loop"></i>
+                            <i id="shuffleBtn" class="icon icon-shuffle"></i> 
                             <i id="likeBtn" class="icon icon-heart-empty"></i>
+                            <i id="addToPlaylistBtn" class="icon icon-plus-circle"></i>
                         </div>
                         <div id="seekbar" class="seekbar"><div id="progress"></div></div>
                         <div class="timecodes">
@@ -82,13 +84,18 @@
         </div>
 
         <div class="playlist-sidebar" id="playlistSidebar">
-            <div class="playlist-header">
-                <h3>Liked Songs</h3>
-            </div>
-            <div class="playlist-content" id="likedPlaylistContent">
-                <p class="empty-playlist-message">Like some songs to see them here!</p>
-            </div>
-        </div>
+          <div class="playlist-sidebar-header">
+              <button id="backToPlaylistsBtn" class="sidebar-back-button icon-button" title="Back to playlists" style="display: none;">
+                <i class="icon icon-arrow-left"></i>
+              </button>
+              <h3 id="sidebarTitle">Your Playlists</h3>
+              <button id="createNewPlaylistBtn" class="create-playlist-btn">+</button>
+          </div>
+          <div class="playlist-content" id="playlistDisplayArea">
+          </div>
+      </div>
+
+
     </div>
 
 
@@ -101,9 +108,65 @@
       <div id="ytPlayer"></div>
     </div>
 
-    <script src="js/endpoints.js"></script>
+    <div id="addToPlaylistModal" class="modal" style="display:none;">
+      <div class="modal-content">
+          <span class="close-modal-btn" id="closeAddToPlaylistModal">×</span>
+          <h4>Add to Playlist</h4>
+          <div id="modalPlaylistList">
+              <!-- Playlists will be dynamically inserted here -->
+          </div>
+      </div>
+    </div>
 
+    <div id="generalModal" class="modal" style="display:none;">
+      <div class="modal-content">
+          <span class="close-modal-btn" id="closeGeneralModal">×</span>
+          <h4 id="generalModalTitle">Notification</h4>
+          <p id="generalModalMessage" style="text-align: center; margin-bottom: 20px;"></p>
+          <div id="generalModalActions" style="text-align: center;">
+              <!-- Buttons will be dynamically inserted here -->
+          </div>
+      </div>
+  </div>
+
+  <div id="createPlaylistModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close-modal-btn" id="closeCreatePlaylistModal">×</span>
+        <h4 id="createPlaylistModalTitle">Create New Playlist</h4>
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="newPlaylistNameInput" style="display: block; margin-bottom: 8px; font-weight: 500;">Playlist Name:</label>
+            <input type="text" id="newPlaylistNameInput" class="modal-input" placeholder="My Awesome Playlist">
+        </div>
+        <div id="createPlaylistModalActions" style="text-align: right;">
+            <button id="cancelCreatePlaylistBtn" class="modal-button secondary" style="margin-right: 10px;">Cancel</button>
+            <button id="confirmCreatePlaylistBtn" class="modal-button success">Create</button>
+        </div>
+    </div>
+  </div>
+
+  <div id="renamePlaylistModal" class="modal" style="display:none;">
+    <div class="modal-content">
+        <span class="close-modal-btn" id="closeRenamePlaylistModal">×</span>
+        <h4 id="renamePlaylistModalTitle">Rename Playlist</h4>
+        <div class="form-group" style="margin-bottom: 20px;">
+            <label for="renamePlaylistNameInput" style="display: block; margin-bottom: 8px; font-weight: 500;">New Playlist Name:</label>
+            <input type="text" id="renamePlaylistNameInput" class="modal-input" placeholder="Enter new name">
+        </div>
+        <div id="renamePlaylistModalActions" style="text-align: right;">
+            <button id="cancelRenamePlaylistBtn" class="modal-button secondary" style="margin-right: 10px;">Cancel</button>
+            <button id="confirmRenamePlaylistBtn" class="modal-button success">Save</button>
+        </div>
+    </div>
+  </div>
+
+  <div id="toastContainer" class="toast-container">
+    <!-- Toasts will be dynamically added here -->
+  </div>
+
+    <script src="js/endpoints.js"></script>
     <script src="js/init.js"></script>
+    <script src="js/modals.js"></script>
+    <script src="js/toast.js"></script>
     <script src="js/bg.js"></script>
     <script src="js/playlist.js"></script>
     <script src="js/player.js"></script>
@@ -123,11 +186,17 @@
       });
 
       document.addEventListener('DOMContentLoaded', () => {
-        if (typeof initializePlaylistSystem === 'function') {
+        if (typeof initializeModals === 'function') { // Initialize the new modal system
+            initializeModals();
+        } else {
+            console.error("initializeModals function not found.");
+        }
+        if (typeof initializePlaylistSystem === 'function') { // Initialize the playlist system
             initializePlaylistSystem();
         } else {
             console.error("initializePlaylistSystem function not found.");
         }
+
       });
     </script>
   </body>
