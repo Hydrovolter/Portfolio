@@ -581,6 +581,12 @@ mask-image: url('../img/icons/heart-filled.svg');
 background-color: #ff6b6b; /* Liked color */
 
 }
+
+.icon-action-btn .icon-heart-filled {
+  background-color: #ff6b6b; /* Use !important as a last resort, but often needed if other .icon styles are too general */
+                                      /* Or try without !important first if the specificity is enough */
+}
+
 .icon-prev {
 mask-image: url('../img/icons/prev.svg');
 -webkit-mask-image: url('../img/icons/prev.svg');
@@ -717,50 +723,82 @@ mask-image: url('../img/icons/next.svg');
 /* Individual Playlist Item (in the list of playlists) */
 .playlist-overview-item {
   display: flex;
-  align-items: center;
+  align-items: center; /* Vertically align all children */
   padding: 12px 8px;
   margin-bottom: 8px;
   border-radius: 6px;
   cursor: pointer;
   transition: background-color 0.2s ease;
-  position: relative; /* For delete/rename buttons */
+  position: relative; /* For absolutely positioned elements if any, or just good practice */
 }
 .playlist-overview-item:hover {
   background-color: rgba(255, 255, 255, 0.08);
 }
+
 .playlist-overview-item-artwork {
   width: 50px;
   height: 50px;
   border-radius: 4px;
   margin-right: 15px;
   object-fit: cover;
-  flex-shrink: 0;
+  flex-shrink: 0; /* Prevent artwork from shrinking */
 }
+
 .playlist-overview-item-info {
-  flex-grow: 1;
-  overflow: hidden;
+  flex-grow: 1;     /* Allow info to take available space */
+  overflow: hidden;   /* Crucial: This will contain the ellipsis */
+  min-width: 0;       /* ADD THIS: Important for flex items that need to shrink and allow ellipsis */
+  margin-right: 8px; /* ADD THIS: Add some space between info and action buttons */
 }
 .playlist-overview-item-name {
   font-size: 16px;
   font-weight: 500;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: nowrap;         /* Keep on one line */
+  overflow: hidden;            /* Hide overflow */
+  text-overflow: ellipsis;     /* Show ellipsis */
   margin-bottom: 3px;
+  /* max-width: is not strictly needed here if parent (.playlist-overview-item-info) handles overflow */
 }
+
+.playlist-overview-item-name.playing-playlist-title,
+#sidebarTitle.playing-playlist-title { /* Target the h3 directly by its ID */
+  color: #00ff88; /* Same green as playing song titles in playlist items */
+  /* Optionally, add a bit more visual weight if desired */
+  /* font-weight: 600; */ /* Or whatever your playing song title weight is */
+}
+
 .playlist-overview-item-count {
   font-size: 13px;
   color: rgba(255, 255, 255, 0.7);
+  white-space: nowrap; /* Prevent count from wrapping if playlist name is very short */
 }
-.playlist-item-actions button { /* For delete/rename buttons on playlist overview */
-    background: none;
-    border: none;
-    color: rgba(255,255,255,0.6);
-    cursor: pointer;
-    padding: 3px;
-    font-size: 14px;
-    margin-left: 5px;
+
+.playlist-item-actions {
+  display: flex;        /* Ensure buttons are in a row */
+  align-items: center;  /* Vertically align buttons if they have different heights */
+  flex-shrink: 0;       /* Prevent the actions container from shrinking */
+  margin-left: auto;    /* This pushes it to the right if not already there due to structure */
+                          /* If it's already visually to the right, this might not be needed,
+                             but it's a common pattern. We can remove it if .playlist-overview-item-info
+                             with flex-grow:1 and min-width:0 handles the spacing correctly. */
 }
+
+/* Individual buttons inside actions */
+.playlist-item-actions button {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.6);
+  cursor: pointer;
+  padding: 3px; /* Keep padding small */
+  font-size: 14px; /* Or adjust to match icon size */
+  /* margin-left: 5px; Remove individual margin if using gap on parent */
+}
+
+.playlist-item-actions button:not(:last-child) {
+  margin-right: 4px; /* Space between buttons, or use gap on .playlist-item-actions if supported */
+}
+
+
 .playlist-item-actions button:hover {
     color: white;
 }
@@ -1085,6 +1123,95 @@ background: rgba(255,255,255,0.2);
   display: flex;
   justify-content: flex-end; /* Align buttons to the right */
   gap: 10px;
+}
+
+/* Adjust modal content for new layout if needed */
+#createPlaylistModal .modal-content,
+#editPlaylistModal .modal-content {
+    max-width: 420px; /* Slightly wider if needed */
+}
+
+/* Styles for Modal Artwork Editor */
+.modal-artwork-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.playlist-artwork-editor {
+  width: 120px; /* Adjust size as needed */
+  height: 120px;
+  border-radius: 8px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+  background-color: rgba(0,0,0,0.2); /* Placeholder bg */
+  margin-bottom: 10px;
+  border: 1px dashed rgba(255,255,255,0.2); /* Visual cue for drop */
+}
+
+.modal-artwork-preview {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: filter 0.2s ease-in-out;
+}
+
+.playlist-artwork-editor .edit-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  color: white;
+  text-align: center;
+  pointer-events: none; /* Let clicks pass through to editor div */
+}
+
+.playlist-artwork-editor:hover .edit-overlay {
+  opacity: 1;
+}
+.playlist-artwork-editor:hover .modal-artwork-preview {
+  filter: brightness(0.7);
+}
+
+.playlist-artwork-editor .edit-overlay .icon {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 5px;
+}
+.playlist-artwork-editor .edit-overlay span {
+  font-size: 12px;
+  padding: 0 5px;
+}
+
+.playlist-artwork-editor.drag-over {
+  border-color: #00ff88; /* Highlight when dragging over */
+  background-color: rgba(0,255,136,0.1);
+}
+
+.clear-artwork-btn {
+  font-size: 13px;
+  padding: 6px 12px !important; /* Ensure smaller padding */
+  min-width: auto; /* Override general modal button min-width */
+}
+
+.modal-button.tertiary { /* For "Clear Artwork" button */
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #ccc;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+.modal-button.tertiary:hover {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: white;
 }
 
 .form-group label { /* Style for labels above inputs */

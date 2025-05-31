@@ -59,31 +59,31 @@ function saveLikedPlaylist() {
 function addSongToLikedPlaylist(songData) {
     if (!songData || !songData.id) {
         console.error("Cannot add to liked: missing song data or ID.", songData);
-        // Optionally show an error toast here too if desired using showGeneralModal or showToast for errors
         return;
     }
     if (!likedPlaylist.find(s => s.id === songData.id)) {
         likedPlaylist.push(songData);
         saveLikedPlaylist();
 
-        // Show success toast
-        if (typeof showToast === 'function') { // Ensure showToast is available
+        if (typeof showToast === 'function') {
             const message = `"${escapeHtml(songData.title)}" added to Liked Songs!`;
             showToast(message, 3000);
         }
 
+        // --- BEGIN MODIFICATION ---
         if (currentSidebarView === 'single_playlist_view' && selectedPlaylistToViewId === LIKED_SONGS_PLAYLIST_ID) {
             renderSinglePlaylistView(LIKED_SONGS_PLAYLIST_ID);
+        } else if (currentSidebarView === 'all_playlists') { // If viewing the overview
+            renderAllPlaylistsView(); // Refresh the overview
         }
-        updateLikeButtonState(true); // Update the like button for the current track if it's the one being liked
+        // --- END MODIFICATION ---
+
+        updateLikeButtonState(true);
     } else {
-        // Song is already liked - show an informational toast or general modal
         if (typeof showToast === 'function') {
             const message = `"${escapeHtml(songData.title)}" is already in Liked Songs.`;
             showToast(message, 3000);
         }
-        // Or use showGeneralModal for a more prominent message:
-        // showGeneralModal("Already Liked", `"${escapeHtml(songData.title)}" is already in your Liked Songs.`);
     }
 }
 
@@ -95,28 +95,33 @@ function removeSongFromLikedPlaylist(songId) {
 
     if (likedPlaylist.length < initialLength) {
         saveLikedPlaylist();
+
+        // --- BEGIN MODIFICATION ---
         if (currentSidebarView === 'single_playlist_view' && selectedPlaylistToViewId === LIKED_SONGS_PLAYLIST_ID) {
             renderSinglePlaylistView(LIKED_SONGS_PLAYLIST_ID);
+        } else if (currentSidebarView === 'all_playlists') { // If viewing the overview
+            renderAllPlaylistsView(); // Refresh the overview
         }
+        // --- END MODIFICATION ---
+
+        if (songBeingRemoved && typeof showToast === 'function') {
+            showToast(`"${escapeHtml(songBeingRemoved.title)}" removed from Liked Songs.`, 3000);
+        }
+
+
         if (currentPlayingPlaylistId === LIKED_SONGS_PLAYLIST_ID && currentTrack && currentTrack.id === songId) {
-            // If the removed song was the one playing from liked playlist
-            // The player.js onPlayerStateChange will handle song end. If more songs, it might play next.
-            // We might need to adjust currentPlaylistTrackIndex if the removed song was *before* the current one.
-            // For simplicity, let's assume if current playing is removed, player stops or plays next if available.
-            // A more robust way would be to re-calculate currentPlaylistTrackIndex
             const oldPlayingSongId = currentTrack.id;
             const newIndex = likedPlaylist.findIndex(s => s.id === oldPlayingSongId);
             if (newIndex === -1 && likedPlaylist.length > 0 && currentPlaylistTrackIndex >= likedPlaylist.length) {
-                // If the song was last and removed, try to point to new last or 0
                 currentPlaylistTrackIndex = Math.max(0, likedPlaylist.length - 1);
             } else if (newIndex !== -1) {
-                 currentPlaylistTrackIndex = newIndex; // If it was another song.
+                 currentPlaylistTrackIndex = newIndex;
             } else if (likedPlaylist.length === 0) {
-                clearPlaylistContext();
+                clearPlaylistContext(); // This also handles player controls visibility
             }
         }
         if (currentTrack && currentTrack.id === songId) {
-            updateLikeButtonState(false);
+            updateLikeButtonState(false); // Update player's heart icon
         }
     }
 }
@@ -158,20 +163,28 @@ function updateLikeButtonState(isLikedOverride) {
 
 // --- DATA MANAGEMENT (USER PLAYLISTS) ---
 function loadUserPlaylists() {
-    const stored = localStorage.getItem(USER_PLAYLISTS_STORAGE_KEY); // From init.js
+    const stored = localStorage.getItem(USER_PLAYLISTS_STORAGE_KEY);
     userPlaylists = stored ? JSON.parse(stored) : [];
+    // Ensure existing playlists have the customArtwork property
+    userPlaylists.forEach(p => {
+        if (p.customArtwork === undefined) {
+            p.customArtwork = null;
+        }
+    });
 }
+
 
 function saveUserPlaylists() {
     localStorage.setItem(USER_PLAYLISTS_STORAGE_KEY, JSON.stringify(userPlaylists));
 }
 
-function createPlaylist(name) {
+// Modified createPlaylist
+function createPlaylist(name, customArtworkDataUrl = null) { // Added customArtworkDataUrl
     const newPlaylist = {
         id: `playlist_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`,
         name: name || "New Playlist",
         songs: [],
-        // artwork: 'img/empty_art.png' // Placeholder for future custom artwork
+        customArtwork: customArtworkDataUrl // Store it
     };
     userPlaylists.push(newPlaylist);
     saveUserPlaylists();
@@ -180,29 +193,38 @@ function createPlaylist(name) {
 
 function getPlaylistById(playlistId) {
     if (playlistId === LIKED_SONGS_PLAYLIST_ID) {
-        return { id: LIKED_SONGS_PLAYLIST_ID, name: "Liked Songs", songs: [...likedPlaylist] }; // Return a copy for safety
+        // Liked Songs playlist doesn't have custom artwork editable by user
+        return { id: LIKED_SONGS_PLAYLIST_ID, name: "Liked Songs", songs: [...likedPlaylist], customArtwork: null };
     }
     return userPlaylists.find(p => p.id === playlistId);
 }
 
-function renamePlaylist(playlistId, newName) {
+// Renamed from renamePlaylist and updated
+function updatePlaylistDetails(playlistId, newName, newCustomArtworkDataUrl) {
     const playlist = userPlaylists.find(p => p.id === playlistId);
-    if (playlist && newName.trim() !== "") {
-        playlist.name = newName.trim();
-        saveUserPlaylists();
-       // Always re-render the current sidebar view to reflect the name change
-        if (currentSidebarView === 'all_playlists') {
-            renderAllPlaylistsView();
-        } else if (currentSidebarView === 'single_playlist_view') {
-            if (selectedPlaylistToViewId === playlistId) {
-                // If viewing the renamed playlist, update its title and re-render its content
-                if (sidebarTitleElement) sidebarTitleElement.textContent = escapeHtml(playlist.name);
-                renderSinglePlaylistView(playlistId); // Re-render to show updated name potentially in header or list item
+    if (playlist) {
+        let changed = false;
+        if (newName && newName.trim() !== "" && playlist.name !== newName.trim()) {
+            playlist.name = newName.trim();
+            changed = true;
+        }
+        // Check if newCustomArtworkDataUrl is explicitly passed (it could be null to clear it)
+        if (newCustomArtworkDataUrl !== undefined && playlist.customArtwork !== newCustomArtworkDataUrl) {
+            playlist.customArtwork = newCustomArtworkDataUrl;
+            changed = true;
+        }
+
+        if (changed) {
+            saveUserPlaylists();
+            // Re-render views
+            if (currentSidebarView === 'all_playlists') {
+                renderAllPlaylistsView();
+            } else if (currentSidebarView === 'single_playlist_view' && selectedPlaylistToViewId === playlistId) {
+                if (sidebarTitleElement) sidebarTitleElement.textContent = escapeHtml(playlist.name); // Update title if viewing
+                renderSinglePlaylistView(playlistId);
             }
-            // If viewing a different playlist, but the renamed one is in the overview,
-            // renderAllPlaylistsView would be needed if the change should reflect there immediately
-            // without navigating back. For simplicity now, it will update when navigating back.
-            // A more robust solution would be a pub/sub or state management.
+            // If the currently playing playlist was edited, its display in the sidebar might need an update too
+            // This is generally covered by the above re-renders.
         }
     }
 }
@@ -212,7 +234,6 @@ function deletePlaylist(playlistId) {
     if (!playlist) return;
     const playlistName = playlist.name || "this playlist";
 
-    // Uses global showGeneralModal and escapeModalHtml (if needed within message)
     showGeneralModal(
         "Confirm Deletion",
         `Are you sure you want to delete the playlist "<strong>${escapeModalHtml(playlistName)}</strong>"?<br>This action cannot be undone.`,
@@ -227,6 +248,7 @@ function deletePlaylist(playlistId) {
                     else if (currentSidebarView === 'all_playlists') renderAllPlaylistsView();
                     if (currentPlayingPlaylistId === playlistId) clearPlaylistContext();
                     console.log(`Playlist "${escapeModalHtml(playlistName)}" deleted.`);
+                    showToast(`Playlist "${escapeModalHtml(playlistName)}" deleted.`, 3000);
                 }
             },
             { text: 'Cancel', class: 'secondary', callback: () => console.log('Deletion cancelled.') }
@@ -241,31 +263,29 @@ function addSongToUserPlaylist(playlistId, songData) {
             playlist.songs.push(songData);
             saveUserPlaylists();
 
-            // Show success toast
-            if (typeof showToast === 'function') { // Ensure showToast is available
+            if (typeof showToast === 'function') {
                 const message = `"${escapeHtml(songData.title)}" added to ${escapeHtml(playlist.name)}!`;
                 showToast(message, 3000);
             }
 
+            // --- BEGIN MODIFICATION ---
             if (currentSidebarView === 'single_playlist_view' && selectedPlaylistToViewId === playlistId) {
                 renderSinglePlaylistView(playlistId);
+            } else if (currentSidebarView === 'all_playlists') { // If viewing the overview
+                renderAllPlaylistsView(); // Refresh the overview
             }
+            // --- END MODIFICATION ---
+
             console.log(`Song "${songData.title}" added to playlist "${playlist.name}"`);
         } else {
-            // Song already exists in this specific user playlist
             if (typeof showToast === 'function') {
                 const message = `"${escapeHtml(songData.title)}" is already in ${escapeHtml(playlist.name)}.`;
                 showToast(message, 3000);
             }
-            // Original showGeneralModal for this case:
-            // showGeneralModal("Song Exists", `"${escapeHtml(songData.title)}" is already in the playlist "${escapeHtml(playlist.name)}".`);
-            // You can choose whether a toast or a modal is better for this "already exists" message.
-            // Toasts are less intrusive.
         }
     } else {
         if (!playlist) console.error("Playlist not found for ID:", playlistId);
         if (!songData || !songData.id) console.error("Invalid song data for addSongToUserPlaylist:", songData);
-        // Optionally show an error toast/modal if playlist or songData is invalid
         if (typeof showToast === 'function') {
              showToast("Error: Could not add song to playlist.", 3000);
         }
@@ -276,16 +296,48 @@ function removeSongFromUserPlaylist(playlistId, songId) {
     const playlist = userPlaylists.find(p => p.id === playlistId);
     if (playlist) {
         const initialLength = playlist.songs.length;
+        const songBeingRemoved = playlist.songs.find(s => s.id === songId);
         playlist.songs = playlist.songs.filter(s => s.id !== songId);
+
         if (playlist.songs.length < initialLength) {
             saveUserPlaylists();
+
+            // --- BEGIN MODIFICATION ---
             if (currentSidebarView === 'single_playlist_view' && selectedPlaylistToViewId === playlistId) {
                 renderSinglePlaylistView(playlistId);
+            } else if (currentSidebarView === 'all_playlists') { // If viewing the overview
+                renderAllPlaylistsView(); // Refresh the overview
             }
-            // If the removed song was playing from this user playlist
+            // --- END MODIFICATION ---
+            
+            if (songBeingRemoved && typeof showToast === 'function') {
+                showToast(`"${escapeHtml(songBeingRemoved.title)}" removed from ${escapeHtml(playlist.name)}.`, 3000);
+            }
+
             if (currentPlayingPlaylistId === playlistId && currentTrack && currentTrack.id === songId) {
-                // More complex logic similar to removeSongFromLikedPlaylist might be needed here
-                // For now, player.js will handle the ENDED state.
+                // If the removed song was playing from this user playlist
+                // Player.js ENDED state or next/prev logic will handle advancing if possible.
+                // We might need to adjust currentPlaylistTrackIndex if the removed song was *before* current.
+                // For simplicity, if current playing is removed, player handles next or stops.
+                // If the playlist becomes empty, clear context.
+                if (playlist.songs.length === 0) {
+                    clearPlaylistContext();
+                } else {
+                    // Check if currentTrackIndex is now out of bounds
+                    if (currentPlaylistTrackIndex >= playlist.songs.length) {
+                        currentPlaylistTrackIndex = playlist.songs.length - 1; // Point to new last song
+                    }
+                    // If the song removed was *before* the current one, the index of the current playing song
+                    // in the modified array would have shifted.
+                    const stillPlayingSong = playlist.songs.find(s => s.id === currentTrack.id);
+                    if (stillPlayingSong) {
+                        currentPlaylistTrackIndex = playlist.songs.findIndex(s => s.id === currentTrack.id);
+                    } else {
+                        // Current track was the one removed, and playlist not empty,
+                        // player will likely stop or try to play next based on its ENDED logic.
+                        // No direct action needed here other than the render.
+                    }
+                }
             }
         }
     }
@@ -334,13 +386,26 @@ function switchSidebarView(view, playlistId = null) {
 
 function renderAllPlaylistsView() {
     if (!playlistDisplayAreaElement || !sidebarTitleElement || !backToPlaylistsBtnElement || !createNewPlaylistBtnElement) return;
+
+    // --- BEGIN MODIFICATION: Store scroll and clear title class ---
+    let currentScrollTop = 0;
+    if (playlistDisplayAreaElement) {
+        currentScrollTop = playlistDisplayAreaElement.scrollTop;
+    }
+
+    if (sidebarTitleElement) { // Ensure element exists
+        sidebarTitleElement.textContent = "Your Playlists";
+        sidebarTitleElement.classList.remove('playing-playlist-title'); // Remove the class here
+    }
+    // --- END MODIFICATION ---
+
     playlistDisplayAreaElement.innerHTML = '';
-    sidebarTitleElement.textContent = "Your Playlists";
+    // sidebarTitleElement.textContent = "Your Playlists"; // Moved up
     backToPlaylistsBtnElement.style.display = 'none';
     createNewPlaylistBtnElement.style.display = 'inline-block';
 
     const ul = document.createElement('ul');
-    // ul.className = 'playlist-list-overview'; // Ensure this class is defined in CSS
+    // ul.className = 'playlist-list-overview';
 
     const likedSongsData = { id: LIKED_SONGS_PLAYLIST_ID, name: "Liked Songs", songs: likedPlaylist };
     ul.appendChild(createPlaylistOverviewItem(likedSongsData));
@@ -350,7 +415,12 @@ function renderAllPlaylistsView() {
     });
 
     playlistDisplayAreaElement.appendChild(ul);
-    playlistDisplayAreaElement.scrollTop = 0;
+
+    // --- BEGIN MODIFICATION: Restore scroll position ---
+    if (playlistDisplayAreaElement) {
+        playlistDisplayAreaElement.scrollTop = currentScrollTop;
+    }
+    // --- END MODIFICATION ---
 }
 
 function createPlaylistOverviewItem(playlistData) {
@@ -363,27 +433,34 @@ function createPlaylistOverviewItem(playlistData) {
 
     if (playlistData.id === LIKED_SONGS_PLAYLIST_ID) {
         artworkSrc = 'img/liked_songs.png';
-        // "Liked Songs" is not draggable
     } else {
-        // This is a user-created playlist
-        li.setAttribute('draggable', true); // <<< MAKE USER PLAYLISTS DRAGGABLE
-        artworkSrc = playlistData.artwork ||
-                     (playlistData.songs.length > 0 && playlistData.songs[0].artwork ? playlistData.songs[0].artwork : 'img/empty_art.png');
-        
-        // Add drag event listeners for user playlists
+        li.setAttribute('draggable', true);
+        if (playlistData.customArtwork) {
+            artworkSrc = playlistData.customArtwork;
+        } else if (playlistData.songs.length > 0 && playlistData.songs[0].artwork) {
+            artworkSrc = playlistData.songs[0].artwork;
+        } else {
+            artworkSrc = 'img/empty_art.png';
+        }
         li.addEventListener('dragstart', (event) => handlePlaylistDragStart(event, playlistData.id));
         li.addEventListener('dragover', handlePlaylistDragOver);
-        li.addEventListener('drop', (event) => handlePlaylistDrop(event, playlistData.id)); // Pass targetPlaylistId
+        li.addEventListener('drop', (event) => handlePlaylistDrop(event, playlistData.id));
         li.addEventListener('dragend', handlePlaylistDragEnd);
     }
 
-    let nameDisplay = `<div class="playlist-overview-item-name">${escapeHtml(playlistData.name)}</div>`;
-    let actionsHtml = '';
+    // --- BEGIN MODIFICATION: Add class if this is the playing playlist ---
+    let nameDisplayClasses = "playlist-overview-item-name";
+    if (currentPlayingPlaylistId === playlistData.id) {
+        nameDisplayClasses += " playing-playlist-title";
+    }
+    let nameDisplay = `<div class="${nameDisplayClasses}">${escapeHtml(playlistData.name)}</div>`;
+    // --- END MODIFICATION ---
 
+    let actionsHtml = '';
     if (playlistData.id !== LIKED_SONGS_PLAYLIST_ID) {
         actionsHtml = `
             <div class="playlist-item-actions">
-                <button class="rename-playlist-btn" title="Rename"><i class="icon icon-edit"></i></button>
+                <button class="edit-playlist-btn" title="Edit Playlist"><i class="icon icon-edit"></i></button>
                 <button class="delete-playlist-btn" title="Delete"><i class="icon icon-trash"></i></button>
             </div>`;
     }
@@ -397,17 +474,14 @@ function createPlaylistOverviewItem(playlistData) {
         ${actionsHtml}
     `;
 
-    // Keep existing click handlers for viewing playlist and actions, ensuring they don't interfere with drag
+    // ... (rest of the event listeners in this function remain the same)
     const infoSection = li.querySelector('.playlist-overview-item-info');
     const artworkSection = li.querySelector('.playlist-overview-item-artwork');
     const viewPlaylistHandler = () => switchSidebarView('single_playlist_view', playlistData.id);
 
-    // Modify click handlers to prevent triggering view change during a drag operation
     const combinedClickHandler = (e) => {
-        // Check if the click originated from an action button or if a drag might be starting/active
-        if (e.target.closest('.playlist-item-actions') || 
-            e.target.closest('.playlist-name-input') ||
-            (draggedPlaylistElement && draggedPlaylistElement.classList.contains('dragging'))) { // Check if currently dragging
+        if (e.target.closest('.playlist-item-actions') ||
+            (draggedPlaylistElement && draggedPlaylistElement.classList.contains('dragging'))) {
             return;
         }
         viewPlaylistHandler();
@@ -418,9 +492,9 @@ function createPlaylistOverviewItem(playlistData) {
 
 
     if (playlistData.id !== LIKED_SONGS_PLAYLIST_ID) {
-        const renameBtn = li.querySelector('.rename-playlist-btn');
+        const editBtn = li.querySelector('.edit-playlist-btn');
         const deleteBtn = li.querySelector('.delete-playlist-btn');
-        if(renameBtn) renameBtn.addEventListener('click', (e) => { e.stopPropagation(); handleRenamePlaylist(playlistData.id); });
+        if(editBtn) editBtn.addEventListener('click', (e) => { e.stopPropagation(); handleEditPlaylist(playlistData.id); });
         if(deleteBtn) deleteBtn.addEventListener('click', (e) => { e.stopPropagation(); deletePlaylist(playlistData.id); });
     }
     return li;
@@ -475,34 +549,57 @@ function renderSinglePlaylistView(playlistId) {
         return;
     }
 
+    let currentScrollTop = 0;
+    if (playlistDisplayAreaElement) {
+        currentScrollTop = playlistDisplayAreaElement.scrollTop;
+    }
+
     playlistDisplayAreaElement.innerHTML = '';
     sidebarTitleElement.textContent = escapeHtml(playlist.name);
+
+    // --- BEGIN MODIFICATION: Add class to sidebar title if it's the playing playlist ---
+    sidebarTitleElement.classList.remove('playing-playlist-title'); // Remove first to handle deselection
+    if (currentPlayingPlaylistId === playlistId) {
+        sidebarTitleElement.classList.add('playing-playlist-title');
+    }
+    // --- END MODIFICATION ---
+
     backToPlaylistsBtnElement.style.display = 'inline-block';
     createNewPlaylistBtnElement.style.display = 'none';
 
+    // ... (rest of renderSinglePlaylistView, including song list rendering, remains the same)
     if (playlist.songs.length === 0) {
         playlistDisplayAreaElement.innerHTML = `<p class="empty-playlist-message">This playlist is empty.</p>`;
+        if (playlistDisplayAreaElement) {
+            playlistDisplayAreaElement.scrollTop = currentScrollTop;
+        }
         return;
     }
 
     const ul = document.createElement('ul');
-    // ul.className = 'playlist-list'; // Ensure this class is in CSS
 
     playlist.songs.forEach((song, index) => {
         const li = document.createElement('li');
-        li.className = 'playlist-item'; // Re-use for songs in a playlist
+        li.className = 'playlist-item';
         li.setAttribute('data-song-id', song.id.toString());
-        li.setAttribute('draggable', true);
+        li.setAttribute('draggable', true); 
 
         if (currentPlayingPlaylistId === playlistId && currentPlaylistTrackIndex === index && currentTrack && currentTrack.id === song.id) {
             li.classList.add('playing');
         }
-
-        let removeButtonHtml = '';
-        if (playlistId !== LIKED_SONGS_PLAYLIST_ID) {
-            removeButtonHtml = `<button class="remove-song-from-playlist-btn icon-action-btn" title="Remove from playlist"><i class="icon icon-trash"></i></button>`;
+        
+        let actionButtonHtml = '';
+        if (playlistId === LIKED_SONGS_PLAYLIST_ID) {
+            actionButtonHtml = `
+                <button class="unlike-song-from-liked-playlist-btn icon-action-btn" title="Remove from Liked Songs">
+                    <i class="icon icon-heart-filled"></i> 
+                </button>`;
+        } else {
+            actionButtonHtml = `
+                <button class="remove-song-from-playlist-btn icon-action-btn" title="Remove from playlist">
+                    <i class="icon icon-trash"></i>
+                </button>`;
         }
-
 
         li.innerHTML = `
             <img src="${song.artwork || 'img/empty_art.png'}" alt="${escapeHtml(song.title)}" class="playlist-item-artwork">
@@ -510,30 +607,36 @@ function renderSinglePlaylistView(playlistId) {
                 <div class="playlist-item-title">${escapeHtml(song.title)}</div>
                 <div class="playlist-item-artist">${escapeHtml(song.artist)}</div>
             </div>
-            ${removeButtonHtml}
+            ${actionButtonHtml} 
         `;
 
         li.addEventListener('click', (e) => {
-            if (e.target.classList.contains('remove-song-from-playlist-btn')) {
-                if (playlistId === LIKED_SONGS_PLAYLIST_ID) { // Should not happen due to button conditional
-                    // removeSongFromLikedPlaylist(song.id); // This path should ideally not be taken
-                } else {
-                    removeSongFromUserPlaylist(playlistId, song.id);
-                }
-            } else {
+            const unlikeButton = e.target.closest('.unlike-song-from-liked-playlist-btn');
+            const removeButton = e.target.closest('.remove-song-from-playlist-btn');
+
+            if (unlikeButton) { 
+                e.stopPropagation();
+                removeSongFromLikedPlaylist(song.id); 
+            } else if (removeButton) { 
+                e.stopPropagation();
+                removeSongFromUserPlaylist(playlistId, song.id);
+            } else { 
                 playSongFromCurrentPlaylist(playlistId, index);
             }
         });
 
         li.addEventListener('dragstart', (event) => handleSongDragStart(event, index, playlistId));
         li.addEventListener('dragover', handleSongDragOver);
-        li.addEventListener('drop', (event) => handleSongDrop(event, index, playlistId)); // index here is the one dropped ON
+        li.addEventListener('drop', (event) => handleSongDrop(event, index, playlistId));
         li.addEventListener('dragend', handleSongDragEnd);
 
         ul.appendChild(li);
     });
     playlistDisplayAreaElement.appendChild(ul);
-    playlistDisplayAreaElement.scrollTop = 0;
+
+    if (playlistDisplayAreaElement) {
+        playlistDisplayAreaElement.scrollTop = currentScrollTop;
+    }
 }
 
 // --- PLAYBACK LOGIC ADAPTATIONS ---
@@ -573,6 +676,7 @@ function playSongFromCurrentPlaylist(playlistId, songIndexInOriginalPlaylist) {
     // If shuffle is NOT active OR shuffle was just initialized for THIS song:
     // The currentTrack, currentPlayingPlaylistId, currentPlaylistTrackIndex will be set below.
 
+    const previousPlayingPlaylistId = currentPlayingPlaylistId;
     currentPlayingPlaylistId = playlistId;
     currentPlaylistTrackIndex = songIndexInOriginalPlaylist; // Always store original index
 
@@ -721,20 +825,27 @@ function clearPlaylistContext() {
     currentPlayingPlaylistId = null;
     currentPlaylistTrackIndex = -1;
 
-    isShuffleActive = false; // <<< ADD THIS
-    shuffleUpcomingQueue = []; // <<< ADD THIS
-    shufflePlayedQueue = [];   // <<< ADD THIS
-    if(typeof updateShuffleButtonIcon === 'function') updateShuffleButtonIcon(); // <<< ADD THIS
+    isShuffleActive = false;
+    shuffleUpcomingQueue = [];
+    shufflePlayedQueue = [];
+    if(typeof updateShuffleButtonIcon === 'function') updateShuffleButtonIcon();
 
-    if (currentSidebarView === 'single_playlist_view' && selectedPlaylistToViewId) {
-         const playlistBeingViewed = getPlaylistById(selectedPlaylistToViewId);
-         if(playlistBeingViewed) renderSinglePlaylistView(selectedPlaylistToViewId);
+    // --- MODIFICATION: Explicitly call renderSidebar if the view might need an update ---
+    // This ensures that if the overview or a single playlist view was showing the "playing" state,
+    // it gets cleared.
+    if (wasPlayingPlaylist) { // Only re-render if something *was* playing from a playlist
+        renderSidebar(); // This will call either renderAllPlaylistsView or renderSinglePlaylistView
+    } else {
+        // If nothing was playing from a playlist, but controls still need update (e.g. shuffle toggled off)
+        updatePlaylistControlsVisibility();
     }
+    // --- END MODIFICATION ---
 
-    updatePlaylistControlsVisibility();
+
+    // updatePlaylistControlsVisibility(); // Original call - renderSidebar above covers its visual aspect for titles
 
     if (wasPlayingPlaylist && typeof loopState !== 'undefined' && loopState === 'playlist') {
-        loopState = 'none'; // If playlist context cleared, playlist loop should also conceptually reset
+        loopState = 'none';
         if (typeof updateLoopButtonIcon === 'function') updateLoopButtonIcon();
     }
 }
@@ -822,26 +933,23 @@ function handleCreateNewPlaylist() {
     }
 }
 
-function handleRenamePlaylist(playlistIdToEdit /*, listItemElement - no longer needed */) {
-    const playlist = getPlaylistById(playlistIdToEdit); // getPlaylistById is in this file
-    if (!playlist || playlist.id === LIKED_SONGS_PLAYLIST_ID) { // Can't rename Liked Songs
-        console.warn("Attempted to rename Liked Songs or non-existent playlist.");
+// Renamed from handleRenamePlaylist
+function handleEditPlaylist(playlistIdToEdit) {
+    const playlist = getPlaylistById(playlistIdToEdit);
+    if (!playlist || playlist.id === LIKED_SONGS_PLAYLIST_ID) {
+        console.warn("Attempted to edit Liked Songs or non-existent playlist.");
         return;
     }
 
-    // NEW: Call the function to open the dedicated modal
-    // openRenamePlaylistModal is from modals.js
-    if (typeof openRenamePlaylistModal === 'function') {
-        openRenamePlaylistModal(playlist.id, playlist.name);
+    if (typeof openEditPlaylistModal === 'function') { // openEditPlaylistModal is from modals.js
+        openEditPlaylistModal(playlist.id, playlist.name); // Pass ID and current name
     } else {
-        console.error("openRenamePlaylistModal function not found!");
-        // Fallback to prompt if modal function isn't available (optional)
+        console.error("openEditPlaylistModal function not found!");
+        // Fallback could be more complex here, maybe just rename via prompt
         const newNameFallback = prompt(`Enter new name for "${escapeHtml(playlist.name)}":`, playlist.name);
         if (newNameFallback && newNameFallback.trim() !== "" && newNameFallback.trim() !== playlist.name) {
-            renamePlaylist(playlist.id, newNameFallback.trim());
-            // renamePlaylist itself will call renderAllPlaylistsView or update title
+            updatePlaylistDetails(playlist.id, newNameFallback.trim(), playlist.customArtwork); // Pass existing artwork
         } else if (newNameFallback && newNameFallback.trim() === "") {
-            // Using global showGeneralModal for error
             if(typeof showGeneralModal === 'function') showGeneralModal("Invalid Name", "Playlist name cannot be empty.");
             else alert("Playlist name cannot be empty.");
         }
