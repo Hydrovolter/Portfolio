@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Groq AI Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ask Groq AI</h1>
+        <textarea id="promptInput" placeholder="Enter your prompt here..."></textarea>
+        <button id="submitBtn">Send to AI</button>
+        <div class="response-area">
+            <h2>AI Response:</h2>
+            <div id="loadingIndicator" style="display: none;">Loading...</div>
+            <pre id="aiResponse"></pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

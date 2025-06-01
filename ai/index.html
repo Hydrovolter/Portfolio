@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hydro AI Chat</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Ask Hydro AI</h1>
+
+        <label for="modelSelector" style="display:block; margin-bottom: 8px; font-size: 14px; color: #ccc;">Choose a Model:</label>
+        <select id="modelSelector">
+            <option value="llama3-8b-8192">Llama 3 (8B, 8K context) - Fast</option>
+            <option value="llama3-70b-8192">Llama 3 (70B, 8K context) - High Quality</option>
+            <option value="gemma2-9b-it">Gemma 2 (9B, 8K context) - Google</option>
+            <option value="llama-3.1-8b-instant">Llama 3.1 (8B, 128K context) - Very Fast, Large Context</option>
+            <option value="llama-3.1-70b-versatile">Llama 3.1 (70B, 128K context) - Quality, Large Context</option>
+        </select>
+
+        <label for="promptInput" style="display:block; margin-bottom: 8px; font-size: 14px; color: #ccc;">Enter your prompt:</label>
+        <textarea id="promptInput" placeholder="Enter your prompt here..."></textarea>
+        
+        <button id="submitBtn">Send to AI</button>
+        
+        <div class="response-area">
+            <h2>AI Response:</h2>
+            <div id="loadingIndicator" style="display: none;">Loading...</div>
+            <pre id="aiResponse"></pre>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
