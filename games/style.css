@@ -838,7 +838,7 @@ a {
         top: 20px;
         z-index: 1000;
         margin: 20px auto;
-        max-width: 800px;
+        max-width: 920px;
         background-color: var(--secondary);
         border-radius: 15px;
         box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.4);
@@ -904,7 +904,7 @@ a {
       
       
     
-      @media (max-width: 830px) {
+      @media (max-width: 940px) {
         .navbar {
             max-width: 95%;
         }
@@ -925,9 +925,9 @@ a {
         }
       }
 
-      @media (max-width: 690px) {
+      @media (max-width: 800px) {
         .navbar {
-            max-width: 340px;
+            max-width: 400px;
         }
 
         .nav-links {
