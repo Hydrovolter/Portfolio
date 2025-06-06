@@ -28,8 +28,15 @@
     <link rel="manifest" href="../manifest.json">
     <meta name="theme-color" content="#232323"> <link rel="stylesheet" href="style.css">
     
+    <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
-    <script src="js/analytics.js"></script> 
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWJ73HJC1X');
+    </script>
     
     <script src="script.js"></script> 
     <script src="js/ads.js"></script> <script src="js/mcjs.js" id="mcjs"></script> </head>
