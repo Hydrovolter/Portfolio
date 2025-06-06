@@ -1,117 +1,109 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="utf-8">
-  <title>2048</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link href="style/main.css" rel="stylesheet" type="text/css">
-  <link rel="shortcut icon" href="favicon.ico">
-  <link rel="apple-touch-icon" href="meta/apple-touch-icon.png">
-  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x1096.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone 5+ -->
-  <link rel="apple-touch-startup-image" href="meta/apple-touch-startup-image-640x920.png"  media="(device-width: 320px) and (device-height: 480px) and (-webkit-device-pixel-ratio: 2)"> <!-- iPhone, retina -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <!-- =================================================================== -->
+    <!-- TODO: UPDATE THIS METADATA FOR EACH GAME                            -->
+    <!-- =================================================================== -->
+    <title>2048</title>
+    <meta name="description" content="Play 2048 unblocked, online, and for free on Hydrovolter. Enjoy the best gaming experience with no interruptions.">
+    <!-- =================================================================== -->
 
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0, maximum-scale=1, user-scalable=no, minimal-ui">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
 
-  <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
-  <link href=/manifest.json rel=manifest>
-  <meta content=Hydrovolter name=og:site_name>
-  <meta content="2048" name=title>
-  <meta content="Combine matching numbers on a grid to reach the 2048 tile." name=description>
-  <meta content=#00F6F4 name=theme-color>
-  <meta content=summary_large_image name=twitter:card>
-  <meta content=./favicon.ico name=og:image>
-  <!-- Google tag (gtag.js) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
-  <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+    <!-- Your Global Game Page Stylesheet -->
+    <link rel="stylesheet" href="../css/games.css">
+    
+    <!--
+    ===================================================================
+    TODO: PASTE YOUR GOOGLE ADSENSE SCRIPT HERE
+    This script is usually provided by AdSense and should be placed
+    in the <head> of your page.
+    ===================================================================
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-your-id"
+     crossorigin="anonymous"></script>
+    -->
 
-      gtag('config', 'G-PWJ73HJC1X');
-  </script>
 </head>
 <body>
-  <div class="container">
-    <div class="heading">
-      <h1 class="title">2048</h1>
-      <div class="scores-container">
-        <div class="score-container">0</div>
-        <div class="best-container">0</div>
-      </div>
+
+    <div class="game-page-wrapper">
+
+        <header class="game-header">
+            <!-- ======================================================= -->
+            <!-- TODO: UPDATE THE GAME TITLE AND DESCRIPTION             -->
+            <!-- ======================================================= -->
+            <h1>2048</h1>
+            <p>Combine matching numbers on a grid to reach the 2048 tile.</p>
+            <!-- ======================================================= -->
+        </header>
+
+        <main class="game-layout">
+
+            <aside class="ad-container ad-left">
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
+                    crossorigin="anonymous"></script>
+                <!-- Display Ad Games iFrame -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4732321347294671"
+                    data-ad-slot="5656112740"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+
+            <div class="game-main-content">
+                <div class="game-iframe-container">
+                    <iframe 
+                        id="game-iframe"
+                        class="game-iframe"
+                        src="g/index.html" 
+                        title="[GAME TITLE] Game"
+                        allowfullscreen>
+                    </iframe>
+                </div>
+
+                <div class="game-controls">
+                    <span class="game-info">
+                        <a href="../">← Back to Home</a>
+                    </span>
+                    <button id="fullscreen-btn">
+                        <span>Fullscreen</span>
+                        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <aside class="ad-container ad-right">
+                <!-- 160x600 = fixed -->
+                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
+                    crossorigin="anonymous"></script>
+                <!-- Display Ad Games iFrame -->
+                <ins class="adsbygoogle"
+                    style="display:block"
+                    data-ad-client="ca-pub-4732321347294671"
+                    data-ad-slot="5656112740"
+                    data-ad-format="auto"
+                    data-full-width-responsive="true"></ins>
+                <script>
+                    (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+
+        </main>
+
     </div>
 
-    <div class="above-game">
-      <p class="game-intro">Join the numbers and get to the <strong>2048 tile!</strong></p>
-      <a class="restart-button">New Game</a>
-    </div>
+    <!-- Your Global Game Page JavaScript (No changes needed) -->
+    <script src="../js/games.js" defer></script>
 
-    <div class="game-container">
-      <div class="game-message">
-        <p></p>
-        <div class="lower">
-	        <a class="keep-playing-button">Keep going</a>
-          <a class="retry-button">Try again</a>
-        </div>
-      </div>
-
-      <div class="grid-container">
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-        <div class="grid-row">
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-          <div class="grid-cell"></div>
-        </div>
-      </div>
-
-      <div class="tile-container">
-
-      </div>
-    </div>
-
-    <p class="game-explanation">
-      <strong class="important">How to play:</strong> Use your <strong>arrow keys</strong> to move the tiles. When two tiles with the same number touch, they <strong>merge into one!</strong>
-    </p>
-    <hr>
-    <p>
-    <strong class="important">Other Unblocked Games:</strong> If you would like more unblocked games <a href="/games/">visit my games hub.</a>
-    </p>
-    <hr>
-    <p>
-    Hosted by <a href="/" target="_blank">Hydrovolter.</a> A replica of the game 2048.</a>
-    </p>
-  </div>
-
-  <script src="js/bind_polyfill.js"></script>
-  <script src="js/classlist_polyfill.js"></script>
-  <script src="js/animframe_polyfill.js"></script>
-  <script src="js/keyboard_input_manager.js"></script>
-  <script src="js/html_actuator.js"></script>
-  <script src="js/grid.js"></script>
-  <script src="js/tile.js"></script>
-  <script src="js/local_storage_manager.js"></script>
-  <script src="js/game_manager.js"></script>
-  <script src="js/application.js"></script>
 </body>
 </html>

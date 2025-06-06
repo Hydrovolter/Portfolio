@@ -1,0 +1,237 @@
+/* ../css/games.css */
+
+/* --- Inherited Theme Variables from Main Site --- */
+:root {
+    --primary: rgb(35, 35, 35);
+    --secondary: rgb(25, 25, 25);
+    --primary-accent: rgb(250, 250, 250);
+    --secondary-accent: rgb(150, 150, 150);
+    --highlight: rgb(80, 184, 253, 0.75);
+    --secondary-highlight: rgba(80, 184, 253, 0.4);
+    --card-box-shadow: rgba(0, 0, 0, 0.3);
+}
+
+/* --- Basic Setup --- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Roboto Mono", monospace;
+}
+
+html, body {
+    height: 100%;
+    overflow: hidden;
+}
+
+body {
+    background-color: var(--primary);
+    color: var(--primary-accent);
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+.game-page-wrapper {
+    width: 100%;
+    max-width: 1800px;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* --- Game Header (Title & Description) --- */
+.game-header {
+    text-align: center;
+    margin-bottom: 20px;
+    flex-shrink: 0;
+}
+
+.game-header h1 {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+    color: var(--primary-accent);
+}
+
+.game-header p {
+    font-size: 1rem;
+    color: var(--secondary-accent);
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Core Layout: Game + Ads --- */
+.game-layout {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 25px;
+    width: 100%;
+    flex-grow: 1;
+    overflow: hidden;
+}
+
+/* --- MODIFIED: Ad Container Styling --- */
+.ad-container {
+    position: relative; /* Establishes a positioning context for the placeholder */
+    width: 160px;
+    height: 600px;
+    background-color: var(--secondary);
+    border-radius: 12px;
+    flex-shrink: 0;
+    box-shadow: 0 4px 12px var(--card-box-shadow);
+    /* Flex properties removed to prevent content conflict */
+}
+
+/* MODIFIED: Placeholder is now an absolutely positioned background element */
+.ad-container::before {
+    content: "Ad Placeholder";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.9rem;
+    color: var(--secondary-accent);
+    z-index: 1; /* Sits on a lower layer */
+}
+
+/* --- NEW: Style for the AdSense unit itself --- */
+/* This ensures the ad fills the container and sits on top of the placeholder */
+.ad-container ins.adsbygoogle {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    z-index: 2; /* Sits on a higher layer than the placeholder */
+    border-radius: 12px; /* Ensure ad iframe respects the rounded corners */
+    overflow: hidden; /* Clip any ad content that might bleed out */
+}
+
+
+/* --- Central Game Container --- */
+.game-main-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    max-width: 1366px;
+    min-width: 0;
+}
+
+.game-iframe-container {
+    flex-grow: 1;
+    min-height: 0;
+    width: 100%;
+    margin: 0 auto;
+    aspect-ratio: 16 / 9;
+}
+
+.game-iframe {
+    width: 100%;
+    height: 100%;
+    border: 2px solid var(--secondary);
+    border-radius: 12px;
+    background-color: #000;
+    box-shadow: 0 4px 12px var(--card-box-shadow);
+}
+
+/* --- Game Controls (Fullscreen button) --- */
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    flex-shrink: 0;
+}
+
+.game-info a {
+    color: var(--secondary-accent);
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.game-info a:hover {
+    color: var(--highlight);
+}
+
+#fullscreen-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background-color: var(--secondary);
+    color: var(--primary-accent);
+    border: 2px solid var(--secondary-accent);
+    padding: 8px 15px;
+    cursor: pointer;
+    border-radius: 10px;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+#fullscreen-btn:hover {
+    background-color: var(--secondary-highlight);
+    border-color: var(--highlight);
+}
+
+#fullscreen-btn svg {
+    width: 18px;
+    height: 18px;
+    fill: currentColor;
+}
+
+
+/* --- Responsive Design --- */
+
+@media (max-width: 1200px) {
+    html, body {
+        height: auto;
+        overflow: auto;
+    }
+
+    .game-page-wrapper, .game-layout {
+        height: auto;
+        flex-grow: 0;
+        flex-direction: column;
+    }
+    
+    .game-main-content {
+        margin-bottom: 25px;
+        order: 1;
+        width: 95%;
+        max-width: 900px;
+    }
+
+    .ad-container {
+        width: 728px;
+        max-width: 100%;
+        height: 90px;
+    }
+    
+    .ad-left { order: 2; }
+    .ad-right { order: 3; }
+
+    .game-iframe-container {
+        max-height: none;
+    }
+}
+
+@media (max-width: 768px) {
+    body {
+        padding: 10px;
+    }
+
+    .game-header h1 {
+        font-size: 1.8rem;
+    }
+
+    .game-header p {
+        font-size: 0.9rem;
+    }
+    
+    .ad-container {
+        width: 300px;
+        max-width: 100%;
+        height: 250px;
+    }
+}
