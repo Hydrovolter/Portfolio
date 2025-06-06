@@ -3,13 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <!-- =================================================================== -->
-    <!-- TODO: UPDATE THIS METADATA FOR EACH GAME                            -->
-    <!-- =================================================================== -->
-    <title>2048</title>
-    <meta name="description" content="Play 2048 unblocked, online, and for free on Hydrovolter. Enjoy the best gaming experience with no interruptions.">
-    <!-- =================================================================== -->
+    <title>2048 - Your Site Name</title>
+    <meta name="description" content="Play 2048 unblocked, online, and for free on Your Site Name. Enjoy the best gaming experience with no interruptions.">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,58 +14,35 @@
     <!-- Your Global Game Page Stylesheet -->
     <link rel="stylesheet" href="../css/games.css">
     
-    <!--
-    ===================================================================
-    TODO: PASTE YOUR GOOGLE ADSENSE SCRIPT HERE
-    This script is usually provided by AdSense and should be placed
-    in the <head> of your page.
-    ===================================================================
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-your-id"
+    <!-- CORRECT: Main AdSense script is placed ONCE in the <head> -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
      crossorigin="anonymous"></script>
-    -->
-
 </head>
 <body>
 
     <div class="game-page-wrapper">
-
         <header class="game-header">
-            <!-- ======================================================= -->
-            <!-- TODO: UPDATE THE GAME TITLE AND DESCRIPTION             -->
-            <!-- ======================================================= -->
             <h1>2048</h1>
             <p>Combine matching numbers on a grid to reach the 2048 tile.</p>
-            <!-- ======================================================= -->
         </header>
 
         <main class="game-layout">
-
             <aside class="ad-container ad-left">
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
-                    crossorigin="anonymous"></script>
-                <!-- Display Ad Games iFrame -->
+                <!-- Ad Unit #1 (Left) -->
                 <ins class="adsbygoogle"
-                    style="display:block"
-                    data-ad-client="ca-pub-4732321347294671"
-                    data-ad-slot="5656112740"
-                    data-ad-format="auto"
-                    data-full-width-responsive="true"></ins>
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="5656112740"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
                 <script>
-                    (adsbygoogle = window.adsbygoogle || []).push({});
+                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
             </aside>
 
             <div class="game-main-content">
                 <div class="game-iframe-container">
-                    <iframe 
-                        id="game-iframe"
-                        class="game-iframe"
-                        src="g/index.html" 
-                        title="[GAME TITLE] Game"
-                        allowfullscreen>
-                    </iframe>
+                    <iframe id="game-iframe" class="game-iframe" src="g/index.html" title="2048 Game" allowfullscreen></iframe>
                 </div>
-
                 <div class="game-controls">
                     <span class="game-info">
                         <a href="../">← Back to Home</a>
@@ -83,27 +55,19 @@
             </div>
 
             <aside class="ad-container ad-right">
-                <!-- 160x600 = fixed -->
-                <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
-                crossorigin="anonymous"></script>
-                <!-- Display Game iFrame 2 -->
+                <!-- Ad Unit #2 (Right) -->
                 <ins class="adsbygoogle"
-                        style="display:block"
-                        data-ad-client="ca-pub-4732321347294671"
-                        data-ad-slot="2248184926"
-                        data-ad-format="auto"
-                        data-full-width-responsive="true"></ins>
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="2248184926"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
                 <script>
-                        (adsbygoogle = window.adsbygoogle || []).push({});
+                     (adsbygoogle = window.adsbygoogle || []).push({});
                 </script>
             </aside>
-
         </main>
-
     </div>
 
-    <!-- Your Global Game Page JavaScript (No changes needed) -->
     <script src="../js/games.js" defer></script>
-
 </body>
 </html>

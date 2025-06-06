@@ -74,17 +74,16 @@ body {
 
 /* --- MODIFIED: Ad Container Styling --- */
 .ad-container {
-    position: relative; /* Establishes a positioning context for the placeholder */
-    width: 160px;
+    position: relative;
+    width: 250px; /* INCREASED from 160px to allow for more ad sizes */
     height: 600px;
     background-color: var(--secondary);
     border-radius: 12px;
     flex-shrink: 0;
     box-shadow: 0 4px 12px var(--card-box-shadow);
-    /* Flex properties removed to prevent content conflict */
 }
 
-/* MODIFIED: Placeholder is now an absolutely positioned background element */
+/* Placeholder is now an absolutely positioned background element */
 .ad-container::before {
     content: "Ad Placeholder";
     position: absolute;
@@ -93,19 +92,18 @@ body {
     transform: translate(-50%, -50%);
     font-size: 0.9rem;
     color: var(--secondary-accent);
-    z-index: 1; /* Sits on a lower layer */
+    z-index: 1;
 }
 
-/* --- NEW: Style for the AdSense unit itself --- */
-/* This ensures the ad fills the container and sits on top of the placeholder */
+/* Style for the AdSense unit itself */
 .ad-container ins.adsbygoogle {
     display: block;
     position: relative;
     width: 100%;
     height: 100%;
-    z-index: 2; /* Sits on a higher layer than the placeholder */
-    border-radius: 12px; /* Ensure ad iframe respects the rounded corners */
-    overflow: hidden; /* Clip any ad content that might bleed out */
+    z-index: 2;
+    border-radius: 12px;
+    overflow: hidden;
 }
 
 
