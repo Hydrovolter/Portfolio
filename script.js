@@ -191,7 +191,7 @@ function initMusic() {
     audio.addEventListener("ended", musicEnd);
 }
 function linkReplacement() {
-    if (window.location.hostname === "hydrovolter.pages.dev" || window.location.hostname === "localhost") {
+    if (window.location.hostname !== "hydrovolter.com") {
 
         document.querySelectorAll("a").forEach(anchor => {
             let href = anchor.getAttribute("href");
