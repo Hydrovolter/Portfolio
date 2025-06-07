@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>ZType</title>
+	<link rel="shortcut icon" href="media/favicon.png" type="image/png">
+	<link rel="icon" href="media/favicon.png" type="image/png">
+
+	<link rel="icon" type="image/x-icon" href="./favicon.ico">
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="ZType" name=title>
+    <meta content="Practice your typing through destroying enemy ships by typing words quickly and accurately." name=description>
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=./favicon.ico name=og:image> 
+	<style type="text/css">
+		html,body {
+			background-color: #000;
+			background-image: url(media/background/page.png);
+			color: #555;
+			font-family: helvetica, arial, sans-serif;
+			margin: 0;
+			padding: 0;
+			font-size: 10pt;
+		}
+		a {
+			color: #777;
+			text-decoration: none;
+		}
+		a:hover {
+			color: #ccc;
+		}
+		
+		#ztype-game-canvas {
+			position: absolute;
+			left: 0;
+			right: 0;
+			top: 0;
+			bottom: 0;
+			margin: auto;
+			border: 0;
+			z-index: 1000002;
+			box-shadow: 0 0 30px #000;
+		}
+		body.mobile #ztype-byline { display: none; }
+		body.mobile #ztype-gsense { display: none; }
+	</style>
+	<script type="text/javascript" src="ztype.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="ztype-trainer.js" charset="UTF-8"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no"/>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-PWJ73HJC1X');
+	</script>
+</head>
+<body>
+	<canvas id="ztype-game-canvas"></canvas>
+</body>
+</html>

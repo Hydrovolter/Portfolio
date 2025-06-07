@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="UTF-8">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="viewport" content='initial-scale=1, minimum-scale=1, maximum-scale=1.01, width=device-width, minimal-ui=1'>
+        <link rel="icon" type="image/x-icon" href="favicon.ico">
+        <link href=/manifest.json rel=manifest>
+        <meta content=Hydrovolter name=og:site_name>
+        <meta content="Timber Guy" name=title>
+        <meta content="Chop down trees fast while avoiding branches." name=description>
+        <meta content=#00F6F4 name=theme-color>
+        <meta content=summary_large_image name=twitter:card>
+        <meta content=favicon.ico name=og:image>  
+
+        <title>Timber Guy</title>
+
+        <link rel="stylesheet" href="css/normalize.css">
+        <link rel="stylesheet" href="css/style.css" type="text/css">
+        <!-- Google tag (gtag.js) -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-PWJ73HJC1X');
+        </script>
+
+        <script>
+            // Package-ID
+            window.famobi_gameID = "timber-guy";
+            window.famobi_gameJS = ['js/all.js',
+                function(){
+                    // do nothing, be happy
+                }
+            ];
+
+            (function (document, url, fgJS, firstJS) {
+                    fgJS = document.createElement('script');
+                    firstJS = document.getElementsByTagName('script')[0];
+                    fgJS.src = url + encodeURIComponent(document.location.href);
+                    firstJS.parentNode.insertBefore(fgJS, firstJS);
+            })(document, 'v1.js?e=');
+        </script>
+
+
+    </head>
+
+    <body style="background-color: #B3AC68">
+        <div id="rotateDiv">
+            <img src="assets/img/rotate_screen.png">
+            <p id="wrongRotationText">Please rotate your device! </p>
+        </div>
+
+        <div id="game"></div>
+
+        <div class="font_preload" style="opacity: 0">
+            <span style="font-family: 'VT323', Arial, sans-serif;"></span>
+        </div>
+
+    </body>
+</html>

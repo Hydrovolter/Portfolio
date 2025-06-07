@@ -1,31 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#000000" />
+    <link rel="icon" type="image/x-icon" href="../../assets/HydroSimple512.png">
 
-    <link rel="manifest" href="./manifest.json" />
+    <meta property="og:image" content="../../assets/HydroSimple512.png">
+    <meta property="og:site_name" content="Hydrovolter">
 
+    <!-- CHANGE -->
+    <title>2048 - Unlimited Word Puzzles</title>
+    <meta content="Guess the 5-letter hidden word in 6 tries - unlimited puzzles" name=description>
+    <meta name="keywords" content="2048,2048 unblocked,hydrovolter,hydro,hydrovolt,hydrovoltexer,hydrocodez,hydroz,hydros,games,pages,dev,workers,unblocked,unblockedgames,ubg,free games,online games,bypassed games" />
+    <meta property="og:title" content="2048">
+    <meta property="og:description" content="Challenge your mind with unlimited 5-letter word puzzles. Six tries to guess the hidden word!">
+    <meta property="og:url" content="https://hydrovolter.com/games/2048">
+    <link rel="canonical" href="https://hydrovolter.com/games/2048">
+    <meta name="twitter:title" content="2048">
+    <meta name="twitter:description" content="Challenge your mind with unlimited 5-letter word puzzles. Six tries to guess the hidden word!">
+    <!---->
 
-    <meta name="mobile-web-app-capable" content="yes" />
-    <meta name="apple-mobile-web-app-capable" content="yes" />
-    <meta name="application-name" content="Fruit Ninja" />
-    <meta name="apple-mobile-web-app-title" content="Fruit Ninja" />
-
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="game">
+    <meta name="twitter:image:alt" content="Hydrovolter Logo">
     <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
     <link href=/manifest.json rel=manifest>
-    <meta content=Hydrovolter name=og:site_name>
-    <meta content="Fruit Ninja" name=title>
-    <meta content="Slice flying fruit while avoiding bombs to rack up high scores." name=description>
-    <meta content=#00F6F4 name=theme-color>
-    <meta content=summary_large_image name=twitter:card>
-    <meta content=favicon.ico name=og:image> 
-    <!-- Google tag (gtag.js) -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/games.css">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -34,121 +41,62 @@
 
         gtag('config', 'G-PWJ73HJC1X');
     </script>
-
-
-    <title>Fruit Ninja</title>
-    <script type="text/javascript" src="Jump_Gamemonetize.js"></script>
-    <style>
-        @font-face {
-            font-family: gangofchinese;
-            src: url('assets/font/gangofchinese.ttf');
-        }
-
-        html,
-        body {
-            height: 100%;
-            width: 100% !important;
-            margin: 0;
-            background-color: #000000 !important;
-        }
-
-        .fontLoader {
-            position: absolute;
-            left: -1000px;
-            visibility: hidden;
-        }
-
-        #phaser-canvas {
-            margin: 0 auto;
-            background-color: #000000;
-        }
-
-        body,
-        #content {
-            height: 100vh !important;
-            max-height: 100vh !important;
-        }
-
-        #divAds,
-        #tempads {
-            display: none;
-        }
-
-        /* canvas{
-          width: 100%;
-          height: 100%;
-          display: grid !important;
-          grid-area: 1/1;
-          margin-top: 0 !important;
-          margin-bottom: 0 !important;
-          padding: 0 !important;
-          max-width: 100% !important;
-          max-height: 100vh !important;
-      } */
-
-        #enable3d-three-canvas,
-        #enable3d-phaser-canvas {
-            min-width: 100%;
-            max-width: 100%;
-            max-width: -webkit-fill-available;
-            max-width: -moz-available;
-            max-width: -webkit-fill-available;
-            max-width: fill-available;
-            margin: 0 auto;
-        }
-
-        /* @media screen and (max-width: 768px) {
-        #enable3d-three-canvas, #enable3d-phaser-canvas {
-          min-width: auto !important;
-          max-width: auto;
-          width: 960px;
-          height: auto;
-          margin: 0 auto;
-        }
-      } */
-
-        @media (min-aspect-ratio: 1.85) {
-            #enable3d-three-canvas,
-            #enable3d-phaser-canvas {
-                width: 960px;
-                min-width: 640px;
-            }
-        }
-
-        @media (min-aspect-ratio: 8/4) {
-            #enable3d-three-canvas,
-            #enable3d-phaser-canvas {
-                min-width: 640px;
-                /* background-color: aquamarine; */
-            }
-        }
-    </style>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
+      crossorigin="anonymous"></script>
 </head>
-
 <body>
-    <div class="fontLoader" style="font-family: gangofchinese;">-</div>
-    <div class="fontLoader" style="font-family: gangofchinese;">-</div>
-    <div id="content">
-        <div id="phaser-canvas"></div>
+
+    <div class="game-page-wrapper">
+        <!-- CHANGE -->
+        <header class="game-header">
+            <h1>2048</h1>
+            <p>Combine matching numbers on a grid to reach the 2048 tile.</p>
+        </header>
+        <!---->
+
+        <main class="game-layout">
+            <aside class="ad-container ad-left">
+                <!-- Ad Unit #1 (Left) -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="5656112740"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+
+            <div class="game-main-content">
+                <div class="game-iframe-container">
+                    <iframe id="game-iframe" class="game-iframe" src="g/index.html" title="Game iFrame" allowfullscreen></iframe>
+                </div>
+                <div class="game-controls">
+                    <span class="game-info">
+                        <a href="../">← Back to Games</a>
+                    </span>
+                    <button id="fullscreen-btn">
+                        <span>Fullscreen</span>
+                        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <aside class="ad-container ad-right">
+                <!-- Ad Unit #2 (Right) -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="2248184926"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+        </main>
     </div>
-    <!-- <div id="phaser-game"></div> -->
-    <style id="injectStyles">
-        html,
-        body {
-            background: none !important;
-        }
-       
-    </style>
-    <script type="text/javascript" src="vendors.bundle.js"></script>
-    <script type="text/javascript" src="main.bundle.js"></script>
-<script>
-(function (a, b, c) {
-   var d = a.getElementsByTagName(b)[0];
-   a.getElementById(c) || (a = a.createElement(b), a.id = c, a.src = "patch/js/gm-sdk-preload.js?v=" + Date.now(), d.parentNode.insertBefore(a, d))
-})(document, "script", "gamemonetize-preload-api");
-</script>
 
-
+    <script src="../js/games.js" defer></script>
 </body>
-
 </html>

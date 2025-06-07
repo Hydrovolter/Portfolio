@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word Bomb [SP]</title>
+
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="Word Bomb Single Player" name=title>
+    <meta content="Quickly type words containing given letter combinations before time runs out. [SINGLE PLAYER]" name=description>
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=favicon.ico name=og:image>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWJ73HJC1X');
+    </script>
+</head>
+<body>
+    <div class="game-wrapper">
+        <div class="word-count">0</div>
+        <div class="skip-count">⬡ ⬡ ⬡</div>
+        <div class="letter-seq">Word Bomb</div>
+        <div class="countdown-bar" style="--width: 100"></div>
+        <input type="text" class="word-input">
+        <div class="message"></div>
+        <button class="play-but">Play</button>
+        <div class="options-wrapper">
+            <div class="option-button-wrapper">
+                <button class="option-button" id="skip-button">
+                    <img src="assets/skip.png">
+                </button>
+            </div>
+            <div class="option-button-wrapper">
+                <button class="option-button" id = "restart-button">
+                    <img src="assets/restart.png">
+                </button>
+            </div>
+            <div class="option-button-wrapper">
+                <button class="option-button" id = "music-button">
+                    <img src="assets/music.png">
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

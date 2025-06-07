@@ -1,22 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Slope</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <link rel="icon" type="image/x-icon" href="./slope_favicon.png">
-  <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
-  <link href=/manifest.json rel=manifest>
-  <meta content=Hydrovolter name=og:site_name>
-  <meta content="Slope" name=title>
-  <meta content="Control a ball rolling down a steep slope, avoiding obstacles and drops." name=description>
-  <meta content=#00F6F4 name=theme-color>
-  <meta content=summary_large_image name=twitter:card>
-  <meta content=/games/covers/slope.png name=og:image>
-  <link rel=”canonical” href=”https://hydrovolter.com/games/slope/”/>
-    <link rel="stylesheet" href="TemplateData/style.css">
-    <script src="TemplateData/UnityProgress.js"></script>
-    <script src="TemplateData/unityloader41.js"></script>
-    <!-- Google tag (gtag.js) -->
+    <link rel="icon" type="image/x-icon" href="../../assets/HydroSimple512.png">
+
+    <meta property="og:image" content="../../assets/HydroSimple512.png">
+    <meta property="og:site_name" content="Hydrovolter">
+
+    <!-- CHANGE -->
+    <title>2048 - Unlimited Word Puzzles</title>
+    <meta content="Guess the 5-letter hidden word in 6 tries - unlimited puzzles" name=description>
+    <meta name="keywords" content="2048,2048 unblocked,hydrovolter,hydro,hydrovolt,hydrovoltexer,hydrocodez,hydroz,hydros,games,pages,dev,workers,unblocked,unblockedgames,ubg,free games,online games,bypassed games" />
+    <meta property="og:title" content="2048">
+    <meta property="og:description" content="Challenge your mind with unlimited 5-letter word puzzles. Six tries to guess the hidden word!">
+    <meta property="og:url" content="https://hydrovolter.com/games/2048">
+    <link rel="canonical" href="https://hydrovolter.com/games/2048">
+    <meta name="twitter:title" content="2048">
+    <meta name="twitter:description" content="Challenge your mind with unlimited 5-letter word puzzles. Six tries to guess the hidden word!">
+    <!---->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="game">
+    <meta name="twitter:image:alt" content="Hydrovolter Logo">
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/games.css">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -25,37 +41,62 @@
 
         gtag('config', 'G-PWJ73HJC1X');
     </script>
-    <script>
-        var gameInstance = UnityLoader.instantiate("gameContainer", "Build/slope.json", { onProgress: UnityProgress, Module: { onRuntimeInitialized: function() { UnityProgress(gameInstance, "complete") } } });
-    </script>
-    <style>
-        .alert {
-          padding: 20px;
-          background-color: #0096FF;
-          color: white;
-        }
-
-        .closebtn {
-          margin-left: 15px;
-          color: white;
-          p {text-align: center;}  
-          font-weight: bold;
-          float: right;
-          font-size: 22px;
-          line-height: 20px;
-          cursor: pointer;
-          transition: 0.3s;
-        }
-
-        .closebtn:hover {
-          color: black;
-        }
-    </style>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
+      crossorigin="anonymous"></script>
 </head>
+<body>
 
-<body style="margin: 0; overflow: hidden;">
-    <div class="webgl-content">
-        <div id="gameContainer" style="width: 100%; height: 100%; margin: 0;"></div>
+    <div class="game-page-wrapper">
+        <!-- CHANGE -->
+        <header class="game-header">
+            <h1>2048</h1>
+            <p>Combine matching numbers on a grid to reach the 2048 tile.</p>
+        </header>
+        <!---->
+
+        <main class="game-layout">
+            <aside class="ad-container ad-left">
+                <!-- Ad Unit #1 (Left) -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="5656112740"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+
+            <div class="game-main-content">
+                <div class="game-iframe-container">
+                    <iframe id="game-iframe" class="game-iframe" src="g/index.html" title="Game iFrame" allowfullscreen></iframe>
+                </div>
+                <div class="game-controls">
+                    <span class="game-info">
+                        <a href="../">← Back to Games</a>
+                    </span>
+                    <button id="fullscreen-btn">
+                        <span>Fullscreen</span>
+                        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <aside class="ad-container ad-right">
+                <!-- Ad Unit #2 (Right) -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="2248184926"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+        </main>
     </div>
 
+    <script src="../js/games.js" defer></script>
 </body>
+</html>

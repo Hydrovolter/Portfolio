@@ -2,32 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <script src="patch/js/poki-sdk.js"></script>
-    
-    <meta http-equiv="content-type" content="text/html; charset=UTF8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black">
-    <meta name="viewport" content="height=device-height, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui, viewport-fit=cover" />
-    <meta name="description" content="">
-    
-    <link rel="manifest" href="subwaysurfers.webmanifest">
-    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/images/app-icon-114.png">
-    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/images/app-icon-72.png">
-    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="assets/images/app-icon-57.png">
-    <link rel="apple-touch-icon-precomposed" href="assets/images/app-icon-57.png">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="../../assets/HydroSimple512.png">
+
+    <meta property="og:image" content="../../assets/HydroSimple512.png">
+    <meta property="og:site_name" content="Hydrovolter">
+
+    <!-- CHANGE -->
+    <title>2048 - Unlimited Word Puzzles</title>
+    <meta content="Guess the 5-letter hidden word in 6 tries - unlimited puzzles" name=description>
+    <meta name="keywords" content="2048,2048 unblocked,hydrovolter,hydro,hydrovolt,hydrovoltexer,hydrocodez,hydroz,hydros,games,pages,dev,workers,unblocked,unblockedgames,ubg,free games,online games,bypassed games" />
+    <meta property="og:title" content="2048">
+    <meta property="og:description" content="Challenge your mind with unlimited 5-letter word puzzles. Six tries to guess the hidden word!">
+    <meta property="og:url" content="https://hydrovolter.com/games/2048">
+    <link rel="canonical" href="https://hydrovolter.com/games/2048">
+    <meta name="twitter:title" content="2048">
+    <meta name="twitter:description" content="Challenge your mind with unlimited 5-letter word puzzles. Six tries to guess the hidden word!">
+    <!---->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="game">
+    <meta name="twitter:image:alt" content="Hydrovolter Logo">
     <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
     <link href=/manifest.json rel=manifest>
-    <meta content=Hydrovolter name=og:site_name>
-    <meta content="Subway Surfers" name=title>
-    <meta content="Dash through subway tracks, dodging trains and obstacles while collecting coins and power-ups." name=description>
-    <meta content=#00F6F4 name=theme-color>
-    <meta content=summary_large_image name=twitter:card>
-    <meta content=favicon.ico name=og:image>
-    <!-- Google tag (gtag.js) -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/games.css">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -36,72 +41,62 @@
 
         gtag('config', 'G-PWJ73HJC1X');
     </script>
-
-    <title>Subway Surfers</title>
-    <style>
-        body, html { 
-            margin: 0;
-            height: 100%;
-            background-color: #0b316b;
-            overflow: hidden;
-            background-image: url('assets/preload/splash.png');
-            background-repeat: no-repeat;
-            background-position: center;
-        }
-
-        #message {
-            text-align: center;
-            font-size: 8px;
-            z-index: 5;
-            font-family: "Verdana", sans-serif;
-            color: #fff;
-            position: fixed;
-            width: 100%;
-            z-index: 9999;
-        }
-
-        .dot {
-            display: inline;
-            margin-left: 0.2em;
-            margin-right: 0.2em;
-            position: relative;
-            top: -1em;
-            font-size: 3.5em;
-            opacity: 0;
-            animation: showHideDot 2.5s ease-in-out infinite;
-        }
-
-        .dot.one { animation-delay: 0.2s; }
-        .dot.two { animation-delay: 0.4s; }
-        .dot.three { animation-delay: 0.6s; }
-
-        @keyframes showHideDot {
-            0% { opacity: 0; }
-            50% { opacity: 1; }
-            60% { opacity: 1; }
-            100% { opacity: 0; }
-        }
-
-    </style>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
+      crossorigin="anonymous"></script>
 </head>
 <body>
-    <script>
-        window.NOSW = true;
-        window.GAME_CONFIG = {
-            pokiSdkDebug: false,
-            leaderboard: 'mockup',
-            bundlesPath: './bundles',
-        }
-        // https://github.com/pixijs/pixijs/issues/9414
-        delete Array.prototype.group;
-    </script>
-    <div id="message">
-        <h1>Loading</h1>
-        <h1 class="dot one">.</h1><h1 class="dot two">.</h1><h1 class="dot three">.</h1>
+
+    <div class="game-page-wrapper">
+        <!-- CHANGE -->
+        <header class="game-header">
+            <h1>2048</h1>
+            <p>Combine matching numbers on a grid to reach the 2048 tile.</p>
+        </header>
+        <!---->
+
+        <main class="game-layout">
+            <aside class="ad-container ad-left">
+                <!-- Ad Unit #1 (Left) -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="5656112740"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+
+            <div class="game-main-content">
+                <div class="game-iframe-container">
+                    <iframe id="game-iframe" class="game-iframe" src="g/index.html" title="Game iFrame" allowfullscreen></iframe>
+                </div>
+                <div class="game-controls">
+                    <span class="game-info">
+                        <a href="../">← Back to Games</a>
+                    </span>
+                    <button id="fullscreen-btn">
+                        <span>Fullscreen</span>
+                        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <aside class="ad-container ad-right">
+                <!-- Ad Unit #2 (Right) -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="2248184926"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+        </main>
     </div>
-    <script src="js/loading.js"></script>
-    <script src="js/boot.js"></script>
-    <script src="js/analytics_ubg_v1_4.js"></script>
-    <script src="js/ubg235_client_v1_2.js"></script>
+
+    <script src="../js/games.js" defer></script>
 </body>
 </html>

@@ -1,20 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Shellshockers</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <link rel="icon" type="image/x-icon" href="favicon.webp">
+    <link rel="icon" type="image/x-icon" href="../../assets/HydroSimple512.png">
+
+    <meta property="og:image" content="../../assets/HydroSimple512.png">
+    <meta property="og:site_name" content="Hydrovolter">
+
+    <!-- CHANGE -->
+    <title>2048 - Unlimited Word Puzzles</title>
+    <meta content="Guess the 5-letter hidden word in 6 tries - unlimited puzzles" name=description>
+    <meta name="keywords" content="2048,2048 unblocked,hydrovolter,hydro,hydrovolt,hydrovoltexer,hydrocodez,hydroz,hydros,games,pages,dev,workers,unblocked,unblockedgames,ubg,free games,online games,bypassed games" />
+    <meta property="og:title" content="2048">
+    <meta property="og:description" content="Challenge your mind with unlimited 5-letter word puzzles. Six tries to guess the hidden word!">
+    <meta property="og:url" content="https://hydrovolter.com/games/2048">
+    <link rel="canonical" href="https://hydrovolter.com/games/2048">
+    <meta name="twitter:title" content="2048">
+    <meta name="twitter:description" content="Challenge your mind with unlimited 5-letter word puzzles. Six tries to guess the hidden word!">
+    <!---->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="game">
+    <meta name="twitter:image:alt" content="Hydrovolter Logo">
     <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
     <link href=/manifest.json rel=manifest>
-    <meta content=Hydrovolter name=og:site_name>
-    <meta content="Shellshockers" name=title>
-    <meta content="Play as armed eggs battling other players in chaotic egg-citing combat." name=description>
-    <meta content=#00F6F4 name=theme-color>
-    <meta content=summary_large_image name=twitter:card>
-    <meta content=favicon.webp name=og:image>
-    <!-- Google tag (gtag.js) -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/games.css">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -23,200 +41,62 @@
 
         gtag('config', 'G-PWJ73HJC1X');
     </script>
-
-
-	<style>
-		:root {
-			--primary: rgb(35, 35, 35);
-			--secondary: rgb(25, 25, 25);
-			--primary-accent: rgb(250, 250, 250);
-			--secondary-accent: rgb(150, 150, 150);
-		}
-
-		body {
-			margin: 0;
-			font-family: "Roboto Mono", monospace;
-			background-color: var(--primary);
-			color: var(--primary-accent);
-			display: flex;
-			flex-direction: column;
-			align-items: center;
-			justify-content: center;
-			height: 100vh;
-			overflow: hidden;
-			padding: 2rem;
-			text-align: center;
-		}
-
-		h1 {
-			margin-bottom: 1rem;
-			font-size: 1.8rem;
-			animation: fadeInDown 0.5s ease forwards;
-		}
-
-		#status {
-			font-style: italic;
-			color: var(--secondary-accent);
-			margin-bottom: 1rem;
-			animation: pulse 1s infinite;
-		}
-
-		ul#proxy-log {
-			list-style: none;
-			padding: 0;
-			width: 100%;
-			max-width: 600px;
-			overflow-y: auto;
-			max-height: 60vh;
-			animation: fadeInUp 0.8s ease forwards;
-		}
-
-		ul#proxy-log li {
-			background: var(--secondary);
-			margin: 0.5rem 0;
-			padding: 1rem;
-			border-radius: 10px;
-			display: flex;
-			justify-content: space-between;
-			align-items: center;
-		}
-
-		ul#proxy-log li.ok { border-left: 6px solid #28a745; }
-		ul#proxy-log li.bad { border-left: 6px solid #dc3545; }
-
-        /* Scrollbar styling for #proxy-log */
-        #proxy-log {
-            padding-right: 16px; /* Adds gap between content and scrollbar */
-            scrollbar-width: auto; /* Use default thicker scrollbar in Firefox */
-            scrollbar-color: var(--secondary-accent) var(--secondary);
-          }
-          
-          /* Scrollbar styling for WebKit browsers */
-          #proxy-log::-webkit-scrollbar {
-            width: 12px; /* Thicker scrollbar */
-          }
-          
-          #proxy-log::-webkit-scrollbar-track {
-            background: var(--secondary);
-            border-radius: 10px;
-            margin-left: 8px; /* Creates a small gap on the left side of the scrollbar */
-          }
-          
-          #proxy-log::-webkit-scrollbar-thumb {
-            background-color: var(--secondary-accent);
-            border-radius: 10px;
-            border: 3px solid var(--secondary); /* Thick border to create visible gap */
-          }
-          
-          #proxy-log::-webkit-scrollbar-thumb:hover {
-            background-color: var(--primary-accent);
-          }
-          
-  
-
-		iframe {
-			position: fixed;
-			top: 0;
-			left: 0;
-			border: none;
-			width: 100vw;
-			height: 100vh;
-			z-index: 9999;
-		}
-
-		@keyframes fadeInDown {
-			from { opacity: 0; transform: translateY(-20px); }
-			to { opacity: 1; transform: translateY(0); }
-		}
-
-		@keyframes fadeInUp {
-			from { opacity: 0; transform: translateY(20px); }
-			to { opacity: 1; transform: translateY(0); }
-		}
-
-		@keyframes pulse {
-			0%, 100% { opacity: 0.6; }
-			50% { opacity: 1; }
-		}
-	</style>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
+      crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>Finding the best Shellshock link...</h1>
-	<div id="status">Checking proxies, please wait...</div>
-	<ul id="proxy-log"></ul>
 
-	<script>
-		const proxyList = document.getElementById("proxy-log");
-		const statusText = document.getElementById("status");
+    <div class="game-page-wrapper">
+        <!-- CHANGE -->
+        <header class="game-header">
+            <h1>2048</h1>
+            <p>Combine matching numbers on a grid to reach the 2048 tile.</p>
+        </header>
+        <!---->
 
-		const Proxies = [
-			"shellshock.io", "geometry.monster", "humanorganising.org", "algebra.vip", "mathdrills.info",
-			"geometry.report", "mathlete.fun", "mathlete.pro", "biologyclass.club",
-			"yolk.life", "yolk.rocks",  "eggsarecool.com", "violentegg.fun", "geometry.pw",
-			"mathactivity.club", "mathdrills.life", "mathactivity.xyz", "urbanegger.com",
-			"shellsocks.com", "eggboy.club", "yolk.quest", "egghead.institute",
-			"eggfacts.fun", "deadlyegg.com", "egg.dance", "eggisthenewblack.com",
-			"mathfun.rocks", "overeasy.club", "mathgames.world", "hardshell.life",
-			"softboiled.club", "scrambled.us", "yolk.best",
-			"deathegg.world", "zygote.cafe", "scrambled.today", "eggboy.xyz",
-			"yolk.tech", "scrambled.world", "shellshockers.today", "algebra.monster",
-			"combateggs.com", "deathegg.life", "eggshock.me", "eggshock.net",
-			"eggshooter.best", "eggshooter.com", "eggwarfare.com", "eggwars.io",
-			"hardboiled.life", "historicreview.com", "shellgame.me", "shellplay.live",
-			"shellshock.guru", "shellshockers.best", "shellshockers.ca",
-			"shellshockers.club", "shellshockers.life", "shellshockers.site",
-			"shellshockers.us", "shellshockers.website", "shellshockers.wiki",
-			"shellshockers.world", "shellshockers.xyz", "shockers.one",
-			"yolk.monster", "yolk.today", "violentegg.club", "math.international", "eggcombat.com", "algebra.best"
-		];
+        <main class="game-layout">
+            <aside class="ad-container ad-left">
+                <!-- Ad Unit #1 (Left) -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="5656112740"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
 
-		async function checkProxies() {
-			for (const proxy of Proxies) {
-				const li = document.createElement("li");
-				li.textContent = proxy + " - checking...";
-				proxyList.appendChild(li);
-				li.scrollIntoView({ behavior: 'smooth', block: 'end' });
+            <div class="game-main-content">
+                <div class="game-iframe-container">
+                    <iframe id="game-iframe" class="game-iframe" src="g/index.html" title="Game iFrame" allowfullscreen></iframe>
+                </div>
+                <div class="game-controls">
+                    <span class="game-info">
+                        <a href="../">← Back to Games</a>
+                    </span>
+                    <button id="fullscreen-btn">
+                        <span>Fullscreen</span>
+                        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"></path></svg>
+                    </button>
+                </div>
+            </div>
 
-				const link = `https://${proxy}`;
+            <aside class="ad-container ad-right">
+                <!-- Ad Unit #2 (Right) -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="2248184926"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+        </main>
+    </div>
 
-				try {
-					const controller = new AbortController();
-					const timeout = setTimeout(() => controller.abort(), 5000);
-					const res = await fetch(`${link}/ping-test.php`, { signal: controller.signal });
-					clearTimeout(timeout);
-
-					const text = await res.text();
-
-					if (text === "shell.ok") {
-						li.textContent = proxy + " ✅ Working";
-						li.className = "ok";
-                        console.log(`Working Proxy Found: ${link}`);
-                        console.log("-------------------------");
-
-						statusText.textContent = "Found! Launching game...";
-						launchGame(link);
-						return;
-					} else {
-						li.textContent = proxy + " ❌ Invalid response";
-						li.className = "bad";
-					}
-				} catch {
-					li.textContent = proxy + " ❌ Failed";
-					li.className = "bad";
-				}
-			}
-
-			statusText.textContent = "No proxy links found :( Please try again later.";
-		}
-
-		function launchGame(url) {
-			document.body.innerHTML = ''; // Clear page
-			const iframe = document.createElement('iframe');
-			iframe.src = url;
-			document.body.appendChild(iframe);
-		}
-
-		window.onload = checkProxies;
-	</script>
+    <script src="../js/games.js" defer></script>
 </body>
 </html>

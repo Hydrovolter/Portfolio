@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Super Stickman Golf</title>
+    <meta name="viewport" content="initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no, minimal-ui" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <link rel="stylesheet" type="text/css" href="game.css" />
+    <script type="text/javascript" src="game.js"></script>
+    <script type="text/javascript" src="jquery-1.7.2.min.js"></script>
+    <script type="text/javascript" src="/js/main.js"></script>
+
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="Stickman Golf" name=title>
+    <meta content="Aim, adjust power, and navigate tricky courses to sink the ball in as few shots as possible." name=description>
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=favicon.png name=og:image>
+    <link rel="icon" href="favicon.png">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWJ73HJC1X');
+    </script>
+  </head>
+  <div class="gamecenter-activator"></div>
+  <body onload="setTimeout(function(){window.scrollTo(0,1)},1);">
+    <div id="ajaxbar">
+      <div id="game"><canvas id="canvas"></canvas></div>
+      <div id="orientate"><img src="media/landscape.jpg" /></div>
+      <div id="play" class="play" onclick=""><img src="media/cover-start.jpg" /></div>
+    </div>
+  </body>
+</html>

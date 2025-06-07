@@ -1,7 +1,38 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <!-- Google tag (gtag.js) -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/x-icon" href="../../assets/HydroSimple512.png">
+
+    <meta property="og:image" content="../../assets/HydroSimple512.png">
+    <meta property="og:site_name" content="Hydrovolter">
+
+    <!-- CHANGE -->
+    <title>2048 - Unlimited Word Puzzles</title>
+    <meta content="Guess the 5-letter hidden word in 6 tries - unlimited puzzles" name=description>
+    <meta name="keywords" content="2048,2048 unblocked,hydrovolter,hydro,hydrovolt,hydrovoltexer,hydrocodez,hydroz,hydros,games,pages,dev,workers,unblocked,unblockedgames,ubg,free games,online games,bypassed games" />
+    <meta property="og:title" content="2048">
+    <meta property="og:description" content="Challenge your mind with unlimited 5-letter word puzzles. Six tries to guess the hidden word!">
+    <meta property="og:url" content="https://hydrovolter.com/games/2048">
+    <link rel="canonical" href="https://hydrovolter.com/games/2048">
+    <meta name="twitter:title" content="2048">
+    <meta name="twitter:description" content="Challenge your mind with unlimited 5-letter word puzzles. Six tries to guess the hidden word!">
+    <!---->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta property="og:type" content="game">
+    <meta name="twitter:image:alt" content="Hydrovolter Logo">
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="../css/games.css">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
@@ -10,145 +41,62 @@
 
         gtag('config', 'G-PWJ73HJC1X');
     </script>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-        <title>OvO</title>
-        <!-- Standardised web app manifest -->
-        <link rel="manifest" href="appmanifest.json" />
-        <!-- Allow fullscreen mode on iOS devices. (These are Apple specific meta tags.) -->
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no, minimal-ui" />
-        <meta name="apple-mobile-web-app-capable" content="yes" />
-        <meta name="apple-mobile-web-app-status-bar-style" content="black" />
-        <link rel="apple-touch-icon" sizes="256x256" href="icon-256.png" />
-        <meta name="HandheldFriendly" content="true" />
-        <!-- Chrome for Android web app tags -->
-        <meta name="mobile-web-app-capable" content="yes" />
-        <link rel="shortcut icon" sizes="256x256" href="icon-256.png" />
-        <!-- All margins and padding must be zero for the canvas to fill the screen. -->
-        <style type="text/css">
-            * {
-            padding: 0;
-            margin: 0;
-            }
-            html, body {
-            background: #000;
-            color: #fff;
-            overflow: hidden;
-            touch-action: none;
-            -ms-touch-action: none;
-            }
-            canvas {
-            touch-action-delay: none;
-            touch-action: none;
-            -ms-touch-action: none;
-            }
-        </style>
-        <link href="animate.css" rel="stylesheet" type="text/css" />
-        <link href="hmmg_layoutTransition.css" rel="stylesheet" type="text/css" />
-        <link href="jquery.gritter.css" rel="stylesheet" type="text/css" />
-        <script src="https://cdn.polyfill.io/v3/polyfill.min.js"></script>
+    
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4732321347294671"
+      crossorigin="anonymous"></script>
+</head>
+<body>
 
-        <script async src="https://www.googletagmanager.com/gtag/js"></script>
-        <script>if(window.localStorage){var allowAnalytics=window.localStorage.getItem("allowAnalytics");if(null===allowAnalytics&&(allowAnalytics="true"),"true"===allowAnalytics){function gtag(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],gtag("js",new Date);const a={"ovo.drakefletcher2.repl.co":"G-FYYGF5JH2F","ovo-modded.netlify.app":"G-VE92Z9GXT8","ovo.drakeerv.com":"G-ZSPL1SPBYM","ovo-5yu.pages.dev":"G-CKWDTVZ685","ovo-modloader.github.io":"G-KNTWWPQSG2","ovo.onrender.com":"G-9HX201XE1D","ovo-alpha.vercel.app":"G-X45WR1XH0B"},o=window.location.hostname.toLowerCase();a[o]&&gtag("config",a[o])}}</script>
-    </head>
-    <body>
-        <div id="fb-root"></div>
-        <script>
-            // Issue a warning if trying to preview an exported project on disk.
-            (function(){
-            	// Check for running exported on file protocol
-            	if (window.location.protocol.substr(0, 4) === "file") {
-            		alert("Exported games won't work until you upload them. (When running on the file:/// protocol, browsers block many features from working for security reasons.)");
-            	}
-            })();
-        </script>
-        <!-- The canvas must be inside a div called c2canvasdiv -->
-        <div id="c2canvasdiv">
-            <!-- The canvas the project will render to.  If you change its ID, don't forget to change the
-                ID the runtime looks for in the jQuery events above (ready() and cr_sizeCanvas()). -->
-            <canvas id="c2canvas" width="640" height="640">
-                <!-- This text is displayed if the visitor's browser does not support HTML5.
-                    You can change it, but it is a good idea to link to a description of a browser
-                    and provide some links to download some popular HTML5-compatible browsers. -->
-                <h1>Your browser does not appear to support HTML5.  Try upgrading your browser to the latest version.  <a href="http://www.whatbrowser.org">What is a browser?</a>
-                    <br/><br/><a href="http://www.microsoft.com/windows/internet-explorer/default.aspx">Microsoft Internet Explorer</a><br/>
-                    <a href="http://www.mozilla.com/firefox/">Mozilla Firefox</a><br/>
-                    <a href="http://www.google.com/chrome/">Google Chrome</a><br/>
-                    <a href="http://www.apple.com/safari/download/">Apple Safari</a>
-                </h1>
-            </canvas>
-        </div>
-        <!-- Pages load faster with scripts at the bottom -->
-        <!-- Construct 2 exported games require jQuery. -->
-        <script src="jquery-3.4.1.min.js"></script>
-        <script src="Tween.js"></script>
-        <script src="html2canvas.min.js"></script>
-        <script src="jquery.gritter.js"></script>
-        <script src="howler.js"></script>
-        <!-- The runtime script.  You can rename it, but don't forget to rename the reference here as well.
-            This file will have been minified and obfuscated if you enabled "Minify script" during export. -->
-        <script src="c2runtime.js"></script>
-        <script>
-            // Start the Construct 2 project running on window load.
-            jQuery(document).ready(function () {			
-            	// Create new runtime using the c2canvas
-            	cr_createRuntime("c2canvas");
-            });
-            
-            // Pause and resume on page becoming visible/invisible
-            function onVisibilityChanged() {
-            	if (document.hidden || document.mozHidden || document.webkitHidden || document.msHidden)
-            		cr_setSuspended(true);
-            	else
-            		cr_setSuspended(false);
-            };
-            
-            document.addEventListener("visibilitychange", onVisibilityChanged, false);
-            document.addEventListener("mozvisibilitychange", onVisibilityChanged, false);
-            document.addEventListener("webkitvisibilitychange", onVisibilityChanged, false);
-            document.addEventListener("msvisibilitychange", onVisibilityChanged, false);
-            
-            function OnRegisterSWError(e) {
-            	console.warn("Failed to register service worker: ", e);
-            };
-            
-            // Runtime calls this global method when ready to start caching (i.e. after startup).
-            // This registers the service worker which caches resources for offline support.
-            window.C2_RegisterSW = function C2_RegisterSW() {
-            	if (!navigator.serviceWorker)
-            		return;		// no SW support, ignore call
-            	
-            	try {
-            		navigator.serviceWorker.register("sw.js", { scope: "./" })
-            		.then(function (reg)
-            		{
-            			console.log("Registered service worker on " + reg.scope);
-            		})
-            		.catch(OnRegisterSWError);
-            	}
-            	catch (e) {
-            		OnRegisterSWError(e);
-            	}
-            };
-              
-        </script>
-        <script type="text/javascript">
-            var VERSION = VERSION || (function(){
-                return {
-                    version : function() {
-                        return "1.4.4"
-                    },
-                    skinVersion : function() {
-                        return "1.4.4"
-                    },
-                    replayVersion : function() {
-                        return "1.4.4"
-                    },
-                };
-            }());
-        </script>
-        <script src="./src/modloaders/modloader.js" id="modloader" type="module" defer></script>
+    <div class="game-page-wrapper">
+        <!-- CHANGE -->
+        <header class="game-header">
+            <h1>2048</h1>
+            <p>Combine matching numbers on a grid to reach the 2048 tile.</p>
+        </header>
+        <!---->
 
-        
-    </body>
+        <main class="game-layout">
+            <aside class="ad-container ad-left">
+                <!-- Ad Unit #1 (Left) -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="5656112740"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+
+            <div class="game-main-content">
+                <div class="game-iframe-container">
+                    <iframe id="game-iframe" class="game-iframe" src="g/index.html" title="Game iFrame" allowfullscreen></iframe>
+                </div>
+                <div class="game-controls">
+                    <span class="game-info">
+                        <a href="../">← Back to Games</a>
+                    </span>
+                    <button id="fullscreen-btn">
+                        <span>Fullscreen</span>
+                        <svg viewBox="0 0 24 24"><path d="M7 14H5v5h5v-2H7v-3zm-2-4h2V7h3V5H5v5zm12 7h-3v2h5v-5h-2v3zM14 5v2h3v3h2V5h-5z"></path></svg>
+                    </button>
+                </div>
+            </div>
+
+            <aside class="ad-container ad-right">
+                <!-- Ad Unit #2 (Right) -->
+                <ins class="adsbygoogle"
+                     data-ad-client="ca-pub-4732321347294671"
+                     data-ad-slot="2248184926"
+                     data-ad-format="auto"
+                     data-full-width-responsive="true"></ins>
+                <script>
+                     (adsbygoogle = window.adsbygoogle || []).push({});
+                </script>
+            </aside>
+        </main>
+    </div>
+
+    <script src="../js/games.js" defer></script>
+</body>
 </html>

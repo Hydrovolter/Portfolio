@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<title>Drift Boss</title>
+	<meta name="description" content="Steer your car around sharp turns and avoid falling off the track.">
+	<meta property="og:image" content="drift-boss.png" />
+
+	<link rel="icon" type="image/x-icon" href="favicon.ico" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8">
+	<!-- Use this metatag when Apple fixes their IOS 9
+	<meta name="viewport" content="width=device-width,height=device-height, initial-scale=1, maximum-scale=1, user-scalable=0, minimal-ui"/>
+	-->
+
+	<!--Temporary fix for IOS 9-->
+	<meta name="viewport"
+		content="initial-scale=1.0001, minimum-scale=1.0001, maximum-scale=1.0001, user-scalable=no, minimal-ui" />
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+
+	<link rel="stylesheet" type="text/css" href="game.css">
+
+	<script type="text/javascript" src="game.js"></script>
+
+	<meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="Drift Boss" name=title>
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=favicon.ico name=og:image>
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag(){dataLayer.push(arguments);}
+		gtag('js', new Date());
+
+		gtag('config', 'G-PWJ73HJC1X');
+	</script>  
+	<!-- APICode -->
+</head>
+
+<body onload="setTimeout(function(){window.scrollTo(0,1)},1);">
+	<!--body-->
+
+
+	<div id="ajaxbar">
+		<div id="game"><canvas id="canvas"></canvas></div>
+		<div id="webgl"><canvas id="webglcanvas"></canvas></div>
+
+		<div id="orientate"><img src="media/graphics/orientate/landscape.jpg" /></div>
+		<div id="play" class="play" onclick=""><img src="media/graphics/splash/mobile/cover-start.jpg" /></div>
+		<!--<img id="scrollDown" width="220" height="277"></img>-->
+
+	</div>
+	<!-- <div id="tempdiv"><br><br><br></div> -->
+
+</body>
+
+</html>

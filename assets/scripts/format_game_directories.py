@@ -89,7 +89,7 @@ if __name__ == "__main__":
 
     # --- Example 3: Process current directory, skipping certain subfolders ---
     # Define the list of subfolder names you want to skip. These names are case-sensitive.
-    folders_to_skip = ["template", "covers", "js", "css",]
+    folders_to_skip = ["template", "covers", "js", "css"]
     organize_subdirectories(skip_folders=folders_to_skip)
 
     # --- Example 4: Process a specific directory, skipping certain subfolders ---

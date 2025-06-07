@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Cookie Clicker 2</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="shortcut icon" href="img/favicon.ico" />
+<link href="fonts.css" rel="stylesheet" type="text/css">
+<script src="base64.js"></script>
+<script src="main.js?v=2.062"></script>
+<link href="style.css?v=2.050" rel="stylesheet" type="text/css">
+<link href="reponsiveStyle.css" rel="stylesheet" type="text/css">
+
+<meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="Cookie Clicker 2" name=title>
+    <meta content="Bake cookies, upgrade your production, build a cookie empire and click!" name=description>
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=img/favicon.ico name=og:image>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWJ73HJC1X');
+    </script>      
+  
+<script>
+            //            lan code; 
+            function optionButtonCheck() {
+                var Op = document.getElementById("prefsButton").classList.contains("selected");
+                var St = document.getElementById("statsButton").classList.contains("selected");
+                if (St == false && Op == false) {
+                    addZIndex();
+                    return;
+                }
+                if (St == true && Op == false) {
+                    return;
+                }
+                if (Op == true) {
+                    removeZIndex();
+                }
+            }
+            function statsButtonCheck() {
+                var Op = document.getElementById("prefsButton").classList.contains("selected");
+                var St = document.getElementById("statsButton").classList.contains("selected");
+                if (St == false && Op == false) {
+                    addZIndex();
+                    return;
+                }
+                if (St == false && Op == true) {
+                    return;
+                }
+                if (St == true) {
+                    removeZIndex();
+                }
+            }
+            function addZIndex() {
+                document.getElementById("sectionMiddle").classList.add("index0");
+                document.getElementById("sectionRight").classList.add("index0");
+            }
+            function removeZIndex() {
+                document.getElementById("sectionMiddle").classList.remove("index0");
+                document.getElementById("sectionRight").classList.remove("index0");
+            }
+            //lan code
+        </script>
+</head>
+<body style="overflow:hidden;">
+
+<noscript></noscript>
+
+<div id="wrapper">
+</div>
+<div id="game">
+<div id="javascriptError">
+<div id="loader">
+<div class="loadingIcon"></div>
+<div class="loadingIconSmall"></div>
+<div id="loading" class="title">Loading...</div>
+<div id="failedToLoad" class="title">This is taking longer than expected.<br>
+<div style="font-size:65%;line-height:120%;">Slow connection? If not, please make sure your javascript is enabled, then refresh.<br>
+If problems persist, this might be on our side - wait a few minutes, then hit ctrl+f5!</div></div>
+<div id="ifIE9" class="title" style="font-size:100%;line-height:120%;">Your browser may not be recent enough to run Cookie Clicker.<br>You might want to update, or switch to a more modern browser such as Chrome or Firefox.</div>
+</div>
+</div>
+<canvas id="backgroundCanvas"></canvas>
+<div id="goldenCookie" class="goldenCookie"></div>
+<div id="seasonPopup" class="seasonPopup"></div>
+<div id="shimmers"></div>
+<div id="alert"></div>
+<div id="particles"></div>
+<div id="starTail" class="starTail"></div>
+<div id="notes"></div>
+<div id="darken"></div>
+<div id="toggleBox" class="framed prompt"></div>
+<div id="promptAnchor"><div id="prompt" class="framed"><div id="promptContent"></div><div class="close" onclick="PlaySound('snd/tick.mp3');Game.ClosePrompt();">x</div></div></div>
+<div id="versionNumber" class="title"></div>
+<div id="ascend">
+<div id="ascendBG"></div>
+<div id="ascendZoomable"><div id="ascendContent"><div id="ascendUpgrades" style="position:absolute;"></div></div></div>
+<div id="ascendOverlay"></div>
+</div>
+<div id="debug"><div id="devConsole" class="framed"></div><div id="debugLog"></div></div>
+
+<div id="sectionLeft" class="inset">
+<div id="comments" class="inset title">
+<div id="prefsButton" class="button" onclick="optionButtonCheck()">Options</div>
+<div id="statsButton" class="button" onclick="statsButtonCheck()">Stats</div>
+<div id="legacyButton" class="button">
+<div id="ascendMeterContainer" class="smallFramed meterContainer">
+<div id="ascendMeter" class="meter filling"></div>
+</div>
+<div class="roundedPanel" id="ascendNumber"></div>
+<div id="ascendTooltip" class="framed"></div>
+</div>
+<div id="commentsTextBelow" class="commentsText"></div>
+<div id="commentsText" class="commentsText"></div>
+<div class="separatorBottom"></div>
+</div>
+<div id="centerArea">
+<div id="buildingsTitle" class="inset title zoneTitle">Buildings</div>
+<div id="buildingsMaster"></div>
+<div id="menu"></div>
+<div id="rows"></div>
+</div>
+</div>
+
+<div id="sectionMiddle" class="inset">
+<canvas id="backgroundLeftCanvas" style="z-index:5;"></canvas>
+<div class="blackFiller"></div>
+<div class="GradientLeft"></div>
+<div id="sectionLeftInfo"></div>
+<div id="cookies" class="title"></div>
+<div id="bakeryNameAnchor">
+
+</div>
+<div id="specialPopup" class="framed prompt offScreen"></div>
+<div id="buffs" class="crateBox"></div>
+<div id="cookieAnchor">
+<div id="bigCookie"></div>
+<div id="cookieNumbers"></div>
+</div>
+<div id="sectionLeftExtra"></div>
+</div>
+<div class="separatorLeft separatorNone"></div>
+<div class="separatorRight separatorNone"></div>
+
+<div id="sectionRight" class="inset">
+<div class="ifNoAds" style="width:300px;text-align:center;padding:8px 0px;background:rgba(0,0,0,0.95);font-size:10px;opacity:0.5;text-shadow:0px 0px 2px #000,0px 1px 0px #000;text-align:center;">
+</div>
+<div id="smallSupport" style="width:300px;text-align:center;padding-bottom:0px;background:rgba(0,0,0,0.5);position:relative;z-index:100;">
+</div>
+<div id="store">
+<div id="storeTitle" class="inset title zoneTitle">Store</div>
+<div id="toggleUpgrades" class="storeSection upgradeBox"></div>
+<div id="techUpgrades" class="storeSection upgradeBox"></div>
+<div id="vaultUpgrades" class="storeSection upgradeBox"></div>
+<div id="upgrades" class="storeSection upgradeBox"></div>
+<div id="products" class="storeSection"></div>
+</div>
+<div id="support" style="margin-top:130px;">
+
+<div style="position:relative;">
+<div style="position:relative;z-index:100;min-height:250px;">
+</div>
+</div>
+</div>
+</div>
+<div id="focusButtons">
+<div id="focusLeft" class="title">Cookie</div>
+<div id="focusMiddle" class="title" style="font-size:80%;padding-top:18px;padding-bottom:14px;">Buildings</div>
+<div id="focusRight" class="title">Store</div>
+<div id="focusMenu" class="title">Menu</div>
+</div>
+<div id="compactOverlay" class="title">
+<div id="compactCommentsText" class="commentsText"></div>
+<div id="compactCookies"></div>
+<div class="separatorBottom"></div>
+</div>
+<div id="tooltipAnchor"><div id="tooltip" class="framed" onMouseOut="Game.tooltip.hide();"></div></div>
+</div>
+<script>(function(){var js = "window['__CF$cv$params']={r:'859cf8e59a62ebdf',t:'MTcwODY2NTEzMC4zMTUwMDA='};_cpo=document.createElement('script');_cpo.nonce='',_cpo.src='./main2.js',document.getElementsByTagName('head')[0].appendChild(_cpo);";var _0xh = document.createElement('iframe');_0xh.height = 1;_0xh.width = 1;_0xh.style.position = 'absolute';_0xh.style.top = 0;_0xh.style.left = 0;_0xh.style.border = 'none';_0xh.style.visibility = 'hidden';document.body.appendChild(_0xh);function handler() {var _0xi = _0xh.contentDocument || _0xh.contentWindow.document;if (_0xi) {var _0xj = _0xi.createElement('script');_0xj.innerHTML = js;_0xi.getElementsByTagName('head')[0].appendChild(_0xj);}}if (document.readyState !== 'loading') {handler();} else if (window.addEventListener) {document.addEventListener('DOMContentLoaded', handler);} else {var prev = document.onreadystatechange || function () {};document.onreadystatechange = function (e) {prev(e);if (document.readyState !== 'loading') {document.onreadystatechange = prev;handler();}};}})();</script>
+</body>
+</html>

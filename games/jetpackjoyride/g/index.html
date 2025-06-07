@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Jetpack Joyride</title>
+    <link rel="stylesheet" type="text/css" href="css/styles.css" />
+    <link rel="icon" href="splash.jpg" />
+    <meta name="viewport" content="width=device-width, height=device-height, user-scalable=no, initial-scale=1, minimum-scale=1, maximum-scale=1" />
+    <script type="text/javascript" src="engine/phaser-3.24.1.min.js"></script>
+    <script type="text/javascript" src="game3.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+
+    <meta content="width=device-width,height=device-height,initial-scale=1" name=viewport>
+    <link href=/manifest.json rel=manifest>
+    <meta content=Hydrovolter name=og:site_name>
+    <meta content="Jetpack Joyride" name=title>
+    <meta content="The classic mobile hit - dodge obstacles and collect coins whilst flying a jetpack!" name=description>
+    <meta content=#00F6F4 name=theme-color>
+    <meta content=summary_large_image name=twitter:card>
+    <meta content=splash.jpg name=og:image>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-PWJ73HJC1X"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-PWJ73HJC1X');
+    </script>
+  </head>
+  <body>
+    <div class="fontLoader" style="font-family: jetpackia;">-</div>
+    <img id="rotate_image" src="img/HB_ic_rotateScreen.png" alt="rotate_screen" class="center" />
+    <div id="content">
+      <div id="phaser-canvas"></div>
+    </div>
+  </body>
+</html>
